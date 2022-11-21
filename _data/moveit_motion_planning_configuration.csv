@@ -1,0 +1,14 @@
+Argument,Description,Default Value
+robot_model,model type of the Interbotix Locobot such as 'locobot_base' or 'locobot_wx250s',""""""
+robot_name,name of the robot (could be anything but defaults to 'locobot'),"""locobot"""
+show_lidar,set to 'true' if the lidar is installed on the robot; this will load the lidar related links to the 'robot_description' parameter for collision purposes;,false
+external_urdf_loc,the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file,""""""
+external_srdf_loc,the file path to the custom srdf.xacro file that you would like to include in the Interbotix robot's srdf.xacro file. Note that this should only contain 'disable collision' tags for collisions between the original Interbotix Arm and other links that are defined in the file specified by ``external_urdf_loc``,""""""
+mode_configs,the file path to the 'mode config' YAML file,refer to `xslocobot_moveit.launch`_
+use_gazebo,launch MoveIt with a Gazebo simulated robot,false
+use_actual,launch MoveIt with the physical robot,false
+use_fake,launch MoveIt with a MoveIt generated fake robot,false
+dof,the degrees of freedom of the arm,5
+use_camera,"if true, the RealSense D435 camera nodes are launched; note that the main idea behind this is to generate an Occupancy Map for MoveIt to use when collision checking; however, this feature is not fully implemented yet",false
+use_moveit_rviz,"set to false if you would like to use MoveIt in a headless state; otherwise, set to true to display RViz with the MoveIt plugin",true
+world_name,the file path to the Gazebo 'world' file to load (if simulating),refer to `xslocobot_moveit.launch`_

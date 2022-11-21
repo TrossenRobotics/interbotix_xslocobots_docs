@@ -1,0 +1,19 @@
+Argument,Description,Default Value
+robot_model,model type of the Interbotix Locobot such as 'locobot_base' or 'locobot_wx250s',""""""
+robot_name,name of the robot (could be anything but defaults to 'locobot'),"""locobot"""
+arm_model,the Interbotix Arm model on the locobot; this should never be set manually but rather left to its default value,refer to `xslocobot_description.launch`_
+show_lidar,"if true, the lidar is included in the 'robot_description' parameter; only set to true if you purchased a lidar with your locobot",false
+show_gripper_bar,"if true, the gripper_bar link is included in the 'robot_description' parameter; if false, the gripper_bar and finger links are not loaded to the parameter server. Set to false if you have a custom gripper attachment",true
+show_gripper_fingers,"if true, the gripper fingers are included in the 'robot_description' parameter; if false, the gripper finger links are not loaded to the parameter server. Set to false if you have custom gripper fingers",true
+external_urdf_loc,the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file,""""""
+use_rviz,launches RViz; set to false if SSH'd into the physical robot,true
+rviz_frame,fixed frame in RViz; this should be changed to map or <robot_name>/odom if mapping or using local odometry respectively,$(arg robot_name)/base_footprint
+world_name,the file path to the Gazebo 'world' file to load,refer to `xslocobot_gazebo.launch`_
+gui,launch the Gazebo GUI; set to false if SSH'd into the physical robot,true
+debug,Start gzserver in debug mode using gdb,false
+paused,start Gazebo in a paused state,true
+recording,enable Gazebo state log recording,false
+use_sim_time,"tells ROS nodes asking for time to get the Gazebo-published simulation time, published over the ROS topic /clock",true
+use_position_controllers,set to true to have the ability to command arbitrary positions to the arm joints in Gazebo,false
+use_trajectory_controllers,set to true to have the ability to command joint trajectories to the arm joints in Gazebo,false
+dof,degrees of freedom of the specified arm (only necessary if use_position_controllers is set to true),5

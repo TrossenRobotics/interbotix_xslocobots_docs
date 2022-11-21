@@ -1,0 +1,34 @@
+Argument,Description,Default Value
+robot_model,model type of the Interbotix Locobot such as 'locobot_px100' or 'locobot_wx250s',""""""
+robot_name,name of the robot (could be anything but defaults to 'locobot'),"""locobot"""
+external_urdf_loc,the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file,""""""
+use_rviz,"launches RViz; if you are SSH'd into the robot, DON'T set this to true",false
+rviz_frame,fixed frame in RViz; this should be changed to map or ``<robot_name>/odom`` if mapping or using local odometry respectively,$(arg robot_name)/base_footprint
+load_configs,"a boolean that specifies whether or not the initial register values (under the 'motors' heading) in a Motor Config file should be written to the motors; as the values being written are stored in each motor's EEPROM (which means the values are retained even after a power cycle), this can be set to false after the first time using the robot. Setting to false also shortens the node startup time by a few seconds and preserves the life of the EEPROM",true
+filters,"types of RealSense camera filters to use (in this case, the 'pointcloud' filter is needed)",pointcloud
+color_fps,frame rate of the color images taken on the RealSense camera,30
+depth_fps,frame rate of the depth images taken on the RealSense camera,30
+color_width,horizontal resolution of the color images taken on the RealSense camera,640
+color_height,vertical resolution of the color images taken on the RealSense camera,480
+launch_driver,true if the `xslocobot_control.launch` file should be launched - set to ``false`` if you would like to run your own version of this file separately,true
+filter_ns,name-space where the pointcloud related nodes and parameters are located,$(arg robot_name)/pc_filter
+filter_params,file location of the parameters used to tune the perception pipeline filters,refer to `xslocobot_perception.launch`_
+use_pointcloud_tuner_gui,whether to show a GUI that a user can use to tune filter parameters,false
+enable_pipeline,"whether to enable the perception pipeline filters to run continuously; to save computer processing power, this should be set to False unless you are actively trying to tune the filter parameters; if False, the pipeline will only run if the ``get_cluster_positions`` ROS service is called",$(arg use_pointcloud_tuner_gui)
+cloud_topic,the absolute ROS topic name to subscribe to raw pointcloud data,/$(arg robot_name)/camera/depth/color/points
+use_armtag,whether or not to use the AprilTag on the arm to get the camera to arm pose; it's not really necessary since this is already defined in the URDF; but using the AprilTag may give more accurate results,false
+tag_family,family to which the AprilTag belongs,tagStandard41h12
+standalone_tags,individual AprilTags the algorithm should be looking for,refer to `xslocobot_perception.launch`_
+camera_frame,the camera frame in which the AprilTag will be detected,$(arg robot_name)/camera_color_optical_frame
+apriltag_ns,name-space where the AprilTag related nodes and parameters are located,$(arg robot_name)/apriltag
+camera_color_topic,the absolute ROS topic name to subscribe to color images,$(arg robot_name)/camera/color/image_raw
+camera_info_topic,the absolute ROS topic name to subscribe to the camera color info,$(arg robot_name)/camera/color/camera_info
+armtag_ns,name-space where the Armtag related nodes and parameters are located,$(arg robot_name)/armtag
+ref_frame,the reference frame that the armtag node should use when publishing a static transform for where the arm is relative to the camera,$(arg robot_name)/base_link
+arm_base_frame,the child frame that the armtag node should use when publishing a static transform for where the arm is relative to the camera,$(arg robot_name)/plate_link
+arm_tag_frame,name of the frame on the arm where the AprilTag is located (defined in the URDF usually),$(arg robot_name)/ar_tag_link
+use_armtag_tuner_gui,whether to show a GUI that a user can use to publish the 'ref_frame' to 'arm_base_frame' transform,false
+position_only,"whether only the position component of the detected AprilTag pose should be used when calculating the 'ref_frame' to 'arm_base_frame' transform; this should only be set to true if a tf chain already exists connecting the camera and arm base_link frame, and you just want to use the AprilTag to refine the pose further",true
+use_static_transform_pub,"this should be set to true if using the AprilTag on the arm, or if you'd like to load the 'ref_frame' to 'arm_base_frame' transform from the static_transforms.yaml file",false
+load_transforms,"whether or not the **static_trans_pub** node should publish any poses stored in the static_transforms.yaml file at startup; this should only be set to false if a tf chain already exists connecting the camera and arm base_link frame (usually defined in a URDF), and you'd rather use that tf chain as opposed to the one specified in the static_transforms.yaml file",true
+transform_filepath,"filepath to the static_transforms.yaml file used by the **static_trans_pub** node; if the file does not exist yet, this is where you'd like the file to be generated",refer to xslocobot_perception.launch

@@ -1,0 +1,17 @@
+Argument,Description,Default Value
+robot_model,model type of the Interbotix Locobot such as 'locobot_base' or 'locobot_wx250s',""""""
+robot_name,name of the robot (could be anything but defaults to 'locobot'),"""locobot"""
+arm_model,the Interbotix Arm model on the locobot; this should never be set manually but rather left to its default value,`refer to xslocobot_description.launch`_
+show_lidar,"if true, the lidar is included in the 'robot_description' parameter; only set to true if you purchased a lidar with your locobot",false
+show_gripper_bar,"if true, the gripper_bar link is included in the 'robot_description' parameter; if false, the gripper_bar and finger links are not loaded to the parameter server. Set to false if you have a custom gripper attachment",true
+show_gripper_fingers,"if true, the gripper fingers are included in the 'robot_description' parameter; if false, the gripper finger links are not loaded to the parameter server. Set to false if you have custom gripper fingers",true
+external_urdf_loc,the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file,""""""
+load_gazebo_configs,set this to true if Gazebo is being used; it makes sure to include Gazebo related configs in the 'robot_description' parameter so that the robot models show up black in Gazebo,false
+use_joint_pub,launches the joint_state_publisher node,false
+use_joint_pub_gui,launches the joint_state_publisher GUI,false
+rate,JointState topic publish rate in Hz,10
+source_list,list of joint state topics that should be merged together,"""[]"""
+use_rviz,launches RViz,true
+rviz_frame,fixed frame in RViz; this should be changed to map or <robot_name>/odom if mapping or using local odometry respectively,$(arg robot_name)/base_footprint
+rvizconfig,file path to the config file RViz should load,`refer to xslocobot_description.launch`_
+model,file path to the robot-specific URDF including arguments to be passed in,`refer to xslocobot_description.launch`_

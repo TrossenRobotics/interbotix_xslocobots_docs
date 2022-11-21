@@ -1,0 +1,3 @@
+ID,Joint Name,Servo,Baudrate
+10,pan,2XL430-W250,1Mbps
+11,tilt,2XL430-W250,1Mbps
