@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoCoBot WidowX-200 &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.webp"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LoCoBot WidowX-250 6 DOF" href="locobot_wx250s.html" />
+    <link rel="prev" title="LoCoBot PincherX-100" href="locobot_px100.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Specifications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#in-depth-specifications">In-Depth Specifications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="locobot_base.html">LoCoBot Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="locobot_px100.html">LoCoBot PincherX-100</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LoCoBot WidowX-200</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-servo-configurations">Default Servo Configurations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drawings">Drawings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manipulator">Manipulator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="locobot_wx250s.html">LoCoBot WidowX-250 6 DOF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#model-specifications-table">Model Specifications Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#hardware">Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface/index.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_packages/index.html">ROS Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Specifications</a></li>
+      <li class="breadcrumb-item active">LoCoBot WidowX-200</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/specifications/locobot_wx200.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="locobot-widowx-200">
+<h1>LoCoBot WidowX-200<a class="headerlink" href="#locobot-widowx-200" title="Permalink to this headline"></a></h1>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">LoCoBot WidowX-200 (Kobuki)</th>
+<th class="head">LoCoBot WidowX-200 (Create® 3)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><img alt="../_images/locobotwx200k.png" class="first last align-center" src="../_images/locobotwx200k.png" />
+</td>
+<td><img alt="../_images/locobotwx200c.png" class="first last align-center" src="../_images/locobotwx200c.png" style="width: 90%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="default-servo-configurations">
+<h2>Default Servo Configurations<a class="headerlink" href="#default-servo-configurations" title="Permalink to this headline"></a></h2>
+<table border="1" class="colwidths-given docutils align-center">
+<colgroup>
+<col width="14%" />
+<col width="29%" />
+<col width="29%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">ID</th>
+<th class="head">Joint Name</th>
+<th class="head">Servo</th>
+<th class="head">Baudrate</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>waist</td>
+<td>XM430-W350</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>shoulder</td>
+<td>XM430-W350</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>shoulder_shadow</td>
+<td>XM430-W350</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>elbow</td>
+<td>XM430-W350</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>wrist_angle</td>
+<td>XM430-W350</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>wrist_rotate</td>
+<td>XL430-W250</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>gripper</td>
+<td>XL430-W250</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>pan</td>
+<td>2XL430-W250</td>
+<td>1Mbps</td>
+</tr>
+<tr class="row-even"><td>11</td>
+<td>tilt</td>
+<td>2XL430-W250</td>
+<td>1Mbps</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="drawings">
+<h2>Drawings<a class="headerlink" href="#drawings" title="Permalink to this headline"></a></h2>
+<img alt="../_images/locobotwx200_drawing.png" src="../_images/locobotwx200_drawing.png" />
+</div>
+<div class="section" id="manipulator">
+<span id="specifications-wx200-label"></span><h2>Manipulator<a class="headerlink" href="#manipulator" title="Permalink to this headline"></a></h2>
+<p>For more detailed information about the WidowX-200, see <a class="reference external" href="https://www.trossenrobotics.com/docs/interbotix_xsarms/specifications/wx200.html" rel="noopener noreferrer" target="_blank">its documentation</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="locobot_px100.html" class="btn btn-neutral float-left" title="LoCoBot PincherX-100" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="locobot_wx250s.html" class="btn btn-neutral float-right" title="LoCoBot WidowX-250 6 DOF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

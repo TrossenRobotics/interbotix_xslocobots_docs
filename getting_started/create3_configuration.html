@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create® 3 Configuration &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.webp"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Interface" href="../ros_interface/index.html" />
+    <link rel="prev" title="Pairing Your Controller" href="pairing_controller.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hardware.html">Hardware Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairing_controller.html">Pairing Your Controller</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Create® 3 Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-configuration">Main configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-ros-2-parameters-file">Application ROS 2 Parameters File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface/index.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_packages/index.html">ROS Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Create® 3 Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/getting_started/create3_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="create-3-configuration">
+<h1>Create® 3 Configuration<a class="headerlink" href="#create-3-configuration" title="Permalink to this headline"></a></h1>
+<p>This page presents the default Interbotix configuration of the LoCoBot’s Create® 3 base. This can
+be found on the Create® 3 webserver accessed through the LoCoBot’s computer’s web browser (Firefox,
+etc.) at <code class="docutils literal notranslate"><span class="pre">192.168.186.2/ros-config</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Make sure that your Create® 3 base is configured to this default, otherwise it may not work properly
+or you may experience unexpected behavior.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you modify any of these configurations, make sure to save the changes and restart the
+application for them to take effect.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h2>
+<div class="section" id="main-configuration">
+<h3>Main configuration<a class="headerlink" href="#main-configuration" title="Permalink to this headline"></a></h3>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Interbotix Default Value</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ROS 2 Domain ID</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code></td>
+<td>This value is typically left as the default if you do not have multiple ROS domains on the
+same network. See <a class="reference external" href="https://docs.ros.org/en/humble/Concepts/About-Domain-ID.html" rel="noopener noreferrer" target="_blank">ROS 2 Domain ID Documentation</a>.</td>
+</tr>
+<tr class="row-odd"><td>ROS 2 Namespace</td>
+<td><code class="docutils literal notranslate"><span class="pre">/mobile_base</span></code></td>
+<td>The value dictates the namespace under which all Create® 3 nodes, topics, services,
+actions, and parameters will be, i.e. the <code class="docutils literal notranslate"><span class="pre">/tf</span></code> topic published by the base will be
+<code class="docutils literal notranslate"><span class="pre">/mobile_base/tf</span></code>.</td>
+</tr>
+<tr class="row-even"><td>RMW_IMPLEMENTATION</td>
+<td><code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code></td>
+<td>This value tells which RMW implementation to use. See <a class="reference external" href="https://docs.ros.org/en/foxy/Concepts/About-Different-Middleware-Vendors.html" rel="noopener noreferrer" target="_blank">ROS 2 RMW Implementation
+Documentation</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="application-ros-2-parameters-file">
+<h3>Application ROS 2 Parameters File<a class="headerlink" href="#application-ros-2-parameters-file" title="Permalink to this headline"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/mobile_base/motion_control</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">safety_override</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;full&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">reflexes_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</pre></div>
+</div>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="35%" />
+<col width="10%" />
+<col width="10%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Type</th>
+<th class="head">Interbotix Default Value</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/mobile_base/motion_control safety_override</td>
+<td>String</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;full&quot;</span></code></td>
+<td>Turns off all safety features. See <a class="reference external" href="https://iroboteducation.github.io/create3_docs/api/safety/" rel="noopener noreferrer" target="_blank">Create® 3 Safety Overrides</a> for more information.</td>
+</tr>
+<tr class="row-odd"><td>/mobile_base/motion_control reflexes_enabled</td>
+<td>Boolean</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td>Turns off all reflexes. See <a class="reference external" href="https://iroboteducation.github.io/create3_docs/api/reflexes/" rel="noopener noreferrer" target="_blank">Create® 3 Reflexes</a> for more information.</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a class="reference external" href="https://iroboteducation.github.io/create3_docs/api/ros2/#ros-2-parameters" rel="noopener noreferrer" target="_blank">Create® 3’s ROS 2 Parameters documentation</a> for a list of all possible configurable
+parameters.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pairing_controller.html" class="btn btn-neutral float-left" title="Pairing Your Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ros_interface/index.html" class="btn btn-neutral float-right" title="ROS Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

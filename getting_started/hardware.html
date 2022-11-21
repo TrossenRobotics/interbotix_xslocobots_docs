@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware Setup &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.webp"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Basic Usage" href="user_guide.html" />
+    <link rel="prev" title="Getting Started" href="index.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assembly">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-tutorial">Video Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#locobot-hardware-setup">LoCoBot Hardware Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairing_controller.html">Pairing Your Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create3_configuration.html">Create® 3 Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface/index.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_packages/index.html">ROS Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Hardware Setup</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/getting_started/hardware.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hardware-setup">
+<h1>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this headline"></a></h1>
+<div class="section" id="assembly">
+<h2>Assembly<a class="headerlink" href="#assembly" title="Permalink to this headline"></a></h2>
+<p>This tutorial guides you through the process of unboxing and assembling your X-Series LoCoBot
+hardware.</p>
+<img alt="../_images/hardware_layout.png" class="align-center" src="../_images/hardware_layout.png" style="width: 70%;" />
+<ol class="arabic simple">
+<li>Grab the base of your LoCoBot, the second largest Allen key provided, three M5x12mm screws, and
+the three black extruded aluminum bars.</li>
+</ol>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="../_images/holding_locobot_base.png" class="first last" src="../_images/holding_locobot_base.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/holding_allenwrenches.png" class="first last" src="../_images/holding_allenwrenches.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/holding_screws.png" class="first last" src="../_images/holding_screws.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/holding_bars.png" class="first last" src="../_images/holding_bars.png" style="width: 100%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li>Find the three holes on the back of the base plate and begin screwing in the aluminum bars.
+Make sure to leave a bit of slack to allow for easy assembly of the sensor tower in the next
+step.</li>
+</ol>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="../_images/install_bar_one.png" class="first last" src="../_images/install_bar_one.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/install_bar_two.png" class="first last" src="../_images/install_bar_two.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/install_bar_three.png" class="first last" src="../_images/install_bar_three.png" style="width: 100%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li>Once all three bars are secured, grab the sensor tower.</li>
+</ol>
+<img alt="../_images/holding_sensor_tower.png" class="align-center" src="../_images/holding_sensor_tower.png" style="width: 70%;" />
+<ol class="arabic simple" start="4">
+<li>Make sure you’re aware of the three slots on the bottom of the sensor tower base.</li>
+</ol>
+<img alt="../_images/sensor_tower_slots.png" class="align-center" src="../_images/sensor_tower_slots.png" style="width: 70%;" />
+<ol class="arabic simple" start="5">
+<li>Place the sensor tower on top of the three aluminum bars.</li>
+</ol>
+<img alt="../_images/placing_sensor_tower.png" class="align-center" src="../_images/placing_sensor_tower.png" style="width: 70%;" />
+<ol class="arabic simple" start="6">
+<li>Using three more M5x12mm screws, secure the sensor tower to the aluminum bars. Make sure to
+tighten the screws in the base as well.</li>
+</ol>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="../_images/sensor_tower_screw_one.png" class="first last" src="../_images/sensor_tower_screw_one.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/sensor_tower_screw_two.png" class="first last" src="../_images/sensor_tower_screw_two.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/sensor_tower_screw_three.png" class="first last" src="../_images/sensor_tower_screw_three.png" style="width: 100%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="7">
+<li>If you bought the lidar package, cut the tie holding its USB cables.</li>
+</ol>
+<img alt="../_images/cutting_sensor_wire_bind.png" class="align-center" src="../_images/cutting_sensor_wire_bind.png" style="width: 70%;" />
+<ol class="arabic simple" start="8">
+<li>Grab two of the cable clips.</li>
+</ol>
+<img alt="../_images/brackets.png" class="align-center" src="../_images/brackets.png" style="width: 70%;" />
+<ol class="arabic simple" start="9">
+<li>Run the cable down the front channel on the top right aluminum bar. Clip the cable to the front
+of the bar.</li>
+</ol>
+<img alt="../_images/bracket_top_sensor_tower.png" class="align-center" src="../_images/bracket_top_sensor_tower.png" style="width: 70%;" />
+<ol class="arabic simple" start="10">
+<li>Continue running the cable down the back channel of the right aluminum bar. Clip the USB
+adapter to the middle of the bar and the rest of the cable to
+the bottom of the bar.</li>
+</ol>
+<img alt="../_images/wire_down_bar.png" class="align-center" src="../_images/wire_down_bar.png" style="width: 70%;" />
+<ol class="arabic simple" start="11">
+<li>Note the difference between the power cable (left) and the data cable (right).</li>
+</ol>
+<img alt="../_images/data_power_cable.png" class="align-center" src="../_images/data_power_cable.png" style="width: 70%;" />
+<ol class="arabic simple" start="12">
+<li>Take the lidar’s data cable and insert it into the USB port on the right side of the NUC.</li>
+</ol>
+<img alt="../_images/nuc_cables.png" class="align-center" src="../_images/nuc_cables.png" style="width: 70%;" />
+<ol class="arabic simple" start="13">
+<li>Wrap the lidar’s thinner power cable around the back of the LoCoBot’s base and insert it into
+the 2.1A port on the left side of the battery.</li>
+</ol>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="../_images/wrap_cable_around.png" class="first last" src="../_images/wrap_cable_around.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/power_bank_cables.png" class="first last" src="../_images/power_bank_cables.png" style="width: 100%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="14">
+<li>Run the two depth camera cables down the left aluminum bar.</li>
+</ol>
+<img alt="../_images/run_camera_cable.png" class="align-center" src="../_images/run_camera_cable.png" style="width: 70%;" />
+<ol class="arabic simple" start="15">
+<li>Make sure to leave enough slack in the cable for the camera servo’s full range of motion.</li>
+</ol>
+<img alt="../_images/leave_slack_for_camera_movement.png" class="align-center" src="../_images/leave_slack_for_camera_movement.png" style="width: 70%;" />
+<ol class="arabic simple" start="16">
+<li>The braided servo cable goes down the inside channel and down through the inside tower base
+cutout.</li>
+</ol>
+<img alt="../_images/run_braided_servo_cable.png" class="align-center" src="../_images/run_braided_servo_cable.png" style="width: 70%;" />
+<ol class="arabic simple" start="17">
+<li>The USB cable goes down the back channel and through the back tower base cutout.</li>
+</ol>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="../_images/usb_back_tower_slot.png" class="first last" src="../_images/usb_back_tower_slot.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/usb_cable_back_channel.png" class="first last" src="../_images/usb_cable_back_channel.png" style="width: 100%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="18">
+<li>Use four clips to secure the cables.</li>
+</ol>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="../_images/bracket_placement_upper.png" class="first last" src="../_images/bracket_placement_upper.png" style="width: 100%;" />
+</td>
+<td><img alt="../_images/bracket_placement_lower.png" class="first last" src="../_images/bracket_placement_lower.png" style="width: 100%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="19">
+<li>Take the braided servo cable and insert it into any of the open ports on the power hub located
+on the left side of the LoCoBot.</li>
+</ol>
+<img alt="../_images/servo_cable_in_power_hub.png" class="align-center" src="../_images/servo_cable_in_power_hub.png" style="width: 70%;" />
+<ol class="arabic simple" start="20">
+<li>Insert the depth camera USB cable into the left side of the NUC located next to the power hub.</li>
+</ol>
+<img alt="../_images/depth_camera_into_nuc.png" class="align-center" src="../_images/depth_camera_into_nuc.png" style="width: 70%;" />
+<ol class="arabic simple" start="21">
+<li>Your LoCoBot is now fully assembled. You can proceed to the <a class="reference internal" href="user_guide.html"><span class="doc">Basic Usage Guide</span></a>, or the <a class="reference internal" href="../ros_interface/software_setup.html"><span class="doc">ROS Interface Software Setup</span></a>.</li>
+</ol>
+</div>
+<div class="section" id="video-tutorial">
+<h2>Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permalink to this headline"></a></h2>
+<div class="section" id="locobot-hardware-setup">
+<h3>LoCoBot Hardware Setup<a class="headerlink" href="#locobot-hardware-setup" title="Permalink to this headline"></a></h3>
+<div class="video_wrapper align-center" style="text-align: center">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/PQxgWxqFeZg" style="border: 0; height: 345px; width: 560px">
+</iframe></div></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_guide.html" class="btn btn-neutral float-right" title="Basic Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Usage &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.webp"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pairing Your Controller" href="pairing_controller.html" />
+    <link rel="prev" title="Hardware Setup" href="hardware.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hardware.html">Hardware Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#charging-your-locobot">Charging Your LoCoBot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#turning-on-your-locobot">Turning On Your LoCoBot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#locobot-network-config">LoCoBot Network Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#control-software-installation">Control Software Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ros-network-testing">ROS Network Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-development">Remote Development</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-remote-development">General Remote Development</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ssh-into-the-locobot">SSH Into the LoCoBot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#vscode-remote-development">VSCode Remote Development</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ros-interface-development">ROS Interface Development</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#turning-off-your-locobot">Turning Off Your LoCoBot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pairing_controller.html">Pairing Your Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create3_configuration.html">Create® 3 Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface/index.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_packages/index.html">ROS Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Basic Usage</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/getting_started/user_guide.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="basic-usage">
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline"></a></h1>
+<p>The Basic Usage Guide details the basics of using your LoCoBot including how to turn it on, how to
+charge it, and how to develop remotely.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#charging-your-locobot" id="id3">Charging Your LoCoBot</a></li>
+<li><a class="reference internal" href="#turning-on-your-locobot" id="id4">Turning On Your LoCoBot</a></li>
+<li><a class="reference internal" href="#locobot-network-config" id="id5">LoCoBot Network Config</a></li>
+<li><a class="reference internal" href="#control-software-installation" id="id6">Control Software Installation</a></li>
+<li><a class="reference internal" href="#ros-network-testing" id="id7">ROS Network Testing</a></li>
+<li><a class="reference internal" href="#remote-development" id="id8">Remote Development</a><ul>
+<li><a class="reference internal" href="#general-remote-development" id="id9">General Remote Development</a><ul>
+<li><a class="reference internal" href="#ssh-into-the-locobot" id="id10">SSH Into the LoCoBot</a></li>
+<li><a class="reference internal" href="#vscode-remote-development" id="id11">VSCode Remote Development</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ros-interface-development" id="id12">ROS Interface Development</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#turning-off-your-locobot" id="id13">Turning Off Your LoCoBot</a></li>
+</ul>
+</div>
+<div class="section" id="charging-your-locobot">
+<h2><a class="toc-backref" href="#id3">Charging Your LoCoBot</a><a class="headerlink" href="#charging-your-locobot" title="Permalink to this headline"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-S29idWtpIFZlcnNpb24=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="0">Kobuki Version</button><button aria-controls="panel-0-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="-1">Create® 3 Version</button></div><div aria-labelledby="tab-0-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" id="panel-0-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><p>Your Kobuki-base LoCoBot should come with two AC adapter power supplies:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A 19V 3.16A output for the Kobuki Base</li>
+<li>A 16.8V 2.5A output for the external battery</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Plug both of these into wall power and their respective port. The ports are sized
+differently and it is impossible to plug in the wrong charger.</li>
+<li>Turn on the Kobuki and check the Status LED on the back of the Kobuki base. It should
+light up according to its charge level.</li>
+</ol>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Kobuki Status LED Color</th>
+<th class="head">Kobuki Charge Level</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Solid Green</td>
+<td>Fully Charged</td>
+</tr>
+<tr class="row-odd"><td>Blinking Green</td>
+<td>Charging</td>
+</tr>
+<tr class="row-even"><td>Orange</td>
+<td>Low Charge</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li>Check the 4 LEDs next to the external battery’s power button. They should light up
+according to its charge level:</li>
+</ol>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">External Battery LED Status</th>
+<th class="head">Charge Level</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Flashing Single LED</td>
+<td>Low Voltage</td>
+</tr>
+<tr class="row-odd"><td>Solid Single LED</td>
+<td>0%-25% Charge</td>
+</tr>
+<tr class="row-even"><td>Solid Two LEDs</td>
+<td>25%-50% Charge</td>
+</tr>
+<tr class="row-odd"><td>Solid Three LEDs</td>
+<td>50%-75% Charge</td>
+</tr>
+<tr class="row-even"><td>Solid Four LEDs</td>
+<td>75%-100% Charge</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li>The Kobuki should take about 1.5 hours to charge. If on, it will play a sound to
+indicate that it is fully charged.</li>
+<li>The external battery should take about 6-8 hours to charge.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You are able to use the Kobuki base while it is charging, though it is not recommended
+to move it around. The Kobuki base publishes data necessary for some ROS programs.</p>
+</div>
+</div><div aria-labelledby="tab-0-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><p>Your Create® 3-base LoCoBot should come one AC adapter power supply and the Create® 3
+charging dock:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The iRobot Create® 3 charging dock and its cable</li>
+<li>A 16.8V 2.5A output for the external battery</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Plug both of these into wall power. Plug the external battery’s power supply into the
+external battery.</li>
+<li>Place the Create® 3 on its charging dock and wait for a chime to play. The LED status
+light on the base will indicate the charge level:</li>
+</ol>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Create® 3 Status LED Color</th>
+<th class="head">Create® 3 Charge Level</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Spinning White</td>
+<td>Robot is booting up</td>
+</tr>
+<tr class="row-odd"><td>Partial White</td>
+<td>Robot is charging, the solid arc of the ring indicates the charge level.</td>
+</tr>
+<tr class="row-even"><td>Solid White</td>
+<td>Robot is 100% charged</td>
+</tr>
+<tr class="row-odd"><td>Pulsing Red</td>
+<td>Battery &lt; 10%</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li>Check the 4 LEDs next to the external battery’s power button. They should light up
+according to its charge level:</li>
+</ol>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">External Battery LED Status</th>
+<th class="head">Charge Level</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Flashing Single LED</td>
+<td>Low Voltage</td>
+</tr>
+<tr class="row-odd"><td>Solid Single LED</td>
+<td>0%-25% Charge</td>
+</tr>
+<tr class="row-even"><td>Solid Two LEDs</td>
+<td>25%-50% Charge</td>
+</tr>
+<tr class="row-odd"><td>Solid Three LEDs</td>
+<td>50%-75% Charge</td>
+</tr>
+<tr class="row-even"><td>Solid Four LEDs</td>
+<td>75%-100% Charge</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li>The Create® 3 should take about 1.5 hours to charge. If on, it will play a sound to
+indicate that it is fully charged.</li>
+<li>The external battery should take about 6-8 hours to charge.</li>
+</ol>
+</div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You are able to use the devices on the robot while the external battery is charging.
+This includes things like developing and running programs on the NUC, using the camera,
+and using the lidar.</p>
+</div>
+</div>
+<div class="section" id="turning-on-your-locobot">
+<h2><a class="toc-backref" href="#id4">Turning On Your LoCoBot</a><a class="headerlink" href="#turning-on-your-locobot" title="Permalink to this headline"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-S29idWtpIFZlcnNpb24=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="0">Kobuki Version</button><button aria-controls="panel-1-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="-1">Create® 3 Version</button></div><div aria-labelledby="tab-1-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" id="panel-1-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<li>Press the button on the side of the external battery. The LEDs next to the battery will
+light up, indicating the external battery’s charge level. The battery will stay on
+while any connected device draws a load. Otherwise, it will automatically turn off
+after 30 seconds.</li>
+<li>Press the power button on the side of the NUC to turn it on. The NUC’s power button
+should light up blue.</li>
+<li>Flick the power switch on the rear of the Kobuki base to On. The Status LED will light
+up and the base will play a sound.</li>
+<li>Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
+so you have enough ports for the necessary devices.</li>
+</ol>
+</div><div aria-labelledby="tab-1-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<li>Press the button on the side of the external battery. The LEDs next to the battery will
+light up, indicating the external battery’s charge level. The battery will stay on
+while any connected device draws a load. Otherwise, it will automatically turn off
+after 30 seconds.</li>
+<li>Press the power button on the side of the NUC to turn it on. The NUC’s power button
+should light up blue.</li>
+<li>Place the Create® 3 base on its charging dock and wait a few seconds for it to boot up.
+The Status LED will light up and the base will play a sound.</li>
+<li>Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
+so you have enough ports for the necessary devices.</li>
+</ol>
+</div></div>
+</div>
+<div class="section" id="locobot-network-config">
+<h2><a class="toc-backref" href="#id5">LoCoBot Network Config</a><a class="headerlink" href="#locobot-network-config" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Terminology:</p>
+<ul class="last simple">
+<li>“Remote” - Your own personal computer (desktop, laptop, etc.)</li>
+<li>“Robot” or “LoCoBot” - The NUC computer on the LoCoBot</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This section assumes that you are interacting with your LoCoBot’s NUC computer using a monitor,
+mouse, and keyboard.</p>
+</div>
+<ol class="arabic simple">
+<li>Log into the <code class="docutils literal notranslate"><span class="pre">locobot</span></code> user on the LoCoBot using its default password, <code class="docutils literal notranslate"><span class="pre">locobot</span></code>.</li>
+<li>Open a terminal by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd>.</li>
+<li>Type the command <code class="docutils literal notranslate"><span class="pre">hostname</span></code> to retrieve the robot’s hostname. This is the domain name of the
+computer that you will use when you SSH into it. This is typically <code class="docutils literal notranslate"><span class="pre">locobot</span></code>.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you are using multiple LoCoBots, you should make each hostname unique, i.e. <code class="docutils literal notranslate"><span class="pre">locobot1</span></code>,
+<code class="docutils literal notranslate"><span class="pre">locobot2</span></code>, etc.</p>
+<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>hostnamectl set-hostname &lt;unique_hostname&gt;
+</pre></div>
+</div>
+</div>
+<ol class="arabic" start="4">
+<li><p class="first">Connect the robot to the same WiFi that your remote computer is connected to.</p>
+</li>
+<li><p class="first">Ping the robot from your remote computer using the command below. If the robot’s hostname is
+different than <code class="docutils literal notranslate"><span class="pre">locobot</span></code>, use that instead. You should see output similar to below.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping -c <span class="m">3</span> locobot.local
+<span class="go">PING locobot.local (192.168.0.171) 56(84) bytes of data.</span>
+<span class="go">64 bytes from locobot (192.168.0.171): icmp_seq=1 ttl=64 time=203 ms</span>
+<span class="go">64 bytes from locobot (192.168.0.171): icmp_seq=2 ttl=64 time=22.5 ms</span>
+<span class="go">64 bytes from locobot (192.168.0.171): icmp_seq=3 ttl=64 time=351 ms</span>
+
+<span class="go">--- locobot.local ping statistics ---</span>
+<span class="go">3 packets transmitted, 3 received, 0% packet loss, time 2003ms</span>
+<span class="go">rtt min/avg/max/mdev = 22.540/192.306/351.244/134.411 ms</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="control-software-installation">
+<h2><a class="toc-backref" href="#id6">Control Software Installation</a><a class="headerlink" href="#control-software-installation" title="Permalink to this headline"></a></h2>
+<ol class="arabic">
+<li><p class="first">Install the software that you plan to use, such as the ROS Interface. The quickstart commands
+for it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the <a class="reference internal" href="../ros_interface/software_setup.html"><span class="doc">ROS
+Interface Software Setup</span></a> for more information.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
+<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span> &gt; xslocobot_amd64_install.sh
+<span class="gp">$ </span>chmod +x xslocobot_amd64_install.sh
+<span class="gp">$ </span>./xslocobot_amd64_install.sh -b create3 -d noetic
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot the NUC, remove the mouse, keyboard, and disconnect from the monitor. Plug back in any
+peripherals you removed.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ros-network-testing">
+<h2><a class="toc-backref" href="#id7">ROS Network Testing</a><a class="headerlink" href="#ros-network-testing" title="Permalink to this headline"></a></h2>
+<p>If using ROS, you should now test ROS communication between your LoCoBot and your remote computer
+by running the basic talker/listener tutorial. This ensures that we have bi-directional
+communication between the two machines.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">ROS 1</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">ROS 2</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><ol class="arabic">
+<li><p class="first">If not already on both machines, install the rospy_tutorials package on the LoCoBot
+computer and your remote computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get install ros-<span class="nv">$ROS_DISTRO</span>-rospy-tutorials
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start a roscore on your LoCoBot computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
+<span class="gp">$ </span>roscore
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open a new terminal on the LoCoBot and run the listener script.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
+<span class="gp">$ </span>rosrun rospy_tutorials listener.py
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open a new terminal on the remote computer and run the talker.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
+<span class="gp">$ </span>rosrun rospy_tutorials talker.py
+</pre></div>
+</div>
+</li>
+<li><p class="first">You should see something like the output below on the terminal on the LoCoBot running
+the listener.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># LoCoBot Computer</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885421.836186</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885421.8021505</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885421.934443</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885421.9020953</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885422.034559</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885422.0021284</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885422.134659</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885422.1021016</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885422.233945</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885422.2021453</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">End the talker and listener processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their respective
+terminals.</p>
+</li>
+<li><p class="first">Run the listener script on your remote computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
+<span class="gp">$ </span>rosrun rospy_tutorials listener.py
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the talker on your LoCoBot computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
+<span class="gp">$ </span>rosrun rospy_tutorials talker.py
+</pre></div>
+</div>
+</li>
+<li><p class="first">You should see something like the output below on the terminal on the remote computer
+running the listener.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remote Computer</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885695.850287</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885695.8616695</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885695.950195</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885695.9616487</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885696.050392</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885696.061647</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885696.150613</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885696.1614935</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885696.250500</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885696.2614782</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">End the talker and listener processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their respective
+terminals.</p>
+</li>
+</ol>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><ol class="arabic">
+<li><p class="first">If not already on both machines, install the example minimal publisher and minimal
+subscriber on the LoCoBot computer and your remote computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get install ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-publisher ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-subscriber
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open a new terminal on the LoCoBot and run the minimal subscriber.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
+<span class="gp">$ </span>ros2 run examples_rclpy_minimal_subscriber subscriber_member_function
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open a new terminal on the remote computer and run the minimal publisher.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
+<span class="gp">$ </span>ros2 run examples_rclpy_minimal_publisher publisher_local_function
+</pre></div>
+</div>
+</li>
+<li><p class="first">You should see something like the output below on the terminal on the LoCoBot running
+the subscriber.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># LoCoBot Computer</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 0&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 1&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 2&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 3&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 4&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">End the publisher and subscriber processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their
+respective terminals.</p>
+</li>
+<li><p class="first">Run the subscriber script on your remote computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
+<span class="gp">$ </span>ros2 run examples_rclpy_minimal_subscriber subscriber_member_function
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the publisher on your LoCoBot computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
+<span class="gp">$ </span>ros2 run examples_rclpy_minimal_subscriber subscriber_member_function
+</pre></div>
+</div>
+</li>
+<li><p class="first">You should see something like the output below on the terminal on the remote computer
+running the subscriber.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remote Computer</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 0&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 1&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 2&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 3&quot;</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 4&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">End the publisher and subscriber processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their
+respective terminals.</p>
+</li>
+</ol>
+</div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you run into any ROS network related issue, see our <a class="reference internal" href="../troubleshooting/index.html"><span class="doc">Troubleshooting
+Guide</span></a> for potential solutions.</p>
+</div>
+</div>
+<div class="section" id="remote-development">
+<h2><a class="toc-backref" href="#id8">Remote Development</a><a class="headerlink" href="#remote-development" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Terminology:</p>
+<ul class="last simple">
+<li>“Remote” - Your own personal computer (desktop, laptop, etc.)</li>
+<li>“Robot” or “LoCoBot” - The NUC computer on the LoCoBot</li>
+</ul>
+</div>
+<div class="section" id="general-remote-development">
+<h3><a class="toc-backref" href="#id9">General Remote Development</a><a class="headerlink" href="#general-remote-development" title="Permalink to this headline"></a></h3>
+<div class="section" id="ssh-into-the-locobot">
+<span id="id1"></span><h4><a class="toc-backref" href="#id10">SSH Into the LoCoBot</a><a class="headerlink" href="#ssh-into-the-locobot" title="Permalink to this headline"></a></h4>
+<ol class="arabic">
+<li><p class="first">On your remote computer, install the OpenSSH Client software to allow for a secure shell
+connection between your remote computer and the LoCoBot computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install openssh-client
+</pre></div>
+</div>
+</li>
+<li><p class="first">SSH into the LoCoBot from your remote computer with the display forwarding flag <code class="docutils literal notranslate"><span class="pre">-X</span></code>. If the
+robot’s username or hostname are different than <code class="docutils literal notranslate"><span class="pre">locobot</span></code>, use that instead.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ssh -X username@hostname.local
+<span class="gp">$ </span>ssh -X locobot@locobot.local
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">-X</span></code> flag indicates to OpenSSH that we want to do display forwarding. This means that
+OpenSSH will forward graphical application to the client from the server.</p>
+</div>
+</li>
+<li><p class="first">If prompted, enter the password <code class="docutils literal notranslate"><span class="pre">locobot</span></code> and accept the SSH key.</p>
+</li>
+<li><p class="first">Once logged in to the LoCoBot, you can open multiple SSH’ed terminals using the command below.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gnome-terminal <span class="p">&amp;</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Sometimes, this doesn’t work. In that case, use the command from <a class="reference external" href="https://askubuntu.com/questions/608330/problem-with-gnome-terminal-on-gnome-3-12-2/1235679#1235679" rel="noopener noreferrer" target="_blank">this Ask Ubuntu answer</a>.</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/usr/bin/dbus-launch /usr/bin/gnome-terminal <span class="p">&amp;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="vscode-remote-development">
+<h4><a class="toc-backref" href="#id11">VSCode Remote Development</a><a class="headerlink" href="#vscode-remote-development" title="Permalink to this headline"></a></h4>
+<ol class="arabic simple">
+<li>At Trossen Robotics, we use Microsoft’s VSCode and its Remote - SSH extension (also developed
+by Microsoft) for simple remote development on the LoCoBot.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://code.visualstudio.com/download" rel="noopener noreferrer" target="_blank">Install VSCode</a> for Ubuntu.</li>
+<li>Open VSCode, Press <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">P</kbd> to launch the Quick Open Menu, and run the
+following command.</li>
+</ul>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ext</span> <span class="n">install</span> <span class="n">ms</span><span class="o">-</span><span class="n">vscode</span><span class="o">-</span><span class="n">remote</span><span class="o">.</span><span class="n">remote</span><span class="o">-</span><span class="n">ssh</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>In VSCode, press <strong>F1</strong> and run the <code class="docutils literal notranslate"><span class="pre">Remote-SSH:</span> <span class="pre">Open</span> <span class="pre">SSH</span> <span class="pre">Host...</span></code> command. Enter the same
+<code class="docutils literal notranslate"><span class="pre">username&#64;hostname.local</span></code> combination you used when opening the SSH connection between your
+remote computer and the LoCoBot like <code class="docutils literal notranslate"><span class="pre">locobot&#64;locobot.local</span></code>. If prompted, enter the password
+<code class="docutils literal notranslate"><span class="pre">locobot</span></code>.</li>
+<li>Once connected, use <strong>File &gt; Open Folder</strong>, and select the directory you wish to operate in,
+i.e. the <code class="docutils literal notranslate"><span class="pre">~/interbotix_ws</span></code> directory if using the ROS Interface.</li>
+<li>Your instance of VSCode is now attached to the LoCoBot and is open to your development
+workspace.</li>
+<li>You can open terminals in VSCode by pressing <strong>Ctrl-Shift-`</strong> or by using <strong>Terminal &gt; New
+Terminal</strong>.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is not simple to configure display forwarding using the Remote-SSH extension at the time of
+writing this guide. To get around this, you can either follow some of the recommendations in
+<a class="reference external" href="https://github.com/microsoft/vscode-remote-release/issues/267" rel="noopener noreferrer" target="_blank">this GitHub Issue</a>, or just <a class="reference internal" href="#ssh-into-the-locobot">ssh into the locobot</a> to launch programs with GUIs.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ros-interface-development">
+<h3><a class="toc-backref" href="#id12">ROS Interface Development</a><a class="headerlink" href="#ros-interface-development" title="Permalink to this headline"></a></h3>
+<p>If using the ROS Interface, we provide a remote workspace installation script. See the below
+commands for the remote installation quickstart commands for a Create® 3 version LoCoBot running
+ROS 1 Noetic. Run these commands on your remote computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
+<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/xslocobot_remote_install.sh&#39;</span> &gt; xslocobot_remote_install.sh
+<span class="gp">$ </span>chmod +x xslocobot_remote_install.sh
+<span class="gp">$ </span>./xslocobot_remote_install.sh -b create3 -d noetic
+</pre></div>
+</div>
+<p>Alternatively, you can check the <a class="reference internal" href="../ros_interface/software_setup.html#ros-software-setup-remote-install-label"><span class="std std-ref">Remote Install section of the ROS Interface Software Setup</span></a> for more information.</p>
+</div>
+</div>
+<div class="section" id="turning-off-your-locobot">
+<span id="basic-usage-turning-off-your-locobot-label"></span><h2><a class="toc-backref" href="#id13">Turning Off Your LoCoBot</a><a class="headerlink" href="#turning-off-your-locobot" title="Permalink to this headline"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-S29idWtpIFZlcnNpb24=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="0">Kobuki Version</button><button aria-controls="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="-1">Create® 3 Version</button></div><div aria-labelledby="tab-3-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" id="panel-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic">
+<li><p class="first">It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
+this, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">poweroff</span></code> in its terminal and enter your password.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will kill any program currently running on the NUC. Make sure the arm is in
+its cradle and that ending programs will not harm the robot.</p>
+</div>
+</li>
+<li><p class="first">Press and hold the external battery’s power button for two (2) seconds until the LEDs
+power off.</p>
+</li>
+<li><p class="first">Flick the switch at the back of the Kobuki to power it off. The Status LED should turn
+off.</p>
+</li>
+</ol>
+</div><div aria-labelledby="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic">
+<li><p class="first">It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
+this, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">poweroff</span></code> in its terminal and enter your password.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will kill any program currently running on the NUC. Make sure the arm is in
+its cradle and that ending programs will not harm the robot.</p>
+</div>
+</li>
+<li><p class="first">Press and hold the external battery’s power button for two (2) seconds until the LEDs
+power off.</p>
+</li>
+<li><p class="first">Hold the base’s center button (marked with a power symbol) for about seven (7) seconds
+until it plays a chime and the LEDs behind the button turn off.</p>
+</li>
+</ol>
+</div></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hardware.html" class="btn btn-neutral float-left" title="Hardware Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pairing_controller.html" class="btn btn-neutral float-right" title="Pairing Your Controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

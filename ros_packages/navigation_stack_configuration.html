@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation Stack Configuration &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.webp"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MoveIt Interface and API" href="moveit_interface_and_api.html" />
+    <link rel="prev" title="Perception Pipeline Configuration" href="perception_pipeline_configuration.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface/index.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Open Source Packages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="locobot_descriptions.html">LoCoBot Descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locobot_control.html">LoCoBot Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gazebo_simulation_configuration.html">Gazebo Simulation Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS Controllers Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_motion_planning_configuration.html">MoveIt Motion Planning Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception_pipeline_configuration.html">Perception Pipeline Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Navigation Stack Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slam-from-scratch">SLAM From Scratch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#continuing-slam-from-a-pre-built-map">Continuing SLAM From a Pre-Built Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localization">Localization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simulation">Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#time-out-waiting-for-transform">Time out waiting for transform…</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rejected-loop-closure">Rejected Loop Closure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#video-tutorials">Video Tutorials</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slam-ing-on-the-locobot">SLAM’ing on the LoCoBot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-depth-look-at-the-locobot-navigation-stack">In-Depth Look at the LoCoBot Navigation Stack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_interface_and_api.html">MoveIt Interface and API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_demos.html">Python Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joystick_control.html">Joystick Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="landmark_based_navigation.html">Landmark-Based Navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">ROS Open Source Packages</a></li>
+      <li class="breadcrumb-item active">Navigation Stack Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros_packages/navigation_stack_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="navigation-stack-configuration">
+<h1>Navigation Stack Configuration<a class="headerlink" href="#navigation-stack-configuration" title="Permalink to this headline"></a></h1>
+<a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/interbotix_xslocobot_nav"
+    class="docs-view-on-github-button"
+    target="_blank">
+    <img src="../_static/GitHub-Mark-Light-32px.png"
+        class="docs-view-on-github-button-gh-logo">
+    View Package on GitHub
+</a><div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>This package configures the ROS Navigation Stack needed to give any X-Series
+Interbotix LoCoBot platform the ability to perform simultaneous localization and
+mapping (a.k.a SLAM), navigation, or just localization. It can be used with just
+the <a class="reference external" href="https://www.intelrealsense.com/depth-camera-d435/" rel="noopener noreferrer" target="_blank">Intel RealSense D435</a> camera or with both the camera and the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2" rel="noopener noreferrer" target="_blank">A2M8
+RPLidar</a> laser scanner. The localization and mapping part is done using the
+<a class="reference external" href="http://wiki.ros.org/rtabmap_ros" rel="noopener noreferrer" target="_blank">rtabmap_ros</a> ROS package while the navigation part is accomplished via the
+<a class="reference external" href="http://wiki.ros.org/move_base" rel="noopener noreferrer" target="_blank">move_base</a> ROS package.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For best results, this package should be run with the robot in an indoor,
+uncluttered environment that does not contain too much sunlight and has
+minimal reflective surfaces.</p>
+</div>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
+<img alt="../_images/xslocobot_nav_flowchart.png" class="align-center" src="../_images/xslocobot_nav_flowchart.png" />
+<p>As shown above, this package builds on top of the <cite>interbotix_xslocobot_control</cite>
+package (which starts the <strong>xs_sdk</strong> node), and is used in conjunction with the
+<cite>rtabmap_ros</cite> and <cite>move_base</cite> ROS packages. A short description of the nodes
+needed from those packages can be found below:</p>
+<ul class="simple">
+<li><strong>rostopic</strong> - used to publish the desired tilt angle for the RealSense
+camera at startup</li>
+<li><strong>rtabmapviz</strong> - Rtabmap’s Visualization tool when doing mapping or
+localization; not really necessary to use since Rtabmap has RViz plugins
+that work pretty well</li>
+<li><strong>move_base</strong> - responsible for planning paths for the robot and sending
+Twist commands to the Kobuki base to follow them</li>
+<li><strong>rtabmap</strong> - responsible for performing SLAM or just localization</li>
+</ul>
+<p>Note that there are also a few Rtabmap nodelets that are started up under the
+<cite>realsense2_camera_manager</cite> for processing purposes. Descriptions of them are
+below:</p>
+<ul class="simple">
+<li><strong>rtabmap_ros/rgbd_sync</strong> - synchronizes color and depth images from the
+Realsense camera, and outputs an RGBD image; this is used by the nodelet below
+and the main <strong>rtabmap</strong> node to do SLAM or localization</li>
+<li><strong>rtabmap_ros/point_cloud_xyzrgb</strong> - takes in RGBD images, decimates them
+(to reduce noise and processing requirements), and outputs PointCloud2
+messages to the nodelet below</li>
+<li><strong>rtabmap_ros/obstacles_detection</strong> - takes in PointCloud2 messages and
+filters out the ground; then it outputs the resulting PointCloud2 to
+<code class="docutils literal notranslate"><span class="pre">depth/color/obstacles</span></code>. This is in turn used by <cite>move_base</cite> to avoid
+obstacles</li>
+</ul>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<p>There are three ways this package can be used:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#slam-from-scratch">SLAM From Scratch</a></li>
+<li><a class="reference internal" href="#continuing-slam-from-a-pre-built-map">Continuing SLAM From a Pre-Built Map</a></li>
+<li><a class="reference internal" href="#localization">Localization</a></li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The commands below assume the user has a LoCoBot WidowX 200 robot with the
+lidar add-on. However, any X-Series LoCoBot will work. If no lidar is being
+used, make sure the <code class="docutils literal notranslate"><span class="pre">use_lidar</span></code> argument is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</div>
+<div class="section" id="slam-from-scratch">
+<span id="interbotix-xslocobot-nav-slam-from-scratch-label"></span><h3>SLAM From Scratch<a class="headerlink" href="#slam-from-scratch" title="Permalink to this headline"></a></h3>
+<p>To get SLAM up and running from scratch, type the following in a terminal on the
+robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav.launch robot_model:<span class="o">=</span>locobot_wx200 use_lidar:<span class="o">=</span><span class="nb">true</span> rtabmap_args:<span class="o">=</span>-d
+</pre></div>
+</div>
+<p>In the above command, the argument <code class="docutils literal notranslate"><span class="pre">rtabmap_args:=-d</span></code> is provided. This will
+delete the current database (by default - stored at <code class="docutils literal notranslate"><span class="pre">~/.ros/rtabmap.db</span></code>) and
+create a new one. The database stores map cloud and graph data (see the ROS Wiki
+for info on these concepts) which it then uses at run time to create a 2D map
+that <cite>move_base</cite> can use.</p>
+<p>Once the Nav Stack is running, you should see info messages appearing in the
+terminal once a second saying something similar to…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rtabmap (3): Rate=1.00s, Limit=0.000s, RTAB-Map=0.0697s, Maps update=0.0099s pub=0.0000s (local map=1, WM=1)</span>
+</pre></div>
+</div>
+<p>Now, to visualize the robot in RViz, run the following on your remote Linux
+computer (note that you should first run the <a class="reference internal" href="../ros_interface/software_setup.html#ros-software-setup-remote-install-label"><span class="std std-ref">remote installation</span></a> script on your personal
+computer if you haven’t done so already).</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions remote_view.launch rviz_frame:<span class="o">=</span>map
+</pre></div>
+</div>
+<p>RViz should now open up looking like the picture below:</p>
+<img alt="../_images/rviz_start.png" class="align-center" src="../_images/rviz_start.png" style="width: 70%;" />
+<p>To visualize the map being created, click the checkbox by the <strong>Map</strong>
+display. To see a live color feed as well as filtered point cloud data from the
+RealSense camera, click the <strong>Camera</strong> display. The <cite>move_base</cite> package uses this
+filtered point cloud data to detect obstacles in the robot’s path. It is
+filtered to reduce bandwidth and to segment out the floor so that the robot
+doesn’t think the ‘floor is lava’ so-to-speak. On the other hand, <cite>rtabmap_ros</cite>
+uses both the live feed and an aligned depth feed (not displayed) to perform
+mapping and localization. Next, click the <strong>LaserScan</strong> display to show a 360
+degree view of where it thinks there are obstacles. This is used both by
+<cite>move_base</cite> for obstacle detection and <cite>rtabmap_ros</cite> for mapping and
+localization refinement. Moving on, the <strong>RtabmapRos</strong> display can be used to
+show a point-cloud representation of the robot’s environment built in real-time
+as the robot moves. See the picture below for a visualization of all these
+displays in RViz.</p>
+<img alt="../_images/map_building.png" class="align-center" src="../_images/map_building.png" style="width: 70%;" />
+<p>At this point, you’re ready to start moving the robot. There are three ways to
+do this. One is to use the <strong>2D Nav Goal</strong> button at the the top of the RViz
+screen to set a goal pose within the map’s free space. This sends a command to
+<cite>move_base</cite> to plan out and execute a path to the goal. A second way is to run
+the <code class="docutils literal notranslate"><span class="pre">xslocobot_joy.launch</span></code> file found in the <cite>interbotix_xslocobot_joy</cite> ROS
+package (either on the robot or on your remote computer). To do this, type…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_joy xslocobot_joy.launch robot_model:<span class="o">=</span>locobot_wx200 launch_driver:<span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+<p>Setting the <code class="docutils literal notranslate"><span class="pre">launch_driver</span></code> argument to <code class="docutils literal notranslate"><span class="pre">false</span></code> tells the launch file not to
+startup the locobot driver nodes as the robot is already running. Finally, a
+third way to move the robot is to run the Kobuki <strong>keyop</strong> node. This will then
+allow you to use your keyboard arrow keys to move the robot. To do this, type
+the following either on the robot or remote computer…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch kobuki_keyop keyop.launch __ns:<span class="o">=</span>locobot
+</pre></div>
+</div>
+<p>Note the two underscores before the <code class="docutils literal notranslate"><span class="pre">ns</span></code> launch file tag. Also note that
+<strong>only one</strong> of these control modes should be used at a time; otherwise, the
+base might not move correctly (as it’s being bombarded with different velocity
+commands from multiple packages simultaneously).</p>
+<p>We recommend using a PS4 controller when doing mapping or SLAM since that gives
+you full control on the robot’s motion and is more intuitive to use than the
+keyboard. Some other tips to get a clean point cloud map are:</p>
+<ul class="simple">
+<li>Rotate the robot full circle slowly to get as many features as possible so
+that the algorithm has a higher chance of getting loop closures</li>
+<li>After rotating in a single spot, slowly translate over to another spot, and
+do another full circle. Repeat this and the above step multiple times until
+you’ve mapped your desired area</li>
+<li>In the <strong>RtabmapROS</strong> RViz display, open up the <strong>MapCloud</strong> display, and
+raise the <code class="docutils literal notranslate"><span class="pre">Cloud</span> <span class="pre">decimation</span></code> level to 6 or 8 (default is 4). This will
+filter out more of the raw point cloud data, reducing noise</li>
+<li>Also in the <strong>RtabmapROS</strong> RViz display, open the <strong>MapCloud</strong> display, and
+lower the <code class="docutils literal notranslate"><span class="pre">Cloud</span> <span class="pre">max</span> <span class="pre">depth</span></code> level to 2 (default is 4). This will only
+stitch point cloud data up to 2 meters away from the robot together. As
+depth readings tends to degrade the further away they are from the sensor,
+this will also filter out noisy data.</li>
+<li>Try not to map out areas that are already mapped out more than once to
+reduce noise; also this will keep the size of the resulting database
+smaller; these files can be rather large (a few hundred Megabytes)</li>
+<li>For optimal loop closure detection, it’s a good idea that the depth camera
+be tilted to the same angle that it will be tilted at when just doing
+localization; during localization, it’s a good idea to have the camera
+tilted down slightly so that small obstacles that can’t be seen by the laser
+scanner can be picked up.</li>
+</ul>
+<p>After mapping, you should have a MapCloud similar in structure to the one below.
+If that’s the case, type <strong>Ctrl-C</strong> in the robot’s terminal to stop the launch
+file. Then close out RViz on your remote computer as well.</p>
+<img alt="../_images/3d_view_office_1.png" class="align-center" src="../_images/3d_view_office_1.png" style="width: 70%;" />
+</div>
+<div class="section" id="continuing-slam-from-a-pre-built-map">
+<h3>Continuing SLAM From a Pre-Built Map<a class="headerlink" href="#continuing-slam-from-a-pre-built-map" title="Permalink to this headline"></a></h3>
+<p>To continue doing SLAM, type the following in a terminal on the robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav.launch robot_model:<span class="o">=</span>locobot_wx200 use_lidar:<span class="o">=</span><span class="nb">true</span> rtabmap_args:<span class="o">=</span><span class="s1">&#39;--Rtabmap/StartNewMapOnLoopClosure true&#39;</span>
+</pre></div>
+</div>
+<p>Setting the <code class="docutils literal notranslate"><span class="pre">Rtabmap/StartNewMapOnLoopClosure</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code> tells
+Rtabmap to wait on starting a new map until it detects a loop closure with the
+old map. If you’d rather have Rtabmap start creating a new map right away before
+finding loop closures (perhaps you’re mapping a different part of your office
+that’s not next to the first part), then set the parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code> (which
+it should be by default).</p>
+<p>As far as visualizing the robot in RViz and controlling it are concerned, just
+look at the tips in the <a class="reference internal" href="#slam-from-scratch">SLAM From Scratch</a> section above.</p>
+</div>
+<div class="section" id="localization">
+<h3>Localization<a class="headerlink" href="#localization" title="Permalink to this headline"></a></h3>
+<p>Once you’ve finished mapping your desired environment, the next step is to have
+the robot uses its sensors to just localize itself within the map while
+navigating. To do so, type the following in a terminal on the robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav.launch robot_model:<span class="o">=</span>locobot_wx200 use_lidar:<span class="o">=</span><span class="nb">true</span> localization:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>Next, open up RViz on your remote computer as outlined in the <a class="reference internal" href="#slam-from-scratch">SLAM From
+Scratch</a> section, and visualize the <strong>Map</strong> display. You should see something
+similar in structure to the picture below (of course your office layout will be
+different).</p>
+<img alt="../_images/map_2d_view.png" class="align-center" src="../_images/map_2d_view.png" style="width: 70%;" />
+<p>Now check the <strong>Move Base</strong> RViz display. This should display both the global
+and local costmaps. In general, a costmap associates obstacles with high cost
+values (100), areas near obstacles with slightly lower values (from 1 - 99), and
+free space as 0. These costmaps are then used to do path planning where the main
+objective is to find a path with the minimum cost. Check the <a class="reference external" href="http://wiki.ros.org/costmap_2d" rel="noopener noreferrer" target="_blank">ROS Wiki
+costmap_2d page</a> for a more detailed description. For the map above (generated
+from Rtabmap), the global costmap looks like…</p>
+<img alt="../_images/global_costmap.png" class="align-center" src="../_images/global_costmap.png" style="width: 70%;" />
+<p>As can be seen, it’s pretty colorful! Each color is associated with a cost. The
+color that lines up with the black part in the original map represents true
+obstacles and signifies the highest cost (the light purple color surrounded by
+cyan in this case). As you move outward from the true obstacle, each color
+signifies a slightly lower cost.</p>
+<p>In this case, the global costmap is made up of three layers. The first one is
+the static map layer which is essentially the map created by Rtabmap. The second
+one is the Obstacle layer. Any obstacles picked up by the robot’s sensors not
+seen in the original static map are added in this layer. The final one is the
+Inflation layer. As its name suggests, all obstacles are inflated a bit to
+prevent the robot from navigating too close to obstacles.</p>
+<p>The local costmap on the other hand is made up of two layers and is a lot
+smaller (a 4 meter square area centered around the robot). It just contains the
+Obstacle layer and the inflation layer. A picture of it can be seen below.</p>
+<img alt="../_images/local_costmap.png" class="align-center" src="../_images/local_costmap.png" style="width: 70%;" />
+<p>Besides for the Costmap sub-displays in the <strong>Move Base</strong> group, there are also
+the Global and Local Plan displays. Whenever a 2D Nav Goal is set in RViz, a
+global path (in green) is displayed linking the goal state with the start state.
+This path is the overall path the robot will try to follow. Similarly, a local
+plan (in red) is also displayed that starts from the robot’s footprint and goes
+for about a meter. The local plan attempts to follow the global path but will
+take detours if obstacles get in the way.</p>
+<img alt="../_images/path_planning.png" class="align-center" src="../_images/path_planning.png" style="width: 70%;" />
+<p>When starting in localization mode, Rtabmap will try to localize the robot using
+its last known position (from a previous session) as a reference point. Most of
+the time, it’s able to figure out where the robot is. Sometimes however,
+especially if the room is not feature-rich, Rtabmap will localize the robot
+incorrectly. If that’s the case, just use the <strong>2D Pose Estimate</strong> tool at the
+top of the RViz window to let Rtabmap know where the robot actually is.</p>
+<p>This is the bare minimum needed to get up and running. Take a look at the table
+below to see how to further customize with other launch file arguments.</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Description</th>
+<th class="head">Default Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>robot_model</td>
+<td>model type of the Interbotix Locobot such as ‘locobot_base’ or ‘locobot_wx250s’</td>
+<td>“”</td>
+</tr>
+<tr class="row-odd"><td>robot_name</td>
+<td>name of the robot (could be anything but defaults to ‘locobot’)</td>
+<td>“locobot”</td>
+</tr>
+<tr class="row-even"><td>use_lidar</td>
+<td>if true, the RPLidar node is launched</td>
+<td>false</td>
+</tr>
+<tr class="row-odd"><td>show_lidar</td>
+<td>set to true if the lidar is installed on the robot; this will load the lidar related links to the ‘robot_description’ parameter</td>
+<td>$(arg use_lidar)</td>
+</tr>
+<tr class="row-even"><td>use_rviz</td>
+<td>launches RViz</td>
+<td>false</td>
+</tr>
+<tr class="row-odd"><td>localization</td>
+<td>if true, Rtabmap opens in localization only mode; if false, Rtabmap open in SLAM mode</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>rtabmap_args</td>
+<td>arguments that should be passed to the&nbsp;rtabmap&nbsp;node; note that these arguments are in addition to the arguments already specified in the&nbsp;rtabmap_default_args&nbsp;argument in the&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_nav/launch/xslocobot_nav.launch" rel="noopener noreferrer" target="_blank">xslocobot_nav.launch</a>&nbsp;file</td>
+<td>“”</td>
+</tr>
+<tr class="row-odd"><td>use_rtabmapviz</td>
+<td>whether or not to use Rtabmap’s Visualization tool; it’s not really necessary as Rtabmap already has RViz display plugins</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>rtabmapviz_args</td>
+<td>arguments to pass to the Rtabmapviz visualization node</td>
+<td>“”</td>
+</tr>
+<tr class="row-odd"><td>database_path</td>
+<td>location where all the mapping data Rtabmap collects should be stored</td>
+<td>“~/.ros/rtabmap.db”</td>
+</tr>
+<tr class="row-even"><td>camera_tilt_angle</td>
+<td>desired angle [rad] that the D435 camera should be tilted when doing SLAM or localization</td>
+<td>0.2618</td>
+</tr>
+<tr class="row-odd"><td>launch_driver</td>
+<td>true if the&nbsp;xslocobot_control.launch&nbsp;file should be launched - set to false if you would like to run your own version of this file separately</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation">
+<h3>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline"></a></h3>
+<p>To simulate the Navigation Stack in Gazebo, the helper launch file,
+<code class="docutils literal notranslate"><span class="pre">xslocobot_nav_sim.launch</span></code> has been provided. To use it, enter the command
+below, along with any of the other args mentioned above that would be relevant
+to your application. Once Gazebo loads, unpause the physics, and start your
+navigation and mapping application.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav_sim.launch robot_model:<span class="o">=</span>locobot_wx200 dof:<span class="o">=</span><span class="m">5</span> use_lidar:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">dof</span></code> command must be specified in order to load the proper position controllers.</p>
+</div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<div class="section" id="time-out-waiting-for-transform">
+<h3>Time out waiting for transform…<a class="headerlink" href="#time-out-waiting-for-transform" title="Permalink to this headline"></a></h3>
+<p>When starting the Nav Stack (either when continuing a map or just doing
+localization) on your robot, you may see some warnings appear in the terminal.
+For example…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Timed out waiting for transform from locobot_wx200/base_footprint to map to become available before running costmap, tf error: canTransform: target_frame map does not exist.. canTransform returned after 0.100567 timeout was 0.1</span>
+</pre></div>
+</div>
+<p>The reason this appears is because no map is being supplied to the navigation
+stack. The reason for that is because it takes Rtabmap a few seconds to generate
+the map from its database (which could be hundreds of megabytes). As such, this
+warning can be safely ignored assuming it stops once Rtabmap gets the map out.</p>
+</div>
+<div class="section" id="rejected-loop-closure">
+<h3>Rejected Loop Closure<a class="headerlink" href="#rejected-loop-closure" title="Permalink to this headline"></a></h3>
+<p>When starting the Nav stack or during mapping, you may see the following warning
+appear (or similar) in the terminal…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Rtabmap.cpp:2533::process() Rejected loop closure 694 -&gt; 773: Not enough inliers 0/20 (matches=0) between 694 and 772</span>
+</pre></div>
+</div>
+<p>Similar to the first warning, this can be ignored if it only shows up a few
+times at node startup. It just means that Rtabmap has failed to determine where
+the robot is in the map. If you’re mapping too quickly, this warning can also
+appear, so slow down a bit.</p>
+</div>
+</div>
+<div class="section" id="video-tutorials">
+<h2>Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permalink to this headline"></a></h2>
+<div class="section" id="slam-ing-on-the-locobot">
+<h3>SLAM’ing on the LoCoBot<a class="headerlink" href="#slam-ing-on-the-locobot" title="Permalink to this headline"></a></h3>
+<div class="video_wrapper align-center" style="padding-bottom: 22.500000%; padding-top: 30px; position: relative; text-align: center; width: 40%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/QpSxw0tvfIo" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="in-depth-look-at-the-locobot-navigation-stack">
+<h3>In-Depth Look at the LoCoBot Navigation Stack<a class="headerlink" href="#in-depth-look-at-the-locobot-navigation-stack" title="Permalink to this headline"></a></h3>
+<div class="video_wrapper align-center" style="padding-bottom: 22.500000%; padding-top: 30px; position: relative; text-align: center; width: 40%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/hj9XsCkooEk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="perception_pipeline_configuration.html" class="btn btn-neutral float-left" title="Perception Pipeline Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="moveit_interface_and_api.html" class="btn btn-neutral float-right" title="MoveIt Interface and API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

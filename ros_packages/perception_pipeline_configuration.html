@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perception Pipeline Configuration &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.webp"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Navigation Stack Configuration" href="navigation_stack_configuration.html" />
+    <link rel="prev" title="MoveIt Motion Planning Configuration" href="moveit_motion_planning_configuration.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface/index.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Open Source Packages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="locobot_descriptions.html">LoCoBot Descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locobot_control.html">LoCoBot Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gazebo_simulation_configuration.html">Gazebo Simulation Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS Controllers Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_motion_planning_configuration.html">MoveIt Motion Planning Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Perception Pipeline Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#armtag-calibration">ArmTag Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pointcloud-filter-tuning">PointCloud Filter Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Pick and Place Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#armtag-issues">ArmTag Issues</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#could-not-find-ar-tag-returning-a-zero-pose">Could not find AR Tag. Returning a ‘zero’ Pose…</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pointcloud-filter-tuning-issues">PointCloud Filter Tuning Issues</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#incomplete-bulk-usb-transfer">Incomplete bulk usb transfer!</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#no-stream-match-for-pointcloud-chosen-texture-process-color">No stream match for pointcloud chosen texture Process - Color</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#no-clusters-found">No clusters found…</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#found-x-clusters-instead-of-y-clusters">Found ‘x’ clusters instead of ‘y’ clusters…</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#could-not-match-the-cluster-please-tune-the-filter-parameters-such-that-all-spherical-object-markers-are-constant-in-their-respective-clusters-and-do-not-flicker">Could not match the cluster. Please tune the filter parameters such that all spherical ‘object markers’ are constant in their respective clusters and do not flicker</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#video-tutorials">Video Tutorials</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#perception-pipeline-tuning">Perception Pipeline Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-perception">Python Perception</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="navigation_stack_configuration.html">Navigation Stack Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_interface_and_api.html">MoveIt Interface and API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_demos.html">Python Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joystick_control.html">Joystick Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="landmark_based_navigation.html">Landmark-Based Navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">ROS Open Source Packages</a></li>
+      <li class="breadcrumb-item active">Perception Pipeline Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros_packages/perception_pipeline_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="perception-pipeline-configuration">
+<h1>Perception Pipeline Configuration<a class="headerlink" href="#perception-pipeline-configuration" title="Permalink to this headline"></a></h1>
+<a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception"
+    class="docs-view-on-github-button"
+    target="_blank">
+    <img src="../_static/GitHub-Mark-Light-32px.png"
+        class="docs-view-on-github-button-gh-logo">
+    View Package on GitHub
+</a><div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>This package contains the necessary config and launch files to get any of the
+Interbotix X-Series LoCoBot arms working with the <a class="reference external" href="https://industrial-training-master.readthedocs.io/en/melodic/_source/session5/Building-a-Perception-Pipeline.html" rel="noopener noreferrer" target="_blank">perception pipeline</a>. The
+end result allows for an arm to pick up any small, non-reflective object from a
+tabletop-type surface that is within a RealSense color/depth camera’s field of
+view. While any Intel RealSense color/depth camera can be used, this package was
+mainly tested with the <a class="reference external" href="https://www.intelrealsense.com/depth-camera-d435/" rel="noopener noreferrer" target="_blank">D435</a> camera. See more details on how the pipeline
+works in the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_toolboxes/tree/main/interbotix_perception_toolbox/interbotix_perception_modules" rel="noopener noreferrer" target="_blank">interbotix_perception_modules</a> ROS package.</p>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
+<img alt="../_images/xslocobot_perception_flowchart.png" class="align-center" src="../_images/xslocobot_perception_flowchart.png" />
+<p>As shown above, this package builds on top of the <cite>interbotix_xslocobot_control</cite>
+and <cite>interbotix_perception_modules</cite> packages. To get familiar with those
+packages, please refer to their respective READMEs.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<p>To work with this package, place some small, non-reflective objects on the floor
+near the Kobuki base such that they are clearly visible to the camera (when it’s
+pointed down) and are reachable by the arm. The objects should be small enough
+such that they can easily fit between the gripper fingers on the robot arm no
+matter the gripper’s orientation. They can not be too reflective though as that
+will interfere with the depth camera’s ability to locate them (as it uses
+infrared light). Similarly, the workspace should not be in direct sunlight as
+that also interferes with the camera’s depth sensing abilities. Otherwise, the
+small objects can be arbitrarily placed. For the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts/pick_place_no_armtag.py" rel="noopener noreferrer" target="_blank">pick and place demo</a>, you
+should setup your workspace area as shown below.</p>
+<img alt="../_images/pick_place_demo_setup.png" class="align-center" src="../_images/pick_place_demo_setup.png" style="width: 70%;" />
+<p>Now with a standalone arm, two things would normally have to be done. First, the
+camera would need to know where the arm is relative to itself. Second, the
+pointcloud filter parameters would have to be tuned to ‘register’ the objects
+being picked up. However, since the arm and camera in this case are part of the
+same robot, this transform is already known from the URDF. So there really is no
+need to use the AR tag on the arm to figure out this transform. The tag is
+mainly there so that if you decide to remove the arm from the LoCoBot for some
+other project, you can still use the perception pipeline.</p>
+<p>That said, in case the URDF of the robot platform is not accurate enough for
+you, the <a class="reference internal" href="#apriltag-ros">apriltag_ros</a> ROS package can be used to find the transform of the
+AprilTag on the arm’s end-effector (looks like a smiley face) relative to the
+camera’s color optical frame. Following this, the transform from the
+<cite>base_link</cite> frame to the <cite>plate_link</cite> frame can be calculated and published as
+a static transform such that the <cite>ar_tag_link</cite> frame of the arm matches the
+position of where the camera thinks the AprilTag is located.</p>
+<p id="apriltag-ros">To get that transform, run the following launch command in a terminal (assuming
+a LoCoBot WidowX 200 arm is being used)…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_perception xslocobot_perception.launch robot_model:<span class="o">=</span>locobot_wx200 use_armtag_tuner_gui:<span class="o">=</span><span class="nb">true</span> use_pointcloud_tuner_gui:<span class="o">=</span><span class="nb">true</span> use_armtag:<span class="o">=</span><span class="nb">true</span> use_static_transform_pub:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you don’t want to calibrate using the AR tag, then only set the
+<code class="docutils literal notranslate"><span class="pre">robot_model</span></code> and <code class="docutils literal notranslate"><span class="pre">use_pointcloud_tuner_gui</span></code> parameters. Afterwards,
+skip to the <a class="reference internal" href="#pointcloud-filter-tuning">PointCloud Filter Tuning</a> section below.</p>
+</div>
+<div class="section" id="armtag-calibration">
+<h3>ArmTag Calibration<a class="headerlink" href="#armtag-calibration" title="Permalink to this headline"></a></h3>
+<p>RViz should pop up along with two standalone GUIs. One of those GUIs will look
+like the picture below.</p>
+<img alt="../_images/armtag_tuner_gui.png" class="align-center" src="../_images/armtag_tuner_gui.png" />
+<p>Depending on how you setup your arm and camera in your workspace, the AprilTag
+on the arm may not be visible to the camera. To make it visible, first torque
+off all the arm joints by opening a terminal and typing…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice call /locobot/torque_enable <span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;arm&#39;, enable: false}&quot;</span>
+</pre></div>
+</div>
+<p>Next, manually manipulate the arm such that the AprilTag is clearly visible to
+the camera (the live video stream in the bottom left of the RViz display should
+help with that). Then in the same terminal as before, torque the arm back on as
+follows…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice call /locobot/torque_enable <span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;arm&#39;, enable: true}&quot;</span>
+</pre></div>
+</div>
+<p>Now, in the ArmTag Tuner GUI, click the <strong>Snap Pose</strong> button. Feel free to
+toggle up/down the number of snapshots that should be taken. The poses
+calculated from the snapshots will then be averaged to come up with a more
+accurate pose of where the arm is relative to the camera. One way to check the
+accuracy of the calculated pose is to toggle the <strong>RawPointCloud</strong> display in
+RViz. Hopefully, the pointcloud version of the AprilTag should be located on
+(possibly a couple millimeters below) the AR tag link of the virtual robot
+model. If it’s not, feel free to keep pressing the <strong>Snap Pose</strong> button until
+it looks alright. As an FYI, from experience, it seems the camera thinks the
+arm should really be 2-3 mm offset along the plate_link’s X and Y axes.
+However, this could just be due to how the Apriltag is placed on the arm.
+It also thinks the plate_link should be offset upwards on its Z axis by just
+over 4 mm.</p>
+</div>
+<div class="section" id="pointcloud-filter-tuning">
+<span id="pointcloud-filter-tuning-label"></span><h3>PointCloud Filter Tuning<a class="headerlink" href="#pointcloud-filter-tuning" title="Permalink to this headline"></a></h3>
+<p>At this point, you should see a pointcloud version of your workspace with the
+objects on it. If your arm is in the way, just torque it off and move it to its
+Sleep pose (make sure to hold the arm before torquing it off). Then, using the
+<strong>PointCloud Tuner GUI</strong>, tune the pointcloud parameters for your specific use
+case. <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_toolboxes/tree/main/interbotix_perception_toolbox/interbotix_perception_modules" rel="noopener noreferrer" target="_blank">Here is a detailed explanation</a> of how to go about doing this. Don’t
+forget to save your configs after tuning them!</p>
+</div>
+<div class="section" id="id1">
+<h3>Pick and Place Demo<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p>Now, you are almost ready to run the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts/pick_place_no_armtag.py" rel="noopener noreferrer" target="_blank">python demo script</a>. First make sure to
+edit the robot model name in the script to your robot model (if it’s not
+<code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code>). Then navigate to the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts/pick_place_no_armtag.py" rel="noopener noreferrer" target="_blank">pick_place_no_armtag.py</a> script and
+execute it.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python pick_place_no_armtag.py    <span class="c1"># python3 pick_place_no_armtag.py if using ROS Noetic</span>
+</pre></div>
+</div>
+<p>While running the script, you should see a TF marker appear close to the top of
+each object’s cluster (see the image below for clarification). This is where the
+camera believes the top of each cluster to be, and is the position returned to
+the user from the <code class="docutils literal notranslate"><span class="pre">get_cluster_positions</span></code> function. These TFs are temporary
+and will fade from RViz after a minute is up. The arm will then line up its
+<code class="docutils literal notranslate"><span class="pre">ee_gripper_link</span></code> to be in the same spot as each of these cluster positions
+and hopefully pick up the objects.</p>
+<img alt="../_images/object_cluster_tf.png" class="align-center" src="../_images/object_cluster_tf.png" style="width: 70%;" />
+<p>After running the demo, <strong>Ctrl-C</strong> from the launch file. The <cite>base_link</cite> to
+<cite>plate_link</cite> transform will automatically be saved in a file called
+‘static_transforms.yaml’ in the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/config" rel="noopener noreferrer" target="_blank">config</a> directory (if you decided to go
+through the AR tag calibration). Now, you can run the demo script headless -
+first by typing…</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_perception xslocobot_perception.launch robot_model:<span class="o">=</span>locobot_wx200 use_rviz:<span class="o">=</span><span class="nb">false</span> use_static_transform_pub:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>Then heading over to the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts" rel="noopener noreferrer" target="_blank">scripts</a> directory and running the
+<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts/pick_place_no_armtag.py" rel="noopener noreferrer" target="_blank">pick_place_no_armtag.py</a> script. Note that you can leave the
+<code class="docutils literal notranslate"><span class="pre">use_static_transform_pub</span></code> argument above to its default value (<code class="docutils literal notranslate"><span class="pre">false</span></code>) if
+you did not do the AR tag calibration.</p>
+<p>For more info, check out the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_toolboxes/tree/main/interbotix_perception_toolbox/interbotix_perception_modules/src/interbotix_perception_modules/armtag.py" rel="noopener noreferrer" target="_blank">Armtag</a> or <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_toolboxes/tree/main/interbotix_perception_toolbox/interbotix_perception_modules/src/interbotix_perception_modules/pointcloud.py" rel="noopener noreferrer" target="_blank">Pointcloud</a> Python APIs to
+reference the fully documented functions.</p>
+<p>Other launch file arguments for further customization can be seen below…</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Description</th>
+<th class="head">Default Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>robot_model</td>
+<td>model type of the Interbotix Locobot such as ‘locobot_px100’ or ‘locobot_wx250s’</td>
+<td>“”</td>
+</tr>
+<tr class="row-odd"><td>robot_name</td>
+<td>name of the robot (could be anything but defaults to ‘locobot’)</td>
+<td>“locobot”</td>
+</tr>
+<tr class="row-even"><td>external_urdf_loc</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot’s urdf.xacro file</td>
+<td>“”</td>
+</tr>
+<tr class="row-odd"><td>use_rviz</td>
+<td>launches RViz; if you are SSH’d into the robot, DON’T set this to true</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>rviz_frame</td>
+<td>fixed frame in RViz; this should be changed to&nbsp;map&nbsp;or&nbsp;<code class="docutils literal notranslate"><span class="pre">&lt;robot_name&gt;/odom</span></code>&nbsp;if mapping or using local odometry respectively</td>
+<td>$(arg robot_name)/base_footprint</td>
+</tr>
+<tr class="row-odd"><td>load_configs</td>
+<td>a boolean that specifies whether or not the initial register values (under the ‘motors’ heading) in a Motor Config file should be written to the motors; as the values being written are stored in each motor’s EEPROM (which means the values are retained even after a power cycle), this can be set to false after the first time using the robot. Setting to false also shortens the node startup time by a few seconds and preserves the life of the EEPROM</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>filters</td>
+<td>types of RealSense camera filters to use (in this case, the ‘pointcloud’ filter is needed)</td>
+<td>pointcloud</td>
+</tr>
+<tr class="row-odd"><td>color_fps</td>
+<td>frame rate of the color images taken on the RealSense camera</td>
+<td>30</td>
+</tr>
+<tr class="row-even"><td>depth_fps</td>
+<td>frame rate of the depth images taken on the RealSense camera</td>
+<td>30</td>
+</tr>
+<tr class="row-odd"><td>color_width</td>
+<td>horizontal resolution of the color images taken on the RealSense camera</td>
+<td>640</td>
+</tr>
+<tr class="row-even"><td>color_height</td>
+<td>vertical resolution of the color images taken on the RealSense camera</td>
+<td>480</td>
+</tr>
+<tr class="row-odd"><td>launch_driver</td>
+<td>true if the&nbsp;<cite>xslocobot_control.launch</cite>&nbsp;file should be launched - set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you would like to run your own version of this file separately</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>filter_ns</td>
+<td>name-space where the pointcloud related nodes and parameters are located</td>
+<td>$(arg robot_name)/pc_filter</td>
+</tr>
+<tr class="row-odd"><td>filter_params</td>
+<td>file location of the parameters used to tune the perception pipeline filters</td>
+<td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/launch/xslocobot_perception.launch" rel="noopener noreferrer" target="_blank">xslocobot_perception.launch</a></td>
+</tr>
+<tr class="row-even"><td>use_pointcloud_tuner_gui</td>
+<td>whether to show a GUI that a user can use to tune filter parameters</td>
+<td>false</td>
+</tr>
+<tr class="row-odd"><td>enable_pipeline</td>
+<td>whether to enable the perception pipeline filters to run continuously; to save computer processing power, this should be set to False unless you are actively trying to tune the filter parameters; if False, the pipeline will only run if the&nbsp;<code class="docutils literal notranslate"><span class="pre">get_cluster_positions</span></code>&nbsp;ROS service is called</td>
+<td>$(arg use_pointcloud_tuner_gui)</td>
+</tr>
+<tr class="row-even"><td>cloud_topic</td>
+<td>the absolute ROS topic name to subscribe to raw pointcloud data</td>
+<td>/$(arg robot_name)/camera/depth/color/points</td>
+</tr>
+<tr class="row-odd"><td>use_armtag</td>
+<td>whether or not to use the AprilTag on the arm to get the camera to arm pose; it’s not really necessary since this is already defined in the URDF; but using the AprilTag&nbsp;may&nbsp;give more accurate results</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>tag_family</td>
+<td>family to which the AprilTag belongs</td>
+<td>tagStandard41h12</td>
+</tr>
+<tr class="row-odd"><td>standalone_tags</td>
+<td>individual AprilTags the algorithm should be looking for</td>
+<td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/launch/xslocobot_perception.launch" rel="noopener noreferrer" target="_blank">xslocobot_perception.launch</a></td>
+</tr>
+<tr class="row-even"><td>camera_frame</td>
+<td>the camera frame in which the AprilTag will be detected</td>
+<td>$(arg robot_name)/camera_color_optical_frame</td>
+</tr>
+<tr class="row-odd"><td>apriltag_ns</td>
+<td>name-space where the AprilTag related nodes and parameters are located</td>
+<td>$(arg robot_name)/apriltag</td>
+</tr>
+<tr class="row-even"><td>camera_color_topic</td>
+<td>the absolute ROS topic name to subscribe to color images</td>
+<td>$(arg robot_name)/camera/color/image_raw</td>
+</tr>
+<tr class="row-odd"><td>camera_info_topic</td>
+<td>the absolute ROS topic name to subscribe to the camera color info</td>
+<td>$(arg robot_name)/camera/color/camera_info</td>
+</tr>
+<tr class="row-even"><td>armtag_ns</td>
+<td>name-space where the Armtag related nodes and parameters are located</td>
+<td>$(arg robot_name)/armtag</td>
+</tr>
+<tr class="row-odd"><td>ref_frame</td>
+<td>the reference frame that the armtag node should use when publishing a static transform for where the arm is relative to the camera</td>
+<td>$(arg robot_name)/base_link</td>
+</tr>
+<tr class="row-even"><td>arm_base_frame</td>
+<td>the child frame that the armtag node should use when publishing a static transform for where the arm is relative to the camera</td>
+<td>$(arg robot_name)/plate_link</td>
+</tr>
+<tr class="row-odd"><td>arm_tag_frame</td>
+<td>name of the frame on the arm where the AprilTag is located (defined in the URDF usually)</td>
+<td>$(arg robot_name)/ar_tag_link</td>
+</tr>
+<tr class="row-even"><td>use_armtag_tuner_gui</td>
+<td>whether to show a GUI that a user can use to publish the ‘ref_frame’ to ‘arm_base_frame’ transform</td>
+<td>false</td>
+</tr>
+<tr class="row-odd"><td>position_only</td>
+<td>whether only the position component of the detected AprilTag pose should be used when calculating the ‘ref_frame’ to ‘arm_base_frame’ transform; this should only be set to true if a tf chain already exists connecting the camera and arm base_link frame, and you just want to use the AprilTag to refine the pose further</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>use_static_transform_pub</td>
+<td>this should be set to true if using the AprilTag on the arm, or if you’d like to load the ‘ref_frame’ to ‘arm_base_frame’ transform from the static_transforms.yaml file</td>
+<td>false</td>
+</tr>
+<tr class="row-odd"><td>load_transforms</td>
+<td>whether or not the&nbsp;<strong>static_trans_pub</strong>&nbsp;node should publish any poses stored in the static_transforms.yaml file at startup; this should only be set to false if a tf chain already exists connecting the camera and arm base_link frame (usually defined in a URDF), and you’d rather use that tf chain as opposed to the one specified in the static_transforms.yaml file</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>transform_filepath</td>
+<td>filepath to the static_transforms.yaml file used by the&nbsp;<strong>static_trans_pub</strong>&nbsp;node; if the file does not exist yet, this is where you’d like the file to be generated</td>
+<td>refer to&nbsp;xslocobot_perception.launch</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<p>Below are some common error messages, warnings, or issues you might see, and how
+to go about fixing them.</p>
+<div class="section" id="armtag-issues">
+<h3>ArmTag Issues<a class="headerlink" href="#armtag-issues" title="Permalink to this headline"></a></h3>
+<div class="section" id="could-not-find-ar-tag-returning-a-zero-pose">
+<h4>Could not find AR Tag. Returning a ‘zero’ Pose…<a class="headerlink" href="#could-not-find-ar-tag-returning-a-zero-pose" title="Permalink to this headline"></a></h4>
+<p>This warning occurs if the camera cannot see the AprilTag or if the wrong
+AprilTag is present. To fix, make sure that the AprilTag is clearly visible to
+the camera when you try to ‘snap’ its pose.</p>
+</div>
+</div>
+<div class="section" id="pointcloud-filter-tuning-issues">
+<h3>PointCloud Filter Tuning Issues<a class="headerlink" href="#pointcloud-filter-tuning-issues" title="Permalink to this headline"></a></h3>
+<div class="section" id="incomplete-bulk-usb-transfer">
+<h4>Incomplete bulk usb transfer!<a class="headerlink" href="#incomplete-bulk-usb-transfer" title="Permalink to this headline"></a></h4>
+<p>This is just a onetime error message that appears at launch when using the
+RealSense depth camera camera. It’s nothing to be worried about and can be
+safely ignored.</p>
+</div>
+<div class="section" id="no-stream-match-for-pointcloud-chosen-texture-process-color">
+<h4>No stream match for pointcloud chosen texture Process - Color<a class="headerlink" href="#no-stream-match-for-pointcloud-chosen-texture-process-color" title="Permalink to this headline"></a></h4>
+<p>This is a warning that can appear occasionally (once every 5 minutes or so) when
+using a RealSense camera. It just means that a frame was dropped during serial
+communication, but it’s nothing to worry about and can be safely ignored.</p>
+</div>
+<div class="section" id="no-clusters-found">
+<h4>No clusters found…<a class="headerlink" href="#no-clusters-found" title="Permalink to this headline"></a></h4>
+<p>This warning is outputted by the <code class="docutils literal notranslate"><span class="pre">get_cluster_positions</span></code> function in the
+InterbotixPointCloudInterface module if the algorithm could not find any
+clusters. Verify that you have non-reflective objects within the field of view
+of the camera and that the CropBox filter is not cutting them out. To check
+this, toggle on the ‘FilteredPointCloud’ display in RViz and see if the
+pointcloud representation of your objects are showing up. If they are, it’s
+possible that you need to lower the minimum cluster size threshold; turn on the
+‘ObjectPointCloud’ and ‘ObjectMarkers’ displays and lower the Min Cluster Size
+parameter until you see small spheres at the centroid of each of your clusters.</p>
+</div>
+<div class="section" id="found-x-clusters-instead-of-y-clusters">
+<h4>Found ‘x’ clusters instead of ‘y’ clusters…<a class="headerlink" href="#found-x-clusters-instead-of-y-clusters" title="Permalink to this headline"></a></h4>
+<p>This warning is outputted by the <code class="docutils literal notranslate"><span class="pre">get_cluster_positions</span></code> function in the
+InterbotixPointCloudInterface module if the algorithm found a different number
+of clusters over ‘num_samples’ iterations (when compared to the first set of
+cluster positions received). Similar to the ‘No clusters found…’ issue, this
+can be resolved by tuning the Min Cluster Size parameter until the spherical
+object markers are steady and not flickering. This issue could also arise if the
+spherical object markers are flickering due to two clusters being very near each
+other (sometimes above or below the Cluster Tolerance threshold). To fix this,
+lower the cluster tolerance threshold or physically move the two objects such
+that they are further away from each other.</p>
+</div>
+<div class="section" id="could-not-match-the-cluster-please-tune-the-filter-parameters-such-that-all-spherical-object-markers-are-constant-in-their-respective-clusters-and-do-not-flicker">
+<h4>Could not match the cluster. Please tune the filter parameters such that all spherical ‘object markers’ are constant in their respective clusters and do not flicker<a class="headerlink" href="#could-not-match-the-cluster-please-tune-the-filter-parameters-such-that-all-spherical-object-markers-are-constant-in-their-respective-clusters-and-do-not-flicker" title="Permalink to this headline"></a></h4>
+<p>Most likely, you’ll never run into this issue; but if you do, the fixes
+suggested in the ‘Found x clusters instead of y clusters…’ issue should
+resolve the problem. The issue essentially means that the detected position of a
+cluster in a later iteration is vastly different than the detected position of
+the cluster in an earlier iteration (over ‘num_samples’ iterations). It could
+arise if the Object Markers are flickering, and it just happens that the same
+number number of clusters are found, but the clusters are in different places.
+If working with an arm on a Locobot, another fix is to give time (half a second
+or so) for the arm to settle before capturing the pointcloud data. This is
+because the motion of the arm can cause the Kobuki base to wobble a bit - making
+the camera move as well.</p>
+</div>
+</div>
+</div>
+<div class="section" id="video-tutorials">
+<h2>Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permalink to this headline"></a></h2>
+<div class="section" id="perception-pipeline-tuning">
+<h3>Perception Pipeline Tuning<a class="headerlink" href="#perception-pipeline-tuning" title="Permalink to this headline"></a></h3>
+<div class="video_wrapper align-center" style="padding-bottom: 22.500000%; padding-top: 30px; position: relative; text-align: center; width: 40%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/UesfMYM4qcc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="python-perception">
+<h3>Python Perception<a class="headerlink" href="#python-perception" title="Permalink to this headline"></a></h3>
+<div class="video_wrapper align-center" style="padding-bottom: 22.500000%; padding-top: 30px; position: relative; text-align: center; width: 40%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/03BZ6PLFOac" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="moveit_motion_planning_configuration.html" class="btn btn-neutral float-left" title="MoveIt Motion Planning Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="navigation_stack_configuration.html" class="btn btn-neutral float-right" title="Navigation Stack Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

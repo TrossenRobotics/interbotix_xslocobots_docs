@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gazebo Simulation Configuration &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.webp"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Controllers Configuration" href="ros_control.html" />
+    <link rel="prev" title="LoCoBot Control" href="locobot_control.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface/index.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Open Source Packages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="locobot_descriptions.html">LoCoBot Descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locobot_control.html">LoCoBot Control</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gazebo Simulation Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS Controllers Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_motion_planning_configuration.html">MoveIt Motion Planning Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception_pipeline_configuration.html">Perception Pipeline Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation_stack_configuration.html">Navigation Stack Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_interface_and_api.html">MoveIt Interface and API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_demos.html">Python Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joystick_control.html">Joystick Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="landmark_based_navigation.html">Landmark-Based Navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">ROS Open Source Packages</a></li>
+      <li class="breadcrumb-item active">Gazebo Simulation Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros_packages/gazebo_simulation_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="gazebo-simulation-configuration">
+<h1>Gazebo Simulation Configuration<a class="headerlink" href="#gazebo-simulation-configuration" title="Permalink to this headline"></a></h1>
+<a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/interbotix_xslocobot_gazebo"
+    class="docs-view-on-github-button"
+    target="_blank">
+    <img src="../_static/GitHub-Mark-Light-32px.png"
+        class="docs-view-on-github-button-gh-logo">
+    View Package on GitHub
+</a><div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>This package contains the necessary config files to get any rover in our
+X-Series Interbotix LoCoBot Family simulated in Gazebo. Specifically, it
+contains the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_gazebo/config/locobot_configs.gazebo" rel="noopener noreferrer" target="_blank">locobot_configs.gazebo</a> file which allows the black texture of
+the robot to display properly (following <a class="reference external" href="http://answers.gazebosim.org/question/16280/how-to-use-custom-textures-on-urdf-models-in-gazebo/" rel="noopener noreferrer" target="_blank">this method</a>) and starts various
+plugins. It also contains YAML files with tuned PID gains for the arm, gripper,
+and pan/tilt joints so that ros_control can control the robot effectively. This
+package can either be used in conjunction with MoveIt via the
+FollowJointTrajectory interface or by itself via the JointPositionController
+interface.</p>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
+<img alt="../_images/xslocobot_gazebo_flowchart.png" class="align-center" src="../_images/xslocobot_gazebo_flowchart.png" />
+<p>As shown above, the <cite>interbotix_xslocobot_gazebo</cite> package builds on top of the
+<cite>interbotix_xslocobot_descriptions</cite> and <cite>gazebo_ros</cite> packages. To get familiar
+with the nodes in the <cite>interbotix_xslocobot_descriptions</cite> package, please look
+at its README. The other nodes are described below:</p>
+<ul class="simple">
+<li><strong>gzserver</strong> - responsible for running the physics update-loop and sensor
+data generation</li>
+<li><strong>gzclient</strong> - provides a nice GUI to visualize the robot simulation</li>
+<li><strong>controller_manager</strong> - responsible for loading and starting a set of
+controllers at once, as well as automatically stopping and unloading those
+same controllers</li>
+<li><strong>spawn_model</strong> - adds the robot model as defined in the ‘robot_description’
+parameter into the Gazebo world</li>
+</ul>
+<p>Note that the arm joints can be sent trajectories from MoveIt as they use the
+<a class="reference external" href="http://wiki.ros.org/joint_trajectory_controller" rel="noopener noreferrer" target="_blank">JointTrajectoryController</a> ros_control interface or positions using the
+<a class="reference external" href="http://wiki.ros.org/ros_control" rel="noopener noreferrer" target="_blank">JointPositionController</a> interface. However, the pan/tilt joints operate via
+the JointPositionController interface only. To control them, publish position
+commands directly to the appropriate topics (ex.
+<code class="docutils literal notranslate"><span class="pre">/&lt;robot_name&gt;/pan_controller/command</span></code> for the ‘pan’ joint).</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<p>To run this package, type the line below in a terminal (assuming the
+locobot_wx250s is being launched with the lidar attached and using trajectory
+controllers for the arm).</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_gazebo xslocobot_gazebo.launch robot_model:<span class="o">=</span>locobot_wx250s show_lidar:<span class="o">=</span><span class="nb">true</span> use_trajectory_controllers:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>Since by default, Gazebo is started in a ‘paused’ state (this is done to give
+time for the controllers to kick in), unpause the physics once it is fully
+loaded by typing:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice call /gazebo/unpause_physics
+</pre></div>
+</div>
+<p>This is the bare minimum needed to get up and running. Take a look at the table
+below to see how to further customize with other launch file arguments.</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Description</th>
+<th class="head">Default Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>robot_model</td>
+<td>model type of the Interbotix Locobot such as ‘locobot_base’ or ‘locobot_wx250s’</td>
+<td>“”</td>
+</tr>
+<tr class="row-odd"><td>robot_name</td>
+<td>name of the robot (could be anything but defaults to ‘locobot’)</td>
+<td>“locobot”</td>
+</tr>
+<tr class="row-even"><td>arm_model</td>
+<td>the Interbotix Arm model on the locobot; this should never be set manually but rather left to its default value</td>
+<td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/xslocobot_description.launch" rel="noopener noreferrer" target="_blank">xslocobot_description.launch</a></td>
+</tr>
+<tr class="row-odd"><td>show_lidar</td>
+<td>if true, the lidar is included in the ‘robot_description’ parameter; only set to true if you purchased a lidar with your locobot</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>show_gripper_bar</td>
+<td>if true, the gripper_bar link is included in the ‘robot_description’ parameter; if false, the gripper_bar and finger links are not loaded to the parameter server. Set to false if you have a custom gripper attachment</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>show_gripper_fingers</td>
+<td>if true, the gripper fingers are included in the ‘robot_description’ parameter; if false, the gripper finger links are not loaded to the parameter server. Set to false if you have custom gripper fingers</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>external_urdf_loc</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot’s urdf.xacro file</td>
+<td>“”</td>
+</tr>
+<tr class="row-odd"><td>use_rviz</td>
+<td>launches RViz; set to false if SSH’d into the physical robot</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>rviz_frame</td>
+<td>fixed frame in RViz; this should be changed to&nbsp;map&nbsp;or&nbsp;&lt;robot_name&gt;/odom&nbsp;if mapping or using local odometry respectively</td>
+<td>$(arg robot_name)/base_footprint</td>
+</tr>
+<tr class="row-odd"><td>world_name</td>
+<td>the file path to the Gazebo ‘world’ file to load</td>
+<td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_gazebo/launch/xslocobot_gazebo.launch" rel="noopener noreferrer" target="_blank">xslocobot_gazebo.launch</a></td>
+</tr>
+<tr class="row-even"><td>gui</td>
+<td>launch the Gazebo GUI; set to false if SSH’d into the physical robot</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>debug</td>
+<td>Start gzserver in debug mode using gdb</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>paused</td>
+<td>start Gazebo in a paused state</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>recording</td>
+<td>enable Gazebo state log recording</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>use_sim_time</td>
+<td>tells ROS nodes asking for time to get the Gazebo-published simulation time, published over the ROS topic&nbsp;/clock</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>use_position_controllers</td>
+<td>set to true to have the ability to command arbitrary positions to the arm joints in Gazebo</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>use_trajectory_controllers</td>
+<td>set to true to have the ability to command joint trajectories to the arm joints in Gazebo</td>
+<td>false</td>
+</tr>
+<tr class="row-odd"><td>dof</td>
+<td>degrees of freedom of the specified arm (only necessary if&nbsp;use_position_controllers&nbsp;is set to true)</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="locobot_control.html" class="btn btn-neutral float-left" title="LoCoBot Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros_control.html" class="btn btn-neutral float-right" title="ROS Controllers Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
