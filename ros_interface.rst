@@ -9,8 +9,8 @@ This section details the ROS Interface for the Interbotix X-Series LoCoBots.
     :hidden:
     :caption: Contents:
 
-    software_setup.rst
-    quickstart.rst
+    ros_interface/software_setup.rst
+    ros_interface/quickstart.rst
 
 ROS 1
 =====
@@ -27,7 +27,7 @@ platforms:
     -   Both Kobuki and Create® 3 versions
 
 To install the Interbotix X-Series LoCoBot packages for any of the distributions above, go to the
-:doc:`ROS 1 Software Setup Guide<./software_setup>`.
+:doc:`ROS 1 Software Setup Guide<ros_interface/software_setup>`.
 
-Once installed, follow the steps in the :doc:`ROS 1 Quickstart Guide<./quickstart>` to get familiar
-with some of the basic features of the X-Series LoCoBot packages.
+Once installed, follow the steps in the :doc:`ROS 1 Quickstart Guide<ros_interface/quickstart>` to
+get familiar with some of the basic features of the X-Series LoCoBot packages.

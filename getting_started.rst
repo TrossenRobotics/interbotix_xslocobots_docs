@@ -10,7 +10,7 @@ section.
     :maxdepth: 2
     :caption: Contents:
 
-    ./hardware.rst
-    ./user_guide.rst
-    ./pairing_controller.rst
-    ./create3_configuration.rst
+    getting_started/hardware.rst
+    getting_started/user_guide.rst
+    getting_started/pairing_controller.rst
+    getting_started/create3_configuration.rst

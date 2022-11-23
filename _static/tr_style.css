@@ -41,7 +41,7 @@ a {
     color: #2980b9;
 }
 
-/* 
+/*
     override table width restrictions
     https://github.com/readthedocs/sphinx_rtd_theme/issues/117#issuecomment-41506687
  */
@@ -57,20 +57,8 @@ a {
     overflow: visible;
 }
 
-/* 
-    Override alternating table colors
-        This is to make single-row tables look better
- */
 
-table.docutils tr.row-odd td {
-    background-color: transparent !important;
-}
-
-table.docutils tr.row-even td {
-    background-color: #f3f6f6 !important;
-}
-
-/* 
+/*
     change default font to Gilmer-Regular
 */
 
@@ -90,7 +78,7 @@ body, .rst-content .toctree-wrapper>p.caption,h1,h2,h3,h4,h5,h6,legend {
     font-family: "Gilmer-Regular" !important;
 }
 
-/* 
+/*
     style the "View Package on GitHub" Buttons
 */
 
@@ -121,7 +109,7 @@ img.docs-view-on-github-button-gh-logo {
     padding-right: 10px;
 }
 
-/* 
+/*
     Change the code highlights style and gp icon
 */
 
@@ -137,4 +125,20 @@ div.highlight {
 .rst-content .toctree-wrapper ul li>ul {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+
+/*
+    Define class that makes table borders invisible (for structuring content)
+*/
+
+div.no-table.container,
+div.no-table.container table,
+div.no-table.container td,
+div.no-table.container th,
+div.no-table.container tr,
+div.no-table.container tbody {
+    border: transparent !important;
+    background-color: transparent !important;
+    text-align: center;
 }

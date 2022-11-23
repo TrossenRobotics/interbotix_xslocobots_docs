@@ -4,8 +4,8 @@ Troubleshooting
 
 This guide walks a user through possible issues that can occur when using an Interbotix LoCoBot and
 how to fix them. If, after following this guide, the issues persists, take a look at the
-`interbotix_ros_rovers bug tracker`_. If you can't find an answer there, feel free to `open your own
-issue`_.
+`interbotix_ros_rovers bug tracker`_. If you can't find an answer there, feel free to `open your
+own issue`_.
 
 .. note::
 

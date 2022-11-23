@@ -12,10 +12,10 @@ This section provides links to each of the X-Series LoCoBots' more detailed spec
 .. toctree::
     :maxdepth: 1
 
-    locobot_base.rst
-    locobot_px100.rst
-    locobot_wx200.rst
-    locobot_wx250s.rst
+    specifications/locobot_base.rst
+    specifications/locobot_px100.rst
+    specifications/locobot_wx200.rst
+    specifications/locobot_wx250s.rst
 
 The rover is powered by an Intel® NUC. An Intel® RealSense™ Depth Camera D435 sits atop an
 independently controlled pan/tilt mechanism (2XL430-W250) at the top of the platform which allows
@@ -32,8 +32,6 @@ API's and other "smart servo" benefits.
 Model Specifications Table
 ==========================
 
-.. TODO have nice-looking table made for this, similar to Dobot graphic
-
 .. list-table::
     :header-rows: 1
 
@@ -46,7 +44,7 @@ Model Specifications Table
       - Span (mm)
       - Repeatability (mm)
       - Working Payload (g)
-    * - :doc:`LoCoBot Base <./locobot_base>`
+    * - :doc:`LoCoBot Base <specifications/locobot_base>`
       - 6.95
       - 63
       - 35
@@ -55,7 +53,7 @@ Model Specifications Table
       - \-
       - \-
       - \-
-    * - :doc:`LoCoBot PincherX-100 <./locobot_px100>`
+    * - :doc:`LoCoBot PincherX-100 <specifications/locobot_px100>`
       - 7.72
       - 63
       - 35
@@ -64,7 +62,7 @@ Model Specifications Table
       - 600
       - 5
       - 50
-    * - :doc:`LoCoBot WidowX-200 <./locobot_wx200>`
+    * - :doc:`LoCoBot WidowX-200 <specifications/locobot_wx200>`
       - 9.45
       - 63
       - 35
@@ -73,7 +71,7 @@ Model Specifications Table
       - 1100
       - 1
       - 200
-    * - :doc:`LoCoBot WidowX-200 6DOF <./locobot_wx250s>`
+    * - :doc:`LoCoBot WidowX-200 6DOF <specifications/locobot_wx250s>`
       - 11.25
       - 63
       - 35
@@ -96,7 +94,7 @@ state of art robotics. With continuous operation in mind, Kobuki provides power 
 external computer as well as additional sensors and actuators. Its highly accurate odometry and
 calibrated gyroscope enables extremely precise navigation.
 
-.. image:: /_images/hardwarekobuki.png
+.. image:: specifications/images/hardwarekobuki.png
   :align: center
 
 See the `Kobuki User Guide`_ for more in-depth information on the platform.
@@ -123,7 +121,7 @@ parameters. The Create® 3 base is configurable via a webserver that can be acce
 You can find more details on the Interbotix-specific configurations on the
 :doc:`Create® 3 Configuration<../getting_started/create3_configuration>` documentation page.
 
-.. image:: /_images/hardwarecreate3.png
+.. image:: specifications/images/hardwarecreate3.png
   :align: center
 
 See the `Create® 3 Docs`_ for more in-depth information on this platform.
@@ -140,7 +138,7 @@ Intel NUC Mini PC
 655, Wifi, Bluetooth 5.0, Gigabit Ethernet, 4k Support, Card Reader, Dual monitor Capable, HDMI,
 USB, Thunderbolt 3, Ubuntu 20.04.
 
-.. image:: /_images/hardwarenuc.png
+.. image:: specifications/images/hardwarenuc.png
   :align: center
 
 .. _specifications-realsense-label:
@@ -154,7 +152,7 @@ developers, makers, and innovators looking to bring depth sensing to devices, In
 D400 series cameras offer simple out of the box integration and enable a whole new generation of
 intelligent vision equipped devices.
 
-.. image:: /_images/hardwared435.png
+.. image:: specifications/images/hardwared435.png
   :align: center
 
 See the :download:`RealSense D400 Series Datasheet
@@ -172,7 +170,7 @@ in motion or stationary. The 2XL series adopts new features that allow 360 degre
 with its contactless magnetic encoder and hollow back case assembly structure and Metal gear
 (Powder Metallurgy) is used for high durability.
 
-.. image:: /_images/hardwarepantiltservo.png
+.. image:: specifications/images/hardwarepantiltservo.png
   :align: center
 
 See the `DYNAMIXEL 2XL e-Manual`_ for more information.
@@ -189,7 +187,7 @@ durable. The T-Slot aluminum bars have channels used to connect other bars, part
 mounting points for additions to the LoCoBot. Standard 20x20 post assembly T-Slot nuts can be used
 for easy customization of the platform.
 
-.. image:: /_images/hardwarealuminium.png
+.. image:: specifications/images/hardwarealuminium.png
   :align: center
 
 .. _specifications-rplidar-label:
@@ -202,7 +200,7 @@ laser ranging per second thanks to its high rotation speed. The on-board system 
 scans within a range of 12 meters (18m with a bit of firmware adjustment). Additionally, the
 generated 2D point cloud data can be used in mapping, localization and object/environment modeling.
 
-.. image:: /_images/rplidara2.png
+.. image:: specifications/images/hardwarerplidara2.png
   :align: center
 
 See the :download:`RPLIDAR A2M8 Datasheet
@@ -219,7 +217,7 @@ The MAXOAK K2 Power Bank is designed to power laptop computers for long duration
 has multiple outputs including 20V 5A and 12V 2.5A barrel jacks, two 5V 2.1A USB-A ports, and two
 5V 1A USB-A ports.
 
-.. image:: /_images/powerbank.png
+.. image:: specifications/images/hardwarepowerbank.png
   :align: center
 
 See the `MAXOAK K2's store page`_ for more information.

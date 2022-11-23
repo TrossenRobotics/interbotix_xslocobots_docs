@@ -2,17 +2,19 @@
 LoCoBot WidowX-200
 ==================
 
-.. list-table::
-    :header-rows: 1
-    :align: center
+.. container:: no-table
 
-    * - LoCoBot WidowX-200 (Kobuki)
-      - LoCoBot WidowX-200 (Create® 3)
-    * - .. image:: /_images/locobotwx200k.png
-            :align: center
-      - .. image:: /_images/locobotwx200c.png
-            :width: 90%
-            :align: center
+    .. list-table::
+        :header-rows: 1
+        :align: center
+
+        * - LoCoBot WidowX-200 (Kobuki)
+          - LoCoBot WidowX-200 (Create® 3)
+        * - .. image:: images/locobotwx200k.png
+                :align: center
+          - .. image:: images/locobotwx200c.png
+                :width: 90%
+                :align: center
 
 Default Servo Configurations
 ----------------------------
@@ -26,7 +28,7 @@ Default Servo Configurations
 Drawings
 --------
 
-.. image:: /_images/locobotwx200_drawing.png
+.. image:: images/locobotwx200_drawing.png
 
 .. _specifications-wx200-label:
 

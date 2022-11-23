@@ -2,17 +2,19 @@
 LoCoBot Base
 ============
 
-.. list-table::
-    :header-rows: 1
-    :align: center
+.. container:: no-table
 
-    * - LoCoBot Base (Kobuki)
-      - LoCoBot Base (Create® 3)
-    * - .. image:: /_images/locobotbasek.png
-            :align: center
-      - .. image:: /_images/locobotbasec.png
-            :width: 80%
-            :align: center
+  .. list-table::
+      :header-rows: 1
+      :align: center
+
+      * - LoCoBot Base (Kobuki)
+        - LoCoBot Base (Create® 3)
+      * - .. image:: images/locobotbasek.png
+              :align: center
+        - .. image:: images/locobotbasec.png
+              :width: 80%
+              :align: center
 
 Default Servo Configurations
 ----------------------------
@@ -26,4 +28,4 @@ Default Servo Configurations
 Drawings
 --------
 
-.. image:: /_images/locobotbase_drawing.png
+.. image:: images/locobotbase_drawing.png
