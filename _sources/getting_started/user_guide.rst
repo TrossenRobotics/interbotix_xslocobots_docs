@@ -388,7 +388,7 @@ communication between the two machines.
 .. note::
 
     If you run into any ROS network related issue, see our :doc:`Troubleshooting
-    Guide<../troubleshooting/index>` for potential solutions.
+    Guide<../troubleshooting>` for potential solutions.
 
 Remote Development
 ==================
@@ -472,8 +472,8 @@ VSCode Remote Development
 4.  Your instance of VSCode is now attached to the LoCoBot and is open to your development
     workspace.
 
-5.  You can open terminals in VSCode by pressing **Ctrl-Shift-`** or by using **Terminal > New
-    Terminal**.
+5.  You can open terminals in VSCode by pressing :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`\`` or by using
+    **Terminal > New Terminal**.
 
 .. note::
 

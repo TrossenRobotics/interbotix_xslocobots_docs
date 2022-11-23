@@ -2,18 +2,19 @@
 LoCoBot WidowX-250 6 DOF
 ========================
 
+.. container:: no-table
 
-.. list-table::
-    :header-rows: 1
-    :align: center
+    .. list-table::
+        :header-rows: 1
+        :align: center
 
-    * - LoCoBot WidowX-250 6 DOF (Kobuki)
-      - LoCoBot WidowX-250 6 DOF (Create® 3)
-    * - .. image:: /_images/locobotwx250sk.png
-            :align: center
-      - .. image:: /_images/locobotwx250sc.png
-            :width: 90%
-            :align: center
+        * - LoCoBot WidowX-250 6 DOF (Kobuki)
+          - LoCoBot WidowX-250 6 DOF (Create® 3)
+        * - .. image:: images/locobotwx250sk.png
+                :align: center
+          - .. image:: images/locobotwx250sc.png
+                :width: 90%
+                :align: center
 
 Default Servo Configurations
 ----------------------------
@@ -27,7 +28,7 @@ Default Servo Configurations
 Drawings
 --------
 
-.. image:: /_images/locobotwx250s_drawing.png
+.. image:: images/locobotwx250s_drawing.png
 
 .. _specifications-wx250s-label:
 

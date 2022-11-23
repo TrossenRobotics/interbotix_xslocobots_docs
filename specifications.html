@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specifications &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LoCoBot Base" href="specifications/locobot_base.html" />
+    <link rel="prev" title="Interbotix X-Series LoCoBots" href="index.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html">
+            <img src="_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#in-depth-specifications">In-Depth Specifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="specifications/locobot_base.html">LoCoBot Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specifications/locobot_px100.html">LoCoBot PincherX-100</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specifications/locobot_wx200.html">LoCoBot WidowX-200</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specifications/locobot_wx250s.html">LoCoBot WidowX-250 6 DOF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-specifications-table">Model Specifications Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kobuki-ymr-k01-w1">Kobuki YMR-K01-W1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-3">Create® 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intel-nuc-mini-pc">Intel NUC Mini PC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intel-realsense-depth-camera-d435">Intel® RealSense™ Depth Camera D435</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pan-tilt">Pan &amp; Tilt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aluminum-construction">Aluminum Construction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rplidar-a2m8-360-laser-range-scanner-optional">RPLIDAR A2M8 360° Laser Range Scanner (Optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maxoak-k2-50-000mah-power-bank">MAXOAK K2 50,000mAh Power Bank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_interface.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_interface.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros1_packages.html">ROS 1 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Specifications</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/specifications.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="specifications">
+<h1>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline"></a></h1>
+<p>This section details the technical specifications of Interbotix X-Series LoCoBots.</p>
+<div class="section" id="in-depth-specifications">
+<h2>In-Depth Specifications<a class="headerlink" href="#in-depth-specifications" title="Permalink to this headline"></a></h2>
+<p>This section provides links to each of the X-Series LoCoBots’ more detailed specifications.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="specifications/locobot_base.html">LoCoBot Base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/locobot_px100.html">LoCoBot PincherX-100</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/locobot_wx200.html">LoCoBot WidowX-200</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/locobot_wx250s.html">LoCoBot WidowX-250 6 DOF</a></li>
+</ul>
+</div>
+<p>The rover is powered by an Intel® NUC. An Intel® RealSense™ Depth Camera D435 sits atop an
+independently controlled pan/tilt mechanism (2XL430-W250) at the top of the platform which allows
+mapping and scanning. The (optional) 360 degree LIDAR can further improve both mapping and scanning
+for more advanced projects. Older versions of the robot are built on the Yujin Robot iClebo Kobuki
+Base (YMR-K01-W1). Newer versions of the robot are built on the iRobot® Create® 3 mobile robotics
+platform.</p>
+<p>There are 3 different robot arms that can be added to the LoCoBot platform, offering 4, 5 and 6
+degree of freedom options. All of the arms are based off of the X-Series servos from Robotis Co.,
+specifically the XM430-W350 and XL430-W250 which offer easy hardware setup, available software
+API’s and other “smart servo” benefits.</p>
+</div>
+<div class="section" id="model-specifications-table">
+<h2>Model Specifications Table<a class="headerlink" href="#model-specifications-table" title="Permalink to this headline"></a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">Total Weight (kg)</th>
+<th class="head">Height (mm)</th>
+<th class="head">Width (mm)</th>
+<th class="head">Degrees of Freedom</th>
+<th class="head">Reach (mm)</th>
+<th class="head">Span (mm)</th>
+<th class="head">Repeatability (mm)</th>
+<th class="head">Working Payload (g)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="specifications/locobot_base.html"><span class="doc">LoCoBot Base</span></a></td>
+<td>6.95</td>
+<td>63</td>
+<td>35</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="specifications/locobot_px100.html"><span class="doc">LoCoBot PincherX-100</span></a></td>
+<td>7.72</td>
+<td>63</td>
+<td>35</td>
+<td>4</td>
+<td>300</td>
+<td>600</td>
+<td>5</td>
+<td>50</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="specifications/locobot_wx200.html"><span class="doc">LoCoBot WidowX-200</span></a></td>
+<td>9.45</td>
+<td>63</td>
+<td>35</td>
+<td>5</td>
+<td>550</td>
+<td>1100</td>
+<td>1</td>
+<td>200</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="specifications/locobot_wx250s.html"><span class="doc">LoCoBot WidowX-200 6DOF</span></a></td>
+<td>11.25</td>
+<td>63</td>
+<td>35</td>
+<td>6</td>
+<td>750</td>
+<td>1500</td>
+<td>1</td>
+<td>750</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline"></a></h2>
+<div class="section" id="kobuki-ymr-k01-w1">
+<span id="specifications-kobuki-label"></span><h3>Kobuki YMR-K01-W1<a class="headerlink" href="#kobuki-ymr-k01-w1" title="Permalink to this headline"></a></h3>
+<p>The <a class="reference external" href="http://kobuki.yujinrobot.com/about2/" rel="noopener noreferrer" target="_blank">Kobuki</a> platform is a low-cost mobile research base designed for education and research on
+state of art robotics. With continuous operation in mind, Kobuki provides power supplies for an
+external computer as well as additional sensors and actuators. Its highly accurate odometry and
+calibrated gyroscope enables extremely precise navigation.</p>
+<img alt="_images/hardwarekobuki.png" class="align-center" src="_images/hardwarekobuki.png" />
+<p>See the <a class="reference external" href="http://kobuki.yujinrobot.com/wiki/online-user-guide/" rel="noopener noreferrer" target="_blank">Kobuki User Guide</a> for more in-depth information on the platform.</p>
+</div>
+<div class="section" id="create-3">
+<span id="specifications-create3-label"></span><h3>Create® 3<a class="headerlink" href="#create-3" title="Permalink to this headline"></a></h3>
+<p>The <a class="reference external" href="https://edu.irobot.com/what-we-offer/create3" rel="noopener noreferrer" target="_blank">Create® 3</a> is an affordable, mobile robotics platform for educators, students, and
+developers.</p>
+<p>The robot has a full suite of on-board sensors and actuators which will allow you to develop and
+test your robotics algorithms.</p>
+<p>The software is entirely based on ROS 2: all sensors data are produced through ROS 2 publications
+while ROS 2 servers and subscriptions are used to control actuators and respond to users requests.
+The robot also provides some autonomous behaviors out of the box, such as docking, wall-follow and
+reactions to obstacles. All these can be triggered and/or configured through ROS 2 actions and
+parameters. The Create® 3 base is configurable via a webserver that can be accessed over a network.
+You can find more details on the Interbotix-specific configurations on the
+<a class="reference internal" href="getting_started/create3_configuration.html"><span class="doc">Create® 3 Configuration</span></a> documentation page.</p>
+<img alt="_images/hardwarecreate3.png" class="align-center" src="_images/hardwarecreate3.png" />
+<p>See the <a class="reference external" href="https://iroboteducation.github.io/create3_docs/" rel="noopener noreferrer" target="_blank">Create® 3 Docs</a> for more in-depth information on this platform.</p>
+</div>
+<div class="section" id="intel-nuc-mini-pc">
+<span id="specifications-nuc-label"></span><h3>Intel NUC Mini PC<a class="headerlink" href="#intel-nuc-mini-pc" title="Permalink to this headline"></a></h3>
+<p>8th Gen Intel Dual-Core i3, 8GB DDR4 Ram, 240GB Solid State Drive (SSD), Intel Iris Plus Graphics
+655, Wifi, Bluetooth 5.0, Gigabit Ethernet, 4k Support, Card Reader, Dual monitor Capable, HDMI,
+USB, Thunderbolt 3, Ubuntu 20.04.</p>
+<img alt="_images/hardwarenuc.png" class="align-center" src="_images/hardwarenuc.png" />
+</div>
+<div class="section" id="intel-realsense-depth-camera-d435">
+<span id="specifications-realsense-label"></span><h3>Intel® RealSense™ Depth Camera D435<a class="headerlink" href="#intel-realsense-depth-camera-d435" title="Permalink to this headline"></a></h3>
+<p>Part of the Intel® RealSense™ D400 series of cameras, a lineup that takes Intel’s latest depth
+sensing hardware and software packages them into easy to integrate products. Perfect for
+developers, makers, and innovators looking to bring depth sensing to devices, Intel® RealSense™
+D400 series cameras offer simple out of the box integration and enable a whole new generation of
+intelligent vision equipped devices.</p>
+<img alt="_images/hardwared435.png" class="align-center" src="_images/hardwared435.png" />
+<p>See the <a class="reference download external" download="" href="https://www.intelrealsense.com/wp-content/uploads/2020/06/Intel-RealSense-D400-Series-Datasheet-June-2020.pdf"><code class="xref download docutils literal notranslate"><span class="pre">RealSense</span> <span class="pre">D400</span> <span class="pre">Series</span> <span class="pre">Datasheet</span></code></a>
+for more information.</p>
+</div>
+<div class="section" id="pan-tilt">
+<span id="specifications-pan-and-tilt-label"></span><h3>Pan &amp; Tilt<a class="headerlink" href="#pan-tilt" title="Permalink to this headline"></a></h3>
+<p>The DYNAMIXEL 2XL can control two axis with a single module, which serves as the pan &amp; tilt for the
+camera of the LoCoBot. This servo allows for scanning or object detection whether the platform is
+in motion or stationary. The 2XL series adopts new features that allow 360 degrees control mode
+with its contactless magnetic encoder and hollow back case assembly structure and Metal gear
+(Powder Metallurgy) is used for high durability.</p>
+<img alt="_images/hardwarepantiltservo.png" class="align-center" src="_images/hardwarepantiltservo.png" />
+<p>See the <a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/x/2xl430-w250/" rel="noopener noreferrer" target="_blank">DYNAMIXEL 2XL e-Manual</a> for more information.</p>
+</div>
+<div class="section" id="aluminum-construction">
+<span id="specifications-aluminum-label"></span><h3>Aluminum Construction<a class="headerlink" href="#aluminum-construction" title="Permalink to this headline"></a></h3>
+<p>Constructed of 20x20 extruded aluminum and 3mm anodized aluminum plates the LoCoBot is extremely
+durable. The T-Slot aluminum bars have channels used to connect other bars, parts or to create
+mounting points for additions to the LoCoBot. Standard 20x20 post assembly T-Slot nuts can be used
+for easy customization of the platform.</p>
+<img alt="_images/hardwarealuminium.png" class="align-center" src="_images/hardwarealuminium.png" />
+</div>
+<div class="section" id="rplidar-a2m8-360-laser-range-scanner-optional">
+<span id="specifications-rplidar-label"></span><h3>RPLIDAR A2M8 360° Laser Range Scanner (Optional)<a class="headerlink" href="#rplidar-a2m8-360-laser-range-scanner-optional" title="Permalink to this headline"></a></h3>
+<p>The RPLIDAR A2 is an indoor, 360 degree 2D LIDAR. Each RPLIDAR A2 can take up to 8000 samples of
+laser ranging per second thanks to its high rotation speed. The on-board system can perform 2D 360°
+scans within a range of 12 meters (18m with a bit of firmware adjustment). Additionally, the
+generated 2D point cloud data can be used in mapping, localization and object/environment modeling.</p>
+<img alt="_images/hardwarerplidara2.png" class="align-center" src="_images/hardwarerplidara2.png" />
+<p>See the <a class="reference download external" download="" href="https://download.slamtec.com/api/download/rplidar-a2m8-datasheet/2.6?lang=en"><code class="xref download docutils literal notranslate"><span class="pre">RPLIDAR</span> <span class="pre">A2M8</span> <span class="pre">Datasheet</span></code></a> for more
+information.</p>
+</div>
+<div class="section" id="maxoak-k2-50-000mah-power-bank">
+<span id="specifications-power-bank-label"></span><h3>MAXOAK K2 50,000mAh Power Bank<a class="headerlink" href="#maxoak-k2-50-000mah-power-bank" title="Permalink to this headline"></a></h3>
+<p>The MAXOAK K2 Power Bank is designed to power laptop computers for long durations. This 50kAh
+(50,000Ah) power bank can keep the NUC and all peripherals running for 4h with moderate usage. It
+has multiple outputs including 20V 5A and 12V 2.5A barrel jacks, two 5V 2.1A USB-A ports, and two
+5V 1A USB-A ports.</p>
+<img alt="_images/hardwarepowerbank.png" class="align-center" src="_images/hardwarepowerbank.png" />
+<p>See the <a class="reference external" href="https://maxoak.net/products/maxoak-k2-50000mah-power-bank" rel="noopener noreferrer" target="_blank">MAXOAK K2’s store page</a> for more information.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Interbotix X-Series LoCoBots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="specifications/locobot_base.html" class="btn btn-neutral float-right" title="LoCoBot Base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

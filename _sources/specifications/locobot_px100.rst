@@ -2,17 +2,19 @@
 LoCoBot PincherX-100
 ====================
 
-.. list-table::
-    :header-rows: 1
-    :align: center
+.. container:: no-table
 
-    * - LoCoBot PincherX-100 (Kobuki)
-      - LoCoBot PincherX-100 (Create® 3)
-    * - .. image:: /_images/locobotpx100k.png
-            :align: center
-      - .. image:: /_images/locobotpx100c.png
-            :width: 45%
-            :align: center
+    .. list-table::
+        :header-rows: 1
+        :align: center
+
+        * - LoCoBot PincherX-100 (Kobuki)
+          - LoCoBot PincherX-100 (Create® 3)
+        * - .. image:: images/locobotpx100k.png
+                :align: center
+          - .. image:: images/locobotpx100c.png
+                :width: 45%
+                :align: center
 
 Default Servo Configurations
 ----------------------------
@@ -26,7 +28,7 @@ Default Servo Configurations
 Drawings
 --------
 
-.. image:: /_images/locobotpx100_drawing.png
+.. image:: images/locobotpx100_drawing.png
 
 .. _specifications-px100-label:
 

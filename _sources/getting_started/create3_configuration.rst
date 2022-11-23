@@ -8,8 +8,8 @@ etc.) at ``192.168.186.2/ros-config``.
 
 .. warning::
 
-    Make sure that your Create® 3 base is configured to this default, otherwise it may not work properly
-    or you may experience unexpected behavior.
+    Make sure that your Create® 3 base is configured to this default, otherwise it may not work
+    properly or you may experience unexpected behavior.
 
 .. note::
 

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landmark-Based Navigation &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Troubleshooting" href="../troubleshooting.html" />
+    <link rel="prev" title="Joystick Control" href="joystick_control.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface.html">Python-ROS Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ros1_packages.html">ROS 1 Open Source Packages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="locobot_descriptions.html">LoCoBot Descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locobot_control.html">LoCoBot Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gazebo_simulation_configuration.html">Gazebo Simulation Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS Controllers Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_motion_planning_configuration.html">MoveIt Motion Planning Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception_pipeline_configuration.html">Perception Pipeline Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation_stack_configuration.html">Navigation Stack Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_interface_and_api.html">MoveIt Interface and API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_demos.html">Python Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joystick_control.html">Joystick Control</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Landmark-Based Navigation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-landmarks">Adding Landmarks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping">Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localization">Localization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#video-tutorial">Video Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Landmark-Based Navigation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
+      <li class="breadcrumb-item active">Landmark-Based Navigation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros1_packages/landmark_based_navigation.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="landmark-based-navigation">
+<h1>Landmark-Based Navigation<a class="headerlink" href="#landmark-based-navigation" title="Permalink to this headline"></a></h1>
+<a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_landmark_nav"
+    class="docs-view-on-github-button"
+    target="_blank">
+    <img src="../_static/GitHub-Mark-Light-32px.png"
+        class="docs-view-on-github-button-gh-logo">
+    View Package on GitHub
+</a><div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>This package builds on top of the <cite>interbotix_xslocobot_nav</cite>, <cite>interbotix_landmark_modules</cite>, and
+<cite>interbotix_perception_modules</cite> packages to provide a method to traverse the map towards points of
+interest (landmarks) marked by AprilTags.</p>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
+<p>As mentioned before, this package builds on the <cite>interbotix_landmark_modules</cite> package. A short
+description of the nodes needed from that package can be found below:</p>
+<ul class="simple">
+<li><strong>tf_map_to_landmark</strong> - very small node that publishes an identity transform between the map
+frame and the landmark frame, separating the landmarks from the rest of the tf tree</li>
+<li><strong>landmark_finder</strong> - uses the AprilTag single image detector service to search for tags and
+publish their location in the map during mapping</li>
+<li><strong>landmark_manager</strong> - tool to create landmarks from the set of valid AprilTags</li>
+</ul>
+<p>Other packages required for landmark_nav include <cite>move_base</cite> and <cite>interbotix_perception_modules</cite>:</p>
+<ul class="simple">
+<li><strong>move_base</strong> - performs path planning to the selected landmark goal and will attempt to reach
+said goal by sending velocity commands to the Kobuki base</li>
+<li><strong>static_transform_pub</strong> - publishes any transform it receives to the static transform tree;
+used to build a tf tree that describes landmark poses relative to the map</li>
+</ul>
+<p>A more in-depth description of the nodes used by the <cite>interbotix_xslocobot_nav</cite> package can be
+found in its Structure section.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<p>There are three steps to using this package. First, landmarks must be created using the
+<strong>landmark_manager</strong> tool. Next, the robot maps out the area using SLAM techniques and locates the
+landmark tags in the map. Finally, the robot navigates to a selected landmark.</p>
+<div class="section" id="adding-landmarks">
+<h3>Adding Landmarks<a class="headerlink" href="#adding-landmarks" title="Permalink to this headline"></a></h3>
+<p>To start using this package, you must first create a set of landmarks. You can either edit the
+<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_landmark_nav/landmarks/landmarks.yaml" rel="noopener noreferrer" target="_blank">landmarks.yaml</a> configuration file, or you can use the <strong>landmark_manager</strong> tool. To access this
+tool, run the following command on the robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_landmark_nav landmark_manager.launch
+</pre></div>
+</div>
+<img alt="../_images/landmark_manager.png" class="align-center" src="../_images/landmark_manager.png" style="width: 70%;" />
+<p>The tool presents a command line application to manage landmarks. From the set of valid tag ids,
+you can choose any of them to label and set a <code class="docutils literal notranslate"><span class="pre">mounted_offset</span></code>. The <code class="docutils literal notranslate"><span class="pre">mounted_offset</span></code> is the
+distance away from the wall that the robot should navigate to if a tag is mounted to it.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tags with an assigned landmark are in parentheses. Launch options for the
+<strong>landmark_manager</strong> tool in the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_toolboxes/tree/main/interbotix_common_toolbox/interbotix_landmark_modules#landmark_managerlaunch" rel="noopener noreferrer" target="_blank">landmark modules package README</a>.</p>
+</div>
+</div>
+<div class="section" id="mapping">
+<h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this headline"></a></h3>
+<p>Once a valid set of landmarks is created, you can now map out the robot’s environment. To start the
+SLAM process from a fresh map, type the following in a terminal on the robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_landmark_nav xslocobot_landmark_nav.launch robot_model:<span class="o">=</span>locobot_px100 mapping:<span class="o">=</span><span class="nb">true</span> rtabmap_args:<span class="o">=</span>-d
+</pre></div>
+</div>
+<p>To save the location of the landmark, the robot must ‘see’ its tag. To ensure that the tag is in
+view, check the terminal for a line like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[INFO] Static Transform Publisher received TF from &quot;landmarks&quot; to &quot;landmark_2&quot;</span>
+</pre></div>
+</div>
+<p>This line means that the landmark_finder node saw the landmark, calculated its pose relative to the
+map frame, and published it to the <strong>static_transform_pub</strong> where it was added to the static tf
+tree.</p>
+<p>Once all landmarks have been found, you can shut down ROS using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd>. The
+landmarks and their positions in the map will be saved.</p>
+<p>A more in-depth review of the general mapping process can be found in the
+<a class="reference internal" href="navigation_stack_configuration.html"><span class="doc">interbotix_xslocobot_nav</span></a> package’s <a class="reference internal" href="navigation_stack_configuration.html#interbotix-xslocobot-nav-slam-from-scratch-label"><span class="std std-ref">SLAM From
+Scratch</span></a> section.</p>
+</div>
+<div class="section" id="localization">
+<h3>Localization<a class="headerlink" href="#localization" title="Permalink to this headline"></a></h3>
+<p>Now that all the tags have been located and the map has been explored, you are now ready to
+navigate to any landmark. To start the localization process, type the following in a terminal on
+the robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_landmark_nav xslocobot_landmark_nav.launch robot_model:<span class="o">=</span>locobot_px100 localization:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>This will launch the navigation stack, as well as a command line application in a new terminal.
+This application simply displays the active landmarks and asks you to choose one to navigate to.</p>
+<img alt="../_images/nav_to_landmark.png" class="align-center" src="../_images/nav_to_landmark.png" style="width: 70%;" />
+<p>Once selected, the application will send a pose goal to the <strong>move_base</strong> node where it will then
+drive the robot to the location.</p>
+</div>
+</div>
+<div class="section" id="video-tutorial">
+<h2>Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permalink to this headline"></a></h2>
+<div class="section" id="id1">
+<h3>Landmark-Based Navigation<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<div class="video_wrapper align-center" style="padding-bottom: 39.375000%; padding-top: 30px; position: relative; text-align: center; width: 70%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/0F6m-Lb1GrQ" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="joystick_control.html" class="btn btn-neutral float-left" title="Joystick Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

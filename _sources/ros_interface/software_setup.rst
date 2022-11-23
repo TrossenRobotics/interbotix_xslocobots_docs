@@ -107,7 +107,8 @@ After powering on the NUC via the steps in the previous section, a login screen 
 1.  Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of the
     Desktop and selecting your desired network.
 
-2.  Press **Ctrl-Alt-T** to open a terminal screen, and type ``sudo apt update``.
+2.  Press :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T` to open a terminal screen, and type ``sudo apt
+    update``.
 
 3.  After the process completes, type ``sudo apt -y upgrade``. It might take a few minutes for the
     computer to upgrade.
@@ -231,9 +232,9 @@ computer. Let's open the terminal application by...
 
 .. _`this StackExchange answer`: https://askubuntu.com/questions/608330/problem-with-gnome-terminal-on-gnome-3-12-2/1235679#1235679
 
-Now, we can open up new terminals (via **Ctrl-Shift-T**) on the locobot computer without having to
-SSH each time. Note that unless otherwise stated, all the following commands should be executed in
-the new terminal window that pops up.
+Now, we can open up new terminals (via :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T`) on the LoCoBot computer
+without having to SSH each time. Note that unless otherwise stated, all the following commands
+should be executed in the new terminal window that pops up.
 
 .. _ros-software-setup-installation-checks-label:
 
@@ -257,8 +258,8 @@ show up as ``ttyDXL``, ``kobuki`` (if applicable), and ``rplidar`` (if applicabl
     $ ls /dev | grep kobuki     # if applicable (robot uses the Kobuki as its base)
     kobuki
 
-If using the Create® 3 as a base, use the below command to ping the base to ensure that your network
-is properly configured to use the 192.168.186.2 to connect to the base.
+If using the Create® 3 as a base, use the below command to ping the base to ensure that your
+network is properly configured to use the 192.168.186.2 to connect to the base.
 
 .. code-block:: console
 
@@ -284,7 +285,7 @@ Guide <./quickstart>`.
 Troubleshooting
 ===============
 
-Refer to the :doc:`X-Series Troubleshooting Guide <../troubleshooting/index>` to try to solve your
+Refer to the :doc:`X-Series Troubleshooting Guide <../troubleshooting>` to try to solve your
 problem. If you still need help, feel free to `open an Issue`_ on the ros_rovers repo. We strongly
 recommend the latter option though so that other people who may be facing the same difficulty can
 benefit. This repository is actively maintained and any open Issues will be addressed as soon as

@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python-ROS Interface" href="../python_interface/index.html" />
+    <link rel="next" title="Python-ROS Interface" href="../python_interface.html" />
     <link rel="prev" title="ROS Standard Software Setup" href="software_setup.html" />
    
   <!-- Google Tag Manager (noscript) -->
@@ -57,17 +57,17 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Interface</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ros_interface.html">ROS Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="software_setup.html">ROS Standard Software Setup</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ROS Quickstart Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#ros-1">ROS 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_interface.html#ros-1">ROS 1</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python_interface/index.html">Python-ROS Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ros_packages/index.html">ROS Open Source Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
         </div>
@@ -84,7 +84,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">ROS Interface</a></li>
+          <li class="breadcrumb-item"><a href="../ros_interface.html">ROS Interface</a></li>
       <li class="breadcrumb-item active">ROS Quickstart Guide</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros_interface/quickstart.rst" class="fa fa-github"> Edit on GitHub</a>
@@ -187,12 +187,14 @@ Make sure there is nothing in the robot’s path before running it.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">You can stop the base’s movement at any time by pressing <strong>Ctrl-C</strong> the publisher’s terminal.</p>
+<li><p class="first">You can stop the base’s movement at any time by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> the publisher’s
+terminal.</p>
 </li>
-<li><p class="first">Shutdown all nodes by pressing <strong>Ctrl-C</strong> in the terminal where you started the launch file.</p>
+<li><p class="first">Shutdown all nodes by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in the terminal where you started the
+launch file.</p>
 </li>
-<li><p class="first">Another way to check if all functions work is to launch the <a class="reference internal" href="../ros_packages/joystick_control.html"><span class="doc">Joystick Control package</span></a>. This package allows you to control your LoCoBot using a
-Bluetooth controller. Check the package’s <a class="reference internal" href="../ros_packages/joystick_control.html#ros-joystick-control-usage-label"><span class="std std-ref">usage section</span></a> for more details.</p>
+<li><p class="first">Another way to check if all functions work is to launch the <a class="reference internal" href="../ros1_packages/joystick_control.html"><span class="doc">Joystick Control package</span></a>. This package allows you to control your LoCoBot using a
+Bluetooth controller. Check the package’s <a class="reference internal" href="../ros1_packages/joystick_control.html#ros-joystick-control-usage-label"><span class="std std-ref">usage section</span></a> for more details.</p>
 </li>
 <li><p class="first">When you are done testing your robot, follow <a class="reference internal" href="../getting_started/user_guide.html#basic-usage-turning-off-your-locobot-label"><span class="std std-ref">the shutdown procedure</span></a>.</p>
 </li>
@@ -205,10 +207,10 @@ Bluetooth controller. Check the package’s <a class="reference internal" href="
 that you can run ROS on your remote computer normally.</p>
 </div>
 <p>That ends the quickstart tutorial. To get familiar with the architecture and launch file arguments,
-refer to the documentation of the core packages. Start with the <a class="reference internal" href="../ros_packages/locobot_descriptions.html"><span class="doc">LoCoBot Descriptions</span></a> package, then the <a class="reference internal" href="../ros_packages/locobot_control.html"><span class="doc">LoCoBot Control</span></a> package. Next, look at the <a class="reference internal" href="../ros_packages/gazebo_simulation_configuration.html"><span class="doc">Gazebo Configuration</span></a> package followed by the <a class="reference internal" href="../ros_packages/ros_control.html"><span class="doc">ROS Controllers
-Configuration</span></a> and <a class="reference internal" href="../ros_packages/moveit_motion_planning_configuration.html"><span class="doc">MoveIt Configuration</span></a> packages. This is the most logical approach
+refer to the documentation of the core packages. Start with the <a class="reference internal" href="../ros1_packages/locobot_descriptions.html"><span class="doc">LoCoBot Descriptions</span></a> package, then the <a class="reference internal" href="../ros1_packages/locobot_control.html"><span class="doc">LoCoBot Control</span></a> package. Next, look at the <a class="reference internal" href="../ros1_packages/gazebo_simulation_configuration.html"><span class="doc">Gazebo Configuration</span></a> package followed by the <a class="reference internal" href="../ros1_packages/ros_control.html"><span class="doc">ROS Controllers
+Configuration</span></a> and <a class="reference internal" href="../ros1_packages/moveit_motion_planning_configuration.html"><span class="doc">MoveIt Configuration</span></a> packages. This is the most logical approach
 to take to gain a better understanding of how they relate to each other.</p>
-<p>Afterwards, feel free to check out the demo projects like <a class="reference internal" href="../ros_packages/joystick_control.html"><span class="doc">Joystick Control</span></a> and <a class="reference internal" href="../ros_packages/landmark_based_navigation.html"><span class="doc">Landmark-Based Navigation</span></a>, or any of the other <a class="reference internal" href="../ros_packages/index.html"><span class="doc">ROS Open Source Packages</span></a>.</p>
+<p>Afterwards, feel free to check out the demo projects like <a class="reference internal" href="../ros1_packages/joystick_control.html"><span class="doc">Joystick Control</span></a> and <a class="reference internal" href="../ros1_packages/landmark_based_navigation.html"><span class="doc">Landmark-Based Navigation</span></a>, or any of the other <a class="reference internal" href="../ros1_packages.html"><span class="doc">ROS Open Source Packages</span></a>.</p>
 </div>
 
 
@@ -216,7 +218,7 @@ to take to gain a better understanding of how they relate to each other.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="software_setup.html" class="btn btn-neutral float-left" title="ROS Standard Software Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../python_interface/index.html" class="btn btn-neutral float-right" title="Python-ROS Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python_interface.html" class="btn btn-neutral float-right" title="Python-ROS Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

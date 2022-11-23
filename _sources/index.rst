@@ -2,7 +2,7 @@
 Interbotix X-Series LoCoBots
 ============================
 
-.. image:: _images/locobot_header.png
+.. image:: images/locobot_header.png
     :align: center
 
 The Low Cost Robot (LoCoBot) is a mobile manipulator base that uses ROS-based open source packages
@@ -37,13 +37,14 @@ to provide a platform to research facilities, university classrooms, and laborat
 What's Here
 ===========
 
-*   :doc:`specifications/index` - Specifications for the X-Series LoCoBots and related hardware.
-*   :doc:`getting_started/index` - Guides to walk you through the process of setting up your X-Series LoCoBot.
-*   :doc:`ros_interface/index` - Guides on how to use the ROS Interfaces.
-*   :doc:`python_interface/index` - Guides on how to use the Python-ROS Interfaces.
-*   :doc:`ros_packages/index` - Guides for each core and demo package in the ROS 1 Interface.
-*   :doc:`troubleshooting/index` - Small guides to walk users through possible issues they may
-    occur when using their LoCoBot.
+*   :doc:`specifications` - Specifications for the X-Series LoCoBots and related hardware.
+*   :doc:`getting_started` - Guides to walk you through the process of setting up your X-Series
+    LoCoBot.
+*   :doc:`ros_interface` - Guides on how to use the ROS Interfaces.
+*   :doc:`python_interface` - Guides on how to use the Python-ROS Interfaces.
+*   :doc:`ros1_packages` - Guides for each core and demo package in the ROS 1 Interface.
+*   :doc:`troubleshooting` - Small guides to walk users through possible issues they may occur when
+    using their LoCoBot.
 
 Table of Contents
 =================
@@ -51,9 +52,9 @@ Table of Contents
 .. toctree::
     :maxdepth: 2
 
-    specifications/index.rst
-    getting_started/index.rst
-    ros_interface/index.rst
-    python_interface/index.rst
-    ros_packages/index.rst
-    troubleshooting/index.rst
+    specifications.rst
+    getting_started.rst
+    ros_interface.rst
+    python_interface.rst
+    ros1_packages.rst
+    troubleshooting.rst
