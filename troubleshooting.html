@@ -133,8 +133,10 @@ information.</p>
 <p>If transforms require a significant extrapolation into the past, it is possible that your Create® 3
 base’s clock is not in sync with the rest of your system. Errors like the one below may indicate
 that this is the case.</p>
+<div class="code-wrap docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="o">=</span><span class="s2">&quot;Lookup would require extrapolation -27793617.761847734s into the future. Requested time 1667324891.111343861 but the latest data is at time 1639531273.349496126, when looking up transform from frame [locobot/base_footprint] to frame [locobot/odom]. canTransform returned after 0.200389 timeout was 0.2.&quot;</span>
 </pre></div>
+</div>
 </div>
 <p>To solve this, check iRobot’s <a class="reference external" href="https://iroboteducation.github.io/create3_docs/setup/compute-ntp/" rel="noopener noreferrer" target="_blank">Setup NTP on compute board to serve time to Create® 3</a> guide. In
 short, the steps are as follows:</p>
@@ -191,8 +193,13 @@ reboot. This can be verified by checking the Create® 3 robot’s log for a line
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">notice</span> <span class="n">ntpd</span><span class="p">:</span> <span class="n">ntpd</span><span class="p">:</span> <span class="n">reply</span> <span class="kn">from</span> <span class="mf">192.168.186.3</span><span class="p">:</span> <span class="n">delay</span> <span class="c1">### is too high, ignoring</span>
 </pre></div>
 </div>
-<p>If this happens, simply restart the robot (not just the application) via the webserver over the
+<p>If this happens, simply restart the base (not just the application) via the webserver over the
 USB network connection.</p>
+</li>
+<li><p class="first">Sometimes the NTP daemon can be a bit sticky and will not update the base’s time even when
+rebooted. In that case, you could connect the Create® 3 to your wireless network so that it can
+contact iRobot’s ntp pools. For details on this process, follow the “Connect to Wi-Fi (ROS 2
+Users)” steps in the <a class="reference external" href="https://edu.irobot.com/create3-setup" rel="noopener noreferrer" target="_blank">Create® 3 Setup Guide</a>.</p>
 </li>
 </ol>
 </div>

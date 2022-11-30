@@ -42,9 +42,11 @@ If transforms require a significant extrapolation into the past, it is possible 
 base's clock is not in sync with the rest of your system. Errors like the one below may indicate
 that this is the case.
 
-.. code-block::
+.. container:: code-wrap
 
-    Error="Lookup would require extrapolation -27793617.761847734s into the future. Requested time 1667324891.111343861 but the latest data is at time 1639531273.349496126, when looking up transform from frame [locobot/base_footprint] to frame [locobot/odom]. canTransform returned after 0.200389 timeout was 0.2."
+    .. code-block::
+
+        Error="Lookup would require extrapolation -27793617.761847734s into the future. Requested time 1667324891.111343861 but the latest data is at time 1639531273.349496126, when looking up transform from frame [locobot/base_footprint] to frame [locobot/odom]. canTransform returned after 0.200389 timeout was 0.2."
 
 To solve this, check iRobot's `Setup NTP on compute board to serve time to Create® 3`_ guide. In
 short, the steps are as follows:
@@ -110,10 +112,16 @@ short, the steps are as follows:
 
         user.notice ntpd: ntpd: reply from 192.168.186.3: delay ### is too high, ignoring
 
-    If this happens, simply restart the robot (not just the application) via the webserver over the
+    If this happens, simply restart the base (not just the application) via the webserver over the
     USB network connection.
 
+9.  Sometimes the NTP daemon can be a bit sticky and will not update the base's time even when
+    rebooted. In that case, you could connect the Create® 3 to your wireless network so that it can
+    contact iRobot's ntp pools. For details on this process, follow the "Connect to Wi-Fi (ROS 2
+    Users)" steps in the `Create® 3 Setup Guide`_.
+
 .. _`Setup NTP on compute board to serve time to Create® 3`: https://iroboteducation.github.io/create3_docs/setup/compute-ntp/
+.. _`Create® 3 Setup Guide`: https://edu.irobot.com/create3-setup
 
 .. _troubleshooting-cant-read-topics-label:
 
