@@ -112,10 +112,16 @@ short, the steps are as follows:
 
         user.notice ntpd: ntpd: reply from 192.168.186.3: delay ### is too high, ignoring
 
-    If this happens, simply restart the robot (not just the application) via the webserver over the
+    If this happens, simply restart the base (not just the application) via the webserver over the
     USB network connection.
 
+9.  Sometimes the NTP daemon can be a bit sticky and will not update the base's time even when
+    rebooted. In that case, you could connect the Create® 3 to your wireless network so that it can
+    contact iRobot's ntp pools. For details on this process, follow the "Connect to Wi-Fi (ROS 2
+    Users)" steps in the `Create® 3 Setup Guide`_.
+
 .. _`Setup NTP on compute board to serve time to Create® 3`: https://iroboteducation.github.io/create3_docs/setup/compute-ntp/
+.. _`Create® 3 Setup Guide`: https://edu.irobot.com/create3-setup
 
 .. _troubleshooting-cant-read-topics-label:
 
