@@ -142,3 +142,10 @@ div.no-table.container tbody {
     background-color: transparent !important;
     text-align: center;
 }
+
+
+/* Styles 'code-wrap' directive to wrap */
+
+div.code-wrap.container pre {
+    white-space: pre-wrap;
+}

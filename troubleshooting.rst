@@ -42,9 +42,11 @@ If transforms require a significant extrapolation into the past, it is possible 
 base's clock is not in sync with the rest of your system. Errors like the one below may indicate
 that this is the case.
 
-.. code-block::
+.. container:: code-wrap
 
-    Error="Lookup would require extrapolation -27793617.761847734s into the future. Requested time 1667324891.111343861 but the latest data is at time 1639531273.349496126, when looking up transform from frame [locobot/base_footprint] to frame [locobot/odom]. canTransform returned after 0.200389 timeout was 0.2."
+    .. code-block::
+
+        Error="Lookup would require extrapolation -27793617.761847734s into the future. Requested time 1667324891.111343861 but the latest data is at time 1639531273.349496126, when looking up transform from frame [locobot/base_footprint] to frame [locobot/odom]. canTransform returned after 0.200389 timeout was 0.2."
 
 To solve this, check iRobot's `Setup NTP on compute board to serve time to Create® 3`_ guide. In
 short, the steps are as follows:
