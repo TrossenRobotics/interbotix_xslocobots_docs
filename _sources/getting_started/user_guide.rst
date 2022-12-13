@@ -465,10 +465,10 @@ VSCode Remote Development
 
 .. _`Install VSCode`: https://code.visualstudio.com/download
 
-2.  In VSCode, press **F1** and run the ``Remote-SSH: Open SSH Host...`` command. Enter the same
-    ``username@hostname.local`` combination you used when opening the SSH connection between your
-    remote computer and the LoCoBot like ``locobot@locobot.local``. If prompted, enter the password
-    ``locobot``.
+2.  In VSCode, press **F1** and run the ``Remote-SSH: Open SSH Host...`` command and select the
+    ``Add New SSH Host`` option. Enter the same ``username@hostname.local`` combination you used
+    when opening the SSH connection between your remote computer and the LoCoBot like ``ssh
+    locobot@locobot.local``. If prompted, enter the password ``locobot``.
 
 3.  Once connected, use **File > Open Folder**, and select the directory you wish to operate in,
     i.e. the ``~/interbotix_ws`` directory if using the ROS Interface.
