@@ -168,8 +168,23 @@ Turning On Your LoCoBot
         4.  Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
             so you have enough ports for the necessary devices.
 
-LoCoBot Network Config
-======================
+Control Software Installation
+=============================
+
+Install the software that you plan to use, such as the ROS Interface. The quickstart commands for
+it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1 Interface
+Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2 Interface Software Setup
+<../ros_interface/ros2/software_setup>` for more information.
+
+    .. code:: console
+
+        $ sudo apt install curl
+        $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
+        $ chmod +x xslocobot_amd64_install.sh
+        $ ./xslocobot_amd64_install.sh -b create3 -d noetic
+
+Network Configuration
+=====================
 
 .. note::
 
@@ -178,8 +193,8 @@ LoCoBot Network Config
     - "Remote" - Your own personal computer (desktop, laptop, etc.)
     - "Robot" or "LoCoBot" - The NUC computer on the LoCoBot
 
-Hostname
---------
+LoCoBot Hostname
+----------------
 
 .. note::
 
@@ -219,23 +234,10 @@ Hostname
         3 packets transmitted, 3 received, 0% packet loss, time 2003ms
         rtt min/avg/max/mdev = 22.540/192.306/351.244/134.411 ms
 
-Control Software Installation
-=============================
+RMW Configuration
+-----------------
 
-1.  Install the software that you plan to use, such as the ROS Interface. The quickstart commands
-    for it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1
-    Interface Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2
-    Interface Software Setup <../ros_interface/ros2/software_setup>` for more information.
-
-    .. code:: console
-
-        $ sudo apt install curl
-        $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
-        $ chmod +x xslocobot_amd64_install.sh
-        $ ./xslocobot_amd64_install.sh -b create3 -d noetic
-
-2.  Reboot the NUC, remove the mouse, keyboard, and disconnect from the monitor. Plug back in any
-    peripherals you removed.
+See the :doc:`RMW Configuration Guide <./rmw_configuration>` for details.
 
 ROS Network Testing
 ===================
