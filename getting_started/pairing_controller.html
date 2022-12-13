@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create® 3 Configuration" href="create3_configuration.html" />
+    <link rel="next" title="Create® 3 Setup" href="create3_configuration.html" />
     <link rel="prev" title="Basic Usage" href="user_guide.html" />
    
   <!-- Google Tag Manager (noscript) -->
@@ -65,18 +65,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#sony-ps4-controller-recommended">SONY PS4 Controller (Recommended)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sony-ps3-controller">SONY PS3 Controller</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#controller-isn-t-turning-on">Controller Isn’t Turning On</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller-isn-t-turning-on">Controller Isn't Turning On</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ps4-controller-leds-blink-a-few-times-and-turn-off">PS4 Controller LEDs Blink A Few Times and Turn Off</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="create3_configuration.html">Create® 3 Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create3_configuration.html">Create® 3 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rmw_configuration.html">RMW Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ros_interface.html">ROS Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_interface.html">Python-ROS Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
@@ -97,7 +99,7 @@
           <li class="breadcrumb-item"><a href="../getting_started.html">Getting Started</a></li>
       <li class="breadcrumb-item active">Pairing Your Controller</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/getting_started/pairing_controller.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/getting_started/pairing_controller.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -110,7 +112,7 @@
 <p>This guide walks you through setting up a Bluetooth joystick controller to control your LoCoBot.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The processes below should be done on the LoCoBot’s NUC computer.</p>
+<p class="last">The processes below should be done on the LoCoBot's NUC computer.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -128,7 +130,7 @@ flashing white (about twice a second) at which point you can let go.</li>
 <li>On the computer, click the <strong>+</strong> icon in the Bluetooth settings window.</li>
 <li>Wait until you see <strong>Wireless Controller</strong> pop up, select it, and click <strong>Next</strong> on the bottom
 right of the window.</li>
-<li>A message should display saying <strong>successfully set up new device ‘Wireless Controller’</strong> and
+<li>A message should display saying <strong>successfully set up new device 'Wireless Controller'</strong> and
 the LED should turn blue. This means the controller is connected to the computer.</li>
 <li>To disconnect, hold down the <strong>PS Button</strong> for about 10 seconds until the LED turns off.</li>
 <li>To reconnect, just press the <strong>PS Button</strong> (no need to hold it down). After blinking white a
@@ -139,7 +141,7 @@ few times, the LED should turn blue.</li>
 <div class="section" id="sony-ps3-controller">
 <h2>SONY PS3 Controller<a class="headerlink" href="#sony-ps3-controller" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
-<li><p class="first">Get an original SONY PS3 controller and it’s accompanying USB cable.</p>
+<li><p class="first">Get an original SONY PS3 controller and it's accompanying USB cable.</p>
 </li>
 <li><p class="first">Open up a terminal by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd>, and enter the following
 commands.</p>
@@ -162,7 +164,7 @@ terminal that looks something like the following (with a different MAC address):
 </div>
 </li>
 <li><p class="first">Unplug the PS3 controller and press the <strong>PS Button</strong>. The four red LEDs at the front of the
-controller should flash a few times, eventually leaving just one LED on by the ‘1’. This means
+controller should flash a few times, eventually leaving just one LED on by the '1'. This means
 that the joystick paired successfully.</p>
 </li>
 </ol>
@@ -180,7 +182,7 @@ terminal to stop it messing with the mouse.</p>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
 <div class="section" id="controller-isn-t-turning-on">
-<h3>Controller Isn’t Turning On<a class="headerlink" href="#controller-isn-t-turning-on" title="Permalink to this headline"></a></h3>
+<h3>Controller Isn't Turning On<a class="headerlink" href="#controller-isn-t-turning-on" title="Permalink to this headline"></a></h3>
 <p>Your controller might be dead. Try charing it for an hour or plug it into your computer.</p>
 </div>
 <div class="section" id="ps4-controller-leds-blink-a-few-times-and-turn-off">
@@ -196,7 +198,7 @@ plug it into your computer.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="user_guide.html" class="btn btn-neutral float-left" title="Basic Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="create3_configuration.html" class="btn btn-neutral float-right" title="Create® 3 Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="create3_configuration.html" class="btn btn-neutral float-right" title="Create® 3 Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

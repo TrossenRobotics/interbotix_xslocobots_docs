@@ -178,10 +178,13 @@ LoCoBot Network Config
     - "Remote" - Your own personal computer (desktop, laptop, etc.)
     - "Robot" or "LoCoBot" - The NUC computer on the LoCoBot
 
+Hostname
+--------
+
 .. note::
 
-   This section assumes that you are interacting with your LoCoBot's NUC computer using a monitor,
-   mouse, and keyboard.
+    This section assumes that you are interacting with your LoCoBot's NUC computer using a monitor,
+    mouse, and keyboard.
 
 1.  Log into the ``locobot`` user on the LoCoBot using its default password, ``locobot``.
 
@@ -189,8 +192,6 @@ LoCoBot Network Config
 
 3.  Type the command ``hostname`` to retrieve the robot's hostname. This is the domain name of the
     computer that you will use when you SSH into it. This is typically ``locobot``.
-
-.. TODO: picture here
 
 .. note::
 
@@ -222,8 +223,9 @@ Control Software Installation
 =============================
 
 1.  Install the software that you plan to use, such as the ROS Interface. The quickstart commands
-    for it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS
-    Interface Software Setup <../ros_interface/software_setup>` for more information.
+    for it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1
+    Interface Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2
+    Interface Software Setup <../ros_interface/ros2/software_setup>` for more information.
 
     .. code:: console
 

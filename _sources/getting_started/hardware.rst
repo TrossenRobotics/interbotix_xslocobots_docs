@@ -175,7 +175,7 @@ hardware.
     :width: 70%
 
 21. Your LoCoBot is now fully assembled. You can proceed to the :doc:`Basic Usage Guide
-    <./user_guide>`, or the :doc:`ROS Interface Software Setup <../ros_interface/software_setup>`.
+    <./user_guide>`, or the :doc:`ROS Interface Guides <../ros_interface>`.
 
 Video Tutorial
 --------------

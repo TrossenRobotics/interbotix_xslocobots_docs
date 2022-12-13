@@ -80,6 +80,7 @@
 <li class="toctree-l2"><a class="reference internal" href="landmark_based_navigation.html">Landmark-Based Navigation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
@@ -100,7 +101,7 @@
           <li class="breadcrumb-item"><a href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
       <li class="breadcrumb-item active">Gazebo Simulation Configuration</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros1_packages/gazebo_simulation_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/ros1_packages/gazebo_simulation_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -138,14 +139,14 @@ described below:</p>
 <li><strong>gzclient</strong> - provides a nice GUI to visualize the robot simulation</li>
 <li><strong>controller_manager</strong> - responsible for loading and starting a set of controllers at once, as
 well as automatically stopping and unloading those same controllers</li>
-<li><strong>spawn_model</strong> - adds the robot model as defined in the ‘robot_description’ parameter into the
+<li><strong>spawn_model</strong> - adds the robot model as defined in the 'robot_description' parameter into the
 Gazebo world</li>
 </ul>
 <p>Note that the arm joints can be sent trajectories from MoveIt as they use the
 <a class="reference external" href="http://wiki.ros.org/joint_trajectory_controller" rel="noopener noreferrer" target="_blank">JointTrajectoryController</a> ros_control interface or positions using the
 <a class="reference external" href="http://wiki.ros.org/ros_control" rel="noopener noreferrer" target="_blank">JointPositionController</a> interface. However, the pan/tilt joints operate via the
 JointPositionController interface only. To control them, publish position commands directly to the
-appropriate topics (ex. <code class="docutils literal notranslate"><span class="pre">/&lt;robot_name&gt;/pan_controller/command</span></code> for the ‘pan’ joint).</p>
+appropriate topics (ex. <code class="docutils literal notranslate"><span class="pre">/&lt;robot_name&gt;/pan_controller/command</span></code> for the 'pan' joint).</p>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
@@ -154,7 +155,7 @@ launched with the lidar attached and using trajectory controllers for the arm).<
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_gazebo xslocobot_gazebo.launch robot_model:<span class="o">=</span>locobot_wx250s show_lidar:<span class="o">=</span><span class="nb">true</span> use_trajectory_controllers:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
-<p>Since by default, Gazebo is started in a ‘paused’ state (this is done to give time for the
+<p>Since by default, Gazebo is started in a 'paused' state (this is done to give time for the
 controllers to kick in), unpause the physics once it is fully loaded by typing:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice call /gazebo/unpause_physics
 </pre></div>
@@ -175,35 +176,35 @@ further customize with other launch file arguments.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>robot_model</td>
-<td>model type of the Interbotix Locobot such as ‘locobot_base’ or ‘locobot_wx250s’</td>
-<td>“”</td>
+<td>model type of the Interbotix LoCoBot such as 'locobot_base' or 'locobot_wx250s'</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-odd"><td>robot_name</td>
-<td>name of the robot (could be anything but defaults to ‘locobot’)</td>
-<td>“locobot”</td>
+<td>name of the robot (could be anything but defaults to 'locobot')</td>
+<td>&quot;locobot&quot;</td>
 </tr>
 <tr class="row-even"><td>arm_model</td>
 <td>the Interbotix Arm model on the locobot; this should never be set manually but rather left to its default value</td>
 <td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/xslocobot_description.launch" rel="noopener noreferrer" target="_blank">xslocobot_description.launch</a></td>
 </tr>
 <tr class="row-odd"><td>show_lidar</td>
-<td>if true, the lidar is included in the ‘robot_description’ parameter; only set to true if you purchased a lidar with your locobot</td>
+<td>if true, the lidar is included in the 'robot_description' parameter; only set to true if you purchased a lidar with your locobot</td>
 <td>false</td>
 </tr>
 <tr class="row-even"><td>show_gripper_bar</td>
-<td>if true, the gripper_bar link is included in the ‘robot_description’ parameter; if false, the gripper_bar and finger links are not loaded to the parameter server. Set to false if you have a custom gripper attachment</td>
+<td>if true, the gripper_bar link is included in the 'robot_description' parameter; if false, the gripper_bar and finger links are not loaded to the parameter server. Set to false if you have a custom gripper attachment</td>
 <td>true</td>
 </tr>
 <tr class="row-odd"><td>show_gripper_fingers</td>
-<td>if true, the gripper fingers are included in the ‘robot_description’ parameter; if false, the gripper finger links are not loaded to the parameter server. Set to false if you have custom gripper fingers</td>
+<td>if true, the gripper fingers are included in the 'robot_description' parameter; if false, the gripper finger links are not loaded to the parameter server. Set to false if you have custom gripper fingers</td>
 <td>true</td>
 </tr>
 <tr class="row-even"><td>external_urdf_loc</td>
-<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot’s urdf.xacro file</td>
-<td>“”</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-odd"><td>use_rviz</td>
-<td>launches RViz; set to false if SSH’d into the physical robot</td>
+<td>launches RViz; set to false if SSH'd into the physical robot</td>
 <td>true</td>
 </tr>
 <tr class="row-even"><td>rviz_frame</td>
@@ -211,11 +212,11 @@ further customize with other launch file arguments.</p>
 <td>$(arg robot_name)/base_footprint</td>
 </tr>
 <tr class="row-odd"><td>world_name</td>
-<td>the file path to the Gazebo ‘world’ file to load</td>
+<td>the file path to the Gazebo 'world' file to load</td>
 <td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_gazebo/launch/xslocobot_gazebo.launch" rel="noopener noreferrer" target="_blank">xslocobot_gazebo.launch</a></td>
 </tr>
 <tr class="row-even"><td>gui</td>
-<td>launch the Gazebo GUI; set to false if SSH’d into the physical robot</td>
+<td>launch the Gazebo GUI; set to false if SSH'd into the physical robot</td>
 <td>true</td>
 </tr>
 <tr class="row-odd"><td>debug</td>

@@ -80,6 +80,7 @@
 <li class="toctree-l2"><a class="reference internal" href="landmark_based_navigation.html">Landmark-Based Navigation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
@@ -100,7 +101,7 @@
           <li class="breadcrumb-item"><a href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
       <li class="breadcrumb-item active">ROS Controllers Configuration</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros1_packages/ros_control.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/ros1_packages/ros_control.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -121,7 +122,7 @@
 <p>This package provides the necessary ROS controllers needed to get MoveIt to control any physical
 arm on an X-Series LoCoBot. It essentially takes in Joint Trajectory commands from MoveIt (via the
 <a class="reference external" href="https://ros-planning.github.io/moveit_tutorials/doc/controller_configuration/controller_configuration_tutorial.html#followjointtrajectory-controller-interface" rel="noopener noreferrer" target="_blank">FollowJointTrajectoryAction interface</a>) and then publishes joint commands at the right time to
-the <strong>xs_sdk</strong> node. Currently, only the ‘position’ values in the Joint Trajectory messages are
+the <strong>xs_sdk</strong> node. Currently, only the 'position' values in the Joint Trajectory messages are
 used since that provides the smoothest motion. Note that while this package is really only meant to
 be used with MoveIt, it could technically be used with any other node that can interface properly
 with the <a class="reference external" href="http://wiki.ros.org/joint_trajectory_controller" rel="noopener noreferrer" target="_blank">joint_trajectory_controller</a> package.</p>
@@ -164,19 +165,19 @@ further customize with other launch file arguments.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>robot_model</td>
-<td>model type of the Interbotix Locobot such as ‘locobot_base’ or ‘locobot_wx250s’</td>
-<td>“”</td>
+<td>model type of the Interbotix LoCoBot such as 'locobot_base' or 'locobot_wx250s'</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-odd"><td>robot_name</td>
-<td>name of the robot (could be anything but defaults to ‘locobot’)</td>
+<td>name of the robot (could be anything but defaults to 'locobot')</td>
 <td>locobot</td>
 </tr>
 <tr class="row-even"><td>show_lidar</td>
-<td>set to true if the lidar is installed on the robot; this will load the lidar related links to the ‘robot_description’ parameter</td>
+<td>set to true if the lidar is installed on the robot; this will load the lidar related links to the 'robot_description' parameter</td>
 <td>$(arg use_lidar)</td>
 </tr>
 <tr class="row-odd"><td>external_urdf_loc</td>
-<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot’s urdf.xacro file</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>use_rviz</td>
@@ -188,7 +189,7 @@ further customize with other launch file arguments.</p>
 <td>false</td>
 </tr>
 <tr class="row-even"><td>mode_configs</td>
-<td>the file path to the ‘mode config’ YAML file</td>
+<td>the file path to the 'mode config' YAML file</td>
 <td><a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/interbotix_xslocobot_ros_control" rel="noopener noreferrer" target="_blank">refer to xslocobot_ros_control.launch</a></td>
 </tr>
 <tr class="row-odd"><td>dof</td>

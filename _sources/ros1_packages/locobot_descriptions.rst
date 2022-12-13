@@ -15,7 +15,7 @@ LoCoBot Descriptions
 Overview
 ========
 
-This package contains the URDFs and meshes for the robots in the Interbotix X-Series Locobot
+This package contains the URDFs and meshes for the robots in the Interbotix X-Series LoCoBot
 Family. The STL files for each robot are located in a unique folder inside the `meshes directory`_.
 Also in the 'meshes' directory is the `interbotix_black.png`_ picture. The appearance and texture
 of the robots come from this picture. Next, the URDFs for the robot are located in the `urdf
@@ -50,7 +50,7 @@ Usage
 =====
 
 To run this package, type the line below in a terminal. Note that the ``robot_model`` argument must
-be specified as the name of one of the four locobot models. For example, to launch a Locobot with a
+be specified as the name of one of the four locobot models. For example, to launch a LoCoBot with a
 WidowX-200 arm, type:
 
 .. code-block:: console
@@ -83,7 +83,7 @@ A picture similar to the one below should appear!
 
 Also note that there is another launch file called `remote_view.launch`_. This launch file should
 be run on a networked ROS computer to visualize the robot in RViz in real time. See more in the
-:doc:`ROS Interface Quickstart <../ros_interface/quickstart>`.
+:doc:`ROS Interface Quickstart <../ros_interface/ros1/quickstart>`.
 
 .. _`xslocobot_description.launch`: https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/xslocobot_description.launch
 .. _`many_xslocobots.launch`: https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/many_xslocobots.launch

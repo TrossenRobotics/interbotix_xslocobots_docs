@@ -50,7 +50,7 @@ below:
     joystick, other buttons allow position-ik to be performed using all the arm joints. It also
     publishes velocity commands to the Kobuki base.
 
-.. _`sensor_msgs/Joy`: http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Joy.html
+.. _`sensor_msgs/Joy`: http://docs.ros.org/latest/api/sensor_msgs/html/msg/Joy.html
 .. _`LocobotJoy`: https://github.com/Interbotix/interbotix_ros_core/blob/main/interbotix_ros_xseries/interbotix_xs_msgs/msg/LocobotJoy.msg
 
 .. _ros-joystick-control-usage-label:

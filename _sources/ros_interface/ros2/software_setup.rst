@@ -1,6 +1,6 @@
-===========================
-ROS Standard Software Setup
-===========================
+=============================
+ROS 2 Standard Software Setup
+=============================
 
 .. contents::
     :local:
@@ -26,16 +26,16 @@ it has no arm.
       - Robot Documentation
       - Codename
     * - `LoCoBot Base`_
-      - :doc:`LoCoBot Base Documentation <../specifications/locobot_base>`
+      - :doc:`LoCoBot Base Documentation <../../specifications/locobot_base>`
       - ``locobot_base``
     * - `LoCoBot PX100`_
-      - :doc:`LoCoBot PX100 Documentation <../specifications/locobot_px100>`
+      - :doc:`LoCoBot PX100 Documentation <../../specifications/locobot_px100>`
       - ``locobot_px100``
     * - `LoCoBot WX200`_
-      - :doc:`LoCoBot WX200 Documentation <../specifications/locobot_wx200>`
+      - :doc:`LoCoBot WX200 Documentation <../../specifications/locobot_wx200>`
       - ``locobot_wx200``
     * - `LoCoBot WX250 6DOF`_
-      - :doc:`LoCoBot WX250 6DOF Documentation <../specifications/locobot_wx250s>`
+      - :doc:`LoCoBot WX250 6DOF Documentation <../../specifications/locobot_wx250s>`
       - ``locobot_wx250s``
 
 .. _`LoCoBot Base`: https://www.trossenrobotics.com/locobot-base.aspx
@@ -72,7 +72,7 @@ Below is a list of the hardware you will need to get started:
 
 -   Keyboard, mouse, HDMI monitor, and HDMI cable
 -   One of the X-Series LoCoBot Kits mentioned above
--   Computer running Ubuntu Linux 18.04 or 20.04
+-   Computer running Ubuntu Linux 20.04 or 22.04
 
 Software Installation
 =====================
@@ -95,14 +95,14 @@ AMD64 Architecture
 .. note::
 
     If you purchased a NUC-based ROS LoCoBot from Trossen Robotics or their distributors, note that
-    it will come pre-installed with `Ubuntu Desktop image (20.04)`_ already on it and you will not
+    it will come pre-installed with `Ubuntu Desktop image (22.04)`_ already on it and you will not
     have to run the software installation yourself.
 
 After powering on the NUC via the steps in the previous section, a login screen should appear with
 ``locobot`` as the user name. Conveniently, the password is the same as the user name so type
 ``locobot`` and hit **Enter**. Next, update the computer by performing the following steps.
 
-.. _`Ubuntu Desktop image (20.04)`: https://releases.ubuntu.com/focal/
+.. _`Ubuntu Desktop image (22.04)`: https://releases.ubuntu.com/focal/
 
 1.  Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of the
     Desktop and selecting your desired network.
@@ -136,7 +136,7 @@ After powering on the NUC via the steps in the previous section, a login screen 
         $ sudo apt install curl
         $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
         $ chmod +x xslocobot_amd64_install.sh
-        $ ./xslocobot_amd64_install.sh -d noetic -b create3
+        $ ./xslocobot_amd64_install.sh -d humble -b create3
 
     .. note::
 
@@ -154,87 +154,87 @@ After powering on the NUC via the steps in the previous section, a login screen 
     Replug any sensors into the computer that were unplugged initially. Then turn the computer on
     again by pressing the power button.
 
-.. _ros-software-setup-remote-install-label:
+.. _ros2-software-setup-remote-install-label:
 
-Remote Install
---------------
+.. Remote Install
+.. --------------
 
-For some robotic projects, you may want to run your robot in a 'headless' state on some computer
-(like a NUC or Raspberry Pi), and monitor the robot's state (in RViz for example) on your personal
-(a.k.a remote) computer over a local network. For this to work, run the installation script below
-on your personal computer running Linux Ubuntu 18.04 or 20.04. As an FYI, the script will prompt
-you to insert the hostname of the robot (NOT the remote) computer. As an example, if you wanted to
-monitor the state of a NUC-based locobot, you would set the hostname to ``locobot``. To find out
-the hostname of the robot computer, just open a terminal and type ``hostname``. Specify the version
-of ROS that you want to install using the ``-d`` flag followed by the distribution's codename.
-Alternatively, you can run it without the ``-d`` flag and the script will install packages for the
-ROS 1 distribution supported by the version of Ubuntu, or the latest stable release of ROS 2 if
-using Ubuntu version 22.04 or later. See the `list of currently supported distributions`_. You will
-also need to specify the base type using the ``-b`` flag followed by ``create3`` if using the
-Create® 3 base, or ``kobuki`` if using the Kobuki base. The commands below demonstrate the process
-of running the installation script for ROS 1 Noetic and a Create® 3 base.
+.. For some robotic projects, you may want to run your robot in a 'headless' state on some computer
+.. (like a NUC or Raspberry Pi), and monitor the robot's state (in RViz for example) on your personal
+.. (a.k.a remote) computer over a local network. For this to work, run the installation script below
+.. on your personal computer running Linux Ubuntu 20.04 or 22.04. As an FYI, the script will prompt
+.. you to insert the hostname of the robot (NOT the remote) computer. As an example, if you wanted to
+.. monitor the state of a NUC-based locobot, you would set the hostname to ``locobot``. To find out
+.. the hostname of the robot computer, just open a terminal and type ``hostname``. Specify the version
+.. of ROS that you want to install using the ``-d`` flag followed by the distribution's codename.
+.. Alternatively, you can run it without the ``-d`` flag and the script will install packages for the
+.. ROS 1 distribution supported by the version of Ubuntu, or the latest stable release of ROS 2 if
+.. using Ubuntu version 22.04 or later. See the `list of currently supported distributions`_. You will
+.. also need to specify the base type using the ``-b`` flag followed by ``create3`` if using the
+.. Create® 3 base, or ``kobuki`` if using the Kobuki base. The commands below demonstrate the process
+.. of running the installation script for ROS 1 Noetic and a Create® 3 base.
 
-.. note::
+.. .. note::
 
-    ROS and RViz must already be installed on your local machine for the remote install to be
-    successful.
+..     ROS and RViz must already be installed on your local machine for the remote install to be
+..     successful.
 
-.. code-block:: console
+.. .. code-block:: console
 
-    $ sudo apt install curl
-    $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/xslocobot_remote_install.sh' > xslocobot_remote_install.sh
-    $ chmod +x xslocobot_remote_install.sh
-    $ ./xslocobot_remote_install.sh -d noetic -b create3
+..     $ sudo apt install curl
+..     $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/xslocobot_remote_install.sh' > xslocobot_remote_install.sh
+..     $ chmod +x xslocobot_remote_install.sh
+..     $ ./xslocobot_remote_install.sh -d noetic -b create3
 
-.. note::
+.. .. note::
 
-    The install script provides more in-depth control of some installation options. Append the
-    ``-h`` flag to see the help document like below:
+..     The install script provides more in-depth control of some installation options. Append the
+..     ``-h`` flag to see the help document like below:
 
-    .. code-block:: console
+..     .. code-block:: console
 
-        $ ./xslocobot_amd64_install.sh -h
-        USAGE: ./xslocobot_remote_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-r HOSTNAME]
+..         $ ./xslocobot_amd64_install.sh -h
+..         USAGE: ./xslocobot_remote_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-r HOSTNAME]
 
-        ...
+..         ...
 
-Be aware that the installation script will export the ``ROS_MASTER_URI`` environment variable in
-your personal computer's ``~/.bashrc`` file to ``http://<hostname>.local:11311``. Make sure to
-comment out this line when done monitoring or your personal computer will complain about not being
-able to find its ROS Master.
+.. Be aware that the installation script will export the ``ROS_MASTER_URI`` environment variable in
+.. your personal computer's ``~/.bashrc`` file to ``http://<hostname>.local:11311``. Make sure to
+.. comment out this line when done monitoring or your personal computer will complain about not being
+.. able to find its ROS Master.
 
-To SSH from your remote to the robot computer, first connect your personal Linux computer to the
-same network to which the locobot is connected. Then open a terminal and SSH into the locobot by
-typing (assuming a NUC-based locobot)...
+.. To SSH from your remote to the robot computer, first connect your personal Linux computer to the
+.. same network to which the locobot is connected. Then open a terminal and SSH into the locobot by
+.. typing (assuming a NUC-based locobot)...
 
-.. code-block:: console
+.. .. code-block:: console
 
-    $ ssh -X locobot@locobot.local
+..     $ ssh -X locobot@locobot.local
 
-You will be prompted for a password - just type ``locobot`` and you should be in!
+.. You will be prompted for a password - just type ``locobot`` and you should be in!
 
-The ``-X`` flag in the command above allows window forwarding. This means that it's possible to
-open small graphical applications on the locobot computer which will be forwarded to your personal
-computer. Let's open the terminal application by...
+.. The ``-X`` flag in the command above allows window forwarding. This means that it's possible to
+.. open small graphical applications on the locobot computer which will be forwarded to your personal
+.. computer. Let's open the terminal application by...
 
-.. code-block:: console
+.. .. code-block:: console
 
-    $ gnome-terminal &
+..     $ gnome-terminal &
 
-.. note::
+.. .. note::
 
-    Sometimes the command above doesn't work to open new terminals. An alternate solution is to use
-    the command found in `this StackExchange answer`_:
+..     Sometimes the command above doesn't work to open new terminals. An alternate solution is to use
+..     the command found in `this StackExchange answer`_:
 
-    .. code-block:: console
+..     .. code-block:: console
 
-        $ /usr/bin/dbus-launch /usr/bin/gnome-terminal &
+..         $ /usr/bin/dbus-launch /usr/bin/gnome-terminal &
 
-.. _`this StackExchange answer`: https://askubuntu.com/questions/608330/problem-with-gnome-terminal-on-gnome-3-12-2/1235679#1235679
+.. .. _`this StackExchange answer`: https://askubuntu.com/questions/608330/problem-with-gnome-terminal-on-gnome-3-12-2/1235679#1235679
 
-Now, we can open up new terminals (via :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T`) on the LoCoBot computer
-without having to SSH each time. Note that unless otherwise stated, all the following commands
-should be executed in the new terminal window that pops up.
+.. Now, we can open up new terminals (via :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T`) on the LoCoBot computer
+.. without having to SSH each time. Note that unless otherwise stated, all the following commands
+.. should be executed in the new terminal window that pops up.
 
 .. _ros-software-setup-installation-checks-label:
 
@@ -255,8 +255,6 @@ show up as ``ttyDXL``, ``kobuki`` (if applicable), and ``rplidar`` (if applicabl
     ttyDXL
     $ ls /dev | grep rplidar    # if applicable
     rplidar
-    $ ls /dev | grep kobuki     # if applicable (robot uses the Kobuki as its base)
-    kobuki
 
 If using the Create® 3 as a base, use the below command to ping the base to ensure that your
 network is properly configured to use the 192.168.186.2 to connect to the base.
@@ -285,17 +283,10 @@ Guide <./quickstart>`.
 Troubleshooting
 ===============
 
-Refer to the :doc:`X-Series Troubleshooting Guide <../troubleshooting>` to try to solve your
+Refer to the :doc:`X-Series Troubleshooting Guide <../../troubleshooting>` to try to solve your
 problem. If you still need help, feel free to `open an Issue`_ on the ros_rovers repo. We strongly
 recommend the latter option though so that other people who may be facing the same difficulty can
 benefit. This repository is actively maintained and any open Issues will be addressed as soon as
 possible.
 
 .. _open an Issue: https://github.com/Interbotix/interbotix_ros_rovers/issues
-
-Video Tutorial
---------------
-
-.. youtube:: 0lnbw6n6vs4
-   :align: center
-   :width: 70%

@@ -61,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ros_interface.html">ROS Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_interface.html">Python-ROS Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ros1_packages.html">ROS 1 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
@@ -80,7 +81,7 @@
       <li><a href="#" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">Interbotix X-Series LoCoBots</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/index.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -132,7 +133,7 @@ to provide a platform to research facilities, university classrooms, and laborat
 </tbody>
 </table>
 <div class="section" id="what-s-here">
-<h2>What’s Here<a class="headerlink" href="#what-s-here" title="Permalink to this headline"></a></h2>
+<h2>What's Here<a class="headerlink" href="#what-s-here" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="specifications.html"><span class="doc">Specifications</span></a> - Specifications for the X-Series LoCoBots and related hardware.</li>
 <li><a class="reference internal" href="getting_started.html"><span class="doc">Getting Started</span></a> - Guides to walk you through the process of setting up your X-Series
@@ -140,6 +141,7 @@ LoCoBot.</li>
 <li><a class="reference internal" href="ros_interface.html"><span class="doc">ROS Interface</span></a> - Guides on how to use the ROS Interfaces.</li>
 <li><a class="reference internal" href="python_interface.html"><span class="doc">Python-ROS Interface</span></a> - Guides on how to use the Python-ROS Interfaces.</li>
 <li><a class="reference internal" href="ros1_packages.html"><span class="doc">ROS 1 Open Source Packages</span></a> - Guides for each core and demo package in the ROS 1 Interface.</li>
+<li><a class="reference internal" href="ros2_packages.html"><span class="doc">ROS 2 Open Source Packages</span></a> - Guides for each core and demo package in the ROS 2 Interface.</li>
 <li><a class="reference internal" href="troubleshooting.html"><span class="doc">Troubleshooting</span></a> - Small guides to walk users through possible issues they may occur when
 using their LoCoBot.</li>
 </ul>
@@ -158,13 +160,11 @@ using their LoCoBot.</li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started/hardware.html">Hardware Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started/user_guide.html">Basic Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started/pairing_controller.html">Pairing Your Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/create3_configuration.html">Create® 3 Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/create3_configuration.html">Create® 3 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/rmw_configuration.html">RMW Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ros_interface.html">ROS Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ros_interface.html#ros-1">ROS 1</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="ros_interface.html">ROS Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_interface.html">Python-ROS Interface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python_interface.html#terminology">Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_interface.html#functions">Functions</a></li>
@@ -184,6 +184,17 @@ using their LoCoBot.</li>
 <li class="toctree-l2"><a class="reference internal" href="ros1_packages/python_demos.html">Python Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros1_packages/joystick_control.html">Joystick Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros1_packages/landmark_based_navigation.html">Landmark-Based Navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_packages.html">ROS 2 Open Source Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/locobot_descriptions.html">LoCoBot Descriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/locobot_control.html">LoCoBot Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/simulation_configuration.html">Simulation Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/ros_control.html">ROS Controllers Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/moveit_motion_planning_configuration.html">MoveIt Motion Planning Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/navigation_stack_configuration.html">Navigation Stack Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/python_demos.html">Python Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2_packages/joystick_control.html">Joystick Control</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>

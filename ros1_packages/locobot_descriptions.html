@@ -80,6 +80,7 @@
 <li class="toctree-l2"><a class="reference internal" href="landmark_based_navigation.html">Landmark-Based Navigation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
@@ -100,7 +101,7 @@
           <li class="breadcrumb-item"><a href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
       <li class="breadcrumb-item active">LoCoBot Descriptions</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros1_packages/locobot_descriptions.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/ros1_packages/locobot_descriptions.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -118,12 +119,12 @@
     View Package on GitHub
 </a><div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
-<p>This package contains the URDFs and meshes for the robots in the Interbotix X-Series Locobot
+<p>This package contains the URDFs and meshes for the robots in the Interbotix X-Series LoCoBot
 Family. The STL files for each robot are located in a unique folder inside the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/meshes" rel="noopener noreferrer" target="_blank">meshes directory</a>.
-Also in the ‘meshes’ directory is the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/meshes/interbotix_black.png" rel="noopener noreferrer" target="_blank">interbotix_black.png</a> picture. The appearance and texture
+Also in the 'meshes' directory is the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/meshes/interbotix_black.png" rel="noopener noreferrer" target="_blank">interbotix_black.png</a> picture. The appearance and texture
 of the robots come from this picture. Next, the URDFs for the robot are located in the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/urdf" rel="noopener noreferrer" target="_blank">urdf
-directory</a>. They are written in ‘xacro’ format so that users have the ability to customize what
-parts of the URDF get loaded to the parameter server (see the ‘Usage’ section below for details).
+directory</a>. They are written in 'xacro' format so that users have the ability to customize what
+parts of the URDF get loaded to the parameter server (see the 'Usage' section below for details).
 Note that all the other ROS packages in the sub-repo reference this package to launch the robot
 description.</p>
 </div>
@@ -133,20 +134,20 @@ description.</p>
 <p>This package contains the xslocobot_description.launch file responsible for loading parts or all of
 the robot model. It launches up to four nodes as described below:</p>
 <ul class="simple">
-<li><strong>joint_state_publisher</strong> - responsible for parsing the ‘robot_description’ parameter to find
+<li><strong>joint_state_publisher</strong> - responsible for parsing the 'robot_description' parameter to find
 all non-fixed joints and publish a JointState message with those joints defined.</li>
-<li><strong>joint_state_publisher_gui</strong> - does the same thing as the ‘joint_state_publisher’ node but
+<li><strong>joint_state_publisher_gui</strong> - does the same thing as the 'joint_state_publisher' node but
 with a GUI that allows a user to easily manipulate the joints.</li>
 <li><strong>robot_state_publisher</strong> - uses the URDF specified by the parameter robot_description and the
 joint positions from the joint_states topic to calculate the forward kinematics of the robot
 and publish the results via tf.</li>
-<li><strong>rviz</strong> - displays the virtual robot model using the transforms in the ‘tf’ topic.</li>
+<li><strong>rviz</strong> - displays the virtual robot model using the transforms in the 'tf' topic.</li>
 </ul>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <p>To run this package, type the line below in a terminal. Note that the <code class="docutils literal notranslate"><span class="pre">robot_model</span></code> argument must
-be specified as the name of one of the four locobot models. For example, to launch a Locobot with a
+be specified as the name of one of the four locobot models. For example, to launch a LoCoBot with a
 WidowX-200 arm, type:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions xslocobot_description.launch robot_model:<span class="o">=</span>locobot_wx200 use_joint_pub_gui:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
@@ -167,35 +168,35 @@ further customize with other launch file arguments.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>robot_model</td>
-<td>model type of the Interbotix Locobot such as ‘locobot_base’ or ‘locobot_wx250s’</td>
-<td>“”</td>
+<td>model type of the Interbotix LoCoBot such as 'locobot_base' or 'locobot_wx250s'</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-odd"><td>robot_name</td>
-<td>name of the robot (could be anything but defaults to ‘locobot’)</td>
-<td>“locobot”</td>
+<td>name of the robot (could be anything but defaults to 'locobot')</td>
+<td>&quot;locobot&quot;</td>
 </tr>
 <tr class="row-even"><td>arm_model</td>
 <td>the Interbotix Arm model on the locobot; this should never be set manually but rather left to its default value</td>
 <td><a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions" rel="noopener noreferrer" target="_blank">refer to xslocobot_description.launch</a></td>
 </tr>
 <tr class="row-odd"><td>show_lidar</td>
-<td>if true, the lidar is included in the ‘robot_description’ parameter; only set to true if you purchased a lidar with your locobot</td>
+<td>if true, the lidar is included in the 'robot_description' parameter; only set to true if you purchased a lidar with your locobot</td>
 <td>false</td>
 </tr>
 <tr class="row-even"><td>show_gripper_bar</td>
-<td>if true, the gripper_bar link is included in the ‘robot_description’ parameter; if false, the gripper_bar and finger links are not loaded to the parameter server. Set to false if you have a custom gripper attachment</td>
+<td>if true, the gripper_bar link is included in the 'robot_description' parameter; if false, the gripper_bar and finger links are not loaded to the parameter server. Set to false if you have a custom gripper attachment</td>
 <td>true</td>
 </tr>
 <tr class="row-odd"><td>show_gripper_fingers</td>
-<td>if true, the gripper fingers are included in the ‘robot_description’ parameter; if false, the gripper finger links are not loaded to the parameter server. Set to false if you have custom gripper fingers</td>
+<td>if true, the gripper fingers are included in the 'robot_description' parameter; if false, the gripper finger links are not loaded to the parameter server. Set to false if you have custom gripper fingers</td>
 <td>true</td>
 </tr>
 <tr class="row-even"><td>external_urdf_loc</td>
-<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot’s urdf.xacro file</td>
-<td>“”</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-odd"><td>load_gazebo_configs</td>
-<td>set this to true if Gazebo is being used; it makes sure to include Gazebo related configs in the ‘robot_description’ parameter so that the robot models show up black in Gazebo</td>
+<td>set this to true if Gazebo is being used; it makes sure to include Gazebo related configs in the 'robot_description' parameter so that the robot models show up black in Gazebo</td>
 <td>false</td>
 </tr>
 <tr class="row-even"><td>use_joint_pub</td>
@@ -212,7 +213,7 @@ further customize with other launch file arguments.</p>
 </tr>
 <tr class="row-odd"><td>source_list</td>
 <td>list of joint state topics that should be merged together</td>
-<td>“[]”</td>
+<td>&quot;[]&quot;</td>
 </tr>
 <tr class="row-even"><td>use_rviz</td>
 <td>launches RViz</td>
@@ -235,7 +236,7 @@ further customize with other launch file arguments.</p>
 <p>Note that besides for the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/xslocobot_description.launch" rel="noopener noreferrer" target="_blank">xslocobot_description.launch</a> file, there is another file called
 <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/many_xslocobots.launch" rel="noopener noreferrer" target="_blank">many_xslocobots.launch</a> that features the ability to control multiple LoCoBots in the same ROS
 session. This is made possible by the fact that each robot is launched in its own unique namespace.
-To run it, type…</p>
+To run it, type...</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions many_xslocobots.launch
 </pre></div>
 </div>
@@ -243,7 +244,7 @@ To run it, type…</p>
 <img alt="../_images/many_xslocobots.png" class="align-center" src="../_images/many_xslocobots.png" />
 <p>Also note that there is another launch file called <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/remote_view.launch" rel="noopener noreferrer" target="_blank">remote_view.launch</a>. This launch file should
 be run on a networked ROS computer to visualize the robot in RViz in real time. See more in the
-<a class="reference internal" href="../ros_interface/quickstart.html"><span class="doc">ROS Interface Quickstart</span></a>.</p>
+<a class="reference internal" href="../ros_interface/ros1/quickstart.html"><span class="doc">ROS Interface Quickstart</span></a>.</p>
 </div>
 </div>
 

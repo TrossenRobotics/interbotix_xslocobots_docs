@@ -43,6 +43,7 @@ What's Here
 *   :doc:`ros_interface` - Guides on how to use the ROS Interfaces.
 *   :doc:`python_interface` - Guides on how to use the Python-ROS Interfaces.
 *   :doc:`ros1_packages` - Guides for each core and demo package in the ROS 1 Interface.
+*   :doc:`ros2_packages` - Guides for each core and demo package in the ROS 2 Interface.
 *   :doc:`troubleshooting` - Small guides to walk users through possible issues they may occur when
     using their LoCoBot.
 
@@ -57,4 +58,5 @@ Table of Contents
     ros_interface.rst
     python_interface.rst
     ros1_packages.rst
+    ros2_packages.rst
     troubleshooting.rst

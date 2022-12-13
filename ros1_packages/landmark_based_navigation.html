@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Troubleshooting" href="../troubleshooting.html" />
+    <link rel="next" title="ROS 2 Open Source Packages" href="../ros2_packages.html" />
     <link rel="prev" title="Joystick Control" href="joystick_control.html" />
    
   <!-- Google Tag Manager (noscript) -->
@@ -89,6 +89,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
@@ -109,7 +110,7 @@
           <li class="breadcrumb-item"><a href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
       <li class="breadcrumb-item active">Landmark-Based Navigation</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros1_packages/landmark_based_navigation.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/ros1_packages/landmark_based_navigation.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -177,12 +178,12 @@ distance away from the wall that the robot should navigate to if a tag is mounte
 </div>
 <div class="section" id="mapping">
 <h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this headline"></a></h3>
-<p>Once a valid set of landmarks is created, you can now map out the robot’s environment. To start the
+<p>Once a valid set of landmarks is created, you can now map out the robot's environment. To start the
 SLAM process from a fresh map, type the following in a terminal on the robot computer:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_landmark_nav xslocobot_landmark_nav.launch robot_model:<span class="o">=</span>locobot_px100 mapping:<span class="o">=</span><span class="nb">true</span> rtabmap_args:<span class="o">=</span>-d
 </pre></div>
 </div>
-<p>To save the location of the landmark, the robot must ‘see’ its tag. To ensure that the tag is in
+<p>To save the location of the landmark, the robot must 'see' its tag. To ensure that the tag is in
 view, check the terminal for a line like:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[INFO] Static Transform Publisher received TF from &quot;landmarks&quot; to &quot;landmark_2&quot;</span>
 </pre></div>
@@ -193,7 +194,7 @@ tree.</p>
 <p>Once all landmarks have been found, you can shut down ROS using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd>. The
 landmarks and their positions in the map will be saved.</p>
 <p>A more in-depth review of the general mapping process can be found in the
-<a class="reference internal" href="navigation_stack_configuration.html"><span class="doc">interbotix_xslocobot_nav</span></a> package’s <a class="reference internal" href="navigation_stack_configuration.html#interbotix-xslocobot-nav-slam-from-scratch-label"><span class="std std-ref">SLAM From
+<a class="reference internal" href="navigation_stack_configuration.html"><span class="doc">interbotix_xslocobot_nav</span></a> package's <a class="reference internal" href="navigation_stack_configuration.html#interbotix-xslocobot-nav-slam-from-scratch-label"><span class="std std-ref">SLAM From
 Scratch</span></a> section.</p>
 </div>
 <div class="section" id="localization">
@@ -226,7 +227,7 @@ drive the robot to the location.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="joystick_control.html" class="btn btn-neutral float-left" title="Joystick Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../ros2_packages.html" class="btn btn-neutral float-right" title="ROS 2 Open Source Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

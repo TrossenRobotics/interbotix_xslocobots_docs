@@ -24,7 +24,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Landmark-Based Navigation" href="ros1_packages/landmark_based_navigation.html" />
+    <link rel="prev" title="Joystick Control" href="ros2_packages/joystick_control.html" />
    
   <!-- Google Tag Manager (noscript) -->
   <noscript>
@@ -61,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ros_interface.html">ROS Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_interface.html">Python-ROS Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ros1_packages.html">ROS 1 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#common-issues">Common Issues</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-3-base-stutters-or-reflexed-are-triggered-when-driven">Create® 3 base stutters or reflexed are triggered when driven</a></li>
@@ -68,8 +69,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#less-common-issues">Less Common Issues</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-3-base-clock-is-not-synchronized">Create® 3 base clock is not synchronized</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#can-t-see-echo-topics-published-by-locobot-on-remote-using-ros-1">Can’t see/echo topics published by LoCoBot on remote using ROS 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#can-t-see-rviz-displays-on-remote-view-using-ros-1">Can’t see RViz displays on remote view using ROS 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-t-see-echo-topics-published-by-locobot-on-remote-using-ros-1">Can't see/echo topics published by LoCoBot on remote using ROS 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-t-see-rviz-displays-on-remote-view-using-ros-1">Can't see RViz displays on remote view using ROS 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-id-on-parameter-server-does-not-match-declared-run-id-when-launching-on-remote-using-ros-1"><code class="docutils literal notranslate"><span class="pre">run_id</span> <span class="pre">on</span> <span class="pre">parameter</span> <span class="pre">server</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">match</span> <span class="pre">declared</span> <span class="pre">run_id</span></code> when launching on remote using ROS 1</a></li>
 </ul>
 </li>
@@ -93,7 +94,7 @@
       <li><a href="index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">Troubleshooting</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/troubleshooting.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/troubleshooting.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -105,7 +106,7 @@
 <h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h1>
 <p>This guide walks a user through possible issues that can occur when using an Interbotix LoCoBot and
 how to fix them. If, after following this guide, the issues persists, take a look at the
-<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/issues?q=is%3Aissue" rel="noopener noreferrer" target="_blank">interbotix_ros_rovers bug tracker</a>. If you can’t find an answer there, feel free to <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/issues/new/choose" rel="noopener noreferrer" target="_blank">open your
+<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/issues?q=is%3Aissue" rel="noopener noreferrer" target="_blank">interbotix_ros_rovers bug tracker</a>. If you can't find an answer there, feel free to <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/issues/new/choose" rel="noopener noreferrer" target="_blank">open your
 own issue</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -116,11 +117,11 @@ own issue</a>.</p>
 <h2>Common Issues<a class="headerlink" href="#common-issues" title="Permalink to this headline"></a></h2>
 <div class="section" id="create-3-base-stutters-or-reflexed-are-triggered-when-driven">
 <h3>Create® 3 base stutters or reflexed are triggered when driven<a class="headerlink" href="#create-3-base-stutters-or-reflexed-are-triggered-when-driven" title="Permalink to this headline"></a></h3>
-<p>If the robot stops, turns, or reacts in an unexpected way when moving, it’s possible that the
+<p>If the robot stops, turns, or reacts in an unexpected way when moving, it's possible that the
 reflexes are not turned off on the Create® 3 base. To fix this, you can either set the
 <code class="docutils literal notranslate"><span class="pre">&lt;base_namespace&gt;/motion_control</span> <span class="pre">reflexes_enabled</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">False</span></code> using the <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span>
 <span class="pre">set</span></code> command line tool, or set it to <code class="docutils literal notranslate"><span class="pre">false</span></code> in the Application ROS 2 Parameters File located in
-the Create® 3 webserver’s ROS 2 Configuration page. If using Interbotix’s default network
+the Create® 3 webserver's ROS 2 Configuration page. If using Interbotix's default network
 configuration, this will be at <code class="docutils literal notranslate"><span class="pre">192.168.186.2/ros-config</span></code>, assuming that the Create® 3 is turned
 on. See the <a class="reference internal" href="getting_started/create3_configuration.html"><span class="doc">Create 3 Configuration page</span></a> for more
 information.</p>
@@ -131,17 +132,17 @@ information.</p>
 <div class="section" id="create-3-base-clock-is-not-synchronized">
 <h3>Create® 3 base clock is not synchronized<a class="headerlink" href="#create-3-base-clock-is-not-synchronized" title="Permalink to this headline"></a></h3>
 <p>If transforms require a significant extrapolation into the past, it is possible that your Create® 3
-base’s clock is not in sync with the rest of your system. Errors like the one below may indicate
+base's clock is not in sync with the rest of your system. Errors like the one below may indicate
 that this is the case.</p>
 <div class="code-wrap docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="o">=</span><span class="s2">&quot;Lookup would require extrapolation -27793617.761847734s into the future. Requested time 1667324891.111343861 but the latest data is at time 1639531273.349496126, when looking up transform from frame [locobot/base_footprint] to frame [locobot/odom]. canTransform returned after 0.200389 timeout was 0.2.&quot;</span>
 </pre></div>
 </div>
 </div>
-<p>To solve this, check iRobot’s <a class="reference external" href="https://iroboteducation.github.io/create3_docs/setup/compute-ntp/" rel="noopener noreferrer" target="_blank">Setup NTP on compute board to serve time to Create® 3</a> guide. In
+<p>To solve this, check iRobot's <a class="reference external" href="https://iroboteducation.github.io/create3_docs/setup/compute-ntp/" rel="noopener noreferrer" target="_blank">Setup NTP on compute board to serve time to Create® 3</a> guide. In
 short, the steps are as follows:</p>
 <ol class="arabic">
-<li><p class="first">On your LoCoBot’s computer, install chrony NTP server package</p>
+<li><p class="first">On your LoCoBot's computer, install chrony NTP server package</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install chrony
 </pre></div>
 </div>
@@ -163,7 +164,7 @@ short, the steps are as follows:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Optionally add the following lines immediately afterward if your LoCoBot’s computer will not
+<li><p class="first">Optionally add the following lines immediately afterward if your LoCoBot's computer will not
 have a connection to a reference clock (i.e., the Internet)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Serve time even if not synchronized to a time source</span>
 <span class="n">local</span> <span class="n">stratum</span> <span class="mi">10</span>
@@ -189,22 +190,22 @@ have a connection to a reference clock (i.e., the Internet)</p>
 </div>
 </li>
 <li><p class="first">Note that if there is a large jump in the time, the Create® 3 may not accept it until its next
-reboot. This can be verified by checking the Create® 3 robot’s log for a line like</p>
+reboot. This can be verified by checking the Create® 3 robot's log for a line like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">notice</span> <span class="n">ntpd</span><span class="p">:</span> <span class="n">ntpd</span><span class="p">:</span> <span class="n">reply</span> <span class="kn">from</span> <span class="mf">192.168.186.3</span><span class="p">:</span> <span class="n">delay</span> <span class="c1">### is too high, ignoring</span>
 </pre></div>
 </div>
 <p>If this happens, simply restart the base (not just the application) via the webserver over the
 USB network connection.</p>
 </li>
-<li><p class="first">Sometimes the NTP daemon can be a bit sticky and will not update the base’s time even when
+<li><p class="first">Sometimes the NTP daemon can be a bit sticky and will not update the base's time even when
 rebooted. In that case, you could connect the Create® 3 to your wireless network so that it can
-contact iRobot’s ntp pools. For details on this process, follow the “Connect to Wi-Fi (ROS 2
-Users)” steps in the <a class="reference external" href="https://edu.irobot.com/create3-setup" rel="noopener noreferrer" target="_blank">Create® 3 Setup Guide</a>.</p>
+contact iRobot's ntp pools. For details on this process, follow the &quot;Connect to Wi-Fi (ROS 2
+Users)&quot; steps in the <a class="reference external" href="https://edu.irobot.com/create3-setup" rel="noopener noreferrer" target="_blank">Create® 3 Setup Guide</a>.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="can-t-see-echo-topics-published-by-locobot-on-remote-using-ros-1">
-<span id="troubleshooting-cant-read-topics-label"></span><h3>Can’t see/echo topics published by LoCoBot on remote using ROS 1<a class="headerlink" href="#can-t-see-echo-topics-published-by-locobot-on-remote-using-ros-1" title="Permalink to this headline"></a></h3>
+<span id="troubleshooting-cant-read-topics-label"></span><h3>Can't see/echo topics published by LoCoBot on remote using ROS 1<a class="headerlink" href="#can-t-see-echo-topics-published-by-locobot-on-remote-using-ros-1" title="Permalink to this headline"></a></h3>
 <p>Your network may be configured incorrectly. See the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/MultipleMachines" rel="noopener noreferrer" target="_blank">ROS Multiple Machines Tutorial</a> and the <a class="reference external" href="http://wiki.ros.org/ROS/NetworkSetup" rel="noopener noreferrer" target="_blank">ROS
 Network Setup Tutorial</a>. This may be as simple as changing the value of the <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> environment
 variable. For example, your <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> may be set to the value of the IP assigned in the connection
@@ -221,7 +222,7 @@ the connection over the Ethernet network, and one for the connection over the wi
 <p>If properly connected to the Ethernet network, that IP address will be <code class="docutils literal notranslate"><span class="pre">192.168.186.3</span></code>. The
 address for the wireless network will be the other one, in this case, <code class="docutils literal notranslate"><span class="pre">192.168.0.171</span></code>.</p>
 </li>
-<li><p class="first">Edit the LoCoBot’s .bashrc file</p>
+<li><p class="first">Edit the LoCoBot's .bashrc file</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano ~/.bashrc
 </pre></div>
 </div>
@@ -262,13 +263,13 @@ address for the wireless network will be the other one, in this case, <code clas
 </ol>
 </div>
 <div class="section" id="can-t-see-rviz-displays-on-remote-view-using-ros-1">
-<h3>Can’t see RViz displays on remote view using ROS 1<a class="headerlink" href="#can-t-see-rviz-displays-on-remote-view-using-ros-1" title="Permalink to this headline"></a></h3>
-<p>See <a class="reference internal" href="#troubleshooting-cant-read-topics-label"><span class="std std-ref">Can’t see/echo topics published by LoCoBot on
+<h3>Can't see RViz displays on remote view using ROS 1<a class="headerlink" href="#can-t-see-rviz-displays-on-remote-view-using-ros-1" title="Permalink to this headline"></a></h3>
+<p>See <a class="reference internal" href="#troubleshooting-cant-read-topics-label"><span class="std std-ref">Can't see/echo topics published by LoCoBot on
 remote</span></a>.</p>
 </div>
 <div class="section" id="run-id-on-parameter-server-does-not-match-declared-run-id-when-launching-on-remote-using-ros-1">
 <h3><code class="docutils literal notranslate"><span class="pre">run_id</span> <span class="pre">on</span> <span class="pre">parameter</span> <span class="pre">server</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">match</span> <span class="pre">declared</span> <span class="pre">run_id</span></code> when launching on remote using ROS 1<a class="headerlink" href="#run-id-on-parameter-server-does-not-match-declared-run-id-when-launching-on-remote-using-ros-1" title="Permalink to this headline"></a></h3>
-<p>This occurs because roslaunch can’t detect the roscore before starting up, leading to the run_id
+<p>This occurs because roslaunch can't detect the roscore before starting up, leading to the run_id
 mismatch. To solve this, simply append the <code class="docutils literal notranslate"><span class="pre">--wait</span></code> argument when running roslaunch. This tells
 roslaunch to delay the launch until a roscore is detected.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions remote_view.launch --wait
@@ -283,7 +284,7 @@ roslaunch to delay the launch until a roscore is detected.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ros1_packages/landmark_based_navigation.html" class="btn btn-neutral float-left" title="Landmark-Based Navigation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros2_packages/joystick_control.html" class="btn btn-neutral float-left" title="Joystick Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

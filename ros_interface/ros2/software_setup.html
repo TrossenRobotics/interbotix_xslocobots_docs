@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS 2 Standard Software Setup &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ROS 2 Quickstart Guide" href="quickstart.html" />
+    <link rel="prev" title="ROS 2 Interface" href="../ros2.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html">
+            <img src="../../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ros_interface.html">ROS Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ros1.html">ROS 1 Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../ros2.html">ROS 2 Interface</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ROS 2 Standard Software Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compatible-models">Compatible Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#software-installation">Software Installation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#amd64-architecture">AMD64 Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-checks">Installation Checks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html">ROS 2 Quickstart Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html">ROS 2 Configurations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_interface.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ros1_packages.html">ROS 1 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ros2_packages.html">ROS 2 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../ros_interface.html">ROS Interface</a></li>
+          <li class="breadcrumb-item"><a href="../ros2.html">ROS 2 Interface</a></li>
+      <li class="breadcrumb-item active">ROS 2 Standard Software Setup</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/ros_interface/ros2/software_setup.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="ros-2-standard-software-setup">
+<h1>ROS 2 Standard Software Setup<a class="headerlink" href="#ros-2-standard-software-setup" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#compatible-models" id="id2">Compatible Models</a></li>
+<li><a class="reference internal" href="#requirements" id="id3">Requirements</a></li>
+<li><a class="reference internal" href="#software-installation" id="id4">Software Installation</a><ul>
+<li><a class="reference internal" href="#amd64-architecture" id="id5">AMD64 Architecture</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation-checks" id="id6">Installation Checks</a></li>
+<li><a class="reference internal" href="#next-steps" id="id7">Next Steps</a></li>
+<li><a class="reference internal" href="#troubleshooting" id="id8">Troubleshooting</a></li>
+</ul>
+</div>
+<div class="section" id="compatible-models">
+<h2><a class="toc-backref" href="#id2">Compatible Models</a><a class="headerlink" href="#compatible-models" title="Permalink to this headline"></a></h2>
+<p>The ROS Interface packages can be used with any of the Interbotix LoCoBot kits listed below. Next
+to each name is the codename used to describe it in software (specifically for the <code class="docutils literal notranslate"><span class="pre">robot_model</span></code>
+argument in launch files) and a description. There are up to four parts in a name. The first word
+<code class="docutils literal notranslate"><span class="pre">locobot</span></code> specifies that the robot is a type of rover. The next two letters represent model type
+(ex. <code class="docutils literal notranslate"><span class="pre">wx</span></code> for 'WidowX'). The number afterwards (ex. <code class="docutils literal notranslate"><span class="pre">200</span></code>) corresponds to the length of both
+the arm's forearm and upper-arm links in millimeters. Finally, the <code class="docutils literal notranslate"><span class="pre">s</span></code> after some numbers
+signifies if that arm has six degrees of freedom. If the robot has <code class="docutils literal notranslate"><span class="pre">base</span></code> in it, that means that
+it has no arm.</p>
+<table border="1" class="colwidths-given docutils align-center" id="id1">
+<caption><span class="caption-text"><strong>Models</strong></span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col width="40%" />
+<col width="40%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Model Name and Store Link</th>
+<th class="head">Robot Documentation</th>
+<th class="head">Codename</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://www.trossenrobotics.com/locobot-base.aspx" rel="noopener noreferrer" target="_blank">LoCoBot Base</a></td>
+<td><a class="reference internal" href="../../specifications/locobot_base.html"><span class="doc">LoCoBot Base Documentation</span></a></td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot_base</span></code></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.trossenrobotics.com/locobot-px100.aspx" rel="noopener noreferrer" target="_blank">LoCoBot PX100</a></td>
+<td><a class="reference internal" href="../../specifications/locobot_px100.html"><span class="doc">LoCoBot PX100 Documentation</span></a></td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot_px100</span></code></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.trossenrobotics.com/locobot-wx200.aspx" rel="noopener noreferrer" target="_blank">LoCoBot WX200</a></td>
+<td><a class="reference internal" href="../../specifications/locobot_wx200.html"><span class="doc">LoCoBot WX200 Documentation</span></a></td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.trossenrobotics.com/locobot-wx250-6-degree-of-freedom.aspx" rel="noopener noreferrer" target="_blank">LoCoBot WX250 6DOF</a></td>
+<td><a class="reference internal" href="../../specifications/locobot_wx250s.html"><span class="doc">LoCoBot WX250 6DOF Documentation</span></a></td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><strong>LoCoBot Base Robot Rover</strong> (<code class="docutils literal notranslate"><span class="pre">locobot_base</span></code>): equipped with a <a class="reference internal" href="../../specifications.html#specifications-kobuki-label"><span class="std std-ref">Kobuki</span></a> or <a class="reference internal" href="../../specifications.html#specifications-create3-label"><span class="std std-ref">Create® 3</span></a> mobile base, a
+<a class="reference internal" href="../../specifications.html#specifications-realsense-label"><span class="std std-ref">RealSense D435</span></a> Depth camera on a <a class="reference internal" href="../../specifications.html#specifications-pan-and-tilt-label"><span class="std std-ref">DYNAMIXEL
+pan-tilt servo</span></a>, and a <a class="reference internal" href="../../specifications.html#specifications-nuc-label"><span class="std std-ref">NUC</span></a> Intel Computer, this rover is ready to perform some serious
+navigation and mapping tasks. For even more flexibility, the <a class="reference internal" href="../../specifications.html#specifications-rplidar-label"><span class="std std-ref">RPLidar A2M8</span></a> laser scanner can be added as well.</li>
+<li><strong>LoCoBot PincherX 100 Robot Rover</strong> (<code class="docutils literal notranslate"><span class="pre">locobot_px100</span></code>): with all the features of the
+locobot_base platform, this robot steps it up a notch by including the 4DOF <a class="reference internal" href="../../specifications/locobot_px100.html#specifications-px100-label"><span class="std std-ref">PincherX-100</span></a> Interbotix Arm. Now officially a mobile-manipulator, this rover
+can perform manipulation tasks in addition to navigating/mapping an environment.</li>
+<li><strong>LoCoBot WidowX 200 Robot Rover</strong> (<code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code>): similar in structure to the
+locobot_px100 robot, this platform substitutes the PincherX 100 arm with the 5DOF
+<a class="reference internal" href="../../specifications/locobot_wx200.html#specifications-wx200-label"><span class="std std-ref">WidowX-200</span></a> Interbotix Arm. With longer range, a higher
+payload capacity, and an extra degree of freedom, this rover makes your manipulation tasks
+easier to perform.</li>
+<li><strong>LoCoBot WidowX 250 6DOF Robot Rover</strong> (<code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code>): similar in structure to the
+locobot_wx200 rover, this platform substitutes the WidowX 200 arm with the 6DOF
+<a class="reference internal" href="../../specifications/locobot_wx250s.html#specifications-wx250s-label"><span class="std std-ref">WidowX-250 6DOF</span></a> Interbotix Arm. With even longer range, a
+higher payload capacity, and yet another degree of freedom, this platform raises the bar on
+research mobile-manipulators.</li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h2><a class="toc-backref" href="#id3">Requirements</a><a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<p>Below is a list of the hardware you will need to get started:</p>
+<ul class="simple">
+<li>Keyboard, mouse, HDMI monitor, and HDMI cable</li>
+<li>One of the X-Series LoCoBot Kits mentioned above</li>
+<li>Computer running Ubuntu Linux 20.04 or 22.04</li>
+</ul>
+</div>
+<div class="section" id="software-installation">
+<h2><a class="toc-backref" href="#id4">Software Installation</a><a class="headerlink" href="#software-installation" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Terminology:</p>
+<ul class="last simple">
+<li>&quot;Remote&quot; - Your own personal computer (desktop, laptop, etc.)</li>
+<li>&quot;Robot&quot; or &quot;LoCoBot&quot; - The NUC computer on the LoCoBot</li>
+</ul>
+</div>
+<p>To get all the code setup, refer to the computer platform types below (currently only one option,
+but this may change in the future) and run the appropriate installation script. Afterwards,
+continue with the <a class="reference internal" href="#ros-software-setup-installation-checks-label"><span class="std std-ref">Installation Checks</span></a>
+sub-section.</p>
+<div class="section" id="amd64-architecture">
+<h3><a class="toc-backref" href="#id5">AMD64 Architecture</a><a class="headerlink" href="#amd64-architecture" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you purchased a NUC-based ROS LoCoBot from Trossen Robotics or their distributors, note that
+it will come pre-installed with <a class="reference external" href="https://releases.ubuntu.com/focal/" rel="noopener noreferrer" target="_blank">Ubuntu Desktop image (22.04)</a> already on it and you will not
+have to run the software installation yourself.</p>
+</div>
+<p>After powering on the NUC via the steps in the previous section, a login screen should appear with
+<code class="docutils literal notranslate"><span class="pre">locobot</span></code> as the user name. Conveniently, the password is the same as the user name so type
+<code class="docutils literal notranslate"><span class="pre">locobot</span></code> and hit <strong>Enter</strong>. Next, update the computer by performing the following steps.</p>
+<ol class="arabic simple">
+<li>Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of the
+Desktop and selecting your desired network.</li>
+<li>Press <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd> to open a terminal screen, and type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span>
+<span class="pre">update</span></code>.</li>
+<li>After the process completes, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">upgrade</span></code>. It might take a few minutes for the
+computer to upgrade.</li>
+<li>Finally, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">autoremove</span></code> to get rid of unnecessary software packages. Then
+close out of the terminal and reboot the computer.</li>
+<li>Once rebooted, login and open up a terminal as before. Instead of manually installing all the
+software needed for the robot, you will download and run an installation script. Follow the
+commands below to get started! Note that no sensors or actuators (i.e. camera, lidar, U2D2,
+etc.) needs to be connected to the computer for the installation to work. Specify the version
+of ROS that you want to install using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag followed by the distribution's codename.
+Alternatively, you can run it without the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag and the script will install packages for
+the ROS 1 distribution supported by the version of Ubuntu, or the latest stable release of ROS
+2 if using Ubuntu version 22.04 or later. See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list of currently supported distributions</a>.
+You will also need to specify the base type using the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if
+using the Create® 3 base, or <code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using the Kobuki base. The commands below
+demonstrate the process of running the installation script for ROS 1 Noetic and a Create® 3
+base.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
+<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span> &gt; xslocobot_amd64_install.sh
+<span class="gp">$ </span>chmod +x xslocobot_amd64_install.sh
+<span class="gp">$ </span>./xslocobot_amd64_install.sh -d humble -b create3
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The install script provides more in-depth control of some installation options. Append the
+<code class="docutils literal notranslate"><span class="pre">-h</span></code> flag to see the help document like below:</p>
+<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./xslocobot_amd64_install.sh -h
+<span class="go">USAGE: ./xslocobot_amd64_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-n]</span>
+
+<span class="go">...</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Once the script is done, shutdown the computer, and remove the HDMI cable, keyboard, and mouse.
+Replug any sensors into the computer that were unplugged initially. Then turn the computer on
+again by pressing the power button.</li>
+</ol>
+<span class="target" id="ros2-software-setup-remote-install-label"></span></div>
+</div>
+<div class="section" id="installation-checks">
+<span id="ros-software-setup-installation-checks-label"></span><h2><a class="toc-backref" href="#id6">Installation Checks</a><a class="headerlink" href="#installation-checks" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These sensors should be plugged back in and turned on at this point if they're not already.</p>
+</div>
+<p>After running the installation script on the robot computer, verify that it was successful in
+finding the U2D2, Kobuki (if applicable), and Lidar (if applicable) by checking that the port names
+show up as <code class="docutils literal notranslate"><span class="pre">ttyDXL</span></code>, <code class="docutils literal notranslate"><span class="pre">kobuki</span></code> (if applicable), and <code class="docutils literal notranslate"><span class="pre">rplidar</span></code> (if applicable) respectively.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls /dev <span class="p">|</span> grep ttyDXL
+<span class="go">ttyDXL</span>
+<span class="gp">$ </span>ls /dev <span class="p">|</span> grep rplidar    <span class="c1"># if applicable</span>
+<span class="go">rplidar</span>
+</pre></div>
+</div>
+<p>If using the Create® 3 as a base, use the below command to ping the base to ensure that your
+network is properly configured to use the 192.168.186.2 to connect to the base.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping -c <span class="m">2</span> <span class="m">192</span>.168.186.2   <span class="c1"># if applicable (robot uses the Create® 3 as its base)</span>
+<span class="go">PING 192.168.186.2 56(84) bytes of data.</span>
+<span class="go">64 bytes from 192.168.186.2: icmp_seq=1 ttl=64 time=0.040 ms</span>
+<span class="go">64 bytes from 192.168.186.2: icmp_seq=2 ttl=64 time=0.035 ms</span>
+
+<span class="go">--- localhost ping statistics ---</span>
+<span class="go">2 packets transmitted, 2 received, 0% packet loss, time 1012ms</span>
+<span class="go">rtt min/avg/max/mdev = 0.035/0.037/0.040/0.002 ms</span>
+</pre></div>
+</div>
+<p>Verify that the RealSense camera can be found by typing <code class="docutils literal notranslate"><span class="pre">rs-enumerate-devices</span> <span class="pre">-S</span></code> in the
+terminal. The output should give info about the type of RealSense camera that is plugged in. Note
+that the camera should be plugged back in at this point if it's not already.</p>
+</div>
+<div class="section" id="next-steps">
+<h2><a class="toc-backref" href="#id7">Next Steps</a><a class="headerlink" href="#next-steps" title="Permalink to this headline"></a></h2>
+<p>If the ROS Interface installed properly, you can continue on to the <a class="reference internal" href="quickstart.html"><span class="doc">ROS Interface Quickstart
+Guide</span></a>.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2><a class="toc-backref" href="#id8">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<p>Refer to the <a class="reference internal" href="../../troubleshooting.html"><span class="doc">X-Series Troubleshooting Guide</span></a> to try to solve your
+problem. If you still need help, feel free to <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/issues" rel="noopener noreferrer" target="_blank">open an Issue</a> on the ros_rovers repo. We strongly
+recommend the latter option though so that other people who may be facing the same difficulty can
+benefit. This repository is actively maintained and any open Issues will be addressed as soon as
+possible.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../ros2.html" class="btn btn-neutral float-left" title="ROS 2 Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="ROS 2 Quickstart Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

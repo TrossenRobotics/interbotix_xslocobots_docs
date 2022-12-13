@@ -80,6 +80,7 @@
 <li class="toctree-l2"><a class="reference internal" href="landmark_based_navigation.html">Landmark-Based Navigation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
@@ -100,7 +101,7 @@
           <li class="breadcrumb-item"><a href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
       <li class="breadcrumb-item active">MoveIt Interface and API</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/ros1_packages/moveit_interface_and_api.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/ros1_packages/moveit_interface_and_api.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -135,13 +136,13 @@ Interbotix robot via the MoveIt Commander Python module.</p>
 respective READMEs. The <cite>interbotix_xslocobot_moveit_interface</cite> nodes are described below:</p>
 <ul class="simple">
 <li><strong>moveit_interface</strong> - a small C++ API that makes it easier for a user to command custom poses
-to the end-effector of an Interbotix arm; it uses MoveIt’s planner behind the scenes to
+to the end-effector of an Interbotix arm; it uses MoveIt's planner behind the scenes to
 generate desired joint trajectories</li>
 <li><strong>moveit_interface_gui</strong> - a GUI (modeled after the one in the <cite>joint_state_publisher</cite> package)
 that allows a user to enter in desired end-effector poses via text fields or sliders; it uses
 the <strong>moveit_interface</strong> API to plan and execute trajectories</li>
 <li><strong>moveit_python_interface</strong> - a modified version of the script used in the <a class="reference external" href="https://github.com/ros-planning/moveit_tutorials/blob/482dc9db944c785870274c35223b4d06f2f0bc90/doc/move_group_python_interface/scripts/move_group_python_interface_tutorial.py" rel="noopener noreferrer" target="_blank">Move Group Python
-Interface Tutorial</a> that is meant to work with an Interbotix arm; just press ‘Enter’ in the
+Interface Tutorial</a> that is meant to work with an Interbotix arm; just press 'Enter' in the
 terminal to walk through the different steps; the desired joint state goal, pose goal, and
 end-effector offset (when attaching the box) are stored in YAML files located in the
 <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_moveit_interface/config" rel="noopener noreferrer" target="_blank">config</a> directory</li>
@@ -150,12 +151,12 @@ end-effector offset (when attaching the box) are stored in YAML files located in
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <p>To run this package on the physical robot using the small C++ API &amp; GUI, type the line below in a
-terminal (assuming the ‘locobot_wx200’ with lidar is being launched).</p>
+terminal (assuming the 'locobot_wx200' with lidar is being launched).</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit_interface xslocobot_moveit_interface.launch robot_model:<span class="o">=</span>locobot_wx200 show_lidar:<span class="o">=</span><span class="nb">true</span> use_actual:<span class="o">=</span><span class="nb">true</span> use_cpp_interface:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>A GUI should pop-up similar to the one below. In it, a user should specify the desired position and
-orientation of the end-effector (as defined by the ‘ee_gripper_link’ w.r.t. the ‘base_footprint’
+orientation of the end-effector (as defined by the 'ee_gripper_link' w.r.t. the 'base_footprint'
 frame). This can be done either via the slider bars or by entering values into the text fields.
 Next, a user can press one of five buttons. They are:</p>
 <ul class="simple">
@@ -168,14 +169,14 @@ the desired orientation, ignoring position; note that the planner fails more oft
 this option</li>
 <li><strong>Execute</strong> - Once a valid plan has been found, this button can be pressed to actually execute
 the trajectory on the robot</li>
-<li><strong>Reset</strong> - This resets all slider bars to the middle and text fields to ‘0.00’</li>
+<li><strong>Reset</strong> - This resets all slider bars to the middle and text fields to '0.00'</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Occasionally, MoveIt will be unsuccessful in finding a valid trajectory. This could be for one
 of two reasons. Either the desired pose is not physically attainable by the arm or the random
 seed generated by MoveIt was a bad guess. If it is clear that the pose is physically
-attainable, try hitting the desired ‘Plan’ button a few more times.</p>
+attainable, try hitting the desired 'Plan' button a few more times.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -188,7 +189,7 @@ terminal (assuming the locobot_wx250s with no lidar is being launched).</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit_interface xslocobot_moveit_interface.launch robot_model:<span class="o">=</span>locobot_wx250s use_actual:<span class="o">=</span><span class="nb">true</span> dof:<span class="o">=</span><span class="m">6</span> use_python_interface:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
-<p>After MoveIt finishes loading, press ‘Enter’ in the terminal to step through the tutorial.</p>
+<p>After MoveIt finishes loading, press 'Enter' in the terminal to step through the tutorial.</p>
 <p>This is the bare minimum needed to get up and running. Take a look at the table below to see how to
 further customize with other launch file arguments.</p>
 <table border="1" class="colwidths-given docutils align-default">
@@ -205,27 +206,27 @@ further customize with other launch file arguments.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>robot_model</td>
-<td>model type of the Interbotix Locobot such as ‘locobot_base’ or ‘locobot_wx250s’</td>
-<td>“”</td>
+<td>model type of the Interbotix LoCoBot such as 'locobot_base' or 'locobot_wx250s'</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-odd"><td>robot_name</td>
-<td>name of the robot (could be anything but defaults to ‘locobot’)</td>
-<td>“locobot”</td>
+<td>name of the robot (could be anything but defaults to 'locobot')</td>
+<td>&quot;locobot&quot;</td>
 </tr>
 <tr class="row-even"><td>show_lidar</td>
-<td>set to ‘true’ if the lidar is installed on the robot; this will load the lidar related links to the ‘robot_description’ parameter for collision purposes;</td>
+<td>set to 'true' if the lidar is installed on the robot; this will load the lidar related links to the 'robot_description' parameter for collision purposes;</td>
 <td>false</td>
 </tr>
 <tr class="row-odd"><td>external_urdf_loc</td>
-<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot’s urdf.xacro file</td>
-<td>“”</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-even"><td>external_srdf_loc</td>
-<td>the file path to the custom srdf.xacro file that you would like to include in the Interbotix robot’s srdf.xacro file. Note that this should only contain ‘disable collision’ tags for collisions between the original Interbotix Arm and other links that are defined in the file specified by&nbsp;external_urdf_loc</td>
-<td>“”</td>
+<td>the file path to the custom srdf.xacro file that you would like to include in the Interbotix robot's srdf.xacro file. Note that this should only contain 'disable collision' tags for collisions between the original Interbotix Arm and other links that are defined in the file specified by&nbsp;external_urdf_loc</td>
+<td>&quot;&quot;</td>
 </tr>
 <tr class="row-odd"><td>mode_configs</td>
-<td>the file path to the ‘mode config’ YAML file</td>
+<td>the file path to the 'mode config' YAML file</td>
 <td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_moveit_interface/launch/xslocobot_moveit_interface.launch" rel="noopener noreferrer" target="_blank">xslocobot_moveit_interface.launch</a></td>
 </tr>
 <tr class="row-even"><td>use_gazebo</td>
@@ -253,7 +254,7 @@ further customize with other launch file arguments.</p>
 <td>true</td>
 </tr>
 <tr class="row-even"><td>world_name</td>
-<td>the file path to the Gazebo ‘world’ file to load (if simulating)</td>
+<td>the file path to the Gazebo 'world' file to load (if simulating)</td>
 <td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_moveit_interface/launch/xslocobot_moveit_interface.launch" rel="noopener noreferrer" target="_blank">xslocobot_moveit_interface.launch</a></td>
 </tr>
 <tr class="row-odd"><td>use_cpp_interface</td>
@@ -261,7 +262,7 @@ further customize with other launch file arguments.</p>
 <td>false</td>
 </tr>
 <tr class="row-even"><td>moveit_interface_gui</td>
-<td>launch a custom GUI to interface with the&nbsp;<strong>moveit_interface</strong>&nbsp;node so that you can command specific end-effector poses (defined by ‘ee_gripper_link’)</td>
+<td>launch a custom GUI to interface with the&nbsp;<strong>moveit_interface</strong>&nbsp;node so that you can command specific end-effector poses (defined by 'ee_gripper_link')</td>
 <td>true</td>
 </tr>
 <tr class="row-odd"><td>use_python_interface</td>

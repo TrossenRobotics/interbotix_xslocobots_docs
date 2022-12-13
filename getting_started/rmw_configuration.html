@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RMW Configuration &mdash; Interbotix X-Series LoCoBot Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tr_style.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Interface" href="../ros_interface.html" />
+    <link rel="prev" title="Create® 3 Setup" href="create3_configuration.html" />
+   
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PZQLS2V"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../specifications.html">Specifications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hardware.html">Hardware Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairing_controller.html">Pairing Your Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create3_configuration.html">Create® 3 Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RMW Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ros-1-interface-create-3">ROS 1 Interface &amp; Create® 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ros-2-interface-create-3">ROS 2 Interface &amp; Create® 3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#locobot-computer">LoCoBot Computer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remote-computer">Remote Computer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interface.html">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_interface.html">Python-ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros1_packages.html">ROS 1 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Interbotix X-Series LoCoBots Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../getting_started.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">RMW Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/getting_started/rmw_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="rmw-configuration">
+<h1>RMW Configuration<a class="headerlink" href="#rmw-configuration" title="Permalink to this headline"></a></h1>
+<p>This guide details how to configure the RMW implementation for the first time if using the ROS
+Interface.</p>
+<div class="section" id="ros-1-interface-create-3">
+<h2>ROS 1 Interface &amp; Create® 3<a class="headerlink" href="#ros-1-interface-create-3" title="Permalink to this headline"></a></h2>
+<p>There is no need to configure the RMW on ROS 1. This is because the ROS 1 Interface uses
+<code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code> which is great at working with multi-device networks. We also use ros1_bridge
+on the LoCoBot's computer which allows the remote computer to see the ROS 2 topics/services/actions
+from the Create® 3.</p>
+</div>
+<div class="section" id="ros-2-interface-create-3">
+<h2>ROS 2 Interface &amp; Create® 3<a class="headerlink" href="#ros-2-interface-create-3" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This guide assumes that you have run the ROS 2 Software Setup for both your LoCoBot and remote
+computers.</p>
+</div>
+<p>The ROS 2 Interface uses <code class="docutils literal notranslate"><span class="pre">rmw_cyclonedds_cpp</span></code> as its RMW and requires a small amount of manual
+configuration to get started. The process is as follows:</p>
+<div class="section" id="locobot-computer">
+<h3>LoCoBot Computer<a class="headerlink" href="#locobot-computer" title="Permalink to this headline"></a></h3>
+<ol class="arabic">
+<li><p class="first">Log into the LoCoBot's computer using SSH or by directly plug in a mouse and keyboard.</p>
+</li>
+<li><p class="first">Open a terminal on your LoCoBot's computer by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd>.</p>
+</li>
+<li><p class="first">Get the name of your wireless network connection with the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ifconfig <span class="p">|</span> grep wl <span class="p">|</span> cut -d <span class="s2">&quot;:&quot;</span> -f1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of wireless network interfaces typically start with the characters &quot;wl&quot;. If the
+command returns nothing, use the full <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> command and look for the Wireless
+connection.</p>
+</div>
+</li>
+<li><p class="first">Open the cyclonedds config file in an editor:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano ~/cyclonedds_config_locobot.xml
+</pre></div>
+</div>
+<p>The config file will look something like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
+    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Domain&gt;</span>
+        <span class="nt">&lt;General&gt;</span>
+            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>eno1,${WIRELESS_INTERFACE}<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+        <span class="nt">&lt;/General&gt;</span>
+    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change <code class="docutils literal notranslate"><span class="pre">${WIRELESS_INTERFACE}</span></code> to the name of your wireless network interface. For example,
+if your wireless network interface's name is <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>, the configuration file should look
+like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
+    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Domain&gt;</span>
+        <span class="nt">&lt;General&gt;</span>
+            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>eno1,wlan0<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+        <span class="nt">&lt;/General&gt;</span>
+    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the ROS 2 daemon on your LoCoBot's computer (or restart the computer).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ros2 daemon stop
+The daemon has been stopped
+$ ros2 daemon start
+The daemon has been started
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="remote-computer">
+<h3>Remote Computer<a class="headerlink" href="#remote-computer" title="Permalink to this headline"></a></h3>
+<ol class="arabic">
+<li><p class="first">Open a terminal on your remote computer by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd>.</p>
+</li>
+<li><p class="first">Get the name of your wireless network connection with the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ifconfig <span class="p">|</span> grep wl <span class="p">|</span> cut -d <span class="s2">&quot;:&quot;</span> -f1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The name of wireless network interfaces typically start with the characters &quot;wl&quot;. If the
+command returns nothing, use the full <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> command and look for the Wireless
+connection.</p>
+</div>
+</li>
+<li><p class="first">Open the cyclonedds config file in an editor:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano ~/cyclonedds_config_remote.xml
+</pre></div>
+</div>
+<p>The config file will look something like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
+    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Domain&gt;</span>
+        <span class="nt">&lt;General&gt;</span>
+            <span class="nt">&lt;DontRoute&gt;</span>true<span class="nt">&lt;/DontRoute&gt;</span>
+            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>${WIRELESS_INTERFACE}<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+        <span class="nt">&lt;/General&gt;</span>
+    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change <code class="docutils literal notranslate"><span class="pre">${WIRELESS_INTERFACE}</span></code> to the name of your wireless network interface. For example,
+if your wireless network interface's name is <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>, the configuration file should look
+like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
+    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Domain&gt;</span>
+        <span class="nt">&lt;General&gt;</span>
+            <span class="nt">&lt;DontRoute&gt;</span>true<span class="nt">&lt;/DontRoute&gt;</span>
+            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>wlan0<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+        <span class="nt">&lt;/General&gt;</span>
+    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the ROS 2 daemon on your remote computer (or restart the computer).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ros2 daemon stop
+The daemon has been stopped
+$ ros2 daemon start
+The daemon has been started
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="create3_configuration.html" class="btn btn-neutral float-left" title="Create® 3 Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ros_interface.html" class="btn btn-neutral float-right" title="ROS Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+    <!-- Socials -->
+     
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
