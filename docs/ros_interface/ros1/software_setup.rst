@@ -26,16 +26,16 @@ it has no arm.
       - Robot Documentation
       - Codename
     * - `LoCoBot Base`_
-      - :doc:`LoCoBot Base Documentation <../specifications/locobot_base>`
+      - :doc:`LoCoBot Base Documentation <../../specifications/locobot_base>`
       - ``locobot_base``
     * - `LoCoBot PX100`_
-      - :doc:`LoCoBot PX100 Documentation <../specifications/locobot_px100>`
+      - :doc:`LoCoBot PX100 Documentation <../../specifications/locobot_px100>`
       - ``locobot_px100``
     * - `LoCoBot WX200`_
-      - :doc:`LoCoBot WX200 Documentation <../specifications/locobot_wx200>`
+      - :doc:`LoCoBot WX200 Documentation <../../specifications/locobot_wx200>`
       - ``locobot_wx200``
     * - `LoCoBot WX250 6DOF`_
-      - :doc:`LoCoBot WX250 6DOF Documentation <../specifications/locobot_wx250s>`
+      - :doc:`LoCoBot WX250 6DOF Documentation <../../specifications/locobot_wx250s>`
       - ``locobot_wx250s``
 
 .. _`LoCoBot Base`: https://www.trossenrobotics.com/locobot-base.aspx
@@ -236,7 +236,7 @@ Now, we can open up new terminals (via :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T`) on t
 without having to SSH each time. Note that unless otherwise stated, all the following commands
 should be executed in the new terminal window that pops up.
 
-.. _ros-software-setup-installation-checks-label:
+.. _ros1-software-setup-installation-checks-label:
 
 Installation Checks
 ===================
@@ -285,7 +285,7 @@ Guide <./quickstart>`.
 Troubleshooting
 ===============
 
-Refer to the :doc:`X-Series Troubleshooting Guide <../troubleshooting>` to try to solve your
+Refer to the :doc:`X-Series Troubleshooting Guide <../../troubleshooting>` to try to solve your
 problem. If you still need help, feel free to `open an Issue`_ on the ros_rovers repo. We strongly
 recommend the latter option though so that other people who may be facing the same difficulty can
 benefit. This repository is actively maintained and any open Issues will be addressed as soon as
@@ -294,7 +294,7 @@ possible.
 .. _open an Issue: https://github.com/Interbotix/interbotix_ros_rovers/issues
 
 Video Tutorial
---------------
+==============
 
 .. youtube:: 0lnbw6n6vs4
    :align: center

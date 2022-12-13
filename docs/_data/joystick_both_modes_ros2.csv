@@ -1,0 +1,6 @@
+Button,Action
+D-pad Up,increase the control loop rate in 1 Hz step increments (max of 40)
+D-pad Down,decrease the control loop rate in 1 Hz step increments (min of 10)
+D-pad Left,'coarse' control - sets the control loop rate to a user-preset 'fast' rate
+D-pad Right,'fine' control - sets the control loop rate to a user-preset 'slow' rate
+PS,shift to the other Control Mode

@@ -1,5 +1,5 @@
 Argument,Description,Default Value
-robot_model,model type of the Interbotix Locobot such as 'locobot_px100' or 'locobot_wx250s',""""""
+robot_model,model type of the Interbotix LoCoBot such as 'locobot_px100' or 'locobot_wx250s',""""""
 use_nav,whether to launch the Navigation Stack,false
 use_perception,whether to launch the Perception Pipeline,false
 use_armtag,whether to use the AprilTag on the arm when working with the Perception Pipeline,false

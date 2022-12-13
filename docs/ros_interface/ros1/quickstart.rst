@@ -97,7 +97,7 @@ Interface.
     launch file.
 
 11. Another way to check if all functions work is to launch the :doc:`Joystick Control package
-    </ros1_packages/joystick_control>`. This package allows you to control your LoCoBot using a
+    <../../ros1_packages/joystick_control>`. This package allows you to control your LoCoBot using a
     Bluetooth controller. Check the package's :ref:`usage section
     <ros-joystick-control-usage-label>` for more details.
 
@@ -113,14 +113,14 @@ Interface.
 
 That ends the quickstart tutorial. To get familiar with the architecture and launch file arguments,
 refer to the documentation of the core packages. Start with the :doc:`LoCoBot Descriptions
-<../ros1_packages/locobot_descriptions>` package, then the :doc:`LoCoBot Control
-<../ros1_packages/locobot_control>` package. Next, look at the :doc:`Gazebo Configuration
-<../ros1_packages/gazebo_simulation_configuration>` package followed by the :doc:`ROS Controllers
-Configuration <../ros1_packages/ros_control>` and :doc:`MoveIt Configuration
-<../ros1_packages/moveit_motion_planning_configuration>` packages. This is the most logical approach
+<../../ros1_packages/locobot_descriptions>` package, then the :doc:`LoCoBot Control
+<../../ros1_packages/locobot_control>` package. Next, look at the :doc:`Gazebo Configuration
+<../../ros1_packages/gazebo_simulation_configuration>` package followed by the :doc:`ROS Controllers
+Configuration <../../ros1_packages/ros_control>` and :doc:`MoveIt Configuration
+<../../ros1_packages/moveit_motion_planning_configuration>` packages. This is the most logical approach
 to take to gain a better understanding of how they relate to each other.
 
 Afterwards, feel free to check out the demo projects like :doc:`Joystick Control
-<../ros1_packages/joystick_control>` and :doc:`Landmark-Based Navigation
-<../ros1_packages/landmark_based_navigation>`, or any of the other :doc:`ROS Open Source Packages
-<../ros1_packages>`.
+<../../ros1_packages/joystick_control>` and :doc:`Landmark-Based Navigation
+<../../ros1_packages/landmark_based_navigation>`, or any of the other :doc:`ROS Open Source Packages
+<../../ros1_packages>`.

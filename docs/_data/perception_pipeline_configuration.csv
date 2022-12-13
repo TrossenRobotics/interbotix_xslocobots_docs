@@ -1,5 +1,5 @@
 Argument,Description,Default Value
-robot_model,model type of the Interbotix Locobot such as 'locobot_px100' or 'locobot_wx250s',""""""
+robot_model,model type of the Interbotix LoCoBot such as 'locobot_px100' or 'locobot_wx250s',""""""
 robot_name,name of the robot (could be anything but defaults to 'locobot'),"""locobot"""
 external_urdf_loc,the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file,""""""
 use_rviz,"launches RViz; if you are SSH'd into the robot, DON'T set this to true",false

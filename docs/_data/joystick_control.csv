@@ -1,5 +1,5 @@
 Argument,Description,Default Value
-robot_model,model type of the Interbotix Locobot such as 'locobot_base' or 'locobot_wx250s',""""""
+robot_model,model type of the Interbotix LoCoBot such as 'locobot_base' or 'locobot_wx250s',""""""
 robot_name,name of the robot (could be anything but defaults to 'locobot'),"""locobot"""
 use_rviz,"launches RViz; if you are SSH'd into the robot, DON'T set this to true",false
 rviz_frame,fixed frame in RViz; this should be changed to ``map`` or ``<robot_name>/odom`` if mapping or using local odometry respectively,$(arg robot_name)/odom

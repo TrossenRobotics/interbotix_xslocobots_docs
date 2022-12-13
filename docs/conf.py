@@ -61,6 +61,11 @@ exclude_patterns = [
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
+# If true, the Docutils Smart Quotes transform, originally based on SmartyPants (limited to
+# English) and currently applying to many languages, will be used to convert quotes and dashes to
+# typographically correct entities. Default: True.
+smartquotes = False
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages. See the documentation for a list of builtin
@@ -174,7 +179,7 @@ class PatchedHTMLTranslator(HTMLTranslator):
         if 'target' in node:
             atts['target'] = node['target']
         self.body.append(self.starttag(node, 'a', '', **atts))
- 
+
         if node.get('secnumber'):
             self.body.append(('%s' + self.secnumber_suffix) %
                              '.'.join(map(str, node['secnumber'])))

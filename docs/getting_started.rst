@@ -14,3 +14,4 @@ section.
     getting_started/user_guide.rst
     getting_started/pairing_controller.rst
     getting_started/create3_configuration.rst
+    getting_started/rmw_configuration.rst

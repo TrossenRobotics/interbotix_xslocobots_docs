@@ -1,0 +1,4 @@
+"Argument","Description","Default","Choices"
+"robot_name","name of the robot (could be anything but defaults to ``locobot``).","``locobot``",""
+"rviz_frame","fixed frame in RViz; this should be changed to ``map`` or ``odom`` if mapping or using local odometry respectively.","LaunchConfig\(``robot_name``\) + '/base_footprint'",""
+"rvizconfig","file path to the config file RViz should load.","LocalVar('FindPackageShare\(pkg= ``interbotix_xslocobot_descriptions``\) + 'rviz' + 'xslocobot_description.rviz'')",""

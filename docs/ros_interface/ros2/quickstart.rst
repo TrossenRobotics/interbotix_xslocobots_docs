@@ -1,22 +1,24 @@
-====================
-ROS Quickstart Guide
-====================
+======================
+ROS 2 Quickstart Guide
+======================
 
 This guide is intended to get the use familiar with the basic functions and interfaces of the ROS
-Interface.
+Interface. Make sure that you have completed and are familiar with the steps taken in the
+:doc:`Basic Usage Guide </getting_started/user_guide>`, the :doc:`ROS 2 Software Setup Guide
+<./software_setup>`, and the :doc:`ROS 2 RMW Configuration Guide <rmw_configuration>`.
 
 1.  Get familiar with the physical robot rover (let's say... a LoCoBot WidowX-250 6DOF with lidar!)
     by executing the following command in a terminal ssh'ed into the LoCoBot:
 
     .. code-block:: console
 
-        $ roslaunch interbotix_xslocobot_control xslocobot_control.launch robot_model:=locobot_wx250s use_base:=true use_camera:=true use_lidar:=true
+        $ ros2 launch interbotix_xslocobot_control xslocobot_control.launch robot_model:=locobot_wx250s use_base:=true use_camera:=true use_lidar:=true
 
 2.  Now, in a terminal on your remote computer (not via SSH), type...
 
     .. code-block:: console
 
-        $ roslaunch interbotix_xslocobot_descriptions remote_view.launch
+        $ ros2 launch interbotix_xslocobot_descriptions remote_view.launch
 
 3.  RViz should appear on your remote computer and display a virtual real-time representation of
     the robot!
@@ -36,7 +38,7 @@ Interface.
 
     .. code-block:: console
 
-        $ rosservice call /locobot/torque_enable "{cmd_type: 'group', name: 'all', enable: false}"
+        $ ros2 service call /locobot/torque_enable "{cmd_type: 'group', name: 'all', enable: false}"
 
     .. note::
 
@@ -65,7 +67,7 @@ Interface.
 
     .. code-block:: console
 
-        $ rosservice call /locobot/torque_enable "{cmd_type: 'group', name: 'all', enable: true}"
+        $ ros2 service call /locobot/torque_enable "{cmd_type: 'group', name: 'all', enable: true}"
 
 6.  You can now let go and observe how the arm and pan/tilt mechanism stay in place.
 
@@ -85,10 +87,7 @@ Interface.
     .. code-block:: console
 
         # create 3
-        $ rostopic pub --once /locobot/cmd_vel geometry_msgs/Twist '{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'
-
-        # kobuki
-        $ rostopic pub --once /locobot/mobile_base/commands/velocity geometry_msgs/Twist '{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'
+        $ ros2 topic pub /locobot/mobile_base/cmd_vel geometry_msgs/Twist '{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'
 
 9.  You can stop the base's movement at any time by pressing :kbd:`Ctrl` + :kbd:`C` the publisher's
     terminal.
@@ -97,30 +96,19 @@ Interface.
     launch file.
 
 11. Another way to check if all functions work is to launch the :doc:`Joystick Control package
-    </ros1_packages/joystick_control>`. This package allows you to control your LoCoBot using a
+    <../../ros2_packages/joystick_control>`. This package allows you to control your LoCoBot using a
     Bluetooth controller. Check the package's :ref:`usage section
     <ros-joystick-control-usage-label>` for more details.
 
-12. When you are done testing your robot, follow :ref:`the shutdown procedure
-    <basic-usage-turning-off-your-locobot-label>`.
-
-.. note::
-
-    The remote installation script sets the ``ROS_MASTER_URI`` variable in your remote computer's
-    ``~/.bashrc`` file to ``http://locobot.local:11311``. When working with the LoCoBot, this line
-    (towards the bottom of the file) should be uncommented. Otherwise, you should comment it out so
-    that you can run ROS on your remote computer normally.
-
 That ends the quickstart tutorial. To get familiar with the architecture and launch file arguments,
 refer to the documentation of the core packages. Start with the :doc:`LoCoBot Descriptions
-<../ros1_packages/locobot_descriptions>` package, then the :doc:`LoCoBot Control
-<../ros1_packages/locobot_control>` package. Next, look at the :doc:`Gazebo Configuration
-<../ros1_packages/gazebo_simulation_configuration>` package followed by the :doc:`ROS Controllers
-Configuration <../ros1_packages/ros_control>` and :doc:`MoveIt Configuration
-<../ros1_packages/moveit_motion_planning_configuration>` packages. This is the most logical approach
+<../../ros2_packages/locobot_descriptions>` package, then the :doc:`LoCoBot Control
+<../../ros2_packages/locobot_control>` package. Next, look at the :doc:`Gazebo Configuration
+<../../ros2_packages/simulation_configuration>` package followed by the :doc:`ROS Controllers
+Configuration <../../ros2_packages/ros_control>` and :doc:`MoveIt Configuration
+<../../ros2_packages/moveit_motion_planning_configuration>` packages. This is the most logical approach
 to take to gain a better understanding of how they relate to each other.
 
 Afterwards, feel free to check out the demo projects like :doc:`Joystick Control
-<../ros1_packages/joystick_control>` and :doc:`Landmark-Based Navigation
-<../ros1_packages/landmark_based_navigation>`, or any of the other :doc:`ROS Open Source Packages
-<../ros1_packages>`.
+<../../ros2_packages/joystick_control>`, or any of the other :doc:`ROS Open Source Packages
+<../../ros2_packages>`.

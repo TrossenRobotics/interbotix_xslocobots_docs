@@ -16,7 +16,7 @@ Overview
 ========
 
 This package contains the configuration and launch files necessary to easily start the various
-components of the X-Series Locobot platform. This includes launching the **xs_sdk** node
+components of the X-Series LoCoBot platform. This includes launching the **xs_sdk** node
 responsible for driving the DYNAMIXEL motors on the robot, loading the URDF to the
 ``robot_description`` parameter, starting the Kobuki base, and activating the RealSense D435 camera
 and RPLidar 2D laser scanner. Essentially, this package is what all 'downstream' ROS packages
@@ -72,7 +72,7 @@ Motor Config file is only defined here while the Mode Config file is also define
 modes depending on their project.
 
 .. _`A2M8 RPlidar`: https://www.slamtec.com/en/Lidar/A2
-.. _`LaserScan`: http://docs.ros.org/melodic/api/sensor_msgs/html/msg/LaserScan.html
+.. _`LaserScan`: http://docs.ros.org/latest/api/sensor_msgs/html/msg/LaserScan.html
 .. _`RPLidar ROS Wiki`: http://wiki.ros.org/rplidar
 .. _`Kobuki ROS Wiki`: http://wiki.ros.org/kobuki_node
 .. _`RealSense D435`: https://www.intelrealsense.com/depth-camera-d435/
@@ -97,7 +97,7 @@ terminal on your remote and type...
 
 .. code-block:: console
 
-    $ roslaunch interbotix_xslocobot_descriptions remote_view.launch robot_name:=locobot_wx200
+    $ roslaunch interbotix_xslocobot_descriptions remote_view.launch
 
 Note that in order for this to work, you must first run the `remote installation`_ script on your
 remote computer.
