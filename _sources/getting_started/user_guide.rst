@@ -13,6 +13,61 @@ Charging Your LoCoBot
 
 .. tabs::
 
+    .. group-tab:: Create® 3 Version
+
+
+        Your Create® 3-base LoCoBot should come one AC adapter power supply and the Create® 3
+        charging dock:
+
+            -   The iRobot Create® 3 charging dock and its cable
+            -   A 16.8V 2.5A output for the external battery
+
+        1.  Plug both of these into wall power. Plug the external battery's power supply into the
+            external battery.
+
+        2.  Place the Create® 3 on its charging dock and wait for a chime to play. The LED status
+            light on the base will indicate the charge level:
+
+        .. list-table::
+            :header-rows: 1
+            :align: center
+
+            * - Create® 3 Status LED Color
+              - Create® 3 Charge Level
+            * - Spinning White
+              - Robot is booting up
+            * - Partial White
+              - Robot is charging, the solid arc of the ring indicates the charge level.
+            * - Solid White
+              - Robot is 100% charged
+            * - Pulsing Red
+              - Battery < 10%
+
+        3.  Check the 4 LEDs next to the external battery's power button. They should light up
+            according to its charge level:
+
+        .. list-table::
+            :header-rows: 1
+            :align: center
+
+            * - External Battery LED Status
+              - Charge Level
+            * - Flashing Single LED
+              - Low Voltage
+            * - Solid Single LED
+              - 0%-25% Charge
+            * - Solid Two LEDs
+              - 25%-50% Charge
+            * - Solid Three LEDs
+              - 50%-75% Charge
+            * - Solid Four LEDs
+              - 75%-100% Charge
+
+        4.  The Create® 3 should take about 1.5 hours to charge. If on, it will play a sound to
+            indicate that it is fully charged.
+
+        5.  The external battery should take about 6-8 hours to charge.
+
     .. group-tab:: Kobuki Version
 
         Your Kobuki-base LoCoBot should come with two AC adapter power supplies:
@@ -69,61 +124,6 @@ Charging Your LoCoBot
             You are able to use the Kobuki base while it is charging, though it is not recommended
             to move it around. The Kobuki base publishes data necessary for some ROS programs.
 
-    .. group-tab:: Create® 3 Version
-
-
-        Your Create® 3-base LoCoBot should come one AC adapter power supply and the Create® 3
-        charging dock:
-
-            -   The iRobot Create® 3 charging dock and its cable
-            -   A 16.8V 2.5A output for the external battery
-
-        1.  Plug both of these into wall power. Plug the external battery's power supply into the
-            external battery.
-
-        2.  Place the Create® 3 on its charging dock and wait for a chime to play. The LED status
-            light on the base will indicate the charge level:
-
-        .. list-table::
-            :header-rows: 1
-            :align: center
-
-            * - Create® 3 Status LED Color
-              - Create® 3 Charge Level
-            * - Spinning White
-              - Robot is booting up
-            * - Partial White
-              - Robot is charging, the solid arc of the ring indicates the charge level.
-            * - Solid White
-              - Robot is 100% charged
-            * - Pulsing Red
-              - Battery < 10%
-
-        3.  Check the 4 LEDs next to the external battery's power button. They should light up
-            according to its charge level:
-
-        .. list-table::
-            :header-rows: 1
-            :align: center
-
-            * - External Battery LED Status
-              - Charge Level
-            * - Flashing Single LED
-              - Low Voltage
-            * - Solid Single LED
-              - 0%-25% Charge
-            * - Solid Two LEDs
-              - 25%-50% Charge
-            * - Solid Three LEDs
-              - 50%-75% Charge
-            * - Solid Four LEDs
-              - 75%-100% Charge
-
-        4.  The Create® 3 should take about 1.5 hours to charge. If on, it will play a sound to
-            indicate that it is fully charged.
-
-        5.  The external battery should take about 6-8 hours to charge.
-
 .. note::
 
     You are able to use the devices on the robot while the external battery is charging.
@@ -135,22 +135,6 @@ Turning On Your LoCoBot
 =======================
 
 .. tabs::
-
-    .. group-tab:: Kobuki Version
-
-        1.  Press the button on the side of the external battery. The LEDs next to the battery will
-            light up, indicating the external battery's charge level. The battery will stay on
-            while any connected device draws a load. Otherwise, it will automatically turn off
-            after 30 seconds.
-
-        2.  Press the power button on the side of the NUC to turn it on. The NUC's power button
-            should light up blue.
-
-        3.  Flick the power switch on the rear of the Kobuki base to On. The Status LED will light
-            up and the base will play a sound.
-
-        4.  Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
-            so you have enough ports for the necessary devices.
 
     .. group-tab:: Create® 3 Version
 
@@ -168,8 +152,39 @@ Turning On Your LoCoBot
         4.  Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
             so you have enough ports for the necessary devices.
 
-LoCoBot Network Config
-======================
+    .. group-tab:: Kobuki Version
+
+        1.  Press the button on the side of the external battery. The LEDs next to the battery will
+            light up, indicating the external battery's charge level. The battery will stay on
+            while any connected device draws a load. Otherwise, it will automatically turn off
+            after 30 seconds.
+
+        2.  Press the power button on the side of the NUC to turn it on. The NUC's power button
+            should light up blue.
+
+        3.  Flick the power switch on the rear of the Kobuki base to On. The Status LED will light
+            up and the base will play a sound.
+
+        4.  Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
+            so you have enough ports for the necessary devices.
+
+Control Software Installation
+=============================
+
+Install the software that you plan to use, such as the ROS Interface. The quickstart commands for
+it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1 Interface
+Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2 Interface Software Setup
+<../ros_interface/ros2/software_setup>` for more information.
+
+    .. code:: console
+
+        $ sudo apt install curl
+        $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
+        $ chmod +x xslocobot_amd64_install.sh
+        $ ./xslocobot_amd64_install.sh -b create3 -d noetic
+
+Network Configuration
+=====================
 
 .. note::
 
@@ -178,8 +193,8 @@ LoCoBot Network Config
     - "Remote" - Your own personal computer (desktop, laptop, etc.)
     - "Robot" or "LoCoBot" - The NUC computer on the LoCoBot
 
-Hostname
---------
+LoCoBot Hostname
+----------------
 
 .. note::
 
@@ -219,23 +234,10 @@ Hostname
         3 packets transmitted, 3 received, 0% packet loss, time 2003ms
         rtt min/avg/max/mdev = 22.540/192.306/351.244/134.411 ms
 
-Control Software Installation
-=============================
+RMW Configuration
+-----------------
 
-1.  Install the software that you plan to use, such as the ROS Interface. The quickstart commands
-    for it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1
-    Interface Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2
-    Interface Software Setup <../ros_interface/ros2/software_setup>` for more information.
-
-    .. code:: console
-
-        $ sudo apt install curl
-        $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
-        $ chmod +x xslocobot_amd64_install.sh
-        $ ./xslocobot_amd64_install.sh -b create3 -d noetic
-
-2.  Reboot the NUC, remove the mouse, keyboard, and disconnect from the monitor. Plug back in any
-    peripherals you removed.
+See the :doc:`RMW Configuration Guide <./rmw_configuration>` for details.
 
 ROS Network Testing
 ===================
@@ -510,22 +512,6 @@ Turning Off Your LoCoBot
 
 .. tabs::
 
-    .. group-tab:: Kobuki Version
-
-        1.  It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
-            this, type ``sudo poweroff`` in its terminal and enter your password.
-
-            .. note::
-
-                This will kill any program currently running on the NUC. Make sure the arm is in
-                its cradle and that ending programs will not harm the robot.
-
-        2.  Press and hold the external battery's power button for two (2) seconds until the LEDs
-            power off.
-
-        3.  Flick the switch at the back of the Kobuki to power it off. The Status LED should turn
-            off.
-
     .. group-tab:: Create® 3 Version
 
         1.  It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
@@ -541,3 +527,19 @@ Turning Off Your LoCoBot
 
         3.  Hold the base's center button (marked with a power symbol) for about seven (7) seconds
             until it plays a chime and the LEDs behind the button turn off.
+
+    .. group-tab:: Kobuki Version
+
+        1.  It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
+            this, type ``sudo poweroff`` in its terminal and enter your password.
+
+            .. note::
+
+                This will kill any program currently running on the NUC. Make sure the arm is in
+                its cradle and that ending programs will not harm the robot.
+
+        2.  Press and hold the external battery's power button for two (2) seconds until the LEDs
+            power off.
+
+        3.  Flick the switch at the back of the Kobuki to power it off. The Status LED should turn
+            off.

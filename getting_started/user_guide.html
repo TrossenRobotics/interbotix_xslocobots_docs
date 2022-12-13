@@ -64,11 +64,12 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#charging-your-locobot">Charging Your LoCoBot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#turning-on-your-locobot">Turning On Your LoCoBot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#locobot-network-config">LoCoBot Network Config</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#hostname">Hostname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#control-software-installation">Control Software Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network-configuration">Network Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#locobot-hostname">LoCoBot Hostname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rmw-configuration">RMW Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#control-software-installation">Control Software Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ros-network-testing">ROS Network Testing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remote-development">Remote Development</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#general-remote-development">General Remote Development</a><ul>
@@ -128,28 +129,105 @@ charge it, and how to develop remotely.</p>
 <ul class="simple">
 <li><a class="reference internal" href="#charging-your-locobot" id="id3">Charging Your LoCoBot</a></li>
 <li><a class="reference internal" href="#turning-on-your-locobot" id="id4">Turning On Your LoCoBot</a></li>
-<li><a class="reference internal" href="#locobot-network-config" id="id5">LoCoBot Network Config</a><ul>
-<li><a class="reference internal" href="#hostname" id="id6">Hostname</a></li>
+<li><a class="reference internal" href="#control-software-installation" id="id5">Control Software Installation</a></li>
+<li><a class="reference internal" href="#network-configuration" id="id6">Network Configuration</a><ul>
+<li><a class="reference internal" href="#locobot-hostname" id="id7">LoCoBot Hostname</a></li>
+<li><a class="reference internal" href="#rmw-configuration" id="id8">RMW Configuration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#control-software-installation" id="id7">Control Software Installation</a></li>
-<li><a class="reference internal" href="#ros-network-testing" id="id8">ROS Network Testing</a></li>
-<li><a class="reference internal" href="#remote-development" id="id9">Remote Development</a><ul>
-<li><a class="reference internal" href="#general-remote-development" id="id10">General Remote Development</a><ul>
-<li><a class="reference internal" href="#ssh-into-the-locobot" id="id11">SSH Into the LoCoBot</a></li>
-<li><a class="reference internal" href="#vscode-remote-development" id="id12">VSCode Remote Development</a></li>
+<li><a class="reference internal" href="#ros-network-testing" id="id9">ROS Network Testing</a></li>
+<li><a class="reference internal" href="#remote-development" id="id10">Remote Development</a><ul>
+<li><a class="reference internal" href="#general-remote-development" id="id11">General Remote Development</a><ul>
+<li><a class="reference internal" href="#ssh-into-the-locobot" id="id12">SSH Into the LoCoBot</a></li>
+<li><a class="reference internal" href="#vscode-remote-development" id="id13">VSCode Remote Development</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ros-interface-development" id="id13">ROS Interface Development</a></li>
+<li><a class="reference internal" href="#ros-interface-development" id="id14">ROS Interface Development</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#turning-off-your-locobot" id="id14">Turning Off Your LoCoBot</a></li>
+<li><a class="reference internal" href="#turning-off-your-locobot" id="id15">Turning Off Your LoCoBot</a></li>
 </ul>
 </div>
 <div class="section" id="charging-your-locobot">
 <h2><a class="toc-backref" href="#id3">Charging Your LoCoBot</a><a class="headerlink" href="#charging-your-locobot" title="Permalink to this headline"></a></h2>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-S29idWtpIFZlcnNpb24=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="0">Kobuki Version</button><button aria-controls="panel-0-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="-1">Create® 3 Version</button></div><div aria-labelledby="tab-0-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" id="panel-0-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><p>Your Kobuki-base LoCoBot should come with two AC adapter power supplies:</p>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="0">Create® 3 Version</button><button aria-controls="panel-0-S29idWtpIFZlcnNpb24=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="-1">Kobuki Version</button></div><div aria-labelledby="tab-0-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" id="panel-0-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><p>Your Create® 3-base LoCoBot should come one AC adapter power supply and the Create® 3
+charging dock:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The iRobot Create® 3 charging dock and its cable</li>
+<li>A 16.8V 2.5A output for the external battery</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Plug both of these into wall power. Plug the external battery's power supply into the
+external battery.</li>
+<li>Place the Create® 3 on its charging dock and wait for a chime to play. The LED status
+light on the base will indicate the charge level:</li>
+</ol>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Create® 3 Status LED Color</th>
+<th class="head">Create® 3 Charge Level</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Spinning White</td>
+<td>Robot is booting up</td>
+</tr>
+<tr class="row-odd"><td>Partial White</td>
+<td>Robot is charging, the solid arc of the ring indicates the charge level.</td>
+</tr>
+<tr class="row-even"><td>Solid White</td>
+<td>Robot is 100% charged</td>
+</tr>
+<tr class="row-odd"><td>Pulsing Red</td>
+<td>Battery &lt; 10%</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li>Check the 4 LEDs next to the external battery's power button. They should light up
+according to its charge level:</li>
+</ol>
+<table border="1" class="docutils align-center">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">External Battery LED Status</th>
+<th class="head">Charge Level</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Flashing Single LED</td>
+<td>Low Voltage</td>
+</tr>
+<tr class="row-odd"><td>Solid Single LED</td>
+<td>0%-25% Charge</td>
+</tr>
+<tr class="row-even"><td>Solid Two LEDs</td>
+<td>25%-50% Charge</td>
+</tr>
+<tr class="row-odd"><td>Solid Three LEDs</td>
+<td>50%-75% Charge</td>
+</tr>
+<tr class="row-even"><td>Solid Four LEDs</td>
+<td>75%-100% Charge</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li>The Create® 3 should take about 1.5 hours to charge. If on, it will play a sound to
+indicate that it is fully charged.</li>
+<li>The external battery should take about 6-8 hours to charge.</li>
+</ol>
+</div><div aria-labelledby="tab-0-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><p>Your Kobuki-base LoCoBot should come with two AC adapter power supplies:</p>
 <blockquote>
 <div><ul class="simple">
 <li>A 19V 3.16A output for the Kobuki Base</li>
@@ -226,82 +304,6 @@ indicate that it is fully charged.</li>
 <p class="last">You are able to use the Kobuki base while it is charging, though it is not recommended
 to move it around. The Kobuki base publishes data necessary for some ROS programs.</p>
 </div>
-</div><div aria-labelledby="tab-0-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><p>Your Create® 3-base LoCoBot should come one AC adapter power supply and the Create® 3
-charging dock:</p>
-<blockquote>
-<div><ul class="simple">
-<li>The iRobot Create® 3 charging dock and its cable</li>
-<li>A 16.8V 2.5A output for the external battery</li>
-</ul>
-</div></blockquote>
-<ol class="arabic simple">
-<li>Plug both of these into wall power. Plug the external battery's power supply into the
-external battery.</li>
-<li>Place the Create® 3 on its charging dock and wait for a chime to play. The LED status
-light on the base will indicate the charge level:</li>
-</ol>
-<table border="1" class="docutils align-center">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Create® 3 Status LED Color</th>
-<th class="head">Create® 3 Charge Level</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Spinning White</td>
-<td>Robot is booting up</td>
-</tr>
-<tr class="row-odd"><td>Partial White</td>
-<td>Robot is charging, the solid arc of the ring indicates the charge level.</td>
-</tr>
-<tr class="row-even"><td>Solid White</td>
-<td>Robot is 100% charged</td>
-</tr>
-<tr class="row-odd"><td>Pulsing Red</td>
-<td>Battery &lt; 10%</td>
-</tr>
-</tbody>
-</table>
-<ol class="arabic simple" start="3">
-<li>Check the 4 LEDs next to the external battery's power button. They should light up
-according to its charge level:</li>
-</ol>
-<table border="1" class="docutils align-center">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">External Battery LED Status</th>
-<th class="head">Charge Level</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Flashing Single LED</td>
-<td>Low Voltage</td>
-</tr>
-<tr class="row-odd"><td>Solid Single LED</td>
-<td>0%-25% Charge</td>
-</tr>
-<tr class="row-even"><td>Solid Two LEDs</td>
-<td>25%-50% Charge</td>
-</tr>
-<tr class="row-odd"><td>Solid Three LEDs</td>
-<td>50%-75% Charge</td>
-</tr>
-<tr class="row-even"><td>Solid Four LEDs</td>
-<td>75%-100% Charge</td>
-</tr>
-</tbody>
-</table>
-<ol class="arabic simple" start="4">
-<li>The Create® 3 should take about 1.5 hours to charge. If on, it will play a sound to
-indicate that it is fully charged.</li>
-<li>The external battery should take about 6-8 hours to charge.</li>
-</ol>
 </div></div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -313,19 +315,7 @@ and using the lidar.</p>
 <div class="section" id="turning-on-your-locobot">
 <h2><a class="toc-backref" href="#id4">Turning On Your LoCoBot</a><a class="headerlink" href="#turning-on-your-locobot" title="Permalink to this headline"></a></h2>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-S29idWtpIFZlcnNpb24=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="0">Kobuki Version</button><button aria-controls="panel-1-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="-1">Create® 3 Version</button></div><div aria-labelledby="tab-1-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" id="panel-1-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic simple">
-<li>Press the button on the side of the external battery. The LEDs next to the battery will
-light up, indicating the external battery's charge level. The battery will stay on
-while any connected device draws a load. Otherwise, it will automatically turn off
-after 30 seconds.</li>
-<li>Press the power button on the side of the NUC to turn it on. The NUC's power button
-should light up blue.</li>
-<li>Flick the power switch on the rear of the Kobuki base to On. The Status LED will light
-up and the base will play a sound.</li>
-<li>Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
-so you have enough ports for the necessary devices.</li>
-</ol>
-</div><div aria-labelledby="tab-1-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="0">Create® 3 Version</button><button aria-controls="panel-1-S29idWtpIFZlcnNpb24=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="-1">Kobuki Version</button></div><div aria-labelledby="tab-1-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" id="panel-1-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic simple">
 <li>Press the button on the side of the external battery. The LEDs next to the battery will
 light up, indicating the external battery's charge level. The battery will stay on
 while any connected device draws a load. Otherwise, it will automatically turn off
@@ -337,10 +327,36 @@ The Status LED will light up and the base will play a sound.</li>
 <li>Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
 so you have enough ports for the necessary devices.</li>
 </ol>
+</div><div aria-labelledby="tab-1-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<li>Press the button on the side of the external battery. The LEDs next to the battery will
+light up, indicating the external battery's charge level. The battery will stay on
+while any connected device draws a load. Otherwise, it will automatically turn off
+after 30 seconds.</li>
+<li>Press the power button on the side of the NUC to turn it on. The NUC's power button
+should light up blue.</li>
+<li>Flick the power switch on the rear of the Kobuki base to On. The Status LED will light
+up and the base will play a sound.</li>
+<li>Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
+so you have enough ports for the necessary devices.</li>
+</ol>
 </div></div>
 </div>
-<div class="section" id="locobot-network-config">
-<h2><a class="toc-backref" href="#id5">LoCoBot Network Config</a><a class="headerlink" href="#locobot-network-config" title="Permalink to this headline"></a></h2>
+<div class="section" id="control-software-installation">
+<h2><a class="toc-backref" href="#id5">Control Software Installation</a><a class="headerlink" href="#control-software-installation" title="Permalink to this headline"></a></h2>
+<p>Install the software that you plan to use, such as the ROS Interface. The quickstart commands for
+it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the <a class="reference internal" href="../ros_interface/ros1/software_setup.html"><span class="doc">ROS 1 Interface
+Software Setup</span></a> or <a class="reference internal" href="../ros_interface/ros2/software_setup.html"><span class="doc">ROS 2 Interface Software Setup</span></a> for more information.</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
+<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span> &gt; xslocobot_amd64_install.sh
+<span class="gp">$ </span>chmod +x xslocobot_amd64_install.sh
+<span class="gp">$ </span>./xslocobot_amd64_install.sh -b create3 -d noetic
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="network-configuration">
+<h2><a class="toc-backref" href="#id6">Network Configuration</a><a class="headerlink" href="#network-configuration" title="Permalink to this headline"></a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Terminology:</p>
@@ -349,8 +365,8 @@ so you have enough ports for the necessary devices.</li>
 <li>&quot;Robot&quot; or &quot;LoCoBot&quot; - The NUC computer on the LoCoBot</li>
 </ul>
 </div>
-<div class="section" id="hostname">
-<h3><a class="toc-backref" href="#id6">Hostname</a><a class="headerlink" href="#hostname" title="Permalink to this headline"></a></h3>
+<div class="section" id="locobot-hostname">
+<h3><a class="toc-backref" href="#id7">LoCoBot Hostname</a><a class="headerlink" href="#locobot-hostname" title="Permalink to this headline"></a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This section assumes that you are interacting with your LoCoBot's NUC computer using a monitor,
@@ -389,28 +405,13 @@ different than <code class="docutils literal notranslate"><span class="pre">loco
 </li>
 </ol>
 </div>
+<div class="section" id="rmw-configuration">
+<h3><a class="toc-backref" href="#id8">RMW Configuration</a><a class="headerlink" href="#rmw-configuration" title="Permalink to this headline"></a></h3>
+<p>See the <a class="reference internal" href="rmw_configuration.html"><span class="doc">RMW Configuration Guide</span></a> for details.</p>
 </div>
-<div class="section" id="control-software-installation">
-<h2><a class="toc-backref" href="#id7">Control Software Installation</a><a class="headerlink" href="#control-software-installation" title="Permalink to this headline"></a></h2>
-<ol class="arabic">
-<li><p class="first">Install the software that you plan to use, such as the ROS Interface. The quickstart commands
-for it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the <a class="reference internal" href="../ros_interface/ros1/software_setup.html"><span class="doc">ROS 1
-Interface Software Setup</span></a> or <a class="reference internal" href="../ros_interface/ros2/software_setup.html"><span class="doc">ROS 2
-Interface Software Setup</span></a> for more information.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
-<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span> &gt; xslocobot_amd64_install.sh
-<span class="gp">$ </span>chmod +x xslocobot_amd64_install.sh
-<span class="gp">$ </span>./xslocobot_amd64_install.sh -b create3 -d noetic
-</pre></div>
-</div>
-</li>
-<li><p class="first">Reboot the NUC, remove the mouse, keyboard, and disconnect from the monitor. Plug back in any
-peripherals you removed.</p>
-</li>
-</ol>
 </div>
 <div class="section" id="ros-network-testing">
-<h2><a class="toc-backref" href="#id8">ROS Network Testing</a><a class="headerlink" href="#ros-network-testing" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id9">ROS Network Testing</a><a class="headerlink" href="#ros-network-testing" title="Permalink to this headline"></a></h2>
 <p>If using ROS, you should now test ROS communication between your LoCoBot and your remote computer
 by running the basic talker/listener tutorial. This ensures that we have bi-directional
 communication between the two machines.</p>
@@ -549,7 +550,7 @@ Guide</span></a> for potential solutions.</p>
 </div>
 </div>
 <div class="section" id="remote-development">
-<h2><a class="toc-backref" href="#id9">Remote Development</a><a class="headerlink" href="#remote-development" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id10">Remote Development</a><a class="headerlink" href="#remote-development" title="Permalink to this headline"></a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Terminology:</p>
@@ -559,9 +560,9 @@ Guide</span></a> for potential solutions.</p>
 </ul>
 </div>
 <div class="section" id="general-remote-development">
-<h3><a class="toc-backref" href="#id10">General Remote Development</a><a class="headerlink" href="#general-remote-development" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id11">General Remote Development</a><a class="headerlink" href="#general-remote-development" title="Permalink to this headline"></a></h3>
 <div class="section" id="ssh-into-the-locobot">
-<span id="id1"></span><h4><a class="toc-backref" href="#id11">SSH Into the LoCoBot</a><a class="headerlink" href="#ssh-into-the-locobot" title="Permalink to this headline"></a></h4>
+<span id="id1"></span><h4><a class="toc-backref" href="#id12">SSH Into the LoCoBot</a><a class="headerlink" href="#ssh-into-the-locobot" title="Permalink to this headline"></a></h4>
 <ol class="arabic">
 <li><p class="first">On your remote computer, install the OpenSSH Client software to allow for a secure shell
 connection between your remote computer and the LoCoBot computer.</p>
@@ -600,7 +601,7 @@ OpenSSH will forward graphical application to the client from the server.</p>
 </ol>
 </div>
 <div class="section" id="vscode-remote-development">
-<h4><a class="toc-backref" href="#id12">VSCode Remote Development</a><a class="headerlink" href="#vscode-remote-development" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id13">VSCode Remote Development</a><a class="headerlink" href="#vscode-remote-development" title="Permalink to this headline"></a></h4>
 <ol class="arabic simple">
 <li>At Trossen Robotics, we use Microsoft's VSCode and its Remote - SSH extension (also developed
 by Microsoft) for simple remote development on the LoCoBot.</li>
@@ -638,7 +639,7 @@ writing this guide. To get around this, you can either follow some of the recomm
 </div>
 </div>
 <div class="section" id="ros-interface-development">
-<h3><a class="toc-backref" href="#id13">ROS Interface Development</a><a class="headerlink" href="#ros-interface-development" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id14">ROS Interface Development</a><a class="headerlink" href="#ros-interface-development" title="Permalink to this headline"></a></h3>
 <p>If using the ROS Interface, we provide a remote workspace installation script. See the below
 commands for the remote installation quickstart commands for a Create® 3 version LoCoBot running
 ROS 1 Noetic. Run these commands on your remote computer.</p>
@@ -652,25 +653,9 @@ ROS 1 Noetic. Run these commands on your remote computer.</p>
 </div>
 </div>
 <div class="section" id="turning-off-your-locobot">
-<span id="basic-usage-turning-off-your-locobot-label"></span><h2><a class="toc-backref" href="#id14">Turning Off Your LoCoBot</a><a class="headerlink" href="#turning-off-your-locobot" title="Permalink to this headline"></a></h2>
+<span id="basic-usage-turning-off-your-locobot-label"></span><h2><a class="toc-backref" href="#id15">Turning Off Your LoCoBot</a><a class="headerlink" href="#turning-off-your-locobot" title="Permalink to this headline"></a></h2>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-S29idWtpIFZlcnNpb24=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="0">Kobuki Version</button><button aria-controls="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="-1">Create® 3 Version</button></div><div aria-labelledby="tab-3-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" id="panel-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic">
-<li><p class="first">It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
-this, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">poweroff</span></code> in its terminal and enter your password.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This will kill any program currently running on the NUC. Make sure the arm is in
-its cradle and that ending programs will not harm the robot.</p>
-</div>
-</li>
-<li><p class="first">Press and hold the external battery's power button for two (2) seconds until the LEDs
-power off.</p>
-</li>
-<li><p class="first">Flick the switch at the back of the Kobuki to power it off. The Status LED should turn
-off.</p>
-</li>
-</ol>
-</div><div aria-labelledby="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="0">Create® 3 Version</button><button aria-controls="panel-3-S29idWtpIFZlcnNpb24=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="-1">Kobuki Version</button></div><div aria-labelledby="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" id="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p class="first">It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
 this, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">poweroff</span></code> in its terminal and enter your password.</p>
 <div class="admonition note">
@@ -684,6 +669,22 @@ power off.</p>
 </li>
 <li><p class="first">Hold the base's center button (marked with a power symbol) for about seven (7) seconds
 until it plays a chime and the LEDs behind the button turn off.</p>
+</li>
+</ol>
+</div><div aria-labelledby="tab-3-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic">
+<li><p class="first">It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
+this, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">poweroff</span></code> in its terminal and enter your password.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will kill any program currently running on the NUC. Make sure the arm is in
+its cradle and that ending programs will not harm the robot.</p>
+</div>
+</li>
+<li><p class="first">Press and hold the external battery's power button for two (2) seconds until the LEDs
+power off.</p>
+</li>
+<li><p class="first">Flick the switch at the back of the Kobuki to power it off. The Status LED should turn
+off.</p>
 </li>
 </ol>
 </div></div>

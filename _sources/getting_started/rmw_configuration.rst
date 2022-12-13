@@ -43,12 +43,12 @@ LoCoBot Computer
         command returns nothing, use the full ``ifconfig`` command and look for the Wireless
         connection.
 
-4.  Open the cyclonedds config file in an editor:
+4.  If from Trossen Robotics, or if the installation script was run for a ROS 2 installation, the
+    LoCoBot cyclonedds config file should be in the LoCoBot's home directory. Open it in an editor:
 
     .. code-block:: console
 
         $ nano ~/cyclonedds_config_locobot.xml
-
 
     The config file will look something like:
 
@@ -108,7 +108,9 @@ Remote Computer
         command returns nothing, use the full ``ifconfig`` command and look for the Wireless
         connection.
 
-3.  Open the cyclonedds config file in an editor:
+3.  If the remote software setup script was run specifying a ROS 2 installation, the remote
+    cyclonedds config file should be in your home directory. Open the cyclonedds config file in an
+    editor:
 
     .. code-block:: console
 
