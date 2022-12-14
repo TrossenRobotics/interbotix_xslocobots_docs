@@ -17,9 +17,9 @@ Overview
 
 This package contains the configuration and launch files necessary to easily start the X-Series
 LoCoBot platform. This includes launching the **xs_sdk** node responsible for driving the DYNAMIXEL
-motors on the robot, loading the URDF to the ``robot_description`` parameter, starting the mobile
-base, and activating the RealSense D435 camera and RPLidar 2D laser scanner. Essentially, this
-package is what all 'downstream' ROS packages should reference to get the robot up and running.
+motors on the robot, loading the URDF to the ``robot_description`` launch configuration, starting
+the mobile base nodes, and activating the depth camera and 2D lidar. Essentially, this package is
+what all 'downstream' ROS packages should reference to get the robot up and running.
 
 Structure
 =========
@@ -29,7 +29,7 @@ Structure
 
 As shown in the image above, the *interbotix_xslocobot_control* package builds on top of the
 *interbotix_xslocobot_descriptions* and *interbotix_xs_sdk* packages among many others. To get
-familiar with the nodes not described below, just hop over to the ROS packages in this repo that
+familiar with the nodes not described below, just hop over to the package documentation that
 launches them.
 
 -   **rplidar_composition**: responsible for starting the `RPlidar A2M8`_ sensor and publishing
@@ -66,19 +66,19 @@ launches them.
 
 -   **realsense2_camera_node**: responsible for running the `RealSense D435`_ camera and publishing
     a variety of image topics. See the `realsense_ros`_ repository for parameter
-    descriptions. See the `rs_camera.yaml configuration file`_` for detailed parameter information.
+    descriptions. See the `rs_camera.yaml configuration file`_ for detailed parameter information.
 
 You will also notice a `config`_ directory containing many YAML files. Each file (beside the
-modes.yaml one) specifies the names and initial register values for all the motors that make up a
-specific locobot. There is also some 'meta-info' like names of joint groups, the desired
-joint-topic name and publishing frequency, etc... For a full explanation of each of these
-parameters, check out the `Motor Config file template`_. The other file located in that directory
-is the Mode Config one (a.k.a mode.yaml). The parameters in there define the desired operating
-modes for either a group of joints or single joints, and whether or not they should be torqued
-on/off at node startup. See more by referencing the `Mode Config file template`_. Typically, the
-Motor Config file is only defined here while the Mode Config file is also defined in any
-'downstream' ROS package. This makes it easy for users to configure their desired motor operating
-modes depending on their project.
+modes.yaml one and the others mentioned above) specifies the names and initial register values for
+all the motors that make up a specific locobot. There is also some 'meta-info' like names of joint
+groups, the desired joint-topic name and publishing frequency, etc. For a full explanation of each
+of these parameters, check out the `Motor Config file template`_. The other file located in that
+directory is the Mode Config one (a.k.a mode.yaml). The parameters in there define the desired
+operating modes for either a group of joints or single joints, and whether or not they should be
+torqued on/off at node startup. See more by referencing the `Mode Config file template`_.
+Typically, the Motor Config file is only defined here while the Mode Config file is also defined in
+any 'downstream' ROS package. This makes it easy for users to configure their desired motor
+operating modes depending on their project.
 
 .. _`RPlidar A2M8`: https://www.slamtec.com/en/Lidar/A2
 .. _`LaserScan`: http://docs.ros.org/latest/api/sensor_msgs/html/msg/LaserScan.html
@@ -109,10 +109,8 @@ terminal on your remote and run:
 
     $ ros2 launch interbotix_xslocobot_descriptions remote_view.launch.py
 
-Note that in order for this to work, you must first run the `remote installation`_ script on your
-remote computer.
-
-.. _`remote installation`: https://www.trossenrobotics.com/docs/interbotix_xslocobots/ros_interface/software_setup.html#remote-install
+Note that in order for this to work, you must first run the :doc:`remote installation
+</ros_interface/ros2/software_setup>` script on your remote computer.
 
 To further customize the launch file at run-time, refer to the table below.
 
