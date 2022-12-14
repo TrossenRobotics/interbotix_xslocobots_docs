@@ -372,7 +372,7 @@ communication between the two machines.
             .. code-block:: console
 
                 # LoCoBot Computer
-                $ ros2 run examples_rclpy_minimal_subscriber subscriber_member_function
+                $ ros2 run examples_rclpy_minimal_publisher publisher_local_function
 
         8.  You should see something like the output below on the terminal on the remote computer
             running the subscriber.
