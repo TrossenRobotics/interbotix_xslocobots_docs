@@ -1,6 +1,6 @@
-=============================
-ROS Controllers Configuration
-=============================
+===============================
+ROS 2 Controllers Configuration
+===============================
 
 .. raw:: html
 
@@ -46,19 +46,16 @@ Usage
 =====
 
 This package is not meant to be used by itself but included in a launch file within your custom ROS
-package (which should expose a FollowJointTrajectoryAction interface). To run this package, type
-the line below in a terminal (assuming a LoCoBot with a PincherX-100 is being launched).
+package (which should expose a FollowJointTrajectoryAction interface). To run this package, enter
+the command below in a terminal (assuming a LoCoBot with a PincherX-100 is being launched).
 
 .. code-block:: console
 
-    $ roslaunch interbotix_xslocobot_ros_control xslocobot_ros_control.launch robot_model:=locobot_px100 dof:=4
+    $ ros2 launch interbotix_xslocobot_ros_control xslocobot_ros_control.launch.py robot_model:=locobot_px100
 
 This is the bare minimum needed to get up and running. Take a look at the table below to see how to
 further customize with other launch file arguments.
 
 .. csv-table::
-    :file: ../_data/locobot_ros_control.csv
+    :file: ../_data/xslocobot_ros_control_ros2.csv
     :header-rows: 1
-    :widths: 20, 60, 20
-
-.. _`refer to xslocobot_ros_control.launch`: https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/interbotix_xslocobot_ros_control

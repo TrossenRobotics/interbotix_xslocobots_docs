@@ -71,16 +71,14 @@ This is normal and will not affect the joystick operation. To further customize 
 run-time, look at the table below:
 
 .. csv-table::
-    :file: ../_data/joystick_control.csv
+    :file: ../_data/xslocobot_joy_ros2.csv
     :header-rows: 1
-    :widths: 20, 60, 20
-
-.. _`xslocobot_joy.launch`: https://github.com/Interbotix/interbotix_ros_rovers/blob/rolling/interbotix_ros_xslocobots/examples/interbotix_xslocobot_joy/launch/xslocobot_joy.launch.py
 
 To understand how the joystick buttons map to controlling the robot, look at the diagram and table
 below:
 
 .. image:: images/ps3.jpg
+    :align: center
 
 Base Control Mode
 -----------------

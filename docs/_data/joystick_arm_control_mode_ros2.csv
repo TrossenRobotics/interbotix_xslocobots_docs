@@ -7,11 +7,11 @@ Triangle,increase gripper pressure in 0.125 step increments (max is 1)
 X,decrease gripper pressure in 0.125 step increments (min is 0)
 O,open gripper
 Square,close gripper
-Right,stick Up/Down	increase/decrease pitch of the end-effector
-Right,stick Left/Right	increase/decrease roll of the end-effector
-R3,reverses the Right stick Left/Right control
-Left,stick Up/Down	move the end-effector (defined at 'ee_gripper_link') vertically in Cartesian space
-Left,stick Left/Right	move the end-effector (defined at 'ee_gripper_link') horizontally in Cartesian space
-L3,reverses the Left stick Left/Right control
-R1,"if the arm has 6dof,  this moves the end-effector in a negative direction along its own 'y' axis"
-L1,"if the arm has 6dof,  this moves the end-effector in a positive direction along its own 'y' axis"
+Right Stick Up/Down, increase/decrease pitch of the end-effector
+Right Stick Left/Right, increase/decrease roll of the end-effector
+R3,reverses the Right Stick Left/Right control
+Left Stick Up/Down, move the end-effector (defined at 'ee_gripper_link') vertically in Cartesian space
+Left Stick Left/Right, move the end-effector (defined at 'ee_gripper_link') horizontally in Cartesian space
+L3,reverses the Left Stick Left/Right control
+R1,"if the arm has 6dof, this moves the end-effector in a negative direction along its own 'y' axis"
+L1,"if the arm has 6dof, this moves the end-effector in a positive direction along its own 'y' axis"
