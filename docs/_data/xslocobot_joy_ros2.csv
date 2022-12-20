@@ -9,7 +9,7 @@
 "use_camera","if ``true``, the RealSense camera nodes are launched.","``false``","``true``, ``false``"
 "mode_configs","the file path to the 'mode config' YAML file.","PythonExpr('""' + LocalVar('FindPackageShare\(pkg= ``interbotix_xslocobot_joy``\) + 'config' + 'modes_base.yaml'') + '"" if ""' + LaunchConfig\(``robot_model``\) + '"" == ""locobot_base"" else ""' + LocalVar('FindPackageShare\(pkg= ``interbotix_xslocobot_joy``\) + 'config' + 'modes_all.yaml'') + '""')",""
 "threshold","value from 0 to 1 defining joystick sensitivity; a larger number means the joystick should be less sensitive.","'0.75'",""
-"controller","type of controller.","``ps4``","``ps4``, ``ps3``, ``xbox360``"
+"controller","type of controller.","``ps4``","``ps4``, ``ps3``"
 "launch_driver","``true`` if xslocobot_control should be launched - set to ``false`` if you would like to run your own version of this file separately.","``true``","``true``, ``false``"
 "xs_driver_logging_level","set the logging level of the X-Series Driver.","``INFO``","``DEBUG``, ``INFO``, ``WARN``, ``ERROR``, ``FATAL``"
 "use_sim","if ``true``, the DYNAMIXEL simulator node is run; use RViz to visualize the robot's motion; if ``false``, the real DYNAMIXEL driver node is run.","``false``","``true``, ``false``"
