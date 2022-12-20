@@ -39,7 +39,7 @@ their respective documentation.
 Usage
 =====
 
-To work with this package, place some small, non-reflective objects on the floor near the Kobuki
+To work with this package, place some small, non-reflective objects on the floor near the mobile
 base such that they are clearly visible to the camera (when it's pointed down) and are reachable by
 the arm. The objects should be small enough such that they can easily fit between the gripper
 fingers on the robot arm no matter the gripper's orientation. They can not be too reflective though
@@ -256,7 +256,7 @@ position of the cluster in an earlier iteration (over 'num_samples' iterations).
 the Object Markers are flickering, and it just happens that the same number number of clusters are
 found, but the clusters are in different places. If working with an arm on a LoCoBot, another fix
 is to give time (half a second or so) for the arm to settle before capturing the pointcloud data.
-This is because the motion of the arm can cause the Kobuki base to wobble a bit - making the camera
+This is because the motion of the arm can cause the mobile base to wobble a bit - making the camera
 move as well.
 
 Video Tutorials

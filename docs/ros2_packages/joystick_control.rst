@@ -48,7 +48,7 @@ below:
     ``/<robot_name>/commands/joy_processed`` topic and publishing joint, gripper, and pan/tilt
     commands to the **xs_sdk** node; while the 'waist' joint is directly controlled via the PS3/PS4
     joystick, other buttons allow position-ik to be performed using all the arm joints. It also
-    publishes velocity commands to the Kobuki base.
+    publishes velocity commands to the mobile base.
 
 .. _`sensor_msgs/Joy`: http://docs.ros.org/latest/api/sensor_msgs/html/msg/Joy.html
 .. _`LocobotJoy`: https://github.com/Interbotix/interbotix_ros_core/blob/rolling/interbotix_ros_xseries/interbotix_xs_msgs/msg/LocobotJoy.msg

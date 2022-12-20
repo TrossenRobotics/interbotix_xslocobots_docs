@@ -18,7 +18,7 @@ Overview
 This package can be used to control the movements of any rover in the Interbotix X-Series LoCoBot
 Family using a SONY PS3 or PS4 controller via Bluetooth. In this demo, the 'arm' (if equipped) and
 'pan/tilt' servos work in 'position' control mode, the gripper operates in 'PWM' mode, and the
-Kobuki base operates in 'velocity' control mode. Refer to the joystick button map below to see how
+mobile base operates in 'velocity' control mode. Refer to the joystick button map below to see how
 to operate the robot. Specifically, some of the joystick controls manipulate individual joints
 while others are used to perform 'inverse kinematics' on all the joints to get the end-effector of
 the robot (defined at 'ee_gripper_link') to move as if it's in Cartesian space. This is done using
@@ -48,7 +48,7 @@ below:
     ``/<robot_name>/commands/joy_processed`` topic and publishing joint, gripper, and pan/tilt
     commands to the **xs_sdk** node; while the 'waist' joint is directly controlled via the PS3/PS4
     joystick, other buttons allow position-ik to be performed using all the arm joints. It also
-    publishes velocity commands to the Kobuki base.
+    publishes velocity commands to the mobile base.
 
 .. _`sensor_msgs/Joy`: http://docs.ros.org/latest/api/sensor_msgs/html/msg/Joy.html
 .. _`LocobotJoy`: https://github.com/Interbotix/interbotix_ros_core/blob/main/interbotix_ros_xseries/interbotix_xs_msgs/msg/LocobotJoy.msg
