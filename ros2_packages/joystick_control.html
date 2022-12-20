@@ -66,8 +66,8 @@
 <li class="toctree-l2"><a class="reference internal" href="locobot_descriptions.html">LoCoBot Descriptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="locobot_control.html">LoCoBot Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simulation_configuration.html">Simulation Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS Controllers Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="moveit_motion_planning_configuration.html">MoveIt Motion Planning Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS 2 Controllers Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit_motion_planning_configuration.html">MoveIt 2 Motion Planning Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="navigation_stack_configuration.html">Navigation Stack Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_demos.html">Python Demos</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Joystick Control</a><ul>
@@ -162,72 +162,136 @@ control the locobot_wx200 robot with no lidar):</p>
 <p>A red error message might appear in the screen saying <code class="docutils literal notranslate"><span class="pre">Couldn't</span> <span class="pre">open</span> <span class="pre">joystick</span> <span class="pre">force</span> <span class="pre">feedback!</span></code>.
 This is normal and will not affect the joystick operation. To further customize the launch file at
 run-time, look at the table below:</p>
-<table border="1" class="colwidths-given docutils align-default">
+<table border="1" class="docutils align-default">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
-<col width="20%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Argument</th>
 <th class="head">Description</th>
-<th class="head">Default Value</th>
+<th class="head">Default</th>
+<th class="head">Choices</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>robot_model</td>
-<td>model type of the Interbotix LoCoBot such as 'locobot_base' or 'locobot_wx250s'</td>
-<td>&quot;&quot;</td>
+<td>model type of the Interbotix LoCoBot such as <code class="docutils literal notranslate"><span class="pre">locobot_base</span></code> or <code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code>.</td>
+<td>&#160;</td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot_base</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_px100</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code></td>
 </tr>
 <tr class="row-odd"><td>robot_name</td>
-<td>name of the robot (could be anything but defaults to 'locobot')</td>
-<td>&quot;locobot&quot;</td>
+<td>name of the robot (could be anything but defaults to <code class="docutils literal notranslate"><span class="pre">locobot</span></code>).</td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>use_rviz</td>
-<td>launches RViz; if you are SSH'd into the robot, DON'T set this to true</td>
-<td>false</td>
+<tr class="row-even"><td>arm_model</td>
+<td>the Interbotix Arm model on the LoCoBot; this should never be set manually but rather left to its default value.</td>
+<td>PythonExpr('&quot;mobile_&quot; + &quot;' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_model</span></code>) + '&quot;.split(&quot;_&quot;)[1]')</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>rviz_frame</td>
-<td>fixed frame in RViz; this should be changed to&nbsp;<code class="docutils literal notranslate"><span class="pre">map</span></code>&nbsp;or&nbsp;<code class="docutils literal notranslate"><span class="pre">&lt;robot_name&gt;/odom</span></code>&nbsp;if mapping or using local odometry respectively</td>
-<td>$(arg robot_name)/odom</td>
+<tr class="row-odd"><td>use_rviz</td>
+<td>launches RViz if set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
 </tr>
-<tr class="row-even"><td>use_base</td>
-<td>if true, the Kobuki ROS nodes are launched</td>
-<td>true</td>
+<tr class="row-even"><td>rviz_frame</td>
+<td>fixed frame in RViz; this should be changed to <code class="docutils literal notranslate"><span class="pre">map</span></code> or <code class="docutils literal notranslate"><span class="pre">odom</span></code> if mapping or using local odometry respectively; <code class="docutils literal notranslate"><span class="pre">base_footprint</span></code> otherwise.</td>
+<td>LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_name</span></code>) + '/base_footprint'</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>use_lidar</td>
-<td>if true, the RPLidar node is launched</td>
-<td>false</td>
+<tr class="row-odd"><td>use_base</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the base ROS nodes are launched.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
 </tr>
-<tr class="row-even"><td>show_lidar</td>
-<td>set to true if the lidar is installed on the robot; this will load the lidar related links to the 'robot_description' parameter</td>
-<td>$(arg use_lidar)</td>
+<tr class="row-even"><td>use_lidar</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the RPLidar node is launched.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
 </tr>
 <tr class="row-odd"><td>use_camera</td>
-<td>if true, the RealSense D435 camera nodes are launched</td>
-<td>false</td>
-</tr>
-<tr class="row-even"><td>threshold</td>
-<td>value from 0 to 1 defining joystick sensitivity; a larger number means the joystick should be less sensitive</td>
-<td>0.75</td>
-</tr>
-<tr class="row-odd"><td>controller</td>
-<td>type of PlayStation controller ('ps3' or 'ps4')</td>
-<td>ps4</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the RealSense camera nodes are launched.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
 </tr>
 <tr class="row-even"><td>mode_configs</td>
-<td>the file path to the 'mode config' YAML file</td>
-<td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/rolling/interbotix_ros_xslocobots/examples/interbotix_xslocobot_joy/launch/xslocobot_joy.launch.py" rel="noopener noreferrer" target="_blank">xslocobot_joy.launch</a></td>
+<td>the file path to the 'mode config' YAML file.</td>
+<td>PythonExpr('&quot;' + LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_joy</span></code>) + 'config' + 'modes_base.yaml'') + '&quot; if &quot;' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_model</span></code>) + '&quot; == &quot;locobot_base&quot; else &quot;' + LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_joy</span></code>) + 'config' + 'modes_all.yaml'') + '&quot;')</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>threshold</td>
+<td>value from 0 to 1 defining joystick sensitivity; a larger number means the joystick should be less sensitive.</td>
+<td>'0.75'</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>controller</td>
+<td>type of controller.</td>
+<td><code class="docutils literal notranslate"><span class="pre">ps4</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ps4</span></code>, <code class="docutils literal notranslate"><span class="pre">ps3</span></code>, <code class="docutils literal notranslate"><span class="pre">xbox360</span></code></td>
+</tr>
+<tr class="row-odd"><td>launch_driver</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code> if xslocobot_control should be launched - set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you would like to run your own version of this file separately.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>xs_driver_logging_level</td>
+<td>set the logging level of the X-Series Driver.</td>
+<td><code class="docutils literal notranslate"><span class="pre">INFO</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARN</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">FATAL</span></code></td>
 </tr>
 <tr class="row-odd"><td>use_sim</td>
-<td>if true, the DYNAMIXEL simulator node is run; use RViz to visualize the robot's motion; if false, the real DYNAMIXEL driver node is run</td>
-<td>false</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the DYNAMIXEL simulator node is run; use RViz to visualize the robot's motion; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the real DYNAMIXEL driver node is run.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>base_type</td>
+<td>the base type of the LoCoBot.</td>
+<td>EnvVar(<code class="docutils literal notranslate"><span class="pre">INTERBOTIX_XSLOCOBOT_BASE_TYPE</span></code>)</td>
+<td><code class="docutils literal notranslate"><span class="pre">kobuki</span></code>, <code class="docutils literal notranslate"><span class="pre">create3</span></code></td>
+</tr>
+<tr class="row-odd"><td>use_gripper</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the default gripper is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, it is left out; set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if not using the default gripper.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>show_ar_tag</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the AR tag mount is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, it is left out; set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if using the AR tag mount in your project.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>show_gripper_bar</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the gripper_bar link is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the gripper_bar and finger links are not loaded. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you have a custom gripper attachment.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>show_gripper_fingers</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the gripper fingers are included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the gripper finger links are not loaded. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you have custom gripper fingers.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>external_urdf_loc</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file.</td>
+<td>''</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>hardware_type</td>
+<td>configures the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code> to use the actual hardware, fake hardware, or hardware simulated in Gazebo.</td>
+<td><code class="docutils literal notranslate"><span class="pre">actual</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">actual</span></code>, <code class="docutils literal notranslate"><span class="pre">fake</span></code>, <code class="docutils literal notranslate"><span class="pre">gz_classic</span></code></td>
+</tr>
+<tr class="row-odd"><td>robot_description</td>
+<td>URDF of the robot; this is typically generated by the xacro command.</td>
+<td>Command(FindExec(<code class="docutils literal notranslate"><span class="pre">xacro</span></code>) + ' ' + LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_descriptions</span></code>) + 'urdf' + 'locobot.urdf.xacro'') + ' ' + 'arm_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">arm_model</span></code>) + ' ' + 'robot_name:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_name</span></code>) + ' ' + 'base_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">base_type</span></code>) + ' ' + 'robot_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_model</span></code>) + ' ' + 'use_gripper:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">use_gripper</span></code>) + ' ' + 'show_ar_tag:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_ar_tag</span></code>) + ' ' + 'show_gripper_bar:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_gripper_bar</span></code>) + ' ' + 'show_gripper_fingers:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_gripper_fingers</span></code>) + ' ' + 'use_lidar:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">use_lidar</span></code>) + ' ' + 'external_urdf_loc:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">external_urdf_loc</span></code>) + ' ' + 'hardware_type:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">hardware_type</span></code>) + ' ')</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <p>To understand how the joystick buttons map to controlling the robot, look at the diagram and table
 below:</p>
-<img alt="../_images/ps31.jpg" src="../_images/ps31.jpg" />
+<img alt="../_images/ps31.jpg" class="align-center" src="../_images/ps31.jpg" />
 <div class="section" id="base-control-mode">
 <h3>Base Control Mode<a class="headerlink" href="#base-control-mode" title="Permalink to this headline"></a></h3>
 <table border="1" class="colwidths-given docutils align-center">
@@ -241,25 +305,22 @@ below:</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Left</td>
-<td>stick Up/Down	drive the Kobuki base forward/backward between 0.7 to -0.7 m/s</td>
+<tr class="row-even"><td>Left Stick Up/Down</td>
+<td>drive the mobile base forward/backward between 0.7 to -0.7 m/s</td>
 </tr>
 <tr class="row-odd"><td>R2</td>
-<td>rotate the Kobuki base clockwise between 0 and -3.14 rad/s</td>
+<td>rotate the mobile base clockwise between 0 and -3.14 rad/s</td>
 </tr>
 <tr class="row-even"><td>L2</td>
-<td>rotate the Kobuki base counterclockwise between 0 and 3.14 rad/s</td>
+<td>rotate the mobile base counterclockwise between 0 and 3.14 rad/s</td>
 </tr>
-<tr class="row-odd"><td>SELECT/SHARE</td>
-<td>Reset the odometry of the base to an 'x',  'y', and 'theta' of 0 (the base chirps as well)</td>
+<tr class="row-odd"><td>Right Stick Up/Down</td>
+<td>tilt the camera Up/Down</td>
 </tr>
-<tr class="row-even"><td>Right</td>
-<td>stick Up/Down	tilt the RealSense camera Up/Down</td>
+<tr class="row-even"><td>Right Stick Left/Right</td>
+<td>pan the camera Left/Right</td>
 </tr>
-<tr class="row-odd"><td>Right</td>
-<td>stick Left/Right	pan the RealSense camera Left/Right</td>
-</tr>
-<tr class="row-even"><td>START/OPTIONS</td>
+<tr class="row-odd"><td>START/OPTIONS</td>
 <td>move the pan/tilt servo to '0' radians</td>
 </tr>
 </tbody>
@@ -302,29 +363,29 @@ below:</p>
 <tr class="row-odd"><td>Square</td>
 <td>close gripper</td>
 </tr>
-<tr class="row-even"><td>Right</td>
-<td>stick Up/Down	increase/decrease pitch of the end-effector</td>
+<tr class="row-even"><td>Right Stick Up/Down</td>
+<td>increase/decrease pitch of the end-effector</td>
 </tr>
-<tr class="row-odd"><td>Right</td>
-<td>stick Left/Right	increase/decrease roll of the end-effector</td>
+<tr class="row-odd"><td>Right Stick Left/Right</td>
+<td>increase/decrease roll of the end-effector</td>
 </tr>
 <tr class="row-even"><td>R3</td>
-<td>reverses the Right stick Left/Right control</td>
+<td>reverses the Right Stick Left/Right control</td>
 </tr>
-<tr class="row-odd"><td>Left</td>
-<td>stick Up/Down	move the end-effector (defined at 'ee_gripper_link') vertically in Cartesian space</td>
+<tr class="row-odd"><td>Left Stick Up/Down</td>
+<td>move the end-effector (defined at 'ee_gripper_link') vertically in Cartesian space</td>
 </tr>
-<tr class="row-even"><td>Left</td>
-<td>stick Left/Right	move the end-effector (defined at 'ee_gripper_link') horizontally in Cartesian space</td>
+<tr class="row-even"><td>Left Stick Left/Right</td>
+<td>move the end-effector (defined at 'ee_gripper_link') horizontally in Cartesian space</td>
 </tr>
 <tr class="row-odd"><td>L3</td>
-<td>reverses the Left stick Left/Right control</td>
+<td>reverses the Left Stick Left/Right control</td>
 </tr>
 <tr class="row-even"><td>R1</td>
-<td>if the arm has 6dof,  this moves the end-effector in a negative direction along its own 'y' axis</td>
+<td>if the arm has 6dof, this moves the end-effector in a negative direction along its own 'y' axis</td>
 </tr>
 <tr class="row-odd"><td>L1</td>
-<td>if the arm has 6dof,  this moves the end-effector in a positive direction along its own 'y' axis</td>
+<td>if the arm has 6dof, this moves the end-effector in a positive direction along its own 'y' axis</td>
 </tr>
 </tbody>
 </table>

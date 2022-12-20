@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MoveIt Motion Planning Configuration &mdash; Interbotix X-Series LoCoBot Documentation</title>
+  <title>MoveIt 2 Motion Planning Configuration &mdash; Interbotix X-Series LoCoBot Documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Navigation Stack Configuration" href="navigation_stack_configuration.html" />
-    <link rel="prev" title="ROS Controllers Configuration" href="ros_control.html" />
+    <link rel="prev" title="ROS 2 Controllers Configuration" href="ros_control.html" />
    
   <!-- Google Tag Manager (noscript) -->
   <noscript>
@@ -66,8 +66,8 @@
 <li class="toctree-l2"><a class="reference internal" href="locobot_descriptions.html">LoCoBot Descriptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="locobot_control.html">LoCoBot Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simulation_configuration.html">Simulation Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS Controllers Configuration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">MoveIt Motion Planning Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS 2 Controllers Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MoveIt 2 Motion Planning Configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
@@ -97,7 +97,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../ros2_packages.html">ROS 2 Open Source Packages</a></li>
-      <li class="breadcrumb-item active">MoveIt Motion Planning Configuration</li>
+      <li class="breadcrumb-item active">MoveIt 2 Motion Planning Configuration</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/TrossenRobotics/interbotix_xslocobots_docs/blob/main/docs/ros2_packages/moveit_motion_planning_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -107,8 +107,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="moveit-motion-planning-configuration">
-<h1>MoveIt Motion Planning Configuration<a class="headerlink" href="#moveit-motion-planning-configuration" title="Permalink to this headline"></a></h1>
+  <div class="section" id="moveit-2-motion-planning-configuration">
+<h1>MoveIt 2 Motion Planning Configuration<a class="headerlink" href="#moveit-2-motion-planning-configuration" title="Permalink to this headline"></a></h1>
 <a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/rolling/interbotix_ros_xslocobots/interbotix_xslocobot_moveit"
     class="docs-view-on-github-button"
     target="_blank">
@@ -118,20 +118,18 @@
 </a><div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
 <p>This package contains the necessary config files to get any rover in the Interbotix X-Series
-LoCoBot Family working with MoveIt. Originally, the MoveIt Setup Assistant wizard was used to
-generate a MoveIt package for each robot individually. The packages were then all merged into one
-and the launch files modified so that a few arguments could be passed down to load the right config
-files (specifically the SRDFs). Additionally, this package makes use of the FollowJointTrajectory
-interface which seems to work pretty well in both Gazebo and on the physical robot. A 'master'
-launch file was then written to allow a user to choose whether to have MoveIt work with the
-simulated version, the physical robot hardware, or a MoveIt generated fake robot.</p>
+LoCoBot Family working with MoveIt. This package makes use of the FollowJointTrajectory interface
+which works well in both simulation and on the physical robot. An entrypoint launch file is
+provided to allow a user to choose whether to have MoveIt work with the simulated version, the
+physical robot hardware, or a MoveIt-generated mock robot.</p>
 </div>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
 <img alt="../_images/xslocobot_moveit_flowchart_ros2.png" class="align-center" src="../_images/xslocobot_moveit_flowchart_ros2.png" />
-<p>As shown above, this package builds on top of both the <cite>interbotix_xslocobot_gazebo</cite> and
-<cite>interbotix_xslocobot_control</cite> packages. To get familiar with those packages, please refer to their
-respective READMEs. Regarding the MoveIt specific nodes, they are described below:</p>
+<p>As shown above, this package builds on top of the <a class="reference internal" href="simulation_configuration.html"><span class="doc">interbotix_xsarm_sim</span></a>, <a class="reference internal" href="locobot_control.html"><span class="doc">interbotix_xsarm_control</span></a>, and
+<a class="reference internal" href="locobot_descriptions.html"><span class="doc">interbotix_xsarm_descriptions</span></a> packages. To get familiar with those
+packages, please refer to their documentation. Regarding the MoveIt specific nodes, they are
+described below:</p>
 <ul class="simple">
 <li><strong>move_group</strong> - responsible for planning the trajectories needed to achieve a particular
 arm/gripper pose</li>
@@ -141,98 +139,132 @@ plugin</li>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
-<p>To run this package on the physical robot, type the line below in a terminal (assuming the
+<p>To run this package on the physical robot, enter the command below in a terminal (assuming the
 'locobot_px100' with no lidar is being launched).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit xslocobot_moveit.launch robot_model:<span class="o">=</span>locobot_px100 use_actual:<span class="o">=</span><span class="nb">true</span> dof:<span class="o">=</span><span class="m">4</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_moveit xslocobot_moveit.launch.py robot_model:<span class="o">=</span>locobot_px100 hardware_type:<span class="o">=</span>actual
 </pre></div>
 </div>
-<p>If running this package on a Gazebo simulated robot, type the line below in a terminal (assuming
-the 'locobot_wx200' with lidar is being launched). Don't forget to unpause the Gazebo physics
-afterwards or MoveIt will never load!</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit xslocobot_moveit.launch robot_model:<span class="o">=</span>locobot_wx200 show_lidar:<span class="o">=</span><span class="nb">true</span> use_gazebo:<span class="o">=</span><span class="nb">true</span>
+<p>If running this package on a robot simulated in Gazebo Classic, enter the command below in a
+terminal (assuming the 'locobot_wx200' with lidar is being launched).</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_moveit xslocobot_moveit.launch.py robot_model:<span class="o">=</span>locobot_wx200 use_lidar:<span class="o">=</span><span class="nb">true</span> hardware_type:<span class="o">=</span>gz_classic
 </pre></div>
 </div>
-<p>If running this package on a MoveIt generated fake robot, type the line below in a terminal
-(assuming the 'locobot_wx250s' with no lidar is being launched). Note that in this case, MoveIt
-will be run in a headless state.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit xslocobot_moveit.launch robot_model:<span class="o">=</span>locobot_wx250s use_fake:<span class="o">=</span><span class="nb">true</span> dof:<span class="o">=</span><span class="m">6</span> use_moveit_rviz:<span class="o">=</span><span class="nb">false</span>
+<p>If running this package on a MoveIt generated mock robot, enter the command below in a terminal
+(assuming the 'locobot_wx250s' with no lidar is being launched).</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_moveit xslocobot_moveit.launch.py robot_model:<span class="o">=</span>locobot_wx250s hardware_type:<span class="o">=</span>fake
 </pre></div>
-</div>
-<p>To visualize the robot on a remote computer, open a terminal on the remote and type...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit moveit_rviz.launch robot_name:<span class="o">=</span>locobot_wx250s config:<span class="o">=</span><span class="nb">true</span> __ns:<span class="o">=</span>locobot_wx250s
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In order for this to work, you must run the remote installation script on your personal
-computer.</p>
 </div>
 <p>This is the bare minimum needed to get up and running. Take a look at the table below to see how to
 further customize with other launch file arguments.</p>
-<table border="1" class="colwidths-given docutils align-default">
+<table border="1" class="docutils align-default">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
-<col width="20%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Argument</th>
 <th class="head">Description</th>
-<th class="head">Default Value</th>
+<th class="head">Default</th>
+<th class="head">Choices</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>robot_model</td>
-<td>model type of the Interbotix LoCoBot such as 'locobot_base' or 'locobot_wx250s'</td>
-<td>&quot;&quot;</td>
+<td>model type of the Interbotix Locobot such as <code class="docutils literal notranslate"><span class="pre">locobot_base</span></code> or <code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code>.</td>
+<td>EnvVar(<code class="docutils literal notranslate"><span class="pre">INTERBOTIX_XSLOCOBOT_ROBOT_MODEL</span></code>)</td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot_base</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_px100</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code></td>
 </tr>
 <tr class="row-odd"><td>robot_name</td>
-<td>name of the robot (could be anything but defaults to 'locobot')</td>
-<td>&quot;locobot&quot;</td>
+<td>name of the robot (could be anything but defaults to <code class="docutils literal notranslate"><span class="pre">locobot</span></code>).</td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>show_lidar</td>
-<td>set to 'true' if the lidar is installed on the robot; this will load the lidar related links to the 'robot_description' parameter for collision purposes;</td>
-<td>false</td>
+<tr class="row-even"><td>arm_model</td>
+<td>the Interbotix Arm model on the locobot; this should never be set manually but rather left to its default value.</td>
+<td>PythonExpr('&quot;mobile_&quot; + &quot;' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_model</span></code>) + '&quot;.split(&quot;_&quot;)[1]')</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>external_urdf_loc</td>
-<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file</td>
-<td>&quot;&quot;</td>
+<tr class="row-odd"><td>use_lidar</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the RPLidar node is launched.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
 </tr>
 <tr class="row-even"><td>external_srdf_loc</td>
-<td>the file path to the custom srdf.xacro file that you would like to include in the Interbotix robot's srdf.xacro file. Note that this should only contain 'disable collision' tags for collisions between the original Interbotix Arm and other links that are defined in the file specified by&nbsp;<code class="docutils literal notranslate"><span class="pre">external_urdf_loc</span></code></td>
-<td>&quot;&quot;</td>
+<td>the file path to the custom semantic description file that you would like to include in the Interbotix robot's semantic description.</td>
+<td>''</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>mode_configs</td>
-<td>the file path to the 'mode config' YAML file</td>
-<td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_moveit/launch/xslocobot_moveit.launch" rel="noopener noreferrer" target="_blank">xslocobot_moveit.launch</a></td>
+<td>the file path to the 'mode config' YAML file.</td>
+<td>LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_moveit</span></code>) + 'config' + 'modes_all.yaml'')</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>use_gazebo</td>
-<td>launch MoveIt with a Gazebo simulated robot</td>
-<td>false</td>
-</tr>
-<tr class="row-odd"><td>use_actual</td>
-<td>launch MoveIt with the physical robot</td>
-<td>false</td>
-</tr>
-<tr class="row-even"><td>use_fake</td>
-<td>launch MoveIt with a MoveIt generated fake robot</td>
-<td>false</td>
-</tr>
-<tr class="row-odd"><td>dof</td>
-<td>the degrees of freedom of the arm</td>
-<td>5</td>
-</tr>
-<tr class="row-even"><td>use_camera</td>
-<td>if true, the RealSense D435 camera nodes are launched; note that the main idea behind this is to generate an Occupancy Map for MoveIt to use when collision checking; however, this feature is not fully implemented yet</td>
-<td>false</td>
+<tr class="row-even"><td>xs_driver_logging_level</td>
+<td>set the logging level of the X-Series Driver.</td>
+<td><code class="docutils literal notranslate"><span class="pre">INFO</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARN</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">FATAL</span></code></td>
 </tr>
 <tr class="row-odd"><td>use_moveit_rviz</td>
-<td>set to false if you would like to use MoveIt in a headless state; otherwise, set to true to display RViz with the MoveIt plugin</td>
-<td>true</td>
+<td>launches RViz with MoveIt's RViz configuration.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
 </tr>
-<tr class="row-even"><td>world_name</td>
-<td>the file path to the Gazebo 'world' file to load (if simulating)</td>
-<td>refer to&nbsp;<a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_moveit/launch/xslocobot_moveit.launch" rel="noopener noreferrer" target="_blank">xslocobot_moveit.launch</a></td>
+<tr class="row-even"><td>rviz_config_file</td>
+<td>file path to the config file RViz should load.</td>
+<td>LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_moveit</span></code>) + 'rviz' + 'xslocobot_moveit.rviz'')</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>world_filepath</td>
+<td>the file path to the Gazebo 'world' file to load.</td>
+<td>LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_common_sim</span></code>) + 'worlds' + 'interbotix.world'')</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>use_sim_time</td>
+<td>tells ROS nodes asking for time to get the Gazebo-published simulation time, published over the ROS topic /clock; this value is automatically set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if using Gazebo hardware.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>base_type</td>
+<td>the base type of the LoCoBot.</td>
+<td>EnvVar(<code class="docutils literal notranslate"><span class="pre">INTERBOTIX_XSLOCOBOT_BASE_TYPE</span></code>)</td>
+<td><code class="docutils literal notranslate"><span class="pre">kobuki</span></code>, <code class="docutils literal notranslate"><span class="pre">create3</span></code></td>
+</tr>
+<tr class="row-even"><td>use_gripper</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the default gripper is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, it is left out; set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if not using the default gripper.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>show_ar_tag</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the AR tag mount is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, it is left out; set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if using the AR tag mount in your project.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>show_gripper_bar</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the gripper_bar link is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the gripper_bar and finger links are not loaded. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you have a custom gripper attachment.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>show_gripper_fingers</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the gripper fingers are included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the gripper finger links are not loaded. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you have custom gripper fingers.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>external_urdf_loc</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file.</td>
+<td>''</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>hardware_type</td>
+<td>configures the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code> to use the actual hardware, fake hardware, or hardware simulated in Gazebo.</td>
+<td><code class="docutils literal notranslate"><span class="pre">actual</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">actual</span></code>, <code class="docutils literal notranslate"><span class="pre">fake</span></code>, <code class="docutils literal notranslate"><span class="pre">gz_classic</span></code></td>
+</tr>
+<tr class="row-even"><td>robot_description</td>
+<td>URDF of the robot; this is typically generated by the xacro command.</td>
+<td>Command(FindExec(<code class="docutils literal notranslate"><span class="pre">xacro</span></code>) + ' ' + LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_descriptions</span></code>) + 'urdf' + 'locobot.urdf.xacro'') + ' ' + 'arm_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">arm_model</span></code>) + ' ' + 'robot_name:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_name</span></code>) + ' ' + 'base_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">base_type</span></code>) + ' ' + 'robot_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_model</span></code>) + ' ' + 'use_gripper:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">use_gripper</span></code>) + ' ' + 'show_ar_tag:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_ar_tag</span></code>) + ' ' + 'show_gripper_bar:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_gripper_bar</span></code>) + ' ' + 'show_gripper_fingers:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_gripper_fingers</span></code>) + ' ' + 'use_lidar:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">use_lidar</span></code>) + ' ' + 'external_urdf_loc:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">external_urdf_loc</span></code>) + ' ' + 'hardware_type:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">hardware_type</span></code>) + ' ')</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -245,8 +277,8 @@ two of them - one called 'interbotix_arm' and the other called 'interbotix_gripp
 (excluding the gripper) while the 'interbotix_gripper' group contains the joints needed to plan the
 trajectories for the gripper (based on the linear distance from the 'right_finger_link' to the
 'fingers_link'). There are a few saved poses for each of these groups that be executed such as
-'home', 'sleep', and 'upright' poses for the 'interbotix_arm' group, and 'open', 'close', and
-'home' for the 'interbotix_gripper' group ('home' just moves the gripper such that the angular
+'Home', 'Sleep', and 'Upright' poses for the 'interbotix_arm' group, and 'Released', 'Grasping',
+and 'Home' for the 'interbotix_gripper' group ('Home' just moves the gripper such that the angular
 position of the motor is at 0 radians). Also, it should be noted that the gripper frame of
 reference is located at the 'ee_gripper_link'.</p>
 <p>Additionally, by default, the MoveIt GUI does not display the green or orange robots that represent
@@ -260,7 +292,7 @@ the start and goal states for the arm respectively. To display them, navigate to
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ros_control.html" class="btn btn-neutral float-left" title="ROS Controllers Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros_control.html" class="btn btn-neutral float-left" title="ROS 2 Controllers Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="navigation_stack_configuration.html" class="btn btn-neutral float-right" title="Navigation Stack Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
