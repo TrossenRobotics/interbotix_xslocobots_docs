@@ -99,8 +99,8 @@ perception, or arm manipulation, you can start the launch file accordingly.
 .. _`xslocobot_python.launch`: https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_control/launch/xslocobot_python.launch
 .. _`xslocobot_nav.launch`: https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_nav/launch/xslocobot_nav.launch
 
-Video Tutorial
-==============
+Video Tutorials
+===============
 
 Open Source Example Packages on the LoCoBot
 -------------------------------------------

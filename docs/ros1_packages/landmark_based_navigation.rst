@@ -125,8 +125,8 @@ This application simply displays the active landmarks and asks you to choose one
 Once selected, the application will send a pose goal to the **move_base** node where it will then
 drive the robot to the location.
 
-Video Tutorial
-==============
+Video Tutorials
+===============
 
 Landmark-Based Navigation
 -------------------------

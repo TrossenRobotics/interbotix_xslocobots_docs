@@ -543,3 +543,13 @@ Turning Off Your LoCoBot
 
         3.  Flick the switch at the back of the Kobuki to power it off. The Status LED should turn
             off.
+
+Video Tutorials
+===============
+
+Create® 3 Version Basic Usage Guide
+-----------------------------------
+
+.. youtube:: S7ciWI7d67Q
+    :width: 70%
+    :align: center

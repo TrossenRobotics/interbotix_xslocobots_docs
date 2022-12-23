@@ -177,12 +177,23 @@ hardware.
 21. Your LoCoBot is now fully assembled. You can proceed to the :doc:`Basic Usage Guide
     <./user_guide>`, or the :doc:`ROS Interface Guides <../ros_interface>`.
 
-Video Tutorial
---------------
+Video Tutorials
+===============
 
 LoCoBot Hardware Setup
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. youtube:: PQxgWxqFeZg
-    :align: center
-    :width: 70%
+.. container:: no-table
+
+    .. list-table::
+        :widths: 50 50
+        :align: center
+
+        * - .. youtube:: PQxgWxqFeZg
+                :align: center
+
+          - .. youtube:: j9iMogflXLA
+                :align: center
+
+        * - **Kobuki Version**
+          - **Create® 3 Version**
