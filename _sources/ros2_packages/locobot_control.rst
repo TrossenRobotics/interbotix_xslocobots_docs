@@ -117,3 +117,13 @@ To further customize the launch file at run-time, refer to the table below.
 .. csv-table::
     :file: ../_data/xslocobot_control_ros2.csv
     :header-rows: 1
+
+Video Tutorials
+===============
+
+ROS 2 Control
+-------------
+
+.. youtube:: A1-PpKyBbzw
+    :align: center
+    :width: 70%

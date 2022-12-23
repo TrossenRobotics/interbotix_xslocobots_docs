@@ -15,31 +15,35 @@ hardware.
 1.  Grab the base of your LoCoBot, the second largest Allen key provided, three M5x12mm screws, and
     the three black extruded aluminum bars.
 
-.. list-table::
-    :widths: 25 25 25 25
+.. container:: no-table
 
-    * - .. image:: images/holding_locobot_base.png
-            :width: 100%
-      - .. image:: images/holding_allenwrenches.png
-            :width: 100%
-      - .. image:: images/holding_screws.png
-            :width: 100%
-      - .. image:: images/holding_bars.png
-            :width: 100%
+    .. list-table::
+        :widths: 25 25 25 25
+
+        * - .. image:: images/holding_locobot_base.png
+                :width: 100%
+          - .. image:: images/holding_allenwrenches.png
+                :width: 100%
+          - .. image:: images/holding_screws.png
+                :width: 100%
+          - .. image:: images/holding_bars.png
+                :width: 100%
 
 2.  Find the three holes on the back of the base plate and begin screwing in the aluminum bars.
     Make sure to leave a bit of slack to allow for easy assembly of the sensor tower in the next
     step.
 
-.. list-table::
-    :widths: 33 33 33
+.. container:: no-table
 
-    * - .. image:: images/install_bar_one.png
-            :width: 100%
-      - .. image:: images/install_bar_two.png
-            :width: 100%
-      - .. image:: images/install_bar_three.png
-            :width: 100%
+    .. list-table::
+        :widths: 33 33 33
+
+        * - .. image:: images/install_bar_one.png
+                :width: 100%
+          - .. image:: images/install_bar_two.png
+                :width: 100%
+          - .. image:: images/install_bar_three.png
+                :width: 100%
 
 3.  Once all three bars are secured, grab the sensor tower.
 
@@ -62,15 +66,17 @@ hardware.
 6.  Using three more M5x12mm screws, secure the sensor tower to the aluminum bars. Make sure to
     tighten the screws in the base as well.
 
-.. list-table::
-    :widths: 33 33 33
+.. container:: no-table
 
-    * - .. image:: images/sensor_tower_screw_one.png
-            :width: 100%
-      - .. image:: images/sensor_tower_screw_two.png
-            :width: 100%
-      - .. image:: images/sensor_tower_screw_three.png
-            :width: 100%
+    .. list-table::
+        :widths: 33 33 33
+
+        * - .. image:: images/sensor_tower_screw_one.png
+                :width: 100%
+          - .. image:: images/sensor_tower_screw_two.png
+                :width: 100%
+          - .. image:: images/sensor_tower_screw_three.png
+                :width: 100%
 
 7.  If you bought the lidar package, cut the tie holding its USB cables.
 
@@ -114,13 +120,15 @@ hardware.
 13. Wrap the lidar's thinner power cable around the back of the LoCoBot's base and insert it into
     the 2.1A port on the left side of the battery.
 
-.. list-table::
-    :widths: 50 50
+.. container:: no-table
 
-    * - .. image:: images/wrap_cable_around.png
-            :width: 100%
-      - .. image:: images/power_bank_cables.png
-            :width: 100%
+    .. list-table::
+        :widths: 50 50
+
+        * - .. image:: images/wrap_cable_around.png
+                :width: 100%
+          - .. image:: images/power_bank_cables.png
+                :width: 100%
 
 14. Run the two depth camera cables down the left aluminum bar.
 
@@ -143,23 +151,27 @@ hardware.
 
 17. The USB cable goes down the back channel and through the back tower base cutout.
 
-.. list-table::
-    :widths: 50 50
+.. container:: no-table
 
-    * - .. image:: images/usb_back_tower_slot.png
-            :width: 100%
-      - .. image:: images/usb_cable_back_channel.png
-            :width: 100%
+    .. list-table::
+        :widths: 50 50
+
+        * - .. image:: images/usb_back_tower_slot.png
+                :width: 100%
+          - .. image:: images/usb_cable_back_channel.png
+                :width: 100%
 
 18. Use four clips to secure the cables.
 
-.. list-table::
-    :widths: 50 50
+.. container:: no-table
 
-    * - .. image:: images/bracket_placement_upper.png
-            :width: 100%
-      - .. image:: images/bracket_placement_lower.png
-            :width: 100%
+    .. list-table::
+        :widths: 50 50
+
+        * - .. image:: images/bracket_placement_upper.png
+                :width: 100%
+          - .. image:: images/bracket_placement_lower.png
+                :width: 100%
 
 19. Take the braided servo cable and insert it into any of the open ports on the power hub located
     on the left side of the LoCoBot.
@@ -177,12 +189,23 @@ hardware.
 21. Your LoCoBot is now fully assembled. You can proceed to the :doc:`Basic Usage Guide
     <./user_guide>`, or the :doc:`ROS Interface Guides <../ros_interface>`.
 
-Video Tutorial
---------------
+Video Tutorials
+===============
 
 LoCoBot Hardware Setup
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. youtube:: PQxgWxqFeZg
-    :align: center
-    :width: 70%
+.. container:: no-table
+
+    .. list-table::
+        :widths: 50 50
+        :align: center
+
+        * - .. youtube:: PQxgWxqFeZg
+                :align: center
+
+          - .. youtube:: j9iMogflXLA
+                :align: center
+
+        * - **Kobuki Version**
+          - **Create® 3 Version**

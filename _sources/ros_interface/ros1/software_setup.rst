@@ -293,8 +293,11 @@ possible.
 
 .. _open an Issue: https://github.com/Interbotix/interbotix_ros_rovers/issues
 
-Video Tutorial
-==============
+Video Tutorials
+===============
+
+LoCoBot ROS Installation Guide
+------------------------------
 
 .. youtube:: 0lnbw6n6vs4
    :align: center

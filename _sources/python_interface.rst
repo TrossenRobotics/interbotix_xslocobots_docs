@@ -191,8 +191,8 @@ Miscellaneous Tips
     The end-effector should not be pitched past +/- 89 degrees as that can lead to unintended
     movements.
 
-Video Tutorial
-==============
+Video Tutorials
+===============
 
 Open Source Example Packages on the LoCoBot
 -------------------------------------------
