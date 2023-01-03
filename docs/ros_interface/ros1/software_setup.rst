@@ -259,7 +259,8 @@ show up as ``ttyDXL``, ``kobuki`` (if applicable), and ``rplidar`` (if applicabl
     kobuki
 
 If using the Create® 3 as a base, use the below command to ping the base to ensure that your
-network is properly configured to use the 192.168.186.2 to connect to the base.
+network is properly configured to use the 192.168.186.2 to connect to the base. The base must be
+turned on and its Ethernet cable should be plugged into the NUC.
 
 .. code-block:: console
 
@@ -272,9 +273,14 @@ network is properly configured to use the 192.168.186.2 to connect to the base.
     2 packets transmitted, 2 received, 0% packet loss, time 1012ms
     rtt min/avg/max/mdev = 0.035/0.037/0.040/0.002 ms
 
-Verify that the RealSense camera can be found by typing ``rs-enumerate-devices -S`` in the
-terminal. The output should give info about the type of RealSense camera that is plugged in. Note
-that the camera should be plugged back in at this point if it's not already.
+Verify that the RealSense camera can be found by running the command below:
+
+.. code-block:: console
+
+    $ roslaunch realsense2_camera rs_camera.launch
+
+As long as the console's log does not include the repeating warning message ``No RealSense devices
+were found!``, you will be able to connect to the camera using ROS.
 
 Next Steps
 ==========
