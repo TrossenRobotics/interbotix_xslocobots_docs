@@ -159,7 +159,7 @@ and publish the results via tf.</li>
 <p>To run this package, type the line below in a terminal. Note that the <code class="docutils literal notranslate"><span class="pre">robot_model</span></code> argument must
 be specified as the name of one of the four locobot models. For example, to launch a LoCoBot with a
 WidowX-200 arm, type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions xslocobot_description.launch robot_model:<span class="o">=</span>locobot_wx200 use_joint_pub_gui:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>xslocobot_description.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_joint_pub_gui:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>This is the bare minimum needed to get up and running. Take a look at the table below to see how to
@@ -247,7 +247,7 @@ further customize with other launch file arguments.</p>
 <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_descriptions/launch/many_xslocobots.launch" rel="noopener noreferrer" target="_blank">many_xslocobots.launch</a> that features the ability to control multiple LoCoBots in the same ROS
 session. This is made possible by the fact that each robot is launched in its own unique namespace.
 To run it, type...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions many_xslocobots.launch
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>many_xslocobots.launch
 </pre></div>
 </div>
 <p>A picture similar to the one below should appear!</p>
@@ -269,7 +269,7 @@ be run on a networked ROS computer to visualize the robot in RViz in real time. 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -201,7 +201,7 @@ argument is set to <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="slam-from-scratch">
 <span id="interbotix-xslocobot-nav-slam-from-scratch-label"></span><h3>SLAM From Scratch<a class="headerlink" href="#slam-from-scratch" title="Permalink to this headline"></a></h3>
 <p>To get SLAM up and running from scratch, type the following in a terminal on the robot computer:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav.launch robot_model:<span class="o">=</span>locobot_wx200 use_lidar:<span class="o">=</span><span class="nb">true</span> rtabmap_args:<span class="o">=</span>-d
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_nav.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>rtabmap_args:<span class="o">=</span>-d
 </pre></div>
 </div>
 <p>In the above command, the argument <code class="docutils literal notranslate"><span class="pre">rtabmap_args:=-d</span></code> is provided. This will delete the current
@@ -216,7 +216,7 @@ saying something similar to...</p>
 <p>Now, to visualize the robot in RViz, run the following on your remote Linux computer (note that you
 should first run the <a class="reference internal" href="../ros_interface/ros1/software_setup.html#ros-software-setup-remote-install-label"><span class="std std-ref">remote installation</span></a> script on
 your personal computer if you haven't done so already).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions remote_view.launch rviz_frame:<span class="o">=</span>map
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch<span class="w"> </span>rviz_frame:<span class="o">=</span>map
 </pre></div>
 </div>
 <p>RViz should now open up looking like the picture below:</p>
@@ -238,14 +238,14 @@ use the <strong>2D Nav Goal</strong> button at the the top of the RViz screen to
 map's free space. This sends a command to <cite>move_base</cite> to plan out and execute a path to the goal. A
 second way is to run the <code class="docutils literal notranslate"><span class="pre">xslocobot_joy.launch</span></code> file found in the <cite>interbotix_xslocobot_joy</cite> ROS
 package (either on the robot or on your remote computer). To do this, type...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_joy xslocobot_joy.launch robot_model:<span class="o">=</span>locobot_wx200 launch_driver:<span class="o">=</span><span class="nb">false</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_joy<span class="w"> </span>xslocobot_joy.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>launch_driver:<span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <p>Setting the <code class="docutils literal notranslate"><span class="pre">launch_driver</span></code> argument to <code class="docutils literal notranslate"><span class="pre">false</span></code> tells the launch file not to startup the
 locobot driver nodes as the robot is already running. Finally, a third way to move the robot is to
 run the Kobuki <strong>keyop</strong> node. This will then allow you to use your keyboard arrow keys to move the
 robot. To do this, type the following either on the robot or remote computer...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch kobuki_keyop keyop.launch __ns:<span class="o">=</span>locobot
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>kobuki_keyop<span class="w"> </span>keyop.launch<span class="w"> </span>__ns:<span class="o">=</span>locobot
 </pre></div>
 </div>
 <p>Note the two underscores before the <code class="docutils literal notranslate"><span class="pre">ns</span></code> launch file tag. Also note that <strong>only one</strong> of these
@@ -282,7 +282,7 @@ RViz on your remote computer as well.</p>
 <div class="section" id="continuing-slam-from-a-pre-built-map">
 <h3>Continuing SLAM From a Pre-Built Map<a class="headerlink" href="#continuing-slam-from-a-pre-built-map" title="Permalink to this headline"></a></h3>
 <p>To continue doing SLAM, type the following in a terminal on the robot computer:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav.launch robot_model:<span class="o">=</span>locobot_wx200 use_lidar:<span class="o">=</span><span class="nb">true</span> rtabmap_args:<span class="o">=</span><span class="s1">&#39;--Rtabmap/StartNewMapOnLoopClosure true&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_nav.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>rtabmap_args:<span class="o">=</span><span class="s1">&#39;--Rtabmap/StartNewMapOnLoopClosure true&#39;</span>
 </pre></div>
 </div>
 <p>Setting the <code class="docutils literal notranslate"><span class="pre">Rtabmap/StartNewMapOnLoopClosure</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code> tells Rtabmap to wait on
@@ -298,7 +298,7 @@ the <a class="reference internal" href="#slam-from-scratch">SLAM From Scratch</a
 <p>Once you've finished mapping your desired environment, the next step is to have the robot uses its
 sensors to just localize itself within the map while navigating. To do so, type the following in a
 terminal on the robot computer:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav.launch robot_model:<span class="o">=</span>locobot_wx200 use_lidar:<span class="o">=</span><span class="nb">true</span> localization:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_nav.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>localization:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>Next, open up RViz on your remote computer as outlined in the <a class="reference internal" href="#slam-from-scratch">SLAM From Scratch</a> section, and
@@ -409,7 +409,7 @@ further customize with other launch file arguments.</p>
 has been provided. To use it, enter the command below, along with any of the other args mentioned
 above that would be relevant to your application. Once Gazebo loads, unpause the physics, and start
 your navigation and mapping application.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_nav xslocobot_nav_sim.launch robot_model:<span class="o">=</span>locobot_wx200 dof:<span class="o">=</span><span class="m">5</span> use_lidar:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_nav_sim.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>dof:<span class="o">=</span><span class="m">5</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -473,7 +473,7 @@ too quickly, this warning can also appear, so slow down a bit.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

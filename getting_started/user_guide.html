@@ -365,10 +365,10 @@ so you have enough ports for the necessary devices.</li>
 it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the <a class="reference internal" href="../ros_interface/ros1/software_setup.html"><span class="doc">ROS 1 Interface
 Software Setup</span></a> or <a class="reference internal" href="../ros_interface/ros2/software_setup.html"><span class="doc">ROS 2 Interface Software Setup</span></a> for more information.</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
-<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span> &gt; xslocobot_amd64_install.sh
-<span class="gp">$ </span>chmod +x xslocobot_amd64_install.sh
-<span class="gp">$ </span>./xslocobot_amd64_install.sh -b create3 -d noetic
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
+<span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>xslocobot_amd64_install.sh
+<span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>xslocobot_amd64_install.sh
+<span class="gp">$ </span>./xslocobot_amd64_install.sh<span class="w"> </span>-b<span class="w"> </span>create3<span class="w"> </span>-d<span class="w"> </span>noetic
 </pre></div>
 </div>
 </div></blockquote>
@@ -400,7 +400,7 @@ computer that you will use when you SSH into it. This is typically <code class="
 <p class="first admonition-title">Note</p>
 <p>If you are using multiple LoCoBots, you should make each hostname unique, i.e. <code class="docutils literal notranslate"><span class="pre">locobot1</span></code>,
 <code class="docutils literal notranslate"><span class="pre">locobot2</span></code>, etc.</p>
-<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>hostnamectl set-hostname &lt;unique_hostname&gt;
+<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>&lt;unique_hostname&gt;
 </pre></div>
 </div>
 </div>
@@ -409,7 +409,7 @@ computer that you will use when you SSH into it. This is typically <code class="
 </li>
 <li><p class="first">Ping the robot from your remote computer using the command below. If the robot's hostname is
 different than <code class="docutils literal notranslate"><span class="pre">locobot</span></code>, use that instead. You should see output similar to below.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping -c <span class="m">3</span> locobot.local
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>locobot.local
 <span class="go">PING locobot.local (192.168.0.171) 56(84) bytes of data.</span>
 <span class="go">64 bytes from locobot (192.168.0.171): icmp_seq=1 ttl=64 time=203 ms</span>
 <span class="go">64 bytes from locobot (192.168.0.171): icmp_seq=2 ttl=64 time=22.5 ms</span>
@@ -437,25 +437,25 @@ communication between the two machines.</p>
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">ROS 1</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">ROS 2</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p class="first">If not already on both machines, install the rospy_tutorials package on the LoCoBot
 computer and your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get install ros-<span class="nv">$ROS_DISTRO</span>-rospy-tutorials
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-rospy-tutorials
 </pre></div>
 </div>
 </li>
 <li><p class="first">Start a roscore on your LoCoBot computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
 <span class="gp">$ </span>roscore
 </pre></div>
 </div>
 </li>
 <li><p class="first">Open a new terminal on the LoCoBot and run the listener script.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
-<span class="gp">$ </span>rosrun rospy_tutorials listener.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
+<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>listener.py
 </pre></div>
 </div>
 </li>
 <li><p class="first">Open a new terminal on the remote computer and run the talker.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
-<span class="gp">$ </span>rosrun rospy_tutorials talker.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
+<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>talker.py
 </pre></div>
 </div>
 </li>
@@ -474,14 +474,14 @@ the listener.</p>
 terminals.</p>
 </li>
 <li><p class="first">Run the listener script on your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
-<span class="gp">$ </span>rosrun rospy_tutorials listener.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
+<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>listener.py
 </pre></div>
 </div>
 </li>
 <li><p class="first">Run the talker on your LoCoBot computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
-<span class="gp">$ </span>rosrun rospy_tutorials talker.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
+<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>talker.py
 </pre></div>
 </div>
 </li>
@@ -503,19 +503,19 @@ terminals.</p>
 </div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p class="first">If not already on both machines, install the example minimal publisher and minimal
 subscriber on the LoCoBot computer and your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get install ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-publisher ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-subscriber
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-publisher<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-subscriber
 </pre></div>
 </div>
 </li>
 <li><p class="first">Open a new terminal on the LoCoBot and run the minimal subscriber.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
-<span class="gp">$ </span>ros2 run examples_rclpy_minimal_subscriber subscriber_member_function
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
+<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_subscriber<span class="w"> </span>subscriber_member_function
 </pre></div>
 </div>
 </li>
 <li><p class="first">Open a new terminal on the remote computer and run the minimal publisher.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
-<span class="gp">$ </span>ros2 run examples_rclpy_minimal_publisher publisher_local_function
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
+<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_publisher<span class="w"> </span>publisher_local_function
 </pre></div>
 </div>
 </li>
@@ -534,14 +534,14 @@ the subscriber.</p>
 respective terminals.</p>
 </li>
 <li><p class="first">Run the subscriber script on your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote Computer
-<span class="gp">$ </span>ros2 run examples_rclpy_minimal_subscriber subscriber_member_function
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
+<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_subscriber<span class="w"> </span>subscriber_member_function
 </pre></div>
 </div>
 </li>
 <li><p class="first">Run the publisher on your LoCoBot computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot Computer
-<span class="gp">$ </span>ros2 run examples_rclpy_minimal_publisher publisher_local_function
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
+<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_publisher<span class="w"> </span>publisher_local_function
 </pre></div>
 </div>
 </li>
@@ -584,14 +584,14 @@ Guide</span></a> for potential solutions.</p>
 <ol class="arabic">
 <li><p class="first">On your remote computer, install the OpenSSH Client software to allow for a secure shell
 connection between your remote computer and the LoCoBot computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install openssh-client
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openssh-client
 </pre></div>
 </div>
 </li>
 <li><p class="first">SSH into the LoCoBot from your remote computer with the display forwarding flag <code class="docutils literal notranslate"><span class="pre">-X</span></code>. If the
 robot's username or hostname are different than <code class="docutils literal notranslate"><span class="pre">locobot</span></code>, use that instead.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ssh -X username@hostname.local
-<span class="gp">$ </span>ssh -X locobot@locobot.local
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ssh<span class="w"> </span>-X<span class="w"> </span>username@hostname.local
+<span class="gp">$ </span>ssh<span class="w"> </span>-X<span class="w"> </span>locobot@locobot.local
 </pre></div>
 </div>
 <div class="admonition note">
@@ -603,13 +603,13 @@ OpenSSH will forward graphical application to the client from the server.</p>
 <li><p class="first">If prompted, enter the password <code class="docutils literal notranslate"><span class="pre">locobot</span></code> and accept the SSH key.</p>
 </li>
 <li><p class="first">Once logged in to the LoCoBot, you can open multiple SSH'ed terminals using the command below.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gnome-terminal <span class="p">&amp;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gnome-terminal<span class="w"> </span><span class="p">&amp;</span>
 </pre></div>
 </div>
 <ul>
 <li><p class="first">Sometimes, this doesn't work. In that case, use the command from <a class="reference external" href="https://askubuntu.com/questions/608330/problem-with-gnome-terminal-on-gnome-3-12-2/1235679#1235679" rel="noopener noreferrer" target="_blank">this Ask Ubuntu answer</a>.</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/usr/bin/dbus-launch /usr/bin/gnome-terminal <span class="p">&amp;</span>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/usr/bin/dbus-launch<span class="w"> </span>/usr/bin/gnome-terminal<span class="w"> </span><span class="p">&amp;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -661,10 +661,10 @@ writing this guide. To get around this, you can either follow some of the recomm
 <p>If using the ROS Interface, we provide a remote workspace installation script. See the below
 commands for the remote installation quickstart commands for a Create® 3 version LoCoBot running
 ROS 1 Noetic. Run these commands on your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
-<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/xslocobot_remote_install.sh&#39;</span> &gt; xslocobot_remote_install.sh
-<span class="gp">$ </span>chmod +x xslocobot_remote_install.sh
-<span class="gp">$ </span>./xslocobot_remote_install.sh -b create3 -d noetic
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
+<span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/xslocobot_remote_install.sh&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>xslocobot_remote_install.sh
+<span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>xslocobot_remote_install.sh
+<span class="gp">$ </span>./xslocobot_remote_install.sh<span class="w"> </span>-b<span class="w"> </span>create3<span class="w"> </span>-d<span class="w"> </span>noetic
 </pre></div>
 </div>
 <p>Alternatively, you can check the <a class="reference internal" href="../ros_interface/ros1/software_setup.html#ros-software-setup-remote-install-label"><span class="std std-ref">Remote Install section of the ROS Interface Software Setup</span></a> for more information.</p>
@@ -728,7 +728,7 @@ off.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

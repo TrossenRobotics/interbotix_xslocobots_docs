@@ -188,12 +188,12 @@ modes depending on their project.</p>
 <p>To run this package on the physical robot, type the line below in a terminal
 (assuming the <code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code> is being launched with the onboard lidar and
 camera).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_control xslocobot_control.launch robot_model:<span class="o">=</span>locobot_wx200 use_base:<span class="o">=</span><span class="nb">true</span> use_lidar:<span class="o">=</span><span class="nb">true</span> use_camera:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_control<span class="w"> </span>xslocobot_control.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_base:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_camera:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>If you are working from a remote computer and would like to visualize the robot using RViz, open a
 terminal on your remote and type...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions remote_view.launch
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch
 </pre></div>
 </div>
 <p>Note that in order for this to work, you must first run the <a class="reference external" href="https://www.trossenrobotics.com/docs/interbotix_xslocobots/ros_interface/software_setup.html#remote-install" rel="noopener noreferrer" target="_blank">remote installation</a> script on your
@@ -316,7 +316,7 @@ remote computer.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

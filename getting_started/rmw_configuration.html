@@ -144,7 +144,7 @@ configuration to get started. The process is as follows:</p>
 <li><p class="first">Open a terminal on your LoCoBot's computer by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd>.</p>
 </li>
 <li><p class="first">Get the name of your wireless network connection with the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ifconfig <span class="p">|</span> grep wl <span class="p">|</span> cut -d <span class="s2">&quot;:&quot;</span> -f1
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ifconfig<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>wl<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="w"> </span>-f1
 </pre></div>
 </div>
 <div class="admonition note">
@@ -156,19 +156,19 @@ connection.</p>
 </li>
 <li><p class="first">If from Trossen Robotics, or if the installation script was run for a ROS 2 installation, the
 LoCoBot cyclonedds config file should be in the LoCoBot's home directory. Open it in an editor:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano ~/cyclonedds_config_locobot.xml
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano<span class="w"> </span>~/cyclonedds_config_locobot.xml
 </pre></div>
 </div>
 <p>The config file will look something like:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
-    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
-    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Domain&gt;</span>
-        <span class="nt">&lt;General&gt;</span>
-            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>eno1,${WIRELESS_INTERFACE}<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
-        <span class="nt">&lt;/General&gt;</span>
-    <span class="nt">&lt;/Domain&gt;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+<span class="w">    </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">    </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Domain&gt;</span>
+<span class="w">        </span><span class="nt">&lt;General&gt;</span>
+<span class="w">            </span><span class="nt">&lt;NetworkInterfaceAddress&gt;</span>eno1,${WIRELESS_INTERFACE}<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/General&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
@@ -177,14 +177,14 @@ LoCoBot cyclonedds config file should be in the LoCoBot's home directory. Open i
 if your wireless network interface's name is <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>, the configuration file should look
 like:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
-    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
-    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Domain&gt;</span>
-        <span class="nt">&lt;General&gt;</span>
-            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>eno1,wlan0<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
-        <span class="nt">&lt;/General&gt;</span>
-    <span class="nt">&lt;/Domain&gt;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+<span class="w">    </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">    </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Domain&gt;</span>
+<span class="w">        </span><span class="nt">&lt;General&gt;</span>
+<span class="w">            </span><span class="nt">&lt;NetworkInterfaceAddress&gt;</span>eno1,wlan0<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/General&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
@@ -205,7 +205,7 @@ The daemon has been started
 <li><p class="first">Open a terminal on your remote computer by pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd>.</p>
 </li>
 <li><p class="first">Get the name of your wireless network connection with the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ifconfig <span class="p">|</span> grep wl <span class="p">|</span> cut -d <span class="s2">&quot;:&quot;</span> -f1
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ifconfig<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>wl<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="w"> </span>-f1
 </pre></div>
 </div>
 <div class="admonition note">
@@ -218,20 +218,20 @@ connection.</p>
 <li><p class="first">If the remote software setup script was run specifying a ROS 2 installation, the remote
 cyclonedds config file should be in your home directory. Open the cyclonedds config file in an
 editor:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano ~/cyclonedds_config_remote.xml
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano<span class="w"> </span>~/cyclonedds_config_remote.xml
 </pre></div>
 </div>
 <p>The config file will look something like:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
-    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
-    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Domain&gt;</span>
-        <span class="nt">&lt;General&gt;</span>
-            <span class="nt">&lt;DontRoute&gt;</span>true<span class="nt">&lt;/DontRoute&gt;</span>
-            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>${WIRELESS_INTERFACE}<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
-        <span class="nt">&lt;/General&gt;</span>
-    <span class="nt">&lt;/Domain&gt;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+<span class="w">    </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">    </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Domain&gt;</span>
+<span class="w">        </span><span class="nt">&lt;General&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DontRoute&gt;</span>true<span class="nt">&lt;/DontRoute&gt;</span>
+<span class="w">            </span><span class="nt">&lt;NetworkInterfaceAddress&gt;</span>${WIRELESS_INTERFACE}<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/General&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
@@ -240,15 +240,15 @@ editor:</p>
 if your wireless network interface's name is <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>, the configuration file should look
 like:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS</span>
-    <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
-    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Domain&gt;</span>
-        <span class="nt">&lt;General&gt;</span>
-            <span class="nt">&lt;DontRoute&gt;</span>true<span class="nt">&lt;/DontRoute&gt;</span>
-            <span class="nt">&lt;NetworkInterfaceAddress&gt;</span>wlan0<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
-        <span class="nt">&lt;/General&gt;</span>
-    <span class="nt">&lt;/Domain&gt;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+<span class="w">    </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">    </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Domain&gt;</span>
+<span class="w">        </span><span class="nt">&lt;General&gt;</span>
+<span class="w">            </span><span class="nt">&lt;DontRoute&gt;</span>true<span class="nt">&lt;/DontRoute&gt;</span>
+<span class="w">            </span><span class="nt">&lt;NetworkInterfaceAddress&gt;</span>wlan0<span class="nt">&lt;/NetworkInterfaceAddress&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/General&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
@@ -277,7 +277,7 @@ The daemon has been started
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

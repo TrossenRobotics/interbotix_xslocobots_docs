@@ -173,7 +173,7 @@ landmark tags in the map. Finally, the robot navigates to a selected landmark.</
 <p>To start using this package, you must first create a set of landmarks. You can either edit the
 <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_landmark_nav/landmarks/landmarks.yaml" rel="noopener noreferrer" target="_blank">landmarks.yaml</a> configuration file, or you can use the <strong>landmark_manager</strong> tool. To access this
 tool, run the following command on the robot computer:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_landmark_nav landmark_manager.launch
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_landmark_nav<span class="w"> </span>landmark_manager.launch
 </pre></div>
 </div>
 <img alt="../_images/landmark_manager.png" class="align-center" src="../_images/landmark_manager.png" style="width: 70%;" />
@@ -190,7 +190,7 @@ distance away from the wall that the robot should navigate to if a tag is mounte
 <h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this headline"></a></h3>
 <p>Once a valid set of landmarks is created, you can now map out the robot's environment. To start the
 SLAM process from a fresh map, type the following in a terminal on the robot computer:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_landmark_nav xslocobot_landmark_nav.launch robot_model:<span class="o">=</span>locobot_px100 mapping:<span class="o">=</span><span class="nb">true</span> rtabmap_args:<span class="o">=</span>-d
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_landmark_nav<span class="w"> </span>xslocobot_landmark_nav.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_px100<span class="w"> </span>mapping:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>rtabmap_args:<span class="o">=</span>-d
 </pre></div>
 </div>
 <p>To save the location of the landmark, the robot must 'see' its tag. To ensure that the tag is in
@@ -212,7 +212,7 @@ Scratch</span></a> section.</p>
 <p>Now that all the tags have been located and the map has been explored, you are now ready to
 navigate to any landmark. To start the localization process, type the following in a terminal on
 the robot computer:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_landmark_nav xslocobot_landmark_nav.launch robot_model:<span class="o">=</span>locobot_px100 localization:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_landmark_nav<span class="w"> </span>xslocobot_landmark_nav.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_px100<span class="w"> </span>localization:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>This will launch the navigation stack, as well as a command line application in a new terminal.
@@ -243,7 +243,7 @@ drive the robot to the location.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

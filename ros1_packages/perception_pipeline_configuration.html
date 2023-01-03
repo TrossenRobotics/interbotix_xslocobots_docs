@@ -194,7 +194,7 @@ published as a static transform such that the <cite>ar_tag_link</cite> frame of 
 of where the camera thinks the AprilTag is located.</p>
 <p id="apriltag-ros">To get that transform, run the following launch command in a terminal (assuming a LoCoBot WidowX
 200 arm is being used)...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_perception xslocobot_perception.launch robot_model:<span class="o">=</span>locobot_wx200 use_armtag_tuner_gui:<span class="o">=</span><span class="nb">true</span> use_pointcloud_tuner_gui:<span class="o">=</span><span class="nb">true</span> use_armtag:<span class="o">=</span><span class="nb">true</span> use_static_transform_pub:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_perception<span class="w"> </span>xslocobot_perception.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_armtag_tuner_gui:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_pointcloud_tuner_gui:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_armtag:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_static_transform_pub:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -211,13 +211,13 @@ below.</p>
 <p>Depending on how you setup your arm and camera in your workspace, the AprilTag on the arm may not
 be visible to the camera. To make it visible, first torque off all the arm joints by opening a
 terminal and typing...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice call /locobot/torque_enable <span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;arm&#39;, enable: false}&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice<span class="w"> </span>call<span class="w"> </span>/locobot/torque_enable<span class="w"> </span><span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;arm&#39;, enable: false}&quot;</span>
 </pre></div>
 </div>
 <p>Next, manually manipulate the arm such that the AprilTag is clearly visible to the camera (the live
 video stream in the bottom left of the RViz display should help with that). Then in the same
 terminal as before, torque the arm back on as follows...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice call /locobot/torque_enable <span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;arm&#39;, enable: true}&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rosservice<span class="w"> </span>call<span class="w"> </span>/locobot/torque_enable<span class="w"> </span><span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;arm&#39;, enable: true}&quot;</span>
 </pre></div>
 </div>
 <p>Now, in the ArmTag Tuner GUI, click the <strong>Snap Pose</strong> button. Feel free to toggle up/down the
@@ -244,7 +244,7 @@ forget to save your configs after tuning them!</p>
 <p>Now, you are almost ready to run the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts/pick_place_no_armtag.py" rel="noopener noreferrer" target="_blank">python demo script</a>. First make sure to edit the robot model
 name in the script to your robot model (if it's not <code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code>). Then navigate to the
 <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts/pick_place_no_armtag.py" rel="noopener noreferrer" target="_blank">pick_place_no_armtag.py</a> script and execute it.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python pick_place_no_armtag.py    <span class="c1"># python3 pick_place_no_armtag.py if using ROS Noetic</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>pick_place_no_armtag.py<span class="w">    </span><span class="c1"># python3 pick_place_no_armtag.py if using ROS Noetic</span>
 </pre></div>
 </div>
 <p>While running the script, you should see a TF marker appear close to the top of each object's
@@ -258,7 +258,7 @@ hopefully pick up the objects.</p>
 <cite>plate_link</cite> transform will automatically be saved in a file called 'static_transforms.yaml' in the
 <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/config" rel="noopener noreferrer" target="_blank">config</a> directory (if you decided to go through the AR tag calibration). Now, you can run the
 demo script headless - first by typing...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_perception xslocobot_perception.launch robot_model:<span class="o">=</span>locobot_wx200 use_rviz:<span class="o">=</span><span class="nb">false</span> use_static_transform_pub:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_perception<span class="w"> </span>xslocobot_perception.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_rviz:<span class="o">=</span><span class="nb">false</span><span class="w"> </span>use_static_transform_pub:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>Then heading over to the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts" rel="noopener noreferrer" target="_blank">scripts</a> directory and running the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/blob/main/interbotix_ros_xslocobots/interbotix_xslocobot_perception/scripts/pick_place_no_armtag.py" rel="noopener noreferrer" target="_blank">pick_place_no_armtag.py</a> script.
@@ -507,7 +507,7 @@ move as well.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

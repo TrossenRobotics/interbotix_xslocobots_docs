@@ -153,12 +153,12 @@ that this is the case.</p>
 short, the steps are as follows:</p>
 <ol class="arabic">
 <li><p class="first">On your LoCoBot's computer, install chrony NTP server package</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install chrony
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>chrony
 </pre></div>
 </div>
 </li>
 <li><p class="first">Edit the config file</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo nano /etc/chrony/chrony.conf
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/chrony/chrony.conf
 </pre></div>
 </div>
 <div class="admonition note">
@@ -182,12 +182,12 @@ have a connection to a reference clock (i.e., the Internet)</p>
 </div>
 </li>
 <li><p class="first">Restart chrony</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo service chrony restart
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>service<span class="w"> </span>chrony<span class="w"> </span>restart
 </pre></div>
 </div>
 </li>
 <li><p class="first">Verify compute NTP server is talking to the Create® 3</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo chronyc clients
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>chronyc<span class="w"> </span>clients
 </pre></div>
 </div>
 </li>
@@ -225,7 +225,7 @@ the following steps:</p>
 <ol class="arabic">
 <li><p class="first">Find all IP addresses assigned to your LoCoBot computer. You should get two addresses: one for
 the connection over the Ethernet network, and one for the connection over the wireless network.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>hostname -I
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>hostname<span class="w"> </span>-I
 <span class="go">192.168.186.3 192.168.0.171</span>
 </pre></div>
 </div>
@@ -233,14 +233,14 @@ the connection over the Ethernet network, and one for the connection over the wi
 address for the wireless network will be the other one, in this case, <code class="docutils literal notranslate"><span class="pre">192.168.0.171</span></code>.</p>
 </li>
 <li><p class="first">Edit the LoCoBot's .bashrc file</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano ~/.bashrc
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nano<span class="w"> </span>~/.bashrc
 </pre></div>
 </div>
 </li>
 <li><p class="first">Find the <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> section of the Interbotix Configurations block</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ROS_IP</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="sb">`</span>hostname -I <span class="p">|</span> cut -d<span class="s2">&quot; &quot;</span> -f1<span class="sb">`</span><span class="k">)</span>
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$ROS_IP</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-       <span class="nb">export</span> <span class="nv">ROS_IP</span><span class="o">=</span><span class="m">127</span>.0.0.1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_IP</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="sb">`</span>hostname<span class="w"> </span>-I<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s2">&quot; &quot;</span><span class="w"> </span>-f1<span class="sb">`</span><span class="k">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ROS_IP</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">       </span><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_IP</span><span class="o">=</span><span class="m">127</span>.0.0.1
 <span class="k">fi</span>
 </pre></div>
 </div>
@@ -250,7 +250,7 @@ address for the wireless network will be the other one, in this case, <code clas
 <span class="c1">#if [ -z &quot;$ROS_IP&quot; ]; then</span>
 <span class="c1">#       export ROS_IP=127.0.0.1</span>
 <span class="c1">#fi</span>
-<span class="nb">export</span> <span class="nv">ROS_IP</span><span class="o">=</span><span class="m">192</span>.168.0.171
+<span class="nb">export</span><span class="w"> </span><span class="nv">ROS_IP</span><span class="o">=</span><span class="m">192</span>.168.0.171
 </pre></div>
 </div>
 <div class="admonition note">
@@ -260,12 +260,12 @@ address for the wireless network will be the other one, in this case, <code clas
 </div>
 </li>
 <li><p class="first">Source your .bashrc file</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span> ~/.bashrc
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </pre></div>
 </div>
 </li>
 <li><p class="first">Your <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> environment variable should now be properly assigned.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">echo</span> <span class="nv">$ROS_IP</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_IP</span>
 <span class="go">192.168.0.171</span>
 </pre></div>
 </div>
@@ -282,7 +282,7 @@ remote</span></a>.</p>
 <p>This occurs because roslaunch can't detect the roscore before starting up, leading to the run_id
 mismatch. To solve this, simply append the <code class="docutils literal notranslate"><span class="pre">--wait</span></code> argument when running roslaunch. This tells
 roslaunch to delay the launch until a roscore is detected.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_descriptions remote_view.launch --wait
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch<span class="w"> </span>--wait
 <span class="gp">#                                                                </span>^^^^^^
 </pre></div>
 </div>
@@ -300,7 +300,7 @@ roslaunch to delay the launch until a roscore is detected.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

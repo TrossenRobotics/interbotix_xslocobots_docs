@@ -162,7 +162,7 @@ end-effector offset (when attaching the box) are stored in YAML files located in
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <p>To run this package on the physical robot using the small C++ API &amp; GUI, type the line below in a
 terminal (assuming the 'locobot_wx200' with lidar is being launched).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit_interface xslocobot_moveit_interface.launch robot_model:<span class="o">=</span>locobot_wx200 show_lidar:<span class="o">=</span><span class="nb">true</span> use_actual:<span class="o">=</span><span class="nb">true</span> use_cpp_interface:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_moveit_interface<span class="w"> </span>xslocobot_moveit_interface.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>show_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_actual:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_cpp_interface:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>A GUI should pop-up similar to the one below. In it, a user should specify the desired position and
@@ -196,7 +196,7 @@ poses and orientations rather than just positions, especially for lower dof arms
 <img alt="../_images/moveit_interface_gui.png" class="align-center" src="../_images/moveit_interface_gui.png" />
 <p>To run this package on the physical robot using the python interface, type the line below in a
 terminal (assuming the locobot_wx250s with no lidar is being launched).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit_interface xslocobot_moveit_interface.launch robot_model:<span class="o">=</span>locobot_wx250s use_actual:<span class="o">=</span><span class="nb">true</span> dof:<span class="o">=</span><span class="m">6</span> use_python_interface:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_moveit_interface<span class="w"> </span>xslocobot_moveit_interface.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx250s<span class="w"> </span>use_actual:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>dof:<span class="o">=</span><span class="m">6</span><span class="w"> </span>use_python_interface:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>After MoveIt finishes loading, press 'Enter' in the terminal to step through the tutorial.</p>
@@ -295,7 +295,7 @@ further customize with other launch file arguments.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

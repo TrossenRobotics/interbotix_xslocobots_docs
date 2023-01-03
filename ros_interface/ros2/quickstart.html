@@ -119,12 +119,12 @@ Interface. Make sure that you have completed and are familiar with the steps tak
 <ol class="arabic">
 <li><p class="first">Get familiar with the physical robot rover (let's say... a LoCoBot WidowX-250 6DOF with lidar!)
 by executing the following command in a terminal ssh'ed into the LoCoBot:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_control xslocobot_control.launch robot_model:<span class="o">=</span>locobot_wx250s use_base:<span class="o">=</span><span class="nb">true</span> use_camera:<span class="o">=</span><span class="nb">true</span> use_lidar:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_control<span class="w"> </span>xslocobot_control.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx250s<span class="w"> </span>use_base:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_camera:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Now, in a terminal on your remote computer (not via SSH), type...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_descriptions remote_view.launch
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch
 </pre></div>
 </div>
 </li>
@@ -142,7 +142,7 @@ terminal (either via SSH or on your remote computer).</p>
 <p class="last">This command will cause the robot arm (if present) to collapse (if it's not already
 resting) so manually hold or secure it before executing.</p>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 service call /locobot/torque_enable <span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;all&#39;, enable: false}&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/locobot/torque_enable<span class="w"> </span><span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;all&#39;, enable: false}&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -178,7 +178,7 @@ change the name from <code class="docutils literal notranslate"><span class="pre
 <li><p class="first">Now you should be able to freely manipulate the arm, gripper, and pan/tilt mechanism. Take note
 of how the RViz model accurately mimics the real robot. To make the robot hold a certain pose,
 manually hold the arm in the desired pose and execute the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 service call /locobot/torque_enable <span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;all&#39;, enable: true}&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/locobot/torque_enable<span class="w"> </span><span class="s2">&quot;{cmd_type: &#39;group&#39;, name: &#39;all&#39;, enable: true}&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -196,8 +196,8 @@ type the following in another terminal...</p>
 <p class="last">This command will cause the base to drive forward and to its left for around three seconds.
 Make sure there is nothing in the robot's path before running it.</p>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>create <span class="m">3</span>
-<span class="gp">$ </span>ros2 topic pub /locobot/mobile_base/cmd_vel geometry_msgs/Twist <span class="s1">&#39;{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>create<span class="w"> </span><span class="m">3</span>
+<span class="gp">$ </span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/locobot/mobile_base/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s1">&#39;{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}&#39;</span>
 </pre></div>
 </div>
 </li>
@@ -229,7 +229,7 @@ to take to gain a better understanding of how they relate to each other.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

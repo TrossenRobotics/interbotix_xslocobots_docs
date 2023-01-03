@@ -166,7 +166,7 @@ load and parse the URDF, or can be launched to view any robot model's URDF in RV
 <p>To run this package, type the line below in a terminal. Note that the <code class="docutils literal notranslate"><span class="pre">robot_model</span></code> argument must
 be specified as the name of one of the four locobot models. For example, to launch a LoCoBot with a
 WidowX-200 arm, type:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_descriptions xslocobot_description.launch.py robot_model:<span class="o">=</span>locobot_wx200 use_joint_pub_gui:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>xslocobot_description.launch.py<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_joint_pub_gui:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>This is the bare minimum needed to get up and running. Take a look at the table below to see how to
@@ -299,7 +299,7 @@ further customize with other launch file arguments.</p>
 <p>This launch file should be run on a networked ROS computer to visualize the robot in RViz in real
 time. See more in the <a class="reference internal" href="../ros_interface/ros2/quickstart.html"><span class="doc">ROS 2 Interface Quickstart</span></a>.</p>
 <p>To run this launch file, enter the command below in a terminal.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_descriptions remote_view.launch.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch.py
 </pre></div>
 </div>
 <table border="1" class="docutils align-default">
@@ -349,7 +349,7 @@ time. See more in the <a class="reference internal" href="../ros_interface/ros2/
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

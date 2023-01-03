@@ -256,17 +256,17 @@ demonstrate the process of running the installation script for ROS 1 Noetic and 
 base.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install curl
-<span class="gp">$ </span>curl <span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span> &gt; xslocobot_amd64_install.sh
-<span class="gp">$ </span>chmod +x xslocobot_amd64_install.sh
-<span class="gp">$ </span>./xslocobot_amd64_install.sh -d humble -b create3
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
+<span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>xslocobot_amd64_install.sh
+<span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>xslocobot_amd64_install.sh
+<span class="gp">$ </span>./xslocobot_amd64_install.sh<span class="w"> </span>-d<span class="w"> </span>humble<span class="w"> </span>-b<span class="w"> </span>create3
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>The install script provides more in-depth control of some installation options. Append the
 <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag to see the help document like below:</p>
-<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./xslocobot_amd64_install.sh -h
+<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./xslocobot_amd64_install.sh<span class="w"> </span>-h
 <span class="go">USAGE: ./xslocobot_amd64_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-n]</span>
 
 <span class="go">...</span>
@@ -290,15 +290,15 @@ again by pressing the power button.</li>
 <p>After running the installation script on the robot computer, verify that it was successful in
 finding the U2D2, Kobuki (if applicable), and Lidar (if applicable) by checking that the port names
 show up as <code class="docutils literal notranslate"><span class="pre">ttyDXL</span></code>, <code class="docutils literal notranslate"><span class="pre">kobuki</span></code> (if applicable), and <code class="docutils literal notranslate"><span class="pre">rplidar</span></code> (if applicable) respectively.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls /dev <span class="p">|</span> grep ttyDXL
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls<span class="w"> </span>/dev<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ttyDXL
 <span class="go">ttyDXL</span>
-<span class="gp">$ </span>ls /dev <span class="p">|</span> grep rplidar    <span class="c1"># if applicable</span>
+<span class="gp">$ </span>ls<span class="w"> </span>/dev<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>rplidar<span class="w">    </span><span class="c1"># if applicable</span>
 <span class="go">rplidar</span>
 </pre></div>
 </div>
 <p>If using the Create® 3 as a base, use the below command to ping the base to ensure that your
 network is properly configured to use the 192.168.186.2 to connect to the base.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping -c <span class="m">2</span> <span class="m">192</span>.168.186.2   <span class="c1"># if applicable (robot uses the Create® 3 as its base)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">192</span>.168.186.2<span class="w">   </span><span class="c1"># if applicable (robot uses the Create® 3 as its base)</span>
 <span class="go">PING 192.168.186.2 56(84) bytes of data.</span>
 <span class="go">64 bytes from 192.168.186.2: icmp_seq=1 ttl=64 time=0.040 ms</span>
 <span class="go">64 bytes from 192.168.186.2: icmp_seq=2 ttl=64 time=0.035 ms</span>
@@ -338,7 +338,7 @@ possible.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

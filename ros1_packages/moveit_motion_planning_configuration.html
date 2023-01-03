@@ -156,23 +156,23 @@ plugin</li>
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <p>To run this package on the physical robot, type the line below in a terminal (assuming the
 'locobot_px100' with no lidar is being launched).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit xslocobot_moveit.launch robot_model:<span class="o">=</span>locobot_px100 use_actual:<span class="o">=</span><span class="nb">true</span> dof:<span class="o">=</span><span class="m">4</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_moveit<span class="w"> </span>xslocobot_moveit.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_px100<span class="w"> </span>use_actual:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>dof:<span class="o">=</span><span class="m">4</span>
 </pre></div>
 </div>
 <p>If running this package on a Gazebo simulated robot, type the line below in a terminal (assuming
 the 'locobot_wx200' with lidar is being launched). Don't forget to unpause the Gazebo physics
 afterwards or MoveIt will never load!</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit xslocobot_moveit.launch robot_model:<span class="o">=</span>locobot_wx200 show_lidar:<span class="o">=</span><span class="nb">true</span> use_gazebo:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_moveit<span class="w"> </span>xslocobot_moveit.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>show_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_gazebo:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>If running this package on a MoveIt generated fake robot, type the line below in a terminal
 (assuming the 'locobot_wx250s' with no lidar is being launched). Note that in this case, MoveIt
 will be run in a headless state.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit xslocobot_moveit.launch robot_model:<span class="o">=</span>locobot_wx250s use_fake:<span class="o">=</span><span class="nb">true</span> dof:<span class="o">=</span><span class="m">6</span> use_moveit_rviz:<span class="o">=</span><span class="nb">false</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_moveit<span class="w"> </span>xslocobot_moveit.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx250s<span class="w"> </span>use_fake:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>dof:<span class="o">=</span><span class="m">6</span><span class="w"> </span>use_moveit_rviz:<span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <p>To visualize the robot on a remote computer, open a terminal on the remote and type...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch interbotix_xslocobot_moveit moveit_rviz.launch robot_name:<span class="o">=</span>locobot_wx250s config:<span class="o">=</span><span class="nb">true</span> __ns:<span class="o">=</span>locobot_wx250s
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_moveit<span class="w"> </span>moveit_rviz.launch<span class="w"> </span>robot_name:<span class="o">=</span>locobot_wx250s<span class="w"> </span>config:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>__ns:<span class="o">=</span>locobot_wx250s
 </pre></div>
 </div>
 <div class="admonition note">
@@ -280,7 +280,7 @@ the start and goal states for the arm respectively. To display them, navigate to
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

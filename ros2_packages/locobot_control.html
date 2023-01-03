@@ -193,12 +193,12 @@ operating modes depending on their project.</p>
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <p>To run this package on the physical robot, type the line below in a terminal (assuming the
 <code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code> is being launched with the onboard lidar and camera).</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_control xslocobot_control.launch.py robot_model:<span class="o">=</span>locobot_wx200 use_base:<span class="o">=</span><span class="nb">true</span> use_lidar:<span class="o">=</span><span class="nb">true</span> use_camera:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_control<span class="w"> </span>xslocobot_control.launch.py<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_base:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_camera:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>If you are working from a remote computer and would like to visualize the robot using RViz, open a
 terminal on your remote and run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2 launch interbotix_xslocobot_descriptions remote_view.launch.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch.py
 </pre></div>
 </div>
 <p>Note that in order for this to work, you must first run the <a class="reference internal" href="../ros_interface/ros2/software_setup.html"><span class="doc">remote installation</span></a> script on your remote computer.</p>
@@ -387,7 +387,7 @@ terminal on your remote and run:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

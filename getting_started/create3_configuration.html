@@ -188,7 +188,7 @@ Documentation</a>.</td>
 <p>You can set the Main Configuration parameters via the command line using curl if connected
 to the Create 3 base. The command below will set the configuration to the required
 parameters if using the ROS 1 Interface.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl -X POST -d <span class="s2">&quot;ros_domain_id=0&amp;ros_namespace=/mobile_base&amp;rmw_implementation=rmw_fastrtps_cpp&quot;</span> <span class="s2">&quot;http://192.168.186.2/ros-config-save-main&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;ros_domain_id=0&amp;ros_namespace=/mobile_base&amp;rmw_implementation=rmw_fastrtps_cpp&quot;</span><span class="w"> </span><span class="s2">&quot;http://192.168.186.2/ros-config-save-main&quot;</span>
 </pre></div>
 </div>
 <div class="admonition attention">
@@ -231,7 +231,7 @@ Documentation</a>.</td>
 <p>You can set the Main Configuration parameters via the command line using curl if connected
 to the Create 3 base. The command below will set the configuration to the required
 parameters if using the ROS 2 Interface.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl -X POST -d <span class="s2">&quot;ros_domain_id=0&amp;ros_namespace=/locobot/mobile_base&amp;rmw_implementation=rmw_cyclonedds_cpp&quot;</span> <span class="s2">&quot;http://192.168.186.2/ros-config-save-main&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;ros_domain_id=0&amp;ros_namespace=/locobot/mobile_base&amp;rmw_implementation=rmw_cyclonedds_cpp&quot;</span><span class="w"> </span><span class="s2">&quot;http://192.168.186.2/ros-config-save-main&quot;</span>
 </pre></div>
 </div>
 <div class="admonition attention">
@@ -245,10 +245,10 @@ web browser to reset the application manually.</p>
 <div class="section" id="application-ros-2-parameters-file">
 <h3><a class="toc-backref" href="#id4">Application ROS 2 Parameters File</a><a class="headerlink" href="#application-ros-2-parameters-file" title="Permalink to this headline"></a></h3>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Uk9TIDE=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Uk9TIDE=" name="Uk9TIDE=" role="tab" tabindex="0">ROS 1</button><button aria-controls="panel-1-Uk9TIDI=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Uk9TIDI=" name="Uk9TIDI=" role="tab" tabindex="-1">ROS 2</button></div><div aria-labelledby="tab-1-Uk9TIDE=" class="sphinx-tabs-panel group-tab" id="panel-1-Uk9TIDE=" name="Uk9TIDE=" role="tabpanel" tabindex="0"><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/mobile_base/motion_control</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">safety_override</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;full&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">reflexes_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Uk9TIDE=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Uk9TIDE=" name="Uk9TIDE=" role="tab" tabindex="0">ROS 1</button><button aria-controls="panel-1-Uk9TIDI=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Uk9TIDI=" name="Uk9TIDI=" role="tab" tabindex="-1">ROS 2</button></div><div aria-labelledby="tab-1-Uk9TIDE=" class="sphinx-tabs-panel group-tab" id="panel-1-Uk9TIDE=" name="Uk9TIDE=" role="tabpanel" tabindex="0"><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/mobile_base/motion_control</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">safety_override</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;full&quot;</span>
+<span class="w">    </span><span class="nt">reflexes_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
 </div>
 <table border="1" class="colwidths-given docutils align-default">
@@ -278,10 +278,10 @@ web browser to reset the application manually.</p>
 </tr>
 </tbody>
 </table>
-</div><div aria-labelledby="tab-1-Uk9TIDI=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Uk9TIDI=" name="Uk9TIDI=" role="tabpanel" tabindex="0"><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/locobot/mobile_base/motion_control</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">safety_override</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;full&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">reflexes_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</div><div aria-labelledby="tab-1-Uk9TIDI=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Uk9TIDI=" name="Uk9TIDI=" role="tabpanel" tabindex="0"><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/locobot/mobile_base/motion_control</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">safety_override</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;full&quot;</span>
+<span class="w">    </span><span class="nt">reflexes_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
 </div>
 <table border="1" class="colwidths-given docutils align-default">
@@ -329,7 +329,7 @@ parameters.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Trossen Robotics.</p>
+    <p>&#169; Copyright 2023, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
