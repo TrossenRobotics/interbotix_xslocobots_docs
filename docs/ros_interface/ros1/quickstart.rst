@@ -2,6 +2,11 @@
 ROS 1 Quickstart Guide
 ======================
 
+.. note::
+
+    This guide assumes that you have completed the :ref:`ROS 1 Remote Install
+    <ros-software-setup-remote-install-label>` on your remote computer.
+
 This guide is intended to get the use familiar with the basic functions and interfaces of the ROS
 Interface.
 
