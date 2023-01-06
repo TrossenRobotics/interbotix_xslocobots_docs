@@ -171,6 +171,11 @@ Turning On Your LoCoBot
 Control Software Installation
 =============================
 
+.. attention::
+
+    If you bought your LoCoBot from Trossen Robotics, you do NOT have to complete this step, as the
+    software should already be installed on your robot's computer.
+
 Install the software that you plan to use, such as the ROS Interface. The quickstart commands for
 it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1 Interface
 Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2 Interface Software Setup
