@@ -1,7 +1,7 @@
 Button,Action
-Left,stick Up/Down	drive the Kobuki base forward/backward between 0.7 to -0.7 m/s
-R2,rotate the Kobuki base clockwise between 0 and -3.14 rad/s
-L2,rotate the Kobuki base counterclockwise between 0 and 3.14 rad/s
+Left,stick Up/Down	drive the base forward/backward between 0.7 to -0.7 m/s
+R2,rotate the base clockwise between 0 and -3.14 rad/s
+L2,rotate the base counterclockwise between 0 and 3.14 rad/s
 SELECT/SHARE,"Reset the odometry of the base to an 'x',  'y', and 'theta' of 0 (the base chirps as well)"
 Right,stick Up/Down	tilt the RealSense camera Up/Down
 Right,stick Left/Right	pan the RealSense camera Left/Right
