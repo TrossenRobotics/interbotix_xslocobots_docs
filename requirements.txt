@@ -5,3 +5,4 @@ sphinx-rtd-theme
 sphinxcontrib-youtube
 sphinx-copybutton
 sphinx-tabs
+sphinx-collapse
