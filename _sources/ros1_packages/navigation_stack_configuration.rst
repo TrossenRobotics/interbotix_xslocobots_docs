@@ -46,7 +46,7 @@ packages. A short description of the nodes needed from those packages can be fou
 -   **rtabmapviz** - Rtabmap's Visualization tool when doing mapping or localization; not really
     necessary to use since Rtabmap has RViz plugins that work pretty well
 -   **move_base** - responsible for planning paths for the robot and sending Twist commands to the
-    Kobuki base to follow them
+    base to follow them
 -   **rtabmap** - responsible for performing SLAM or just localization
 
 Note that there are also a few Rtabmap nodelets that are started up under the
@@ -141,8 +141,9 @@ package (either on the robot or on your remote computer). To do this, type...
 
 Setting the ``launch_driver`` argument to ``false`` tells the launch file not to startup the
 locobot driver nodes as the robot is already running. Finally, a third way to move the robot is to
-run the Kobuki **keyop** node. This will then allow you to use your keyboard arrow keys to move the
-robot. To do this, type the following either on the robot or remote computer...
+run the Kobuki **keyop** node (if using the Kobuki version). This will then allow you to use your
+keyboard arrow keys to move the robot. To do this, type the following either on the robot or remote
+computer...
 
 .. code-block:: console
 

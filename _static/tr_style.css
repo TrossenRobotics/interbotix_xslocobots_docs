@@ -199,21 +199,24 @@ div.ros-distros-links img {
     width: auto;
 }
 
-/* Style sphinx_collapse divs */
+/* Style sphinx_collapse divs *//* Style sphinx_collapse divs */
 
 div.sphinx_collapse {
     border-radius: 4px;
     margin-bottom: 24px;
-    background-color: rgb(204 204 204 / 10%);
-    border-left: 4px solid #00b0f0;
+    background-color: rgb(150 150 150 / 10%);
+    border-left: 6px solid #00b0f0;
 }
+
 div.sphinx_collapse:hover {
-    background-color: rgb(204 204 204 / 20%);
+    background-color: rgb(150 150 150 / 20%);
 }
 
 div.sphinx_collapse>label.sphinx_collapse__label {
     margin-bottom: 0px;
     padding: 10px 0 10px 14px;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 div.sphinx_collapse__content {

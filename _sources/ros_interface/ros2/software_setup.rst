@@ -92,67 +92,68 @@ sub-section.
 AMD64 Architecture
 ------------------
 
-.. note::
+.. attention::
 
     If you purchased a NUC-based ROS LoCoBot from Trossen Robotics or their distributors, note that
-    it will come pre-installed with `Ubuntu Desktop image (22.04)`_ already on it and you will not
-    have to run the software installation yourself.
+    it will come pre-installed with all required software already on it and you should **not** have
+    to run the software installation yourself.
 
-After powering on the NUC via the steps in the previous section, a login screen should appear with
-``locobot`` as the user name. Conveniently, the password is the same as the user name so type
-``locobot`` and hit **Enter**. Next, update the computer by performing the following steps.
+.. collapse:: Click here to reveal installation steps, acknowledging the note above.
 
-.. _`Ubuntu Desktop image (22.04)`: https://releases.ubuntu.com/focal/
+    After powering on the NUC via the steps in the previous section, a login screen should appear
+    with ``locobot`` as the user name. Conveniently, the password is the same as the user name so
+    type ``locobot`` and hit **Enter**. Next, update the computer by performing the following
+    steps.
 
-1.  Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of the
-    Desktop and selecting your desired network.
+    1.  Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of
+        the Desktop and selecting your desired network.
 
-2.  Press :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T` to open a terminal screen, and type ``sudo apt
-    update``.
+    2.  Press :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T` to open a terminal screen, and type ``sudo apt
+        update``.
 
-3.  After the process completes, type ``sudo apt -y upgrade``. It might take a few minutes for the
-    computer to upgrade.
+    3.  After the process completes, type ``sudo apt -y upgrade``. It might take a few minutes for
+        the computer to upgrade.
 
-4.  Finally, type ``sudo apt -y autoremove`` to get rid of unnecessary software packages. Then
-    close out of the terminal and reboot the computer.
+    4.  Finally, type ``sudo apt -y autoremove`` to get rid of unnecessary software packages. Then
+        close out of the terminal and reboot the computer.
 
-5.  Once rebooted, login and open up a terminal as before. Instead of manually installing all the
-    software needed for the robot, you will download and run an installation script. Follow the
-    commands below to get started! Note that no sensors or actuators (i.e. camera, lidar, U2D2,
-    etc.) needs to be connected to the computer for the installation to work. Specify the version
-    of ROS that you want to install using the ``-d`` flag followed by the distribution's codename.
-    Alternatively, you can run it without the ``-d`` flag and the script will install packages for
-    the ROS 1 distribution supported by the version of Ubuntu, or the latest stable release of ROS
-    2 if using Ubuntu version 22.04 or later. See the `list of currently supported distributions`_.
-    You will also need to specify the base type using the ``-b`` flag followed by ``create3`` if
-    using the Create® 3 base, or ``kobuki`` if using the Kobuki base. The commands below
-    demonstrate the process of running the installation script for ROS 1 Noetic and a Create® 3
-    base.
-
-.. _`list of currently supported distributions`: https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions
-
-    .. code-block:: console
-
-        $ sudo apt install curl
-        $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
-        $ chmod +x xslocobot_amd64_install.sh
-        $ ./xslocobot_amd64_install.sh -d humble -b create3
-
-    .. note::
-
-        The install script provides more in-depth control of some installation options. Append the
-        ``-h`` flag to see the help document like below:
+    5.  Once rebooted, login and open up a terminal as before. Instead of manually installing all
+        the software needed for the robot, you will download and run an installation script. Follow
+        the commands below to get started! Note that no sensors or actuators (i.e. camera, lidar,
+        U2D2, etc.) needs to be connected to the computer for the installation to work. Specify the
+        version of ROS that you want to install using the ``-d`` flag followed by the
+        distribution's codename. Alternatively, you can run it without the ``-d`` flag and the
+        script will install packages for the ROS 1 distribution supported by the version of Ubuntu,
+        or the latest stable release of ROS 2 if using Ubuntu version 22.04 or later. See the `list
+        of currently supported distributions`_. You will also need to specify the base type using
+        the ``-b`` flag followed by ``create3`` if using the Create® 3 base, or ``kobuki`` if using
+        the Kobuki base. The commands below demonstrate the process of running the installation
+        script for ROS 2 Galactic and a Create® 3 base.
 
         .. code-block:: console
 
-            $ ./xslocobot_amd64_install.sh -h
-            USAGE: ./xslocobot_amd64_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-n]
+            $ sudo apt install curl
+            $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
+            $ chmod +x xslocobot_amd64_install.sh
+            $ ./xslocobot_amd64_install.sh -d galactic -b create3
 
-            ...
+        .. note::
 
-6.  Once the script is done, shutdown the computer, and remove the HDMI cable, keyboard, and mouse.
-    Replug any sensors into the computer that were unplugged initially. Then turn the computer on
-    again by pressing the power button.
+            The install script provides more in-depth control of some installation options. Append
+            the ``-h`` flag to see the help document like below:
+
+            .. code-block:: console
+
+                $ ./xslocobot_amd64_install.sh -h
+                USAGE: ./xslocobot_amd64_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-n]
+
+                ...
+
+    6.  Once the script is done, shutdown the computer, and remove the HDMI cable, keyboard, and
+        mouse. Replug any sensors into the computer that were unplugged initially. Then turn the
+        computer on again by pressing the power button.
+
+.. _`list of currently supported distributions`: https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions
 
 .. _ros2-software-setup-remote-install-label:
 
@@ -257,7 +258,8 @@ show up as ``ttyDXL``, ``kobuki`` (if applicable), and ``rplidar`` (if applicabl
     rplidar
 
 If using the Create® 3 as a base, use the below command to ping the base to ensure that your
-network is properly configured to use the 192.168.186.2 to connect to the base.
+network is properly configured to use the 192.168.186.2 to connect to the base. The base must be
+turned on and its Ethernet cable should be plugged into the NUC.
 
 .. code-block:: console
 

@@ -168,25 +168,25 @@ Turning On Your LoCoBot
         4.  Connect a monitor, mouse, and keyboard to the NUC. It is okay to unplug any peripherals
             so you have enough ports for the necessary devices.
 
-Control Software Installation
-=============================
+.. Control Software Installation
+.. =============================
 
-.. attention::
+.. .. attention::
 
-    If you bought your LoCoBot from Trossen Robotics or its resellers, you do NOT have to complete
-    this step, as the software should already be installed on your robot's computer.
+..     If you bought your LoCoBot from Trossen Robotics or its resellers, you do NOT have to complete
+..     this step, as the software should already be installed on your robot's computer.
 
-Install the software that you plan to use, such as the ROS Interface. The quickstart commands for
-it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1 Interface
-Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2 Interface Software Setup
-<../ros_interface/ros2/software_setup>` for more information.
+.. Install the software that you plan to use, such as the ROS Interface. The quickstart commands for
+.. it are below for a Create® 3 version LoCoBot running ROS 1 Noetic. See the :doc:`ROS 1 Interface
+.. Software Setup <../ros_interface/ros1/software_setup>` or :doc:`ROS 2 Interface Software Setup
+.. <../ros_interface/ros2/software_setup>` for more information.
 
-    .. code:: console
+..     .. code:: console
 
-        $ sudo apt install curl
-        $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
-        $ chmod +x xslocobot_amd64_install.sh
-        $ ./xslocobot_amd64_install.sh -b create3 -d noetic
+..         $ sudo apt install curl
+..         $ curl 'https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh' > xslocobot_amd64_install.sh
+..         $ chmod +x xslocobot_amd64_install.sh
+..         $ ./xslocobot_amd64_install.sh -b create3 -d noetic
 
 Network Configuration
 =====================

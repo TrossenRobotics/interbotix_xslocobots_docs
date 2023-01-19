@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_collapse.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tr_style.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -224,48 +225,53 @@ continue with the <a class="reference internal" href="#ros-software-setup-instal
 sub-section.</p>
 <div class="section" id="amd64-architecture">
 <h3><a class="toc-backref" href="#id5">AMD64 Architecture</a><a class="headerlink" href="#amd64-architecture" title="Permalink to this headline"></a></h3>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
 <p class="last">If you purchased a NUC-based ROS LoCoBot from Trossen Robotics or their distributors, note that
-it will come pre-installed with <a class="reference external" href="https://releases.ubuntu.com/focal/" rel="noopener noreferrer" target="_blank">Ubuntu Desktop image (22.04)</a> already on it and you will not
-have to run the software installation yourself.</p>
+it will come pre-installed with all required software already on it and you should <strong>not</strong> have
+to run the software installation yourself.</p>
 </div>
-<p>After powering on the NUC via the steps in the previous section, a login screen should appear with
-<code class="docutils literal notranslate"><span class="pre">locobot</span></code> as the user name. Conveniently, the password is the same as the user name so type
-<code class="docutils literal notranslate"><span class="pre">locobot</span></code> and hit <strong>Enter</strong>. Next, update the computer by performing the following steps.</p>
-<ol class="arabic simple">
-<li>Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of the
-Desktop and selecting your desired network.</li>
-<li>Press <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd> to open a terminal screen, and type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span>
-<span class="pre">update</span></code>.</li>
-<li>After the process completes, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">upgrade</span></code>. It might take a few minutes for the
-computer to upgrade.</li>
-<li>Finally, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">autoremove</span></code> to get rid of unnecessary software packages. Then
-close out of the terminal and reboot the computer.</li>
-<li>Once rebooted, login and open up a terminal as before. Instead of manually installing all the
-software needed for the robot, you will download and run an installation script. Follow the
-commands below to get started! Note that no sensors or actuators (i.e. camera, lidar, U2D2,
-etc.) needs to be connected to the computer for the installation to work. Specify the version
-of ROS that you want to install using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag followed by the distribution's codename.
-Alternatively, you can run it without the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag and the script will install packages for
-the ROS 1 distribution supported by the version of Ubuntu, or the latest stable release of ROS
-2 if using Ubuntu version 22.04 or later. See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list of currently supported distributions</a>.
-You will also need to specify the base type using the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if
-using the Create® 3 base, or <code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using the Kobuki base. The commands below
-demonstrate the process of running the installation script for ROS 1 Noetic and a Create® 3
-base.</li>
-</ol>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
+<div class="sphinx_collapse docutils container">
+<input class="sphinx_collapse__input" id="e171721a-7554-48cb-ad51-79899d23061c" name="e171721a-7554-48cb-ad51-79899d23061c" type="checkbox"><label class="sphinx_collapse__label" for="e171721a-7554-48cb-ad51-79899d23061c"><i class="sphinx_collapse__icon"></i>Click here to reveal installation steps, acknowledging the note above.</label><div class="sphinx_collapse__content docutils container">
+<p>After powering on the NUC via the steps in the previous section, a login screen should appear
+with <code class="docutils literal notranslate"><span class="pre">locobot</span></code> as the user name. Conveniently, the password is the same as the user name so
+type <code class="docutils literal notranslate"><span class="pre">locobot</span></code> and hit <strong>Enter</strong>. Next, update the computer by performing the following
+steps.</p>
+<ol class="arabic">
+<li><p class="first">Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of
+the Desktop and selecting your desired network.</p>
+</li>
+<li><p class="first">Press <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd> to open a terminal screen, and type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span>
+<span class="pre">update</span></code>.</p>
+</li>
+<li><p class="first">After the process completes, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">upgrade</span></code>. It might take a few minutes for
+the computer to upgrade.</p>
+</li>
+<li><p class="first">Finally, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">-y</span> <span class="pre">autoremove</span></code> to get rid of unnecessary software packages. Then
+close out of the terminal and reboot the computer.</p>
+</li>
+<li><p class="first">Once rebooted, login and open up a terminal as before. Instead of manually installing all
+the software needed for the robot, you will download and run an installation script. Follow
+the commands below to get started! Note that no sensors or actuators (i.e. camera, lidar,
+U2D2, etc.) needs to be connected to the computer for the installation to work. Specify the
+version of ROS that you want to install using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag followed by the
+distribution's codename. Alternatively, you can run it without the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag and the
+script will install packages for the ROS 1 distribution supported by the version of Ubuntu,
+or the latest stable release of ROS 2 if using Ubuntu version 22.04 or later. See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list
+of currently supported distributions</a>. You will also need to specify the base type using
+the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if using the Create® 3 base, or <code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using
+the Kobuki base. The commands below demonstrate the process of running the installation
+script for ROS 2 Galactic and a Create® 3 base.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
 <span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>xslocobot_amd64_install.sh
 <span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>xslocobot_amd64_install.sh
-<span class="gp">$ </span>./xslocobot_amd64_install.sh<span class="w"> </span>-d<span class="w"> </span>humble<span class="w"> </span>-b<span class="w"> </span>create3
+<span class="gp">$ </span>./xslocobot_amd64_install.sh<span class="w"> </span>-d<span class="w"> </span>galactic<span class="w"> </span>-b<span class="w"> </span>create3
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The install script provides more in-depth control of some installation options. Append the
-<code class="docutils literal notranslate"><span class="pre">-h</span></code> flag to see the help document like below:</p>
+<p>The install script provides more in-depth control of some installation options. Append
+the <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag to see the help document like below:</p>
 <div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./xslocobot_amd64_install.sh<span class="w"> </span>-h
 <span class="go">USAGE: ./xslocobot_amd64_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-n]</span>
 
@@ -273,12 +279,14 @@ base.</li>
 </pre></div>
 </div>
 </div>
-</div></blockquote>
-<ol class="arabic simple" start="6">
-<li>Once the script is done, shutdown the computer, and remove the HDMI cable, keyboard, and mouse.
-Replug any sensors into the computer that were unplugged initially. Then turn the computer on
-again by pressing the power button.</li>
+</li>
+<li><p class="first">Once the script is done, shutdown the computer, and remove the HDMI cable, keyboard, and
+mouse. Replug any sensors into the computer that were unplugged initially. Then turn the
+computer on again by pressing the power button.</p>
+</li>
 </ol>
+</div>
+</div>
 <span class="target" id="ros2-software-setup-remote-install-label"></span></div>
 </div>
 <div class="section" id="installation-checks">
@@ -297,7 +305,8 @@ show up as <code class="docutils literal notranslate"><span class="pre">ttyDXL</
 </pre></div>
 </div>
 <p>If using the Create® 3 as a base, use the below command to ping the base to ensure that your
-network is properly configured to use the 192.168.186.2 to connect to the base.</p>
+network is properly configured to use the 192.168.186.2 to connect to the base. The base must be
+turned on and its Ethernet cable should be plugged into the NUC.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">192</span>.168.186.2<span class="w">   </span><span class="c1"># if applicable (robot uses the Create® 3 as its base)</span>
 <span class="go">PING 192.168.186.2 56(84) bytes of data.</span>
 <span class="go">64 bytes from 192.168.186.2: icmp_seq=1 ttl=64 time=0.040 ms</span>

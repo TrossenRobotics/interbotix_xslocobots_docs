@@ -34,7 +34,7 @@ description of the nodes needed from that package can be found below:
 Other packages required for landmark_nav include `move_base` and `interbotix_perception_modules`:
 
 -   **move_base** - performs path planning to the selected landmark goal and will attempt to reach
-    said goal by sending velocity commands to the Kobuki base
+    said goal by sending velocity commands to the base
 -   **static_transform_pub** - publishes any transform it receives to the static transform tree;
     used to build a tf tree that describes landmark poses relative to the map
 
