@@ -79,7 +79,10 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Simulation Configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gazebo-classic">Gazebo Classic</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ros_control.html">ROS 2 Controllers Configuration</a></li>
@@ -127,12 +130,172 @@
     View Package on GitHub
 </a><div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>This package contains the necessary config files to simulate any of the many Interbotix X-Series
+LoCoBots. For now, this package is only able to simulate the LoCoBots in Gazebo Classic. Below is a
+description of each supported simulation environment's configuration.</p>
+<ul class="simple">
+<li>Gazebo Classic - Contains parameter files that configure trajectory_controllers so that
+gazebo_ros2_control can control the LoCoBots effectively. This package has one of two
+applications. It can either be used in conjunction with MoveIt via the FollowJointTrajectory
+interface or it can be used by itself via the JointTrajectoryController interface.</li>
+</ul>
 </div>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
+<img alt="../_images/xslocobot_gzclassic_flowchart_ros2.png" class="align-center" src="../_images/xslocobot_gzclassic_flowchart_ros2.png" />
+<p>As shown above, the <cite>interbotix_xslocobot_sim</cite> package builds on top of the
+<cite>interbotix_xslocobot_descriptions</cite> and other simulator's ROS 2 compatibility packages. To get
+familiar with the nodes in the <cite>interbotix_xslocobot_descriptions</cite> package, please look at its
+README. The other nodes are described below:</p>
+<ul>
+<li><p class="first">Gazebo Classic:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>gzserver</strong> - responsible for running the physics update-loop and sensor data generation</li>
+<li><strong>gzclient</strong> - provides a nice GUI to visualize the robot simulation</li>
+<li><strong>controller_manager</strong> - responsible for loading and starting a set of controllers at once,
+as well as automatically stopping and unloading those same controllers</li>
+<li><strong>spawn_model</strong> - adds the robot model as defined in the 'robot_description' parameter into
+the Gazebo world</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<div class="section" id="gazebo-classic">
+<h3>Gazebo Classic<a class="headerlink" href="#gazebo-classic" title="Permalink to this headline"></a></h3>
+<p>To run this package, enter the command line below in a terminal (assuming a LoCoBot with a
+WidowX-200 is being launched).</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_sim<span class="w"> </span>xslocobot_gz_classic.launch.py<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200
+</pre></div>
+</div>
+<p>This is the bare minimum needed to get up and running. Take a look at the table below to see how to
+further customize with other launch file arguments.</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="17%" />
+<col width="50%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Description</th>
+<th class="head">Default</th>
+<th class="head">Choices</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>robot_model</td>
+<td>model type of the Interbotix LoCoBot such as <code class="docutils literal notranslate"><span class="pre">locobot_base</span></code> or <code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code>.</td>
+<td>EnvVar(<code class="docutils literal notranslate"><span class="pre">INTERBOTIX_XSLOCOBOT_ROBOT_MODEL</span></code>)</td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot_base</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_px100</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_wx200</span></code>, <code class="docutils literal notranslate"><span class="pre">locobot_wx250s</span></code></td>
+</tr>
+<tr class="row-odd"><td>robot_name</td>
+<td>name of the robot (could be anything but defaults to <code class="docutils literal notranslate"><span class="pre">locobot</span></code>).</td>
+<td><code class="docutils literal notranslate"><span class="pre">locobot</span></code></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>arm_model</td>
+<td>the Interbotix Arm model on the LoCoBot; this should never be set manually but rather left to its default value.</td>
+<td>PythonExpr('&quot;mobile_&quot; + &quot;' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_model</span></code>) + '&quot;.split(&quot;_&quot;)[1]')</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>use_lidar</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the RPLidar node is launched.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>use_rviz</td>
+<td>launches RViz if set to <code class="docutils literal notranslate"><span class="pre">true</span></code>; set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if SSH'd into the physical robot.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>rvizconfig</td>
+<td>file path to the config file RViz should load.</td>
+<td>LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_sim</span></code>) + 'rviz' + 'xslocobot_gz_classic.rviz'')</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>world_filepath</td>
+<td>the file path to the Gazebo 'world' file to load.</td>
+<td>LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_common_sim</span></code>) + 'worlds' + 'interbotix.world'')</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>use_gazebo_gui</td>
+<td>launches the Gazebo GUI if <code class="docutils literal notranslate"><span class="pre">true</span></code>.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>use_gazebo_verbose</td>
+<td>launches Gazebo with verbose console logging if <code class="docutils literal notranslate"><span class="pre">true</span></code>.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>use_gazebo_debug</td>
+<td>start gzserver in debug mode using gdb.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>start_gazebo_paused</td>
+<td>start Gazebo in a paused state.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>enable_gazebo_recording</td>
+<td>enable Gazebo state log recording.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>use_sim_time</td>
+<td>tells ROS nodes asking for time to get the Gazebo-published simulation time, published over the ROS topic /clock.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>base_type</td>
+<td>the base type of the LoCoBot.</td>
+<td>EnvVar(<code class="docutils literal notranslate"><span class="pre">INTERBOTIX_XSLOCOBOT_BASE_TYPE</span></code>)</td>
+<td><code class="docutils literal notranslate"><span class="pre">kobuki</span></code>, <code class="docutils literal notranslate"><span class="pre">create3</span></code></td>
+</tr>
+<tr class="row-even"><td>use_gripper</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the default gripper is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, it is left out; set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if not using the default gripper.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>show_ar_tag</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the AR tag mount is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, it is left out; set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if using the AR tag mount in your project.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>show_gripper_bar</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the gripper_bar link is included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the gripper_bar and finger links are not loaded. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you have a custom gripper attachment.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td>show_gripper_fingers</td>
+<td>if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the gripper fingers are included in the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code>; if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the gripper finger links are not loaded. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you have custom gripper fingers.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td>external_urdf_loc</td>
+<td>the file path to the custom urdf.xacro file that you would like to include in the Interbotix robot's urdf.xacro file.</td>
+<td>''</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>hardware_type</td>
+<td>configures the <code class="docutils literal notranslate"><span class="pre">robot_description</span></code> to use the actual hardware, fake hardware, or hardware simulated in Gazebo.</td>
+<td><code class="docutils literal notranslate"><span class="pre">gz_classic</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">actual</span></code>, <code class="docutils literal notranslate"><span class="pre">fake</span></code>, <code class="docutils literal notranslate"><span class="pre">gz_classic</span></code></td>
+</tr>
+<tr class="row-even"><td>robot_description</td>
+<td>URDF of the robot; this is typically generated by the xacro command.</td>
+<td>Command(FindExec(<code class="docutils literal notranslate"><span class="pre">xacro</span></code>) + ' ' + LocalVar('FindPackageShare(pkg= <code class="docutils literal notranslate"><span class="pre">interbotix_xslocobot_descriptions</span></code>) + 'urdf' + 'locobot.urdf.xacro'') + ' ' + 'arm_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">arm_model</span></code>) + ' ' + 'robot_name:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_name</span></code>) + ' ' + 'base_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">base_type</span></code>) + ' ' + 'robot_model:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">robot_model</span></code>) + ' ' + 'use_gripper:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">use_gripper</span></code>) + ' ' + 'show_ar_tag:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_ar_tag</span></code>) + ' ' + 'show_gripper_bar:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_gripper_bar</span></code>) + ' ' + 'show_gripper_fingers:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">show_gripper_fingers</span></code>) + ' ' + 'use_lidar:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">use_lidar</span></code>) + ' ' + 'external_urdf_loc:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">external_urdf_loc</span></code>) + ' ' + 'hardware_type:=' + LaunchConfig(<code class="docutils literal notranslate"><span class="pre">hardware_type</span></code>) + ' ')</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
