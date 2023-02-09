@@ -103,10 +103,10 @@ Main configuration
               - This value tells which RMW implementation to use. See `ROS 2 RMW Implementation
                 Documentation`_.
             * - Enable Fast DDS discovery server?
-              - ✔️
+              - ``✔️``
               - Enables the Base to search for a Fast DDS discovery server.
             * - Address and port of Fast DDS discovery server
-              - 192.168.186.3:11811
+              - ``192.168.186.3:11811``
               - Tells Fast DDS the address and port of the Fast DDS discovery server. This is the
                 IP address of the LoCoBot computer's Ethernet interface.
 
