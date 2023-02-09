@@ -59,14 +59,20 @@ Main configuration
               - ``rmw_fastrtps_cpp``
               - This value tells which RMW implementation to use. See `ROS 2 RMW Implementation
                 Documentation`_.
+            * - Enable Fast DDS discovery server?
+              -
+              - Left blank as the ROS 1 implementation does not use the Fast DDS discovery server.
+            * - Address and port of Fast DDS discovery server
+              -
+              - Left blank as the ROS 1 implementation does not use the Fast DDS discovery server.
 
-        You can set the Main Configuration parameters via the command line using curl if connected
-        to the Create 3 base. The command below will set the configuration to the required
-        parameters if using the ROS 1 Interface.
+        .. You can set the Main Configuration parameters via the command line using curl if connected
+        .. to the Create® 3 base. The command below will set the configuration to the required
+        .. parameters if using the ROS 1 Interface.
 
-        .. code-block:: console
+        .. .. code-block:: console
 
-            $ curl -X POST -d "ros_domain_id=0&ros_namespace=/mobile_base&rmw_implementation=rmw_fastrtps_cpp" "http://192.168.186.2/ros-config-save-main"
+        ..     $ curl -X POST -d "ros_domain_id=0&ros_namespace=/mobile_base&rmw_implementation=rmw_fastrtps_cpp" "http://192.168.186.2/ros-config-save-main"
 
         .. attention::
 
@@ -85,25 +91,32 @@ Main configuration
               - Notes
             * - ROS 2 Domain ID
               - ``0``
-              - This value is typically left as the default if you do not have multiple ROS domains on the
-                same network. See `ROS 2 Domain ID Documentation`_.
+              - This value is typically left as the default if you do not have multiple ROS domains
+                on the same network. See `ROS 2 Domain ID Documentation`_.
             * - ROS 2 Namespace
               - ``/locobot/mobile_base``
               - The value dictates the namespace under which all Create® 3 nodes, topics, services,
                 actions, and parameters will be, i.e. the ``/tf`` topic published by the base will be
                 ``/locobot/mobile_base/tf``.
             * - RMW_IMPLEMENTATION
-              - ``rmw_cyclonedds_cpp``
+              - ``rmw_fastrtps_cpp``
               - This value tells which RMW implementation to use. See `ROS 2 RMW Implementation
                 Documentation`_.
+            * - Enable Fast DDS discovery server?
+              - ✔️
+              - Enables the Base to search for a Fast DDS discovery server.
+            * - Address and port of Fast DDS discovery server
+              - 192.168.186.3:11811
+              - Tells Fast DDS the address and port of the Fast DDS discovery server. This is the
+                IP address of the LoCoBot computer's Ethernet interface.
 
-        You can set the Main Configuration parameters via the command line using curl if connected
-        to the Create 3 base. The command below will set the configuration to the required
-        parameters if using the ROS 2 Interface.
+        .. You can set the Main Configuration parameters via the command line using curl if connected
+        .. to the Create® 3 base. The command below will set the configuration to the required
+        .. parameters if using the ROS 2 Interface.
 
-        .. code-block:: console
+        .. .. code-block:: console
 
-            $ curl -X POST -d "ros_domain_id=0&ros_namespace=/locobot/mobile_base&rmw_implementation=rmw_cyclonedds_cpp" "http://192.168.186.2/ros-config-save-main"
+        ..     $ curl -X POST -d "ros_domain_id=0&ros_namespace=/locobot/mobile_base&rmw_implementation=rmw_fastrtps_cpp" "http://192.168.186.2/ros-config-save-main"
 
         .. attention::
 
