@@ -56,12 +56,16 @@
     </div>
   </div>
   
-            <a href="../index.html">
-            <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo_xslocobots.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -106,7 +110,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../getting_started.html">Getting Started</a></li>
       <li class="breadcrumb-item active">Create® 3 Setup</li>
       <li class="wy-breadcrumbs-aside">
@@ -184,14 +188,16 @@ be <code class="docutils literal notranslate"><span class="pre">/mobile_base/tf<
 <td>This value tells which RMW implementation to use. See <a class="reference external" href="https://docs.ros.org/en/rolling/Concepts/About-Different-Middleware-Vendors.html" rel="noopener noreferrer" target="_blank">ROS 2 RMW Implementation
 Documentation</a>.</td>
 </tr>
+<tr class="row-odd"><td>Enable Fast DDS discovery server?</td>
+<td>&#160;</td>
+<td>Left blank as the ROS 1 implementation does not use the Fast DDS discovery server.</td>
+</tr>
+<tr class="row-even"><td>Address and port of Fast DDS discovery server</td>
+<td>&#160;</td>
+<td>Left blank as the ROS 1 implementation does not use the Fast DDS discovery server.</td>
+</tr>
 </tbody>
 </table>
-<p>You can set the Main Configuration parameters via the command line using curl if connected
-to the Create 3 base. The command below will set the configuration to the required
-parameters if using the ROS 1 Interface.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;ros_domain_id=0&amp;ros_namespace=/mobile_base&amp;rmw_implementation=rmw_fastrtps_cpp&quot;</span><span class="w"> </span><span class="s2">&quot;http://192.168.186.2/ros-config-save-main&quot;</span>
-</pre></div>
-</div>
 <div class="admonition attention">
 <p class="first admonition-title">Attention</p>
 <p class="last">The application still needs to restart to take effect. To do this, you can either
@@ -213,8 +219,8 @@ web browser to reset the application manually.</p>
 <tbody valign="top">
 <tr class="row-even"><td>ROS 2 Domain ID</td>
 <td><code class="docutils literal notranslate"><span class="pre">0</span></code></td>
-<td>This value is typically left as the default if you do not have multiple ROS domains on the
-same network. See <a class="reference external" href="https://docs.ros.org/en/rolling/Concepts/About-Domain-ID.html" rel="noopener noreferrer" target="_blank">ROS 2 Domain ID Documentation</a>.</td>
+<td>This value is typically left as the default if you do not have multiple ROS domains
+on the same network. See <a class="reference external" href="https://docs.ros.org/en/rolling/Concepts/About-Domain-ID.html" rel="noopener noreferrer" target="_blank">ROS 2 Domain ID Documentation</a>.</td>
 </tr>
 <tr class="row-odd"><td>ROS 2 Namespace</td>
 <td><code class="docutils literal notranslate"><span class="pre">/locobot/mobile_base</span></code></td>
@@ -223,18 +229,21 @@ actions, and parameters will be, i.e. the <code class="docutils literal notransl
 <code class="docutils literal notranslate"><span class="pre">/locobot/mobile_base/tf</span></code>.</td>
 </tr>
 <tr class="row-even"><td>RMW_IMPLEMENTATION</td>
-<td><code class="docutils literal notranslate"><span class="pre">rmw_cyclonedds_cpp</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code></td>
 <td>This value tells which RMW implementation to use. See <a class="reference external" href="https://docs.ros.org/en/rolling/Concepts/About-Different-Middleware-Vendors.html" rel="noopener noreferrer" target="_blank">ROS 2 RMW Implementation
 Documentation</a>.</td>
 </tr>
+<tr class="row-odd"><td>Enable Fast DDS discovery server?</td>
+<td>✔️</td>
+<td>Enables the Base to search for a Fast DDS discovery server.</td>
+</tr>
+<tr class="row-even"><td>Address and port of Fast DDS discovery server</td>
+<td>192.168.186.3:11811</td>
+<td>Tells Fast DDS the address and port of the Fast DDS discovery server. This is the
+IP address of the LoCoBot computer's Ethernet interface.</td>
+</tr>
 </tbody>
 </table>
-<p>You can set the Main Configuration parameters via the command line using curl if connected
-to the Create 3 base. The command below will set the configuration to the required
-parameters if using the ROS 2 Interface.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;ros_domain_id=0&amp;ros_namespace=/locobot/mobile_base&amp;rmw_implementation=rmw_cyclonedds_cpp&quot;</span><span class="w"> </span><span class="s2">&quot;http://192.168.186.2/ros-config-save-main&quot;</span>
-</pre></div>
-</div>
 <div class="admonition attention">
 <p class="first admonition-title">Attention</p>
 <p class="last">The application still needs to restart to take effect. To do this, you can either

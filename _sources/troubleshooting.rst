@@ -123,6 +123,11 @@ short, the steps are as follows:
 .. _`Setup NTP on compute board to serve time to Create® 3`: https://iroboteducation.github.io/create3_docs/setup/compute-ntp/
 .. _`Create® 3 Setup Guide`: https://edu.irobot.com/create3-setup
 
+.. note::
+
+    Sometimes it helps to disconnect both the Create® 3 and the LoCoBot's computer from the
+    Internet and just have them run on an isolated network.
+
 .. _troubleshooting-cant-read-topics-label:
 
 Can't see/echo topics published by LoCoBot on remote using ROS 1
