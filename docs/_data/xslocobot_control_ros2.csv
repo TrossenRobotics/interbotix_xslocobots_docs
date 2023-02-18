@@ -5,7 +5,7 @@
 "use_rviz","launches RViz if set to ``true``.","``false``","``true``, ``false``"
 "rviz_frame","fixed frame in RViz; this should be changed to ``map`` or ``odom`` if mapping or using local odometry respectively.","LaunchConfig\(``robot_name``\) + '/base_link'",""
 "use_base","if ``true``, the base ROS nodes are launched.","``false``","``true``, ``false``"
-"use_base_odom_tf","if ``true``, the odom TF from the base will be published. This only works on the Create 3 base.","``true``","``true``, ``false``"
+"use_base_odom_tf","if ``true``, the odom TF from the base will be published. This only works on the Create® 3 base.","``true``","``true``, ``false``"
 "base_type","the type of mobile base used by the robot.","EnvVar\(``INTERBOTIX_XSLOCOBOT_BASE_TYPE``\)","``kobuki``, ``create3``"
 "use_lidar","if ``true``, the RPLidar node is launched.","``false``","``true``, ``false``"
 "use_camera","if ``true``, the RealSense camera nodes are launched.","``false``","``true``, ``false``"

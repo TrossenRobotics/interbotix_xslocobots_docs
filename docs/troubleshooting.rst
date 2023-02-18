@@ -29,7 +29,7 @@ reflexes are not turned off on the Create® 3 base. To fix this, you can either 
 set`` command line tool, or set it to ``false`` in the Application ROS 2 Parameters File located in
 the Create® 3 webserver's ROS 2 Configuration page. If using Interbotix's default network
 configuration, this will be at ``192.168.186.2/ros-config``, assuming that the Create® 3 is turned
-on. See the :doc:`Create 3 Configuration page<../getting_started/create3_configuration>` for more
+on. See the :doc:`Create® 3 Configuration page<../getting_started/create3_configuration>` for more
 information.
 
 Less Common Issues
