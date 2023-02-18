@@ -82,6 +82,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#software-installation">Software Installation</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#amd64-architecture">AMD64 Architecture</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#remote-install">Remote Install</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#installation-checks">Installation Checks</a></li>
@@ -135,11 +136,12 @@
 <li><a class="reference internal" href="#requirements" id="id3">Requirements</a></li>
 <li><a class="reference internal" href="#software-installation" id="id4">Software Installation</a><ul>
 <li><a class="reference internal" href="#amd64-architecture" id="id5">AMD64 Architecture</a></li>
+<li><a class="reference internal" href="#remote-install" id="id6">Remote Install</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installation-checks" id="id6">Installation Checks</a></li>
-<li><a class="reference internal" href="#next-steps" id="id7">Next Steps</a></li>
-<li><a class="reference internal" href="#troubleshooting" id="id8">Troubleshooting</a></li>
+<li><a class="reference internal" href="#installation-checks" id="id7">Installation Checks</a></li>
+<li><a class="reference internal" href="#next-steps" id="id8">Next Steps</a></li>
+<li><a class="reference internal" href="#troubleshooting" id="id9">Troubleshooting</a></li>
 </ul>
 </div>
 <div class="section" id="compatible-models">
@@ -236,7 +238,7 @@ it will come pre-installed with all required software already on it and you shou
 to run the software installation yourself.</p>
 </div>
 <div class="sphinx_collapse docutils container">
-<input class="sphinx_collapse__input" id="a0886cb9-5ee3-48c7-94b5-3d4f45898f60" name="a0886cb9-5ee3-48c7-94b5-3d4f45898f60" type="checkbox"><label class="sphinx_collapse__label" for="a0886cb9-5ee3-48c7-94b5-3d4f45898f60"><i class="sphinx_collapse__icon"></i>Click here to reveal installation steps, acknowledging the note above.</label><div class="sphinx_collapse__content docutils container">
+<input class="sphinx_collapse__input" id="f304ebed-2b9c-4b51-b6fb-1c5be3d38057" name="f304ebed-2b9c-4b51-b6fb-1c5be3d38057" type="checkbox"><label class="sphinx_collapse__label" for="f304ebed-2b9c-4b51-b6fb-1c5be3d38057"><i class="sphinx_collapse__icon"></i>Click here to reveal installation steps, acknowledging the note above.</label><div class="sphinx_collapse__content docutils container">
 <p>After powering on the NUC via the steps in the previous section, a login screen should appear
 with <code class="docutils literal notranslate"><span class="pre">locobot</span></code> as the user name. Conveniently, the password is the same as the user name so
 type <code class="docutils literal notranslate"><span class="pre">locobot</span></code> and hit <strong>Enter</strong>. Next, update the computer by performing the following
@@ -291,10 +293,70 @@ computer on again by pressing the power button.</p>
 </ol>
 </div>
 </div>
-<span class="target" id="ros2-software-setup-remote-install-label"></span></div>
+</div>
+<div class="section" id="remote-install">
+<span id="ros2-software-setup-remote-install-label"></span><h3><a class="toc-backref" href="#id6">Remote Install</a><a class="headerlink" href="#remote-install" title="Permalink to this headline"></a></h3>
+<p>For some robotic projects, you may want to run your robot in a 'headless' state on some computer
+(like a NUC or Raspberry Pi), and monitor the robot's state (in RViz for example) on your personal
+(a.k.a remote) computer over a local network. For this to work, run the installation script below
+on your personal computer running Linux Ubuntu 20.04 or 22.04. Specify the version of ROS that you
+want to install using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag followed by the distribution's codename. Alternatively, you
+can run it without the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag and the script will install packages for the ROS 1 distribution
+supported by the version of Ubuntu, or the latest stable release of ROS 2 if using Ubuntu version
+22.04 or later. See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list of currently supported distributions</a>. You will also need to specify
+the base type using the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if using the Create® 3 base, or
+<code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using the Kobuki base. The commands below demonstrate the process of running the
+installation script for ROS 2 Galactic and a Create® 3 base.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ROS 2 and RViz must already be installed on your local machine for the remote install to be
+successful.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
+<span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/xslocobot_remote_install.sh&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>xslocobot_remote_install.sh
+<span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>xslocobot_remote_install.sh
+<span class="gp">$ </span>./xslocobot_remote_install.sh<span class="w"> </span>-d<span class="w"> </span>galactic<span class="w"> </span>-b<span class="w"> </span>create3
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The install script provides more in-depth control of some installation options. Append the
+<code class="docutils literal notranslate"><span class="pre">-h</span></code> flag to see the help document like below:</p>
+<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./xslocobot_remote_install.sh<span class="w"> </span>-h
+<span class="go">USAGE: ./xslocobot_remote_install.sh [-h][-d DISTRO][-p PATH][-b BASE_TYPE][-r HOSTNAME]</span>
+
+<span class="go">...</span>
+</pre></div>
+</div>
+</div>
+<p>To SSH from your remote to the robot computer, first connect your personal Linux computer to the
+same network to which the locobot is connected. Then open a terminal and SSH into the locobot by
+typing (assuming a NUC-based locobot)...</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh<span class="w"> </span>-X<span class="w"> </span>locobot@locobot.local
+</pre></div>
+</div>
+<p>You will be prompted for a password - just type <code class="docutils literal notranslate"><span class="pre">locobot</span></code> and you should be in!</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-X</span></code> flag in the command above allows window forwarding. This means that it's possible to
+open small graphical applications on the locobot computer which will be forwarded to your personal
+computer. Let's open the terminal application by...</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gnome-terminal<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Sometimes the command above doesn't work to open new terminals. An alternate solution is to use
+the command found in <a class="reference external" href="https://askubuntu.com/questions/608330/problem-with-gnome-terminal-on-gnome-3-12-2/1235679#1235679" rel="noopener noreferrer" target="_blank">this StackExchange answer</a>:</p>
+<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/usr/bin/dbus-launch<span class="w"> </span>/usr/bin/gnome-terminal<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+</div>
+<p>Now, we can open up new terminals (via <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Alt</kbd> + <kbd class="kbd docutils literal notranslate">T</kbd>) on the LoCoBot computer
+without having to SSH each time. Note that unless otherwise stated, all the following commands
+should be executed in the new terminal window that pops up.</p>
+</div>
 </div>
 <div class="section" id="installation-checks">
-<span id="ros-software-setup-installation-checks-label"></span><h2><a class="toc-backref" href="#id6">Installation Checks</a><a class="headerlink" href="#installation-checks" title="Permalink to this headline"></a></h2>
+<span id="ros-software-setup-installation-checks-label"></span><h2><a class="toc-backref" href="#id7">Installation Checks</a><a class="headerlink" href="#installation-checks" title="Permalink to this headline"></a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">These sensors should be plugged back in and turned on at this point if they're not already.</p>
@@ -326,12 +388,12 @@ terminal. The output should give info about the type of RealSense camera that is
 that the camera should be plugged back in at this point if it's not already.</p>
 </div>
 <div class="section" id="next-steps">
-<h2><a class="toc-backref" href="#id7">Next Steps</a><a class="headerlink" href="#next-steps" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id8">Next Steps</a><a class="headerlink" href="#next-steps" title="Permalink to this headline"></a></h2>
 <p>If the ROS Interface installed properly, you can continue on to the <a class="reference internal" href="quickstart.html"><span class="doc">ROS Interface Quickstart
 Guide</span></a>.</p>
 </div>
 <div class="section" id="troubleshooting">
-<h2><a class="toc-backref" href="#id8">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id9">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
 <p>Refer to the <a class="reference internal" href="../../troubleshooting.html"><span class="doc">X-Series Troubleshooting Guide</span></a> to try to solve your
 problem. If you still need help, feel free to <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/issues" rel="noopener noreferrer" target="_blank">open an Issue</a> on the ros_rovers repo. We strongly
 recommend the latter option though so that other people who may be facing the same difficulty can

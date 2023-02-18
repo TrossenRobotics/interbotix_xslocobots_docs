@@ -118,18 +118,22 @@
              
   <div class="section" id="ros-2-quickstart-guide">
 <h1>ROS 2 Quickstart Guide<a class="headerlink" href="#ros-2-quickstart-guide" title="Permalink to this headline"></a></h1>
-<p>This guide is intended to get the use familiar with the basic functions and interfaces of the ROS
-Interface. Make sure that you have completed and are familiar with the steps taken in the
-<a class="reference internal" href="../../getting_started/user_guide.html"><span class="doc">Basic Usage Guide</span></a>, the <a class="reference internal" href="software_setup.html"><span class="doc">ROS 2 Software Setup Guide</span></a>, and the <span class="xref std std-doc">ROS 2 RMW Configuration Guide</span>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This guide assumes that you have completed the <a class="reference internal" href="software_setup.html#ros2-software-setup-remote-install-label"><span class="std std-ref">ROS 2 Remote Install</span></a> on your remote computer.</p>
+</div>
+<p>This guide is intended to get the user familiar with the basic functions and interfaces of the ROS
+2 Interface. Make sure that you have completed and are familiar with the steps taken in the
+<a class="reference internal" href="../../getting_started/user_guide.html"><span class="doc">Basic Usage Guide</span></a> and the <a class="reference internal" href="software_setup.html"><span class="doc">ROS 2 Software Setup Guide</span></a>.</p>
 <ol class="arabic">
 <li><p class="first">Get familiar with the physical robot rover (let's say... a LoCoBot WidowX-250 6DOF with lidar!)
 by executing the following command in a terminal ssh'ed into the LoCoBot:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_control<span class="w"> </span>xslocobot_control.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx250s<span class="w"> </span>use_base:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_camera:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_control<span class="w"> </span>xslocobot_control.launch.py<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx250s<span class="w"> </span>use_base:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_camera:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Now, in a terminal on your remote computer (not via SSH), type...</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_descriptions<span class="w"> </span>remote_view.launch.py
 </pre></div>
 </div>
 </li>

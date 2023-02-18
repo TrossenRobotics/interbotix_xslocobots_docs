@@ -2,23 +2,30 @@
 ROS 2 Quickstart Guide
 ======================
 
-This guide is intended to get the use familiar with the basic functions and interfaces of the ROS
-Interface. Make sure that you have completed and are familiar with the steps taken in the
-:doc:`Basic Usage Guide </getting_started/user_guide>`, the :doc:`ROS 2 Software Setup Guide
-<./software_setup>`, and the :doc:`ROS 2 RMW Configuration Guide <rmw_configuration>`.
+.. note::
+
+    This guide assumes that you have completed the :ref:`ROS 2 Remote Install
+    <ros2-software-setup-remote-install-label>` on your remote computer.
+
+This guide is intended to get the user familiar with the basic functions and interfaces of the ROS
+2 Interface. Make sure that you have completed and are familiar with the steps taken in the
+:doc:`Basic Usage Guide </getting_started/user_guide>` and the :doc:`ROS 2 Software Setup Guide
+<./software_setup>`.
+
+.. , and the :doc:`ROS 2 RMW Configuration Guide <rmw_configuration>`.
 
 1.  Get familiar with the physical robot rover (let's say... a LoCoBot WidowX-250 6DOF with lidar!)
     by executing the following command in a terminal ssh'ed into the LoCoBot:
 
     .. code-block:: console
 
-        $ ros2 launch interbotix_xslocobot_control xslocobot_control.launch robot_model:=locobot_wx250s use_base:=true use_camera:=true use_lidar:=true
+        $ ros2 launch interbotix_xslocobot_control xslocobot_control.launch.py robot_model:=locobot_wx250s use_base:=true use_camera:=true use_lidar:=true
 
 2.  Now, in a terminal on your remote computer (not via SSH), type...
 
     .. code-block:: console
 
-        $ ros2 launch interbotix_xslocobot_descriptions remote_view.launch
+        $ ros2 launch interbotix_xslocobot_descriptions remote_view.launch.py
 
 3.  RViz should appear on your remote computer and display a virtual real-time representation of
     the robot!
