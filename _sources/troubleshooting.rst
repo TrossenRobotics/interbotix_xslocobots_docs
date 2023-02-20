@@ -128,6 +128,15 @@ short, the steps are as follows:
     Sometimes it helps to disconnect both the Create® 3 and the LoCoBot's computer from the
     Internet and just have them run on an isolated network.
 
+.. note::
+
+    As of Create® 3 firmware versions G.4.3 and H.1.0, you can use its webserver to restart the
+    ntpd from the Beta menu. This attempts to force the base to resync its clock. Because this is a
+    beta feature, it may not be stable and improper use may result in an inoperable robot. See
+    `Restart ntpd`_ for details.
+
+.. _`Restart ntpd`: https://iroboteducation.github.io/create3_docs/webserver/restart-ntpd/
+
 .. _troubleshooting-cant-read-topics-label:
 
 Can't see/echo topics published by LoCoBot on remote using ROS 1
