@@ -15,7 +15,7 @@ own issue`_.
 
 .. _`interbotix_ros_rovers bug tracker`: https://github.com/Interbotix/interbotix_ros_rovers/issues?q=is%3Aissue
 .. _`open your own issue`: https://github.com/Interbotix/interbotix_ros_rovers/issues/new/choose
-.. _`X-Series Arms Troubleshooting documentation`: https://www.trossenrobotics.com/docs/interbotix_xsarms/troubleshooting/index.html
+.. _`X-Series Arms Troubleshooting documentation`: https://docs.trossenrobotics.com/interbotix_xsarms_docs/troubleshooting.html
 
 Common Issues
 =============
