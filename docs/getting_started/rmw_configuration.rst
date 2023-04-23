@@ -18,10 +18,6 @@ ROS 2 Interface & Create® 3
 
 .. note::
 
-    This section is under construction.
-
-.. note::
-
     This guide assumes that you have run the :doc:`ROS 2 Software Setup
     <../ros_interface/ros2/software_setup>` for both your LoCoBot and remote computers.
 
@@ -43,6 +39,12 @@ You can find a list of all modifications the :ref:`Create 3 Software Setup's
 
 LoCoBot Computer
 ----------------
+
+.. note::
+
+    These modifications are done by Trossen Robotics and the user does not have to worry about
+    modifying these unless they are setting up a robot themselves, or if they are dealing with a
+    unique network setup.
 
 The LoCoBot computer has the following modifications:
 
@@ -100,8 +102,8 @@ The LoCoBot computer has the following modifications:
         export FASTRTPS_DEFAULT_PROFILES_FILE=~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml
 
 *   IP forwarding is enabled by setting the value of ``net.ipv4.ip_forward=1`` in
-    ``/etc/sysctl.conf``.
-*   Fast-DDS Discovery Server running as a service at startup.
+    ``/etc/sysctl.conf``. See `this guide`_ on IP forwarding from OpenVPN for more information.
+*   Fast-DDS Discovery Server running as service ``fastdds_disc_server.service`` at startup.
 
     .. code-block:: bash
 
@@ -110,17 +112,38 @@ The LoCoBot computer has the following modifications:
         fastdds discovery -i 0 &
         exit 0
 
+    *   The status of this service can be checked with the command:
 
-.. note::
+        .. code-block:: bash
 
-    This modifications are done by Trossen Robotics and the user does not have to worry about
-    modifying these unless they are setting up a robot themselves, or if they are dealing with a
-    unique network setup.
+            $ systemctl status fastdds_disc_server.service
+
+            ● fastdds_disc_server.service - FastDDS discovery server
+                Loaded: loaded (/lib/systemd/system/fastdds_disc_server.service; enabled; vendor preset: enabled)
+                Active: active (running)
+                Process: 1349 ExecStart=/bin/bash -e /home/locobot/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/service/fastdds_disc_server.sh (code=exited, status=0/SUCCESS)
+            Main PID: 1393 (bash)
+                Tasks: 10 (limit: 9105)
+                Memory: 13.8M
+                CGroup: /system.slice/fastdds_disc_server.service
+                        ├─1393 /bin/bash -e /home/locobot/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/service/fastdds_disc_server.sh
+                        ├─1395 python3 /opt/ros/galactic/bin/../tools/fastdds/fastdds.py discovery -i 0
+                        └─1397 /opt/ros/galactic/bin/fast-discovery-server -i 0
+
+                            locobot systemd[1]: Starting FastDDS discovery server...
+                            locobot systemd[1]: Started FastDDS discovery server.
+                            locobot bash[1397]: ### Server is running ###
+                            locobot bash[1397]:   Participant Type:   SERVER
+                            locobot bash[1397]:   Server ID:          0
+                            locobot bash[1397]:   Server GUID prefix: 44.53.00.5f.45.50.52.4f.53.49.4d.41
+                            locobot bash[1397]:   Server Addresses:   UDPv4:[0.0.0.0]:11811
+
+.. _`this guide`: https://openvpn.net/faq/what-is-and-how-do-i-enable-ip-forwarding-on-linux/
 
 Remote Computer
 ---------------
 
-The remote computer has the following modifications:
+The remote computer has the following modifications, done by the remote installation script:
 
 *   The ``RMW_IMPLEMENTATION`` environment variable is set to ``rmw_fastrtps_cpp``.
 
