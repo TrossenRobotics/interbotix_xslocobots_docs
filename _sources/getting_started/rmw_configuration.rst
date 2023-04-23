@@ -18,147 +18,190 @@ ROS 2 Interface & Create® 3
 
 .. note::
 
-    This section is under construction.
+    This guide assumes that you have run the :doc:`ROS 2 Software Setup
+    <../ros_interface/ros2/software_setup>` for both your LoCoBot and remote computers.
 
-.. .. note::
+The ROS 2 Interface uses ``rmw_fastrtps_cpp`` as its RMW and the `Fast-DDS Discovery Server`_.
 
-..     This guide assumes that you have run the ROS 2 Software Setup for both your LoCoBot and remote
-..     computers.
+.. _`Fast-DDS Discovery Server`: https://docs.ros.org/en/humble/Tutorials/Advanced/Discovery-Server/Discovery-Server.html
 
-.. The ROS 2 Interface uses ``rmw_fastrtps_cpp`` as its RMW and requires a small amount of manual
-.. configuration to get started. The process is as follows:
+Create® 3
+---------
 
-.. LoCoBot Computer
-.. ----------------
+The Create® 3 has the following modifications:
 
-.. 1.  Log into the LoCoBot's computer using SSH or by directly plug in a mouse and keyboard.
+*   RMW_IMPLEMENTATION is set to ``rmw_fastrtps_cpp``.
+*   Fast DDS discovery server is enabled.
+*   Address and port of Fast DDS discovery server are set to ``192.168.186.3:11811``.
 
-.. 2.  Open a terminal on your LoCoBot's computer by pressing :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T`.
+You can find a list of all modifications the :ref:`Create 3 Software Setup's
+<label-create3-configuration-main-configuration>` ROS 2 Main Configuration.
 
-.. 3.  Get the name of your wireless network connection with the command:
+LoCoBot Computer
+----------------
 
-..     .. code-block:: console
+.. note::
 
-..         $ ifconfig | grep wl | cut -d ":" -f1
+    These modifications are done by Trossen Robotics and the user does not have to worry about
+    modifying these unless they are setting up a robot themselves, or if they are dealing with a
+    unique network setup.
 
-..     .. note::
+The LoCoBot computer has the following modifications:
 
-..         The name of wireless network interfaces typically start with the characters "wl". If the
-..         command returns nothing, use the full ``ifconfig`` command and look for the Wireless
-..         connection.
+*   The ``RMW_IMPLEMENTATION`` environment variable is set to ``rmw_fastrtps_cpp``.
 
-.. 4.  If from Trossen Robotics, or if the installation script was run for a ROS 2 installation, the
-..     LoCoBot cyclonedds config file should be in the LoCoBot's home directory. Open it in an editor:
+    .. code:: bash
 
-..     .. code-block:: console
+        export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
-..         $ nano ~/cyclonedds_config_locobot.xml
+*   The ``ROS_DISCOVERY_SERVER`` environment variable is set to ``127.0.0.1:11811``, the localhost
+    address using port ``11811``.
 
-..     The config file will look something like:
+    .. code:: bash
 
-..     .. code-block:: xml
+        export ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
-..         <CycloneDDS
-..             xmlns="https://cdds.io/config"
-..             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-..             xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
-..             <Domain>
-..                 <General>
-..                     <NetworkInterfaceAddress>eno1,${WIRELESS_INTERFACE}</NetworkInterfaceAddress>
-..                 </General>
-..             </Domain>
-..         </CycloneDDS>
+*   All participants are configured to act as a Super Client via the XML configuration file,
+    setting the UDP locator to address ``127.0.0.1`` and port ``11811``.
 
-.. 5.  Change ``${WIRELESS_INTERFACE}`` to the name of your wireless network interface. For example,
-..     if your wireless network interface's name is ``wlan0``, the configuration file should look
-..     like:
+    .. code:: xml
 
-..     .. code-block:: xml
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <dds>
+            <profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+                <participant profile_name="super_client_profile" is_default_profile="true">
+                    <rtps>
+                        <builtin>
+                            <discovery_config>
+                                <discoveryProtocol>SUPER_CLIENT</discoveryProtocol>
+                                <discoveryServersList>
+                                    <RemoteServer prefix="44.53.00.5f.45.50.52.4f.53.49.4d.41">
+                                        <metatrafficUnicastLocatorList>
+                                            <locator>
+                                                <udpv4>
+                                                    <address>127.0.0.1</address>
+                                                    <port>11811</port>
+                                                </udpv4>
+                                            </locator>
+                                        </metatrafficUnicastLocatorList>
+                                    </RemoteServer>
+                                </discoveryServersList>
+                            </discovery_config>
+                        </builtin>
+                    </rtps>
+                </participant>
+            </profiles>
+        </dds>
 
-..         <CycloneDDS
-..             xmlns="https://cdds.io/config"
-..             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-..             xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
-..             <Domain>
-..                 <General>
-..                     <NetworkInterfaceAddress>eno1,wlan0</NetworkInterfaceAddress>
-..                 </General>
-..             </Domain>
-..         </CycloneDDS>
+*   The ``FASTRTPS_DEFAULT_PROFILES_FILE`` environment variable is set to the location of the
+    Fast-DDS XML configuration file. By default, this is at
+    ``~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml``.
 
-.. 6.  Restart the ROS 2 daemon on your LoCoBot's computer (or restart the computer).
+    .. code:: bash
 
-..     .. code-block::
+        export FASTRTPS_DEFAULT_PROFILES_FILE=~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml
 
-..         $ ros2 daemon stop
-..         The daemon has been stopped
-..         $ ros2 daemon start
-..         The daemon has been started
+*   IP forwarding is enabled by setting the value of ``net.ipv4.ip_forward=1`` in
+    ``/etc/sysctl.conf``. See `this guide`_ on IP forwarding from OpenVPN for more information.
+*   Fast-DDS Discovery Server running as service ``fastdds_disc_server.service`` at startup.
 
-.. Remote Computer
-.. ---------------
+    .. code-block:: bash
 
-.. 1.  Open a terminal on your remote computer by pressing :kbd:`Ctrl` + :kbd:`Alt` + :kbd:`T`.
+        #!/bin/bash
+        source /opt/ros/${ROS_DISTRO}/setup.bash
+        fastdds discovery -i 0 &
+        exit 0
 
-.. 2.  Get the name of your wireless network connection with the command:
+    *   The status of this service can be checked with the command:
 
-..     .. code-block:: console
+        .. code-block:: bash
 
-..         $ ifconfig | grep wl | cut -d ":" -f1
+            $ systemctl status fastdds_disc_server.service
 
-..     .. note::
+            ● fastdds_disc_server.service - FastDDS discovery server
+                Loaded: loaded (/lib/systemd/system/fastdds_disc_server.service; enabled; vendor preset: enabled)
+                Active: active (running)
+                Process: 1349 ExecStart=/bin/bash -e /home/locobot/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/service/fastdds_disc_server.sh (code=exited, status=0/SUCCESS)
+            Main PID: 1393 (bash)
+                Tasks: 10 (limit: 9105)
+                Memory: 13.8M
+                CGroup: /system.slice/fastdds_disc_server.service
+                        ├─1393 /bin/bash -e /home/locobot/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/service/fastdds_disc_server.sh
+                        ├─1395 python3 /opt/ros/galactic/bin/../tools/fastdds/fastdds.py discovery -i 0
+                        └─1397 /opt/ros/galactic/bin/fast-discovery-server -i 0
 
-..         The name of wireless network interfaces typically start with the characters "wl". If the
-..         command returns nothing, use the full ``ifconfig`` command and look for the Wireless
-..         connection.
+                            locobot systemd[1]: Starting FastDDS discovery server...
+                            locobot systemd[1]: Started FastDDS discovery server.
+                            locobot bash[1397]: ### Server is running ###
+                            locobot bash[1397]:   Participant Type:   SERVER
+                            locobot bash[1397]:   Server ID:          0
+                            locobot bash[1397]:   Server GUID prefix: 44.53.00.5f.45.50.52.4f.53.49.4d.41
+                            locobot bash[1397]:   Server Addresses:   UDPv4:[0.0.0.0]:11811
 
-.. 3.  If the remote software setup script was run specifying a ROS 2 installation, the remote
-..     cyclonedds config file should be in your home directory. Open the cyclonedds config file in an
-..     editor:
+.. _`this guide`: https://openvpn.net/faq/what-is-and-how-do-i-enable-ip-forwarding-on-linux/
 
-..     .. code-block:: console
+Remote Computer
+---------------
 
-..         $ nano ~/cyclonedds_config_remote.xml
+The remote computer has the following modifications, done by the remote installation script:
 
-..     The config file will look something like:
+*   The ``RMW_IMPLEMENTATION`` environment variable is set to ``rmw_fastrtps_cpp``.
 
-..     .. code-block:: xml
+    .. code:: bash
 
-..         <CycloneDDS
-..             xmlns="https://cdds.io/config"
-..             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-..             xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
-..             <Domain>
-..                 <General>
-..                     <DontRoute>true</DontRoute>
-..                     <NetworkInterfaceAddress>${WIRELESS_INTERFACE}</NetworkInterfaceAddress>
-..                 </General>
-..             </Domain>
-..         </CycloneDDS>
+        export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
-.. 4.  Change ``${WIRELESS_INTERFACE}`` to the name of your wireless network interface. For example,
-..     if your wireless network interface's name is ``wlan0``, the configuration file should look
-..     like:
+*   The ``ROS_DISCOVERY_SERVER`` environment variable is set to the LoCoBot's IP address and port
+    ``11811``.
 
-..     .. code-block:: xml
+    .. code:: bash
 
-..         <CycloneDDS
-..             xmlns="https://cdds.io/config"
-..             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-..             xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
-..             <Domain>
-..                 <General>
-..                     <DontRoute>true</DontRoute>
-..                     <NetworkInterfaceAddress>wlan0</NetworkInterfaceAddress>
-..                 </General>
-..             </Domain>
-..         </CycloneDDS>
+        export ROS_DISCOVERY_SERVER=${LOCOBOT_IP}:11811
 
-.. 5.  Restart the ROS 2 daemon on your remote computer (or restart the computer).
+*   All participants are configured to act as a Super Client via the XML configuration file,
+    setting the UDP locator to the address of the LoCoBot's eno1 interface, ``192.168.186.3``, and
+    port ``11811``.
 
-..     .. code-block::
+    .. code:: xml
 
-..         $ ros2 daemon stop
-..         The daemon has been stopped
-..         $ ros2 daemon start
-..         The daemon has been started
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <dds>
+            <profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+                <participant profile_name="super_client_profile" is_default_profile="true">
+                    <rtps>
+                        <builtin>
+                            <discovery_config>
+                                <discoveryProtocol>SUPER_CLIENT</discoveryProtocol>
+                                <discoveryServersList>
+                                    <RemoteServer prefix="44.53.00.5f.45.50.52.4f.53.49.4d.41">
+                                        <metatrafficUnicastLocatorList>
+                                            <locator>
+                                                <udpv4>
+                                                    <address>192.168.186.3</address>
+                                                    <port>11811</port>
+                                                </udpv4>
+                                            </locator>
+                                        </metatrafficUnicastLocatorList>
+                                    </RemoteServer>
+                                </discoveryServersList>
+                            </discovery_config>
+                        </builtin>
+                    </rtps>
+                </participant>
+            </profiles>
+        </dds>
+
+*   The ``FASTRTPS_DEFAULT_PROFILES_FILE`` environment variable is set to the location of the
+    Fast-DDS XML configuration file. By default, this is
+    ``~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml``.
+
+    .. code:: bash
+
+        export FASTRTPS_DEFAULT_PROFILES_FILE=~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml
+
+*   A route is added to IP subnet ``192.168.186.0/24`` via the LoCoBot's wireless network interface's
+    IP address via a service running on startup.
+
+    .. code:: bash
+
+        ip route add 192.168.186.0/24 via ${LOCOBOT_IP}

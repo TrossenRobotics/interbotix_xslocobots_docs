@@ -80,7 +80,12 @@
 <li class="toctree-l2"><a class="reference internal" href="create3_configuration.html">Create® 3 Setup</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RMW Configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ros-1-interface-create-3">ROS 1 Interface &amp; Create® 3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ros-2-interface-create-3">ROS 2 Interface &amp; Create® 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ros-2-interface-create-3">ROS 2 Interface &amp; Create® 3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-3">Create® 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#locobot-computer">LoCoBot Computer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remote-computer">Remote Computer</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -132,7 +137,179 @@ from the Create® 3.</p>
 <h2>ROS 2 Interface &amp; Create® 3<a class="headerlink" href="#ros-2-interface-create-3" title="Permalink to this headline"></a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This section is under construction.</p>
+<p class="last">This guide assumes that you have run the <a class="reference internal" href="../ros_interface/ros2/software_setup.html"><span class="doc">ROS 2 Software Setup</span></a> for both your LoCoBot and remote computers.</p>
+</div>
+<p>The ROS 2 Interface uses <code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code> as its RMW and the <a class="reference external" href="https://docs.ros.org/en/humble/Tutorials/Advanced/Discovery-Server/Discovery-Server.html" rel="noopener noreferrer" target="_blank">Fast-DDS Discovery Server</a>.</p>
+<div class="section" id="create-3">
+<h3>Create® 3<a class="headerlink" href="#create-3" title="Permalink to this headline"></a></h3>
+<p>The Create® 3 has the following modifications:</p>
+<ul class="simple">
+<li>RMW_IMPLEMENTATION is set to <code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code>.</li>
+<li>Fast DDS discovery server is enabled.</li>
+<li>Address and port of Fast DDS discovery server are set to <code class="docutils literal notranslate"><span class="pre">192.168.186.3:11811</span></code>.</li>
+</ul>
+<p>You can find a list of all modifications the <span class="xref std std-ref">Create 3 Software Setup's</span> ROS 2 Main Configuration.</p>
+</div>
+<div class="section" id="locobot-computer">
+<h3>LoCoBot Computer<a class="headerlink" href="#locobot-computer" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These modifications are done by Trossen Robotics and the user does not have to worry about
+modifying these unless they are setting up a robot themselves, or if they are dealing with a
+unique network setup.</p>
+</div>
+<p>The LoCoBot computer has the following modifications:</p>
+<ul>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> environment variable is set to <code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_fastrtps_cpp
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">ROS_DISCOVERY_SERVER</span></code> environment variable is set to <code class="docutils literal notranslate"><span class="pre">127.0.0.1:11811</span></code>, the localhost
+address using port <code class="docutils literal notranslate"><span class="pre">11811</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_DISCOVERY_SERVER</span><span class="o">=</span><span class="m">127</span>.0.0.1:11811
+</pre></div>
+</div>
+</li>
+<li><p class="first">All participants are configured to act as a Super Client via the XML configuration file,
+setting the UDP locator to address <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> and port <code class="docutils literal notranslate"><span class="pre">11811</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;dds&gt;</span>
+<span class="w">    </span><span class="nt">&lt;profiles</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;participant</span><span class="w"> </span><span class="na">profile_name=</span><span class="s">&quot;super_client_profile&quot;</span><span class="w"> </span><span class="na">is_default_profile=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;rtps&gt;</span>
+<span class="w">                </span><span class="nt">&lt;builtin&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;discovery_config&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;discoveryProtocol&gt;</span>SUPER_CLIENT<span class="nt">&lt;/discoveryProtocol&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;discoveryServersList&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;RemoteServer</span><span class="w"> </span><span class="na">prefix=</span><span class="s">&quot;44.53.00.5f.45.50.52.4f.53.49.4d.41&quot;</span><span class="nt">&gt;</span>
+<span class="w">                                </span><span class="nt">&lt;metatrafficUnicastLocatorList&gt;</span>
+<span class="w">                                    </span><span class="nt">&lt;locator&gt;</span>
+<span class="w">                                        </span><span class="nt">&lt;udpv4&gt;</span>
+<span class="w">                                            </span><span class="nt">&lt;address&gt;</span>127.0.0.1<span class="nt">&lt;/address&gt;</span>
+<span class="w">                                            </span><span class="nt">&lt;port&gt;</span>11811<span class="nt">&lt;/port&gt;</span>
+<span class="w">                                        </span><span class="nt">&lt;/udpv4&gt;</span>
+<span class="w">                                    </span><span class="nt">&lt;/locator&gt;</span>
+<span class="w">                                </span><span class="nt">&lt;/metatrafficUnicastLocatorList&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;/RemoteServer&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;/discoveryServersList&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/discovery_config&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/builtin&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/rtps&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/participant&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/profiles&gt;</span>
+<span class="nt">&lt;/dds&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> environment variable is set to the location of the
+Fast-DDS XML configuration file. By default, this is at
+<code class="docutils literal notranslate"><span class="pre">~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">FASTRTPS_DEFAULT_PROFILES_FILE</span><span class="o">=</span>~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml
+</pre></div>
+</div>
+</li>
+<li><p class="first">IP forwarding is enabled by setting the value of <code class="docutils literal notranslate"><span class="pre">net.ipv4.ip_forward=1</span></code> in
+<code class="docutils literal notranslate"><span class="pre">/etc/sysctl.conf</span></code>. See <a class="reference external" href="https://openvpn.net/faq/what-is-and-how-do-i-enable-ip-forwarding-on-linux/" rel="noopener noreferrer" target="_blank">this guide</a> on IP forwarding from OpenVPN for more information.</p>
+</li>
+<li><p class="first">Fast-DDS Discovery Server running as service <code class="docutils literal notranslate"><span class="pre">fastdds_disc_server.service</span></code> at startup.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">source</span><span class="w"> </span>/opt/ros/<span class="si">${</span><span class="nv">ROS_DISTRO</span><span class="si">}</span>/setup.bash
+fastdds<span class="w"> </span>discovery<span class="w"> </span>-i<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">The status of this service can be checked with the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>fastdds_disc_server.service
+
+●<span class="w"> </span>fastdds_disc_server.service<span class="w"> </span>-<span class="w"> </span>FastDDS<span class="w"> </span>discovery<span class="w"> </span>server
+<span class="w">    </span>Loaded:<span class="w"> </span>loaded<span class="w"> </span><span class="o">(</span>/lib/systemd/system/fastdds_disc_server.service<span class="p">;</span><span class="w"> </span>enabled<span class="p">;</span><span class="w"> </span>vendor<span class="w"> </span>preset:<span class="w"> </span>enabled<span class="o">)</span>
+<span class="w">    </span>Active:<span class="w"> </span>active<span class="w"> </span><span class="o">(</span>running<span class="o">)</span>
+<span class="w">    </span>Process:<span class="w"> </span><span class="m">1349</span><span class="w"> </span><span class="nv">ExecStart</span><span class="o">=</span>/bin/bash<span class="w"> </span>-e<span class="w"> </span>/home/locobot/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/service/fastdds_disc_server.sh<span class="w"> </span><span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited,<span class="w"> </span><span class="nv">status</span><span class="o">=</span><span class="m">0</span>/SUCCESS<span class="o">)</span>
+Main<span class="w"> </span>PID:<span class="w"> </span><span class="m">1393</span><span class="w"> </span><span class="o">(</span>bash<span class="o">)</span>
+<span class="w">    </span>Tasks:<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">(</span>limit:<span class="w"> </span><span class="m">9105</span><span class="o">)</span>
+<span class="w">    </span>Memory:<span class="w"> </span><span class="m">13</span>.8M
+<span class="w">    </span>CGroup:<span class="w"> </span>/system.slice/fastdds_disc_server.service
+<span class="w">            </span>├─1393<span class="w"> </span>/bin/bash<span class="w"> </span>-e<span class="w"> </span>/home/locobot/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/service/fastdds_disc_server.sh
+<span class="w">            </span>├─1395<span class="w"> </span>python3<span class="w"> </span>/opt/ros/galactic/bin/../tools/fastdds/fastdds.py<span class="w"> </span>discovery<span class="w"> </span>-i<span class="w"> </span><span class="m">0</span>
+<span class="w">            </span>└─1397<span class="w"> </span>/opt/ros/galactic/bin/fast-discovery-server<span class="w"> </span>-i<span class="w"> </span><span class="m">0</span>
+
+<span class="w">                </span>locobot<span class="w"> </span>systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Starting<span class="w"> </span>FastDDS<span class="w"> </span>discovery<span class="w"> </span>server...
+<span class="w">                </span>locobot<span class="w"> </span>systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Started<span class="w"> </span>FastDDS<span class="w"> </span>discovery<span class="w"> </span>server.
+<span class="w">                </span>locobot<span class="w"> </span>bash<span class="o">[</span><span class="m">1397</span><span class="o">]</span>:<span class="w"> </span><span class="c1">### Server is running ###</span>
+<span class="w">                </span>locobot<span class="w"> </span>bash<span class="o">[</span><span class="m">1397</span><span class="o">]</span>:<span class="w">   </span>Participant<span class="w"> </span>Type:<span class="w">   </span>SERVER
+<span class="w">                </span>locobot<span class="w"> </span>bash<span class="o">[</span><span class="m">1397</span><span class="o">]</span>:<span class="w">   </span>Server<span class="w"> </span>ID:<span class="w">          </span><span class="m">0</span>
+<span class="w">                </span>locobot<span class="w"> </span>bash<span class="o">[</span><span class="m">1397</span><span class="o">]</span>:<span class="w">   </span>Server<span class="w"> </span>GUID<span class="w"> </span>prefix:<span class="w"> </span><span class="m">44</span>.53.00.5f.45.50.52.4f.53.49.4d.41
+<span class="w">                </span>locobot<span class="w"> </span>bash<span class="o">[</span><span class="m">1397</span><span class="o">]</span>:<span class="w">   </span>Server<span class="w"> </span>Addresses:<span class="w">   </span>UDPv4:<span class="o">[</span><span class="m">0</span>.0.0.0<span class="o">]</span>:11811
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="remote-computer">
+<h3>Remote Computer<a class="headerlink" href="#remote-computer" title="Permalink to this headline"></a></h3>
+<p>The remote computer has the following modifications, done by the remote installation script:</p>
+<ul>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> environment variable is set to <code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_fastrtps_cpp
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">ROS_DISCOVERY_SERVER</span></code> environment variable is set to the LoCoBot's IP address and port
+<code class="docutils literal notranslate"><span class="pre">11811</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_DISCOVERY_SERVER</span><span class="o">=</span><span class="si">${</span><span class="nv">LOCOBOT_IP</span><span class="si">}</span>:11811
+</pre></div>
+</div>
+</li>
+<li><p class="first">All participants are configured to act as a Super Client via the XML configuration file,
+setting the UDP locator to the address of the LoCoBot's eno1 interface, <code class="docutils literal notranslate"><span class="pre">192.168.186.3</span></code>, and
+port <code class="docutils literal notranslate"><span class="pre">11811</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;dds&gt;</span>
+<span class="w">    </span><span class="nt">&lt;profiles</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;participant</span><span class="w"> </span><span class="na">profile_name=</span><span class="s">&quot;super_client_profile&quot;</span><span class="w"> </span><span class="na">is_default_profile=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;rtps&gt;</span>
+<span class="w">                </span><span class="nt">&lt;builtin&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;discovery_config&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;discoveryProtocol&gt;</span>SUPER_CLIENT<span class="nt">&lt;/discoveryProtocol&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;discoveryServersList&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;RemoteServer</span><span class="w"> </span><span class="na">prefix=</span><span class="s">&quot;44.53.00.5f.45.50.52.4f.53.49.4d.41&quot;</span><span class="nt">&gt;</span>
+<span class="w">                                </span><span class="nt">&lt;metatrafficUnicastLocatorList&gt;</span>
+<span class="w">                                    </span><span class="nt">&lt;locator&gt;</span>
+<span class="w">                                        </span><span class="nt">&lt;udpv4&gt;</span>
+<span class="w">                                            </span><span class="nt">&lt;address&gt;</span>192.168.186.3<span class="nt">&lt;/address&gt;</span>
+<span class="w">                                            </span><span class="nt">&lt;port&gt;</span>11811<span class="nt">&lt;/port&gt;</span>
+<span class="w">                                        </span><span class="nt">&lt;/udpv4&gt;</span>
+<span class="w">                                    </span><span class="nt">&lt;/locator&gt;</span>
+<span class="w">                                </span><span class="nt">&lt;/metatrafficUnicastLocatorList&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;/RemoteServer&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;/discoveryServersList&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/discovery_config&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/builtin&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/rtps&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/participant&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/profiles&gt;</span>
+<span class="nt">&lt;/dds&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> environment variable is set to the location of the
+Fast-DDS XML configuration file. By default, this is
+<code class="docutils literal notranslate"><span class="pre">~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">FASTRTPS_DEFAULT_PROFILES_FILE</span><span class="o">=</span>~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml
+</pre></div>
+</div>
+</li>
+<li><p class="first">A route is added to IP subnet <code class="docutils literal notranslate"><span class="pre">192.168.186.0/24</span></code> via the LoCoBot's wireless network interface's
+IP address via a service running on startup.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.186.0/24<span class="w"> </span>via<span class="w"> </span><span class="si">${</span><span class="nv">LOCOBOT_IP</span><span class="si">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
