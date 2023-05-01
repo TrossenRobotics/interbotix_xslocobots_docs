@@ -32,6 +32,8 @@ interface.
     If you modify any of these configurations, make sure to save the changes and restart the
     application for them to take effect.
 
+.. _label-create3-configuration-main-configuration:
+
 Main configuration
 ------------------
 
