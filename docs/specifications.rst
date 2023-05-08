@@ -192,8 +192,8 @@ for easy customization of the platform.
 
 .. _specifications-rplidar-label:
 
-RPLIDAR A2M8 360° Laser Range Scanner (Optional)
-------------------------------------------------
+RPLIDAR A2 360° Laser Range Scanner (Optional)
+----------------------------------------------
 
 The RPLIDAR A2 is an indoor, 360 degree 2D LIDAR. Each RPLIDAR A2 can take up to 8000 samples of
 laser ranging per second thanks to its high rotation speed. The on-board system can perform 2D 360°
@@ -203,9 +203,14 @@ generated 2D point cloud data can be used in mapping, localization and object/en
 .. image:: specifications/images/hardwarerplidara2.png
   :align: center
 
-See the :download:`RPLIDAR A2M8 Datasheet
+See the :download:`RPLIDAR A2 Datasheet
 <https://download.slamtec.com/api/download/rplidar-a2m8-datasheet/2.6?lang=en>` for more
 information.
+
+.. note::
+
+  Your LoCoBot may have come with an A2M8 or an A2M12 depending on when it was purchased. The A2M8
+  has a red band around its emitter window, while the A2M12 has a purple band.
 
 .. _specifications-power-bank-label:
 
