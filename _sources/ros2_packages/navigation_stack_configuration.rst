@@ -15,7 +15,7 @@ Navigation Stack Configuration
 Overview
 ========
 
-This package configures the ROS Navigation Stack needed to give any X-Series Interbotix LoCoBot
+This package configures the ROS 2 Navigation Stack needed to give any X-Series Interbotix LoCoBot
 platform the ability to perform simultaneous localization and mapping (SLAM), navigation, or just
 localization. It can be used with just the `Intel RealSense D435`_ camera or with both the camera
 and the `A2 RPLidar`_ laser scanner. Localization and mapping is done using the `rtabmap_ros`_ or
