@@ -85,9 +85,14 @@
 <li class="toctree-l2"><a class="reference internal" href="moveit_motion_planning_configuration.html">MoveIt 2 Motion Planning Configuration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Navigation Stack Configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slam-from-scratch">SLAM From Scratch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localization">Localization</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#time-out-waiting-for-transform">Time out waiting for transform...</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rejected-loop-closure">Rejected Loop Closure</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#robot-does-not-go-to-same-location-after-map-reset">Robot does not go to same location after map reset</a></li>
 </ul>
 </li>
@@ -148,14 +153,50 @@ and the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2"
 environment that does not contain too much sunlight and has minimal reflective surfaces.</p>
 </div>
 </div>
-<div class="section" id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
-</div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<div class="section" id="slam-from-scratch">
+<h3>SLAM From Scratch<a class="headerlink" href="#slam-from-scratch" title="Permalink to this headline"></a></h3>
+<p>To get SLAM up and running using RTAB-Map, type the following in a terminal on the robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_rtabmap.launch.py<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>slam_mode:<span class="o">=</span>mapping<span class="w"> </span>rtabmap_args:<span class="o">=</span>-d
+</pre></div>
+</div>
+</div>
+<div class="section" id="localization">
+<h3>Localization<a class="headerlink" href="#localization" title="Permalink to this headline"></a></h3>
+<p>Once you've finished mapping your desired environment, the next step is to have the robot uses its
+sensors to just localize itself within the map while navigating. To do so, type the following in a
+terminal on the robot computer:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>launch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_rtabmap.launch.py<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>slam_mode:<span class="o">=</span>localization
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<div class="section" id="time-out-waiting-for-transform">
+<h3>Time out waiting for transform...<a class="headerlink" href="#time-out-waiting-for-transform" title="Permalink to this headline"></a></h3>
+<p>When starting the Nav Stack (either when continuing a map or just doing localization) on your
+robot, you may see some warnings appear in the terminal. For example...</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Timed out waiting for transform from locobot_wx200/base_footprint to map to become available before running costmap, tf error: canTransform: target_frame map does not exist.. canTransform returned after 0.100567 timeout was 0.1</span>
+</pre></div>
+</div>
+<p>The reason this appears is because no map is being supplied to the navigation stack. The reason for
+that is because it takes RTAB-Map a few seconds to generate the map from its database (which could
+be hundreds of megabytes). As such, this warning can be safely ignored assuming it stops once
+RTAB-Map gets the map out.</p>
+</div>
+<div class="section" id="rejected-loop-closure">
+<h3>Rejected Loop Closure<a class="headerlink" href="#rejected-loop-closure" title="Permalink to this headline"></a></h3>
+<p>When starting the Nav stack or during mapping, you may see the following warning appear (or
+similar) in the terminal...</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Rtabmap.cpp:2533::process() Rejected loop closure 694 -&gt; 773: Not enough inliers 0/20 (matches=0) between 694 and 772</span>
+</pre></div>
+</div>
+<p>Similar to the first warning, this can be ignored if it only shows up a few times at node startup.
+It just means that RTAB-Map has failed to determine where the robot is in the map. If you're
+mapping too quickly, this warning can also appear, so slow down a bit.</p>
+</div>
 <div class="section" id="robot-does-not-go-to-same-location-after-map-reset">
 <h3>Robot does not go to same location after map reset<a class="headerlink" href="#robot-does-not-go-to-same-location-after-map-reset" title="Permalink to this headline"></a></h3>
 <p>If Create 3 is used, the robot keeps its odometry through sessions and power cycles. You may need

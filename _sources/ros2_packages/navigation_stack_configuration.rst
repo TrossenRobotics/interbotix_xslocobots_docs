@@ -33,14 +33,63 @@ and the `A2 RPLidar`_ laser scanner. Localization and mapping is done using the 
 .. _`slam_toolbox`: https://github.com/SteveMacenski/slam_toolbox
 .. _`Nav2`: https://navigation.ros.org/
 
-Structure
-=========
+.. Structure
+.. =========
 
 Usage
 =====
 
+SLAM From Scratch
+-----------------
+
+To get SLAM up and running using RTAB-Map, type the following in a terminal on the robot computer:
+
+.. code-block:: console
+
+    $ ros2 launch interbotix_xslocobot_nav xslocobot_rtabmap.launch.py robot_model:=locobot_wx200 use_lidar:=true slam_mode:=mapping rtabmap_args:=-d
+
+Localization
+------------
+
+Once you've finished mapping your desired environment, the next step is to have the robot uses its
+sensors to just localize itself within the map while navigating. To do so, type the following in a
+terminal on the robot computer:
+
+.. code-block:: console
+
+    $ ros2 launch interbotix_xslocobot_nav xslocobot_rtabmap.launch.py robot_model:=locobot_wx200 use_lidar:=true slam_mode:=localization
+
 Troubleshooting
 ===============
+
+Time out waiting for transform...
+---------------------------------
+
+When starting the Nav Stack (either when continuing a map or just doing localization) on your
+robot, you may see some warnings appear in the terminal. For example...
+
+.. code-block:: console
+
+    Timed out waiting for transform from locobot_wx200/base_footprint to map to become available before running costmap, tf error: canTransform: target_frame map does not exist.. canTransform returned after 0.100567 timeout was 0.1
+
+The reason this appears is because no map is being supplied to the navigation stack. The reason for
+that is because it takes RTAB-Map a few seconds to generate the map from its database (which could
+be hundreds of megabytes). As such, this warning can be safely ignored assuming it stops once
+RTAB-Map gets the map out.
+
+Rejected Loop Closure
+---------------------
+
+When starting the Nav stack or during mapping, you may see the following warning appear (or
+similar) in the terminal...
+
+.. code-block:: console
+
+    Rtabmap.cpp:2533::process() Rejected loop closure 694 -> 773: Not enough inliers 0/20 (matches=0) between 694 and 772
+
+Similar to the first warning, this can be ignored if it only shows up a few times at node startup.
+It just means that RTAB-Map has failed to determine where the robot is in the map. If you're
+mapping too quickly, this warning can also appear, so slow down a bit.
 
 Robot does not go to same location after map reset
 --------------------------------------------------
