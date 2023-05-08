@@ -328,6 +328,13 @@ Similar to the first warning, this can be ignored if it only shows up a few time
 It just means that Rtabmap has failed to determine where the robot is in the map. If you're mapping
 too quickly, this warning can also appear, so slow down a bit.
 
+Robot does not go to same location after map reset
+--------------------------------------------------
+
+If Create 3 is used, the robot keeps its odometry through sessions and power cycles. You may need
+to use the ROS 2 /<mobile_base>/reset_pose service with each new map to ensure the robot goes to
+the same location.
+
 Video Tutorials
 ===============
 

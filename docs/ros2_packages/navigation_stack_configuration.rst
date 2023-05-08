@@ -42,5 +42,11 @@ Usage
 Troubleshooting
 ===============
 
+Robot does not go to same location after map reset
+--------------------------------------------------
+
+If Create 3 is used, the robot keeps its odometry through sessions and power cycles. You may need
+to use the /reset_pose service with each new map to ensure the robot goes to the same location.
+
 Video Tutorials
 ===============
