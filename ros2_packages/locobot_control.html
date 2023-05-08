@@ -149,14 +149,17 @@ what all 'downstream' ROS packages should reference to get the robot up and runn
 familiar with the nodes not described below, just hop over to the package documentation that
 launches them.</p>
 <ul class="simple">
-<li><strong>rplidar_composition</strong>: responsible for starting the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2" rel="noopener noreferrer" target="_blank">RPlidar A2M8</a> sensor and publishing
+<li><strong>rplidar_composition</strong>: responsible for starting the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2" rel="noopener noreferrer" target="_blank">RPlidar A2</a> sensor and publishing
 <a class="reference external" href="http://docs.ros.org/latest/api/sensor_msgs/html/msg/LaserScan.html" rel="noopener noreferrer" target="_blank">LaserScan</a> messages on the <code class="docutils literal notranslate"><span class="pre">/&lt;robot_name&gt;/scan</span></code> topic. This node is only launched if the
 <code class="docutils literal notranslate"><span class="pre">use_lidar</span></code> launch configuration is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>. See the <a class="reference external" href="http://wiki.ros.org/rplidar" rel="noopener noreferrer" target="_blank">RPLidar ROS Wiki</a> for
 parameter descriptions. All parameters were left at their default values except for the
 following:<ul>
-<li><em>frame_id</em>: <code class="docutils literal notranslate"><span class="pre">/&lt;robot_name&gt;/laser_frame_link</span></code></li>
+<li><em>channel_type</em>: <code class="docutils literal notranslate"><span class="pre">serial</span></code></li>
 <li><em>serial_port</em>: <code class="docutils literal notranslate"><span class="pre">/dev/rplidar</span></code></li>
+<li><em>serial_baudrate</em>: <code class="docutils literal notranslate"><span class="pre">115200</span></code> or <code class="docutils literal notranslate"><span class="pre">256000</span></code> depending on the lidar model</li>
+<li><em>frame_id</em>: <code class="docutils literal notranslate"><span class="pre">/&lt;robot_name&gt;/laser_frame_link</span></code></li>
 <li><em>angle_compensate</em>: <code class="docutils literal notranslate"><span class="pre">true</span></code></li>
+<li><em>inverted</em>: <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
 </ul>
 </li>
 <li><strong>kobuki nodes</strong>: a group of three nodes responsible for starting the Kobuki base. See the

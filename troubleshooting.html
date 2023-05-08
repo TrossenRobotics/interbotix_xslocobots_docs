@@ -79,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ros2_packages.html">ROS 2 Open Source Packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#common-issues">Common Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#can-t-see-topics-published-by-locobot-on-remote-using-ros-2">Can't see topics published by LoCoBot on remote using ROS 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-3-base-stutters-or-reflexed-are-triggered-when-driven">Create® 3 base stutters or reflexed are triggered when driven</a></li>
 </ul>
 </li>
@@ -130,6 +131,31 @@ own issue</a>.</p>
 </div>
 <div class="section" id="common-issues">
 <h2>Common Issues<a class="headerlink" href="#common-issues" title="Permalink to this headline"></a></h2>
+<div class="section" id="can-t-see-topics-published-by-locobot-on-remote-using-ros-2">
+<h3>Can't see topics published by LoCoBot on remote using ROS 2<a class="headerlink" href="#can-t-see-topics-published-by-locobot-on-remote-using-ros-2" title="Permalink to this headline"></a></h3>
+<p>Check that the RMW configuration for ROS 2 matches that described in the <a class="reference internal" href="getting_started/rmw_configuration.html"><span class="doc">RMW Configuration
+Guide</span></a> for the Create® 3, the LoCoBot's computer, and your
+remote computer.</p>
+<p>If your RMW configuration does match, try the following:</p>
+<ul>
+<li><p class="first">Restart the ROS 2 daemon on your remote computer using the commands below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>daemon<span class="w"> </span>stop
+<span class="gp">$ </span>ros2<span class="w"> </span>daemon<span class="w"> </span>start
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the ROS 2 daemon on your LoCoBot's computer using the commands below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>daemon<span class="w"> </span>stop
+<span class="gp">$ </span>ros2<span class="w"> </span>daemon<span class="w"> </span>start
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the Create® 3 base.</p>
+</li>
+<li><p class="first">Restart the LoCoBot's computer.</p>
+</li>
+</ul>
+</div>
 <div class="section" id="create-3-base-stutters-or-reflexed-are-triggered-when-driven">
 <h3>Create® 3 base stutters or reflexed are triggered when driven<a class="headerlink" href="#create-3-base-stutters-or-reflexed-are-triggered-when-driven" title="Permalink to this headline"></a></h3>
 <p>If the robot stops, turns, or reacts in an unexpected way when moving, it's possible that the

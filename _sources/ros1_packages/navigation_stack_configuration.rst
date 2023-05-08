@@ -18,7 +18,7 @@ Overview
 This package configures the ROS Navigation Stack needed to give any X-Series Interbotix LoCoBot
 platform the ability to perform simultaneous localization and mapping (SLAM), navigation, or just
 localization. It can be used with just the `Intel RealSense D435`_ camera or with both the camera
-and the `A2M8 RPLidar`_ laser scanner. The localization and mapping part is done using the
+and the `A2 RPLidar`_ laser scanner. The localization and mapping part is done using the
 `rtabmap_ros`_ ROS package while the navigation part is accomplished via the `move_base`_ ROS
 package.
 
@@ -28,7 +28,7 @@ package.
     environment that does not contain too much sunlight and has minimal reflective surfaces.
 
 .. _`Intel RealSense D435`: https://www.intelrealsense.com/depth-camera-d435/
-.. _`A2M8 RPLidar`: https://www.slamtec.com/en/Lidar/A2
+.. _`A2 RPLidar`: https://www.slamtec.com/en/Lidar/A2
 .. _`rtabmap_ros`: http://wiki.ros.org/rtabmap_ros
 .. _`move_base`: http://wiki.ros.org/move_base
 
@@ -327,6 +327,13 @@ similar) in the terminal...
 Similar to the first warning, this can be ignored if it only shows up a few times at node startup.
 It just means that Rtabmap has failed to determine where the robot is in the map. If you're mapping
 too quickly, this warning can also appear, so slow down a bit.
+
+Robot does not go to same location after map reset
+--------------------------------------------------
+
+If Create 3 is used, the robot keeps its odometry through sessions and power cycles. You may need
+to use the ROS 2 /<mobile_base>/reset_pose service with each new map to ensure the robot goes to
+the same location.
 
 Video Tutorials
 ===============

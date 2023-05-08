@@ -48,7 +48,7 @@ it has no arm.
     :ref:`RealSense D435 <specifications-realsense-label>` Depth camera on a :ref:`DYNAMIXEL
     pan-tilt servo <specifications-pan-and-tilt-label>`, and a :ref:`NUC
     <specifications-nuc-label>` Intel Computer, this rover is ready to perform some serious
-    navigation and mapping tasks. For even more flexibility, the :ref:`RPLidar A2M8
+    navigation and mapping tasks. For even more flexibility, the :ref:`RPLidar A2
     <specifications-rplidar-label>` laser scanner can be added as well.
 -   **LoCoBot PincherX 100 Robot Rover** (``locobot_px100``): with all the features of the
     locobot_base platform, this robot steps it up a notch by including the 4DOF :ref:`PincherX-100
@@ -102,7 +102,7 @@ AMD64 Architecture
 
     After powering on the NUC via the steps in the previous section, a login screen should appear
     with ``locobot`` as the user name. Conveniently, the password is the same as the user name so
-    type ``locobot`` and hit **Enter**. Next, update the computer by performing the following
+    type ``locobot`` and hit :kbd:`Enter`. Next, update the computer by performing the following
     steps.
 
     1.  Connect to the Internet. This is as simple as clicking the Wifi icon on the top right of

@@ -20,6 +20,33 @@ own issue`_.
 Common Issues
 =============
 
+Can't see topics published by LoCoBot on remote using ROS 2
+-----------------------------------------------------------
+
+Check that the RMW configuration for ROS 2 matches that described in the :doc:`RMW Configuration
+Guide<./getting_started/rmw_configuration>` for the Create® 3, the LoCoBot's computer, and your
+remote computer.
+
+If your RMW configuration does match, try the following:
+
+*   Restart the ROS 2 daemon on your remote computer using the commands below:
+
+    .. code-block:: console
+
+        $ ros2 daemon stop
+        $ ros2 daemon start
+
+*   Restart the ROS 2 daemon on your LoCoBot's computer using the commands below:
+
+    .. code-block:: console
+
+        $ ros2 daemon stop
+        $ ros2 daemon start
+
+*   Restart the Create® 3 base.
+
+*   Restart the LoCoBot's computer.
+
 Create® 3 base stutters or reflexed are triggered when driven
 -------------------------------------------------------------
 

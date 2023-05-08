@@ -87,7 +87,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#robot-does-not-go-to-same-location-after-map-reset">Robot does not go to same location after map reset</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#video-tutorials">Video Tutorials</a></li>
 </ul>
 </li>
@@ -136,9 +139,9 @@
 <p>This package configures the ROS Navigation Stack needed to give any X-Series Interbotix LoCoBot
 platform the ability to perform simultaneous localization and mapping (SLAM), navigation, or just
 localization. It can be used with just the <a class="reference external" href="https://www.intelrealsense.com/depth-camera-d435/" rel="noopener noreferrer" target="_blank">Intel RealSense D435</a> camera or with both the camera
-and the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2" rel="noopener noreferrer" target="_blank">A2M8 RPLidar</a> laser scanner. The localization and mapping part is done using the
-<a class="reference external" href="http://wiki.ros.org/rtabmap_ros" rel="noopener noreferrer" target="_blank">rtabmap_ros</a> ROS package while the navigation part is accomplished via the <a class="reference external" href="http://wiki.ros.org/move_base" rel="noopener noreferrer" target="_blank">move_base</a> ROS
-package.</p>
+and the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2" rel="noopener noreferrer" target="_blank">A2 RPLidar</a> laser scanner. Localization and mapping is done using the <a class="reference external" href="https://github.com/introlab/rtabmap_ros/tree/ros2" rel="noopener noreferrer" target="_blank">rtabmap_ros</a> or
+(in some distributions) the <a class="reference external" href="https://github.com/SteveMacenski/slam_toolbox" rel="noopener noreferrer" target="_blank">slam_toolbox</a> ROS packages while navigation is accomplished via the
+<a class="reference external" href="https://navigation.ros.org/" rel="noopener noreferrer" target="_blank">Nav2</a> stack.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">For best results, this package should be run with the robot in an indoor, uncluttered
@@ -153,6 +156,11 @@ environment that does not contain too much sunlight and has minimal reflective s
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
+<div class="section" id="robot-does-not-go-to-same-location-after-map-reset">
+<h3>Robot does not go to same location after map reset<a class="headerlink" href="#robot-does-not-go-to-same-location-after-map-reset" title="Permalink to this headline"></a></h3>
+<p>If Create 3 is used, the robot keeps its odometry through sessions and power cycles. You may need
+to use the /reset_pose service with each new map to ensure the robot goes to the same location.</p>
+</div>
 </div>
 <div class="section" id="video-tutorials">
 <h2>Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permalink to this headline"></a></h2>

@@ -32,15 +32,18 @@ As shown in the image above, the *interbotix_xslocobot_control* package builds o
 familiar with the nodes not described below, just hop over to the package documentation that
 launches them.
 
--   **rplidar_composition**: responsible for starting the `RPlidar A2M8`_ sensor and publishing
+-   **rplidar_composition**: responsible for starting the `RPlidar A2`_ sensor and publishing
     `LaserScan`_ messages on the ``/<robot_name>/scan`` topic. This node is only launched if the
     ``use_lidar`` launch configuration is set to ``true``. See the `RPLidar ROS Wiki`_ for
     parameter descriptions. All parameters were left at their default values except for the
     following:
 
-    -   *frame_id*: ``/<robot_name>/laser_frame_link``
+    -   *channel_type*: ``serial``
     -   *serial_port*: ``/dev/rplidar``
+    -   *serial_baudrate*: ``115200`` or ``256000`` depending on the lidar model
+    -   *frame_id*: ``/<robot_name>/laser_frame_link``
     -   *angle_compensate*: ``true``
+    -   *inverted*: ``false``
 
 -   **kobuki nodes**: a group of three nodes responsible for starting the Kobuki base. See the
     `Kobuki ROS Wiki`_ for parameter descriptions. These nodes are only launched if the
@@ -80,7 +83,7 @@ Typically, the Motor Config file is only defined here while the Mode Config file
 any 'downstream' ROS package. This makes it easy for users to configure their desired motor
 operating modes depending on their project.
 
-.. _`RPlidar A2M8`: https://www.slamtec.com/en/Lidar/A2
+.. _`RPlidar A2`: https://www.slamtec.com/en/Lidar/A2
 .. _`LaserScan`: http://docs.ros.org/latest/api/sensor_msgs/html/msg/LaserScan.html
 .. _`RPLidar ROS Wiki`: http://wiki.ros.org/rplidar
 .. _`Kobuki ROS Wiki`: http://wiki.ros.org/kobuki_node

@@ -33,7 +33,7 @@ As shown in the image above, the *interbotix_xslocobot_control* package builds o
 familiar with the nodes not described below, just hop over to the ROS packages in this repo that
 launches them.
 
--   **rplidarNode**: responsible for starting the `A2M8 RPlidar`_ sensor and publishing
+-   **rplidarNode**: responsible for starting the `A2 RPlidar`_ sensor and publishing
     `LaserScan`_ messages on the ``/<robot_name>/scan`` topic. See the `RPLidar ROS Wiki`_ for
     parameter descriptions. All parameters were left at their default values except for the
     following:
@@ -71,7 +71,7 @@ Motor Config file is only defined here while the Mode Config file is also define
 'downstream' ROS package. This makes it easy for users to configure their desired motor operating
 modes depending on their project.
 
-.. _`A2M8 RPlidar`: https://www.slamtec.com/en/Lidar/A2
+.. _`A2 RPlidar`: https://www.slamtec.com/en/Lidar/A2
 .. _`LaserScan`: http://docs.ros.org/latest/api/sensor_msgs/html/msg/LaserScan.html
 .. _`RPLidar ROS Wiki`: http://wiki.ros.org/rplidar
 .. _`Kobuki ROS Wiki`: http://wiki.ros.org/kobuki_node

@@ -96,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#time-out-waiting-for-transform">Time out waiting for transform...</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rejected-loop-closure">Rejected Loop Closure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#robot-does-not-go-to-same-location-after-map-reset">Robot does not go to same location after map reset</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#video-tutorials">Video Tutorials</a><ul>
@@ -153,7 +154,7 @@
 <p>This package configures the ROS Navigation Stack needed to give any X-Series Interbotix LoCoBot
 platform the ability to perform simultaneous localization and mapping (SLAM), navigation, or just
 localization. It can be used with just the <a class="reference external" href="https://www.intelrealsense.com/depth-camera-d435/" rel="noopener noreferrer" target="_blank">Intel RealSense D435</a> camera or with both the camera
-and the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2" rel="noopener noreferrer" target="_blank">A2M8 RPLidar</a> laser scanner. The localization and mapping part is done using the
+and the <a class="reference external" href="https://www.slamtec.com/en/Lidar/A2" rel="noopener noreferrer" target="_blank">A2 RPLidar</a> laser scanner. The localization and mapping part is done using the
 <a class="reference external" href="http://wiki.ros.org/rtabmap_ros" rel="noopener noreferrer" target="_blank">rtabmap_ros</a> ROS package while the navigation part is accomplished via the <a class="reference external" href="http://wiki.ros.org/move_base" rel="noopener noreferrer" target="_blank">move_base</a> ROS
 package.</p>
 <div class="admonition note">
@@ -448,6 +449,12 @@ similar) in the terminal...</p>
 <p>Similar to the first warning, this can be ignored if it only shows up a few times at node startup.
 It just means that Rtabmap has failed to determine where the robot is in the map. If you're mapping
 too quickly, this warning can also appear, so slow down a bit.</p>
+</div>
+<div class="section" id="robot-does-not-go-to-same-location-after-map-reset">
+<h3>Robot does not go to same location after map reset<a class="headerlink" href="#robot-does-not-go-to-same-location-after-map-reset" title="Permalink to this headline"></a></h3>
+<p>If Create 3 is used, the robot keeps its odometry through sessions and power cycles. You may need
+to use the ROS 2 /&lt;mobile_base&gt;/reset_pose service with each new map to ensure the robot goes to
+the same location.</p>
 </div>
 </div>
 <div class="section" id="video-tutorials">
