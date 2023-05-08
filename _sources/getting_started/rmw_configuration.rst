@@ -264,8 +264,8 @@ The IP route can be checked with the command:
 
 .. code-block:: bash
 
-$ ip route list
-192.168.186.0/24 via ${LOCOBOT_IP} dev wlp0s20f3
+    $ ip route list
+    192.168.186.0/24 via ${LOCOBOT_IP} dev wlp0s20f3
 
 Here, we can see that the route has been added via the remote computer's wireless network
 interface, ``wlp0s20f3``.

@@ -357,11 +357,10 @@ interbotix<span class="w"> </span>systemd<span class="o">[</span><span class="m"
 </pre></div>
 </div>
 <p>The IP route can be checked with the command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>list
+<span class="m">192</span>.168.186.0/24<span class="w"> </span>via<span class="w"> </span><span class="si">${</span><span class="nv">LOCOBOT_IP</span><span class="si">}</span><span class="w"> </span>dev<span class="w"> </span>wlp0s20f3
 </pre></div>
 </div>
-<p>$ ip route list
-192.168.186.0/24 via ${LOCOBOT_IP} dev wlp0s20f3</p>
 <p>Here, we can see that the route has been added via the remote computer's wireless network
 interface, <code class="docutils literal notranslate"><span class="pre">wlp0s20f3</span></code>.</p>
 </div>
