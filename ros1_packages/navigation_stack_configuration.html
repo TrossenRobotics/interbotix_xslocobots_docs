@@ -416,12 +416,18 @@ further customize with other launch file arguments.</p>
 has been provided. To use it, enter the command below, along with any of the other args mentioned
 above that would be relevant to your application. Once Gazebo loads, unpause the physics, and start
 your navigation and mapping application.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_nav_sim.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>dof:<span class="o">=</span><span class="m">5</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>roslaunch<span class="w"> </span>interbotix_xslocobot_nav<span class="w"> </span>xslocobot_nav_sim.launch<span class="w"> </span>robot_model:<span class="o">=</span>locobot_wx200<span class="w"> </span>dof:<span class="o">=</span><span class="m">5</span><span class="w"> </span>use_position_controllers:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_lidar:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The <code class="docutils literal notranslate"><span class="pre">dof</span></code> command must be specified in order to load the proper position controllers.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you'd like to use the JointTrajectoryController configuration instead of the
+JointPositionController configuration, <code class="docutils literal notranslate"><span class="pre">use_trajectory_controllers:=true</span></code> should be set
+instead of <code class="docutils literal notranslate"><span class="pre">use_position_controllers:=true</span></code>.</p>
 </div>
 </div>
 </div>
