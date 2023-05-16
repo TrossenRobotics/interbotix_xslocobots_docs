@@ -290,11 +290,17 @@ your navigation and mapping application.
 
 .. code-block:: console
 
-    $ roslaunch interbotix_xslocobot_nav xslocobot_nav_sim.launch robot_model:=locobot_wx200 dof:=5 use_lidar:=true
+    $ roslaunch interbotix_xslocobot_nav xslocobot_nav_sim.launch robot_model:=locobot_wx200 dof:=5 use_position_controllers:=true use_lidar:=true
 
 .. note::
 
     The ``dof`` command must be specified in order to load the proper position controllers.
+
+.. note::
+
+    If you'd like to use the JointTrajectoryController configuration instead of the
+    JointPositionController configuration, ``use_trajectory_controllers:=true`` should be set
+    instead of ``use_position_controllers:=true``.
 
 Troubleshooting
 ===============
