@@ -185,11 +185,12 @@ Can't see/echo topics published by LoCoBot on remote using ROS 1
 ----------------------------------------------------------------
 
 Your network may be configured incorrectly. See the `ROS Multiple Machines Tutorial`_ and the `ROS
-Network Setup Tutorial`_. This may be as simple as changing the value of the ``ROS_IP`` environment
-variable. For example, your ``ROS_IP`` may be set to the value of the IP assigned in the connection
-to the Create® 3 base via the Ethernet connection, ``192.168.186.3``. To fix this, you can
-explicitly assign the variable to the IP assigned in the connection to the wireless network through
-the following steps:
+Network Setup Tutorial`_.
+
+This may be as simple as changing the value of the ``ROS_IP`` environment variable. For example,
+your ``ROS_IP`` may be set to the value of the IP assigned in the connection to the Create® 3 base
+via the Ethernet connection, ``192.168.186.3``. To fix this, you can explicitly assign the variable
+to the IP assigned in the connection to the wireless network through the following steps:
 
 1.  Find all IP addresses assigned to your LoCoBot computer. You should get two addresses: one for
     the connection over the Ethernet network, and one for the connection over the wireless network.
