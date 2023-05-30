@@ -81,6 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#common-issues">Common Issues</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#can-t-see-topics-published-by-locobot-on-remote-using-ros-2">Can't see topics published by LoCoBot on remote using ROS 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-3-base-stutters-or-reflexed-are-triggered-when-driven">Create® 3 base stutters or reflexed are triggered when driven</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-3-base-not-responding-to-commands-can-t-see-topics-or-webserver-from-locobot-computer-ros-1-or-ros-2">Create® 3 base not responding to commands, can't see topics or webserver from LoCoBot computer (ROS 1 or ROS 2)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#less-common-issues">Less Common Issues</a><ul>
@@ -166,6 +167,28 @@ the Create® 3 webserver's ROS 2 Configuration page. If using Interbotix's defau
 configuration, this will be at <code class="docutils literal notranslate"><span class="pre">192.168.186.2/ros-config</span></code>, assuming that the Create® 3 is turned
 on. See the <a class="reference internal" href="getting_started/create3_configuration.html"><span class="doc">Create® 3 Configuration page</span></a> for more
 information.</p>
+</div>
+<div class="section" id="create-3-base-not-responding-to-commands-can-t-see-topics-or-webserver-from-locobot-computer-ros-1-or-ros-2">
+<h3>Create® 3 base not responding to commands, can't see topics or webserver from LoCoBot computer (ROS 1 or ROS 2)<a class="headerlink" href="#create-3-base-not-responding-to-commands-can-t-see-topics-or-webserver-from-locobot-computer-ros-1-or-ros-2" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p class="first">Check that the base's <a class="reference external" href="https://iroboteducation.github.io/create3_docs/hw/adapter/" rel="noopener noreferrer" target="_blank">adapter board</a> is fully plugged in and that the switch is set to USB
+mode.</p>
+</li>
+<li><p class="first">Check that the base's USB-to-Ethernet adapter and Ethernet cable are fully plugged in.</p>
+</li>
+<li><p class="first">Check that the base is powered on.</p>
+</li>
+<li><p class="first">Check that you can ping the base from the LoCoBot's computer.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ping<span class="w"> </span><span class="m">192</span>.168.186.2
+</pre></div>
+</div>
+</li>
+<li><p class="first">Check that your Create® 3 base is running the latest firmware for the LoCoBot computer's ROS
+distribution. For example, if running ROS Noetic or ROS 2 Galactic, the Create® 3 base should
+be on the latest <code class="docutils literal notranslate"><span class="pre">G.X.X</span></code> release. If running ROS 2 Humble, the Create® 3 base should be on
+the latest <code class="docutils literal notranslate"><span class="pre">H.X.X</span></code> release. See the <a class="reference external" href="https://iroboteducation.github.io/create3_docs/releases/overview/" rel="noopener noreferrer" target="_blank">iRobot® Create® 3 Releases</a> page for more information.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="less-common-issues">
@@ -255,11 +278,11 @@ beta feature, it may not be stable and improper use may result in an inoperable 
 <div class="section" id="can-t-see-echo-topics-published-by-locobot-on-remote-using-ros-1">
 <span id="troubleshooting-cant-read-topics-label"></span><h3>Can't see/echo topics published by LoCoBot on remote using ROS 1<a class="headerlink" href="#can-t-see-echo-topics-published-by-locobot-on-remote-using-ros-1" title="Permalink to this headline"></a></h3>
 <p>Your network may be configured incorrectly. See the <a class="reference external" href="http://wiki.ros.org/ROS/Tutorials/MultipleMachines" rel="noopener noreferrer" target="_blank">ROS Multiple Machines Tutorial</a> and the <a class="reference external" href="http://wiki.ros.org/ROS/NetworkSetup" rel="noopener noreferrer" target="_blank">ROS
-Network Setup Tutorial</a>. This may be as simple as changing the value of the <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> environment
-variable. For example, your <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> may be set to the value of the IP assigned in the connection
-to the Create® 3 base via the Ethernet connection, <code class="docutils literal notranslate"><span class="pre">192.168.186.3</span></code>. To fix this, you can
-explicitly assign the variable to the IP assigned in the connection to the wireless network through
-the following steps:</p>
+Network Setup Tutorial</a>.</p>
+<p>This may be as simple as changing the value of the <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> environment variable. For example,
+your <code class="docutils literal notranslate"><span class="pre">ROS_IP</span></code> may be set to the value of the IP assigned in the connection to the Create® 3 base
+via the Ethernet connection, <code class="docutils literal notranslate"><span class="pre">192.168.186.3</span></code>. To fix this, you can explicitly assign the variable
+to the IP assigned in the connection to the wireless network through the following steps:</p>
 <ol class="arabic">
 <li><p class="first">Find all IP addresses assigned to your LoCoBot computer. You should get two addresses: one for
 the connection over the Ethernet network, and one for the connection over the wireless network.</p>

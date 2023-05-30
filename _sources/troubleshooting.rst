@@ -59,6 +59,27 @@ configuration, this will be at ``192.168.186.2/ros-config``, assuming that the C
 on. See the :doc:`Create® 3 Configuration page<../getting_started/create3_configuration>` for more
 information.
 
+Create® 3 base not responding to commands, can't see topics or webserver from LoCoBot computer (ROS 1 or ROS 2)
+---------------------------------------------------------------------------------------------------------------
+
+*   Check that the base's `adapter board`_ is fully plugged in and that the switch is set to USB
+    mode.
+*   Check that the base's USB-to-Ethernet adapter and Ethernet cable are fully plugged in.
+*   Check that the base is powered on.
+*   Check that you can ping the base from the LoCoBot's computer.
+
+    .. code-block:: console
+
+        $ ping 192.168.186.2
+
+*   Check that your Create® 3 base is running the latest firmware for the LoCoBot computer's ROS
+    distribution. For example, if running ROS Noetic or ROS 2 Galactic, the Create® 3 base should
+    be on the latest ``G.X.X`` release. If running ROS 2 Humble, the Create® 3 base should be on
+    the latest ``H.X.X`` release. See the `iRobot® Create® 3 Releases`_ page for more information.
+
+.. _`adapter board`: https://iroboteducation.github.io/create3_docs/hw/adapter/
+.. _`iRobot® Create® 3 Releases`: https://iroboteducation.github.io/create3_docs/releases/overview/
+
 Less Common Issues
 ==================
 
@@ -164,11 +185,12 @@ Can't see/echo topics published by LoCoBot on remote using ROS 1
 ----------------------------------------------------------------
 
 Your network may be configured incorrectly. See the `ROS Multiple Machines Tutorial`_ and the `ROS
-Network Setup Tutorial`_. This may be as simple as changing the value of the ``ROS_IP`` environment
-variable. For example, your ``ROS_IP`` may be set to the value of the IP assigned in the connection
-to the Create® 3 base via the Ethernet connection, ``192.168.186.3``. To fix this, you can
-explicitly assign the variable to the IP assigned in the connection to the wireless network through
-the following steps:
+Network Setup Tutorial`_.
+
+This may be as simple as changing the value of the ``ROS_IP`` environment variable. For example,
+your ``ROS_IP`` may be set to the value of the IP assigned in the connection to the Create® 3 base
+via the Ethernet connection, ``192.168.186.3``. To fix this, you can explicitly assign the variable
+to the IP assigned in the connection to the wireless network through the following steps:
 
 1.  Find all IP addresses assigned to your LoCoBot computer. You should get two addresses: one for
     the connection over the Ethernet network, and one for the connection over the wireless network.
