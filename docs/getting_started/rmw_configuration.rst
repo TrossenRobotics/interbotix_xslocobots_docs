@@ -28,6 +28,12 @@ The ROS 2 Interface uses ``rmw_fastrtps_cpp`` as its RMW and the `Fast-DDS Disco
 Create® 3
 ---------
 
+.. note::
+
+    These modifications are done by Trossen Robotics and the user does not have to worry about
+    modifying these unless they are setting up a robot themselves, or if they are dealing with a
+    unique network setup.
+
 The Create® 3 has the following modifications:
 
 *   RMW_IMPLEMENTATION is set to ``rmw_fastrtps_cpp``.
