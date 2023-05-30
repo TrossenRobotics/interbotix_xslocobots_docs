@@ -59,6 +59,27 @@ configuration, this will be at ``192.168.186.2/ros-config``, assuming that the C
 on. See the :doc:`Create® 3 Configuration page<../getting_started/create3_configuration>` for more
 information.
 
+Create® 3 base not responding to commands, can't see topics or webserver from LoCoBot computer (ROS 1 or ROS 2)
+---------------------------------------------------------------------------------------------------------------
+
+*   Check that the base's `adapter board`_ is fully plugged in and that the switch is set to USB
+    mode.
+*   Check that the base's USB-to-Ethernet adapter and Ethernet cable are fully plugged in.
+*   Check that the base is powered on.
+*   Check that you can ping the base from the LoCoBot's computer.
+
+    .. code-block:: console
+
+        $ ping 192.168.186.2
+
+*   Check that your Create® 3 base is running the latest firmware for the LoCoBot computer's ROS
+    distribution. For example, if running ROS Noetic or ROS 2 Galactic, the Create® 3 base should
+    be on the latest ``G.X.X`` release. If running ROS 2 Humble, the Create® 3 base should be on
+    the latest ``H.X.X`` release. See the `iRobot® Create® 3 Releases`_ page for more information.
+
+.. _`adapter board`: https://iroboteducation.github.io/create3_docs/hw/adapter/
+.. _`iRobot® Create® 3 Releases`: https://iroboteducation.github.io/create3_docs/releases/overview/
+
 Less Common Issues
 ==================
 
