@@ -206,7 +206,7 @@ type the following in another terminal...</p>
 Make sure there is nothing in the robot's path before running it.</p>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>create<span class="w"> </span><span class="m">3</span>
-<span class="gp">$ </span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/locobot/mobile_base/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s1">&#39;{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}&#39;</span>
+<span class="gp">$ </span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/locobot/mobile_base/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s1">&#39;{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}&#39;</span>
 </pre></div>
 </div>
 </li>
