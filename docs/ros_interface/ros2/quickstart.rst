@@ -94,7 +94,7 @@ This guide is intended to get the user familiar with the basic functions and int
     .. code-block:: console
 
         # create 3
-        $ ros2 topic pub /locobot/mobile_base/cmd_vel geometry_msgs/Twist '{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'
+        $ ros2 topic pub --once /locobot/mobile_base/cmd_vel geometry_msgs/Twist '{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'
 
 9.  You can stop the base's movement at any time by pressing :kbd:`Ctrl` + :kbd:`C` the publisher's
     terminal.
