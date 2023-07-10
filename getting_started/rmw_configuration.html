@@ -85,16 +85,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#locobot-computer">LoCoBot Computer</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#rmw-implementation-environment-variable"><code class="docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> Environment Variable</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#ros-discovery-server-environment-variable"><code class="docutils literal notranslate"><span class="pre">ROS_DISCOVERY_SERVER</span></code> Environment Variable</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#fast-dds-super-client-xml-configuration-file">Fast-DDS Super Client XML Configuration File</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fast-dds-super-client-xml-configuration-file">Fast DDS Super Client XML Configuration File</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#fastrtps-default-profiles-file-environment-variable"><code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> Environment Variable</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#ip-forwarding-enabled">IP Forwarding Enabled</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#fast-dds-discovery-server-service">Fast-DDS Discovery Server Service</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fast-dds-discovery-server-service">Fast DDS Discovery Server Service</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#remote-computer">Remote Computer</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> Environment Variable</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">ROS_DISCOVERY_SERVER</span></code> Environment Variable</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id3">Fast-DDS Super Client XML Configuration File</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id3">Fast DDS Super Client XML Configuration File</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> Environment Variable</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#ip-routing-service">IP Routing Service</a></li>
 </ul>
@@ -154,7 +154,7 @@ from the Create® 3.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">This guide assumes that you have run the <a class="reference internal" href="../ros_interface/ros2/software_setup.html"><span class="doc">ROS 2 Software Setup</span></a> for both your LoCoBot and remote computers.</p>
 </div>
-<p>The ROS 2 Interface uses <code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code> as its RMW and the <a class="reference external" href="https://docs.ros.org/en/humble/Tutorials/Advanced/Discovery-Server/Discovery-Server.html" rel="noopener noreferrer" target="_blank">Fast-DDS Discovery Server</a>.</p>
+<p>The ROS 2 Interface uses <code class="docutils literal notranslate"><span class="pre">rmw_fastrtps_cpp</span></code> as its RMW and the <a class="reference external" href="https://docs.ros.org/en/humble/Tutorials/Advanced/Discovery-Server/Discovery-Server.html" rel="noopener noreferrer" target="_blank">Fast DDS Discovery Server</a>.</p>
 <div class="section" id="create-3">
 <h3>Create® 3<a class="headerlink" href="#create-3" title="Permalink to this headline"></a></h3>
 <div class="admonition note">
@@ -200,7 +200,7 @@ address using port <code class="docutils literal notranslate"><span class="pre">
 </div></blockquote>
 </div>
 <div class="section" id="fast-dds-super-client-xml-configuration-file">
-<h4>Fast-DDS Super Client XML Configuration File<a class="headerlink" href="#fast-dds-super-client-xml-configuration-file" title="Permalink to this headline"></a></h4>
+<h4>Fast DDS Super Client XML Configuration File<a class="headerlink" href="#fast-dds-super-client-xml-configuration-file" title="Permalink to this headline"></a></h4>
 <p>All participants are configured to act as a Super Client via the XML configuration file, setting
 the UDP locator to address <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> and port <code class="docutils literal notranslate"><span class="pre">11811</span></code>.</p>
 <blockquote>
@@ -236,7 +236,7 @@ the UDP locator to address <code class="docutils literal notranslate"><span clas
 </div>
 <div class="section" id="fastrtps-default-profiles-file-environment-variable">
 <h4><code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> Environment Variable<a class="headerlink" href="#fastrtps-default-profiles-file-environment-variable" title="Permalink to this headline"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> environment variable is set to the location of the Fast-DDS
+<p>The <code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> environment variable is set to the location of the Fast DDS
 XML configuration file. By default, this is at
 <code class="docutils literal notranslate"><span class="pre">~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml</span></code>.</p>
 <blockquote>
@@ -257,8 +257,8 @@ net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
 </div></blockquote>
 </div>
 <div class="section" id="fast-dds-discovery-server-service">
-<h4>Fast-DDS Discovery Server Service<a class="headerlink" href="#fast-dds-discovery-server-service" title="Permalink to this headline"></a></h4>
-<p>Fast-DDS Discovery Server running as service <code class="docutils literal notranslate"><span class="pre">fastdds_disc_server.service</span></code> at startup.</p>
+<h4>Fast DDS Discovery Server Service<a class="headerlink" href="#fast-dds-discovery-server-service" title="Permalink to this headline"></a></h4>
+<p>Fast DDS Discovery Server running as service <code class="docutils literal notranslate"><span class="pre">fastdds_disc_server.service</span></code> at startup.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">source</span><span class="w"> </span>/opt/ros/<span class="si">${</span><span class="nv">ROS_DISTRO</span><span class="si">}</span>/setup.bash
@@ -318,7 +318,7 @@ Main<span class="w"> </span>PID:<span class="w"> </span><span class="m">1393</sp
 </div></blockquote>
 </div>
 <div class="section" id="id3">
-<h4>Fast-DDS Super Client XML Configuration File<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h4>
+<h4>Fast DDS Super Client XML Configuration File<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h4>
 <p>All participants are configured to act as a Super Client via the XML configuration file, setting
 the UDP locator to the address of the LoCoBot's LoCoBot's wireless network interface's IP address,
 <code class="docutils literal notranslate"><span class="pre">${LOCOBOT_IP}</span></code>, and port <code class="docutils literal notranslate"><span class="pre">11811</span></code>.</p>
@@ -355,7 +355,7 @@ the UDP locator to the address of the LoCoBot's LoCoBot's wireless network inter
 </div>
 <div class="section" id="id4">
 <h4><code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> Environment Variable<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> environment variable is set to the location of the Fast-DDS
+<p>The <code class="docutils literal notranslate"><span class="pre">FASTRTPS_DEFAULT_PROFILES_FILE</span></code> environment variable is set to the location of the Fast DDS
 XML configuration file. By default, this is
 <code class="docutils literal notranslate"><span class="pre">~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml</span></code>.</p>
 <blockquote>
