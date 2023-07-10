@@ -22,8 +22,10 @@ ROS 2 Interface & Create® 3
     <../ros_interface/ros2/software_setup>` for both your LoCoBot and remote computers.
 
 The ROS 2 Interface uses ``rmw_fastrtps_cpp`` as its RMW and the `Fast DDS Discovery Server`_.
+See iRobot's guide on `Fast DDS Discovery Server configuration`_ for more information.
 
 .. _`Fast DDS Discovery Server`: https://docs.ros.org/en/humble/Tutorials/Advanced/Discovery-Server/Discovery-Server.html
+.. _`Fast DDS Discovery Server configuration`: https://iroboteducation.github.io/create3_docs/setup/discovery-server/
 
 Create® 3
 ---------
