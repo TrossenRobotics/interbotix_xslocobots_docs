@@ -21,9 +21,9 @@ ROS 2 Interface & Create® 3
     This guide assumes that you have run the :doc:`ROS 2 Software Setup
     <../ros_interface/ros2/software_setup>` for both your LoCoBot and remote computers.
 
-The ROS 2 Interface uses ``rmw_fastrtps_cpp`` as its RMW and the `Fast-DDS Discovery Server`_.
+The ROS 2 Interface uses ``rmw_fastrtps_cpp`` as its RMW and the `Fast DDS Discovery Server`_.
 
-.. _`Fast-DDS Discovery Server`: https://docs.ros.org/en/humble/Tutorials/Advanced/Discovery-Server/Discovery-Server.html
+.. _`Fast DDS Discovery Server`: https://docs.ros.org/en/humble/Tutorials/Advanced/Discovery-Server/Discovery-Server.html
 
 Create® 3
 ---------
@@ -73,7 +73,7 @@ address using port ``11811``.
 
         export ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
-Fast-DDS Super Client XML Configuration File
+Fast DDS Super Client XML Configuration File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All participants are configured to act as a Super Client via the XML configuration file, setting
@@ -111,7 +111,7 @@ the UDP locator to address ``127.0.0.1`` and port ``11811``.
 ``FASTRTPS_DEFAULT_PROFILES_FILE`` Environment Variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``FASTRTPS_DEFAULT_PROFILES_FILE`` environment variable is set to the location of the Fast-DDS
+The ``FASTRTPS_DEFAULT_PROFILES_FILE`` environment variable is set to the location of the Fast DDS
 XML configuration file. By default, this is at
 ``~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml``.
 
@@ -130,10 +130,10 @@ guide`_ on IP forwarding from OpenVPN for more information.
         # Uncomment the next line to enable packet forwarding for IPv4
         net.ipv4.ip_forward=1
 
-Fast-DDS Discovery Server Service
+Fast DDS Discovery Server Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Fast-DDS Discovery Server running as service ``fastdds_disc_server.service`` at startup.
+Fast DDS Discovery Server running as service ``fastdds_disc_server.service`` at startup.
 
     .. code-block:: bash
 
@@ -194,7 +194,7 @@ The ``ROS_DISCOVERY_SERVER`` environment variable is set to the LoCoBot's IP add
 
         export ROS_DISCOVERY_SERVER=${LOCOBOT_IP}:11811
 
-Fast-DDS Super Client XML Configuration File
+Fast DDS Super Client XML Configuration File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All participants are configured to act as a Super Client via the XML configuration file, setting
@@ -233,7 +233,7 @@ the UDP locator to the address of the LoCoBot's LoCoBot's wireless network inter
 ``FASTRTPS_DEFAULT_PROFILES_FILE`` Environment Variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``FASTRTPS_DEFAULT_PROFILES_FILE`` environment variable is set to the location of the Fast-DDS
+The ``FASTRTPS_DEFAULT_PROFILES_FILE`` environment variable is set to the location of the Fast DDS
 XML configuration file. By default, this is
 ``~/interbotix_ws/src/interbotix_ros_rovers/interbotix_ros_xslocobots/install/resources/super_client_configuration_file.xml``.
 
