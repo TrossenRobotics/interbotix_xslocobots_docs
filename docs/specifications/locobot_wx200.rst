@@ -37,4 +37,4 @@ Manipulator
 
 For more detailed information about the WidowX-200, see `its documentation`_.
 
-.. _`its documentation`: https://www.trossenrobotics.com/docs/interbotix_xsarms/specifications/wx200.html
+.. _`its documentation`: https://docs.trossenrobotics.com/interbotix_xsarms_docs/specifications/wx200.html

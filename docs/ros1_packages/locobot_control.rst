@@ -102,7 +102,7 @@ terminal on your remote and type...
 Note that in order for this to work, you must first run the `remote installation`_ script on your
 remote computer.
 
-.. _`remote installation`: https://www.trossenrobotics.com/docs/interbotix_xslocobots/ros_interface/software_setup.html#remote-install
+.. _`remote installation`: https://docs.trossenrobotics.com/interbotix_xslocobots_docs/ros_interface/ros1/software_setup.html#remote-install
 
 To further customize the launch file at run-time, refer to the table below.
 

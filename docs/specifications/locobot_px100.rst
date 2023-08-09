@@ -37,4 +37,4 @@ Manipulator
 
 For more detailed information about the PincherX-100, see `its documentation`_.
 
-.. _`its documentation`: https://www.trossenrobotics.com/docs/interbotix_xsarms/specifications/px100.html
+.. _`its documentation`: https://docs.trossenrobotics.com/interbotix_xsarms_docs/specifications/px100.html

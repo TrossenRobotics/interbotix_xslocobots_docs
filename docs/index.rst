@@ -23,15 +23,15 @@ to provide a platform to research facilities, university classrooms, and laborat
       - ``locobot_base``
     * - `LoCoBot PX100 <https://www.trossenrobotics.com/locobot-px100.aspx>`_
       - :doc:`LoCoBot PX100 Documentation <./specifications/locobot_px100>`
-      - `PincherX-100 Documentation <https://www.trossenrobotics.com/docs/interbotix_xsarms/specifications/px100.html>`_
+      - `PincherX-100 Documentation <https://docs.trossenrobotics.com/interbotix_xsarms_docs/specifications/px100.html>`_
       - ``locobot_px100``
     * - `LoCoBot WX200 <https://www.trossenrobotics.com/locobot-wx200.aspx>`_
       - :doc:`LoCoBot WX200 Documentation <./specifications/locobot_wx200>`
-      - `WidowX-200 Documentation <https://www.trossenrobotics.com/docs/interbotix_xsarms/specifications/wx200.html>`_
+      - `WidowX-200 Documentation <https://docs.trossenrobotics.com/interbotix_xsarms_docs/specifications/wx200.html>`_
       - ``locobot_wx200``
     * - `LoCoBot WX250 6DOF <https://www.trossenrobotics.com/locobot-wx250-6-degree-of-freedom.aspx>`_
       - :doc:`LoCoBot WX250 6DOF Documentation <./specifications/locobot_wx250s>`
-      - `WidowX-250 6DOF Documentation <https://www.trossenrobotics.com/docs/interbotix_xsarms/specifications/wx250s.html>`_
+      - `WidowX-250 6DOF Documentation <https://docs.trossenrobotics.com/interbotix_xsarms_docs/specifications/wx250s.html>`_
       - ``locobot_wx250s``
 
 What's Here
