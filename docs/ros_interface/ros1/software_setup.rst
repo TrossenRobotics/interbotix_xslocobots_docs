@@ -176,8 +176,8 @@ of running the installation script for ROS 1 Noetic and a Create® 3 base.
 
 .. note::
 
-    ROS and RViz must already be installed on your local machine for the remote install to be
-    successful.
+    ROS, RViz, and rosdep must already be installed on your local machine for the remote install to
+    be successful.
 
 .. code-block:: console
 

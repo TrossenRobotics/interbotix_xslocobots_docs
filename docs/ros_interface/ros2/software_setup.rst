@@ -174,8 +174,8 @@ installation script for ROS 2 Galactic and a Create® 3 base.
 
 .. note::
 
-    ROS 2 and RViz must already be installed on your local machine for the remote install to be
-    successful.
+    ROS 2, RViz, and rosdep must already be installed on your local machine for the remote install
+    to be successful.
 
 .. code-block:: console
 
