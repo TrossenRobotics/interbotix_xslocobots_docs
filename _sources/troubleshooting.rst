@@ -266,3 +266,11 @@ roslaunch to delay the launch until a roscore is detected.
 
     $ roslaunch interbotix_xslocobot_descriptions remote_view.launch --wait
     #                                                                ^^^^^^
+
+LiDAR not found (no ``/dev/rplidar`` created)
+---------------------------------------------
+
+Check that the cables are plugged into the right ports:
+
+-   The power cable should be plugged into one of the USB ports on the battery.
+-   The data (short micro USB) cable should be plugged directly into the NUC.
