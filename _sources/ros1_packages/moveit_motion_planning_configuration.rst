@@ -69,7 +69,7 @@ To visualize the robot on a remote computer, open a terminal on the remote and t
 
 .. code-block:: console
 
-    $ roslaunch interbotix_xslocobot_moveit moveit_rviz.launch robot_name:=locobot_wx250s config:=true __ns:=locobot_wx250s
+    $ roslaunch interbotix_xslocobot_moveit moveit_rviz.launch robot_name:=locobot config:=true
 
 .. note::
 
