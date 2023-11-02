@@ -26,4 +26,4 @@ get familiar with some of the basic features of the X-Series LoCoBot packages.
 
     ros1/software_setup.rst
     ros1/quickstart.rst
-    ros1/config.rst
+.. ros1/config.rst
