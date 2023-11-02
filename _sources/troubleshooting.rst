@@ -80,6 +80,32 @@ Create® 3 base not responding to commands, can't see topics or webserver from L
 .. _`adapter board`: https://iroboteducation.github.io/create3_docs/hw/adapter/
 .. _`iRobot® Create® 3 Releases`: https://iroboteducation.github.io/create3_docs/releases/overview/
 
+You want to reset the Create® 3 base's odometry but don't want to power cycle it
+--------------------------------------------------------------------------------
+
+The Create® 3 base's odometry is reset only when it is power cycled. To reset the odometry without
+power cycling the base, you can use the ``ros2 service call`` command line tool to call the
+``reset_pose`` service.
+
+.. tabs::
+
+    .. group-tab:: ROS 1
+
+        The ROS 2 distribution and Create® 3 messages workspace must be sources first since the
+        service is only available in ROS 2.
+
+        .. code-block:: console
+
+            $ source /opt/ros/galactic/setup.bash
+            $ source ~/create3_ros2_ws/install/setup.bash
+            $ ros2 service call /mobile_base/reset_pose irobot_create_msgs/srv/ResetPose {}
+
+    .. group-tab:: ROS 2
+
+        .. code-block:: console
+
+            $ ros2 service call /mobile_base/reset_pose irobot_create_msgs/srv/ResetPose {}
+
 Less Common Issues
 ==================
 

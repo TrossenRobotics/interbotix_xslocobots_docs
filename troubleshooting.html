@@ -22,6 +22,7 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
+        <script src="_static/tabs.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -82,6 +83,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#can-t-see-topics-published-by-locobot-on-remote-using-ros-2">Can't see topics published by LoCoBot on remote using ROS 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-3-base-stutters-or-reflexed-are-triggered-when-driven">Create® 3 base stutters or reflexed are triggered when driven</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-3-base-not-responding-to-commands-can-t-see-topics-or-webserver-from-locobot-computer-ros-1-or-ros-2">Create® 3 base not responding to commands, can't see topics or webserver from LoCoBot computer (ROS 1 or ROS 2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#you-want-to-reset-the-create-3-base-s-odometry-but-don-t-want-to-power-cycle-it">You want to reset the Create® 3 base's odometry but don't want to power cycle it</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#less-common-issues">Less Common Issues</a><ul>
@@ -190,6 +192,24 @@ be on the latest <code class="docutils literal notranslate"><span class="pre">G.
 the latest <code class="docutils literal notranslate"><span class="pre">H.X.X</span></code> release. See the <a class="reference external" href="https://iroboteducation.github.io/create3_docs/releases/overview/" rel="noopener noreferrer" target="_blank">iRobot® Create® 3 Releases</a> page for more information.</p>
 </li>
 </ul>
+</div>
+<div class="section" id="you-want-to-reset-the-create-3-base-s-odometry-but-don-t-want-to-power-cycle-it">
+<h3>You want to reset the Create® 3 base's odometry but don't want to power cycle it<a class="headerlink" href="#you-want-to-reset-the-create-3-base-s-odometry-but-don-t-want-to-power-cycle-it" title="Permalink to this headline"></a></h3>
+<p>The Create® 3 base's odometry is reset only when it is power cycled. To reset the odometry without
+power cycling the base, you can use the <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">service</span> <span class="pre">call</span></code> command line tool to call the
+<code class="docutils literal notranslate"><span class="pre">reset_pose</span></code> service.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Uk9TIDE=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Uk9TIDE=" name="Uk9TIDE=" role="tab" tabindex="0">ROS 1</button><button aria-controls="panel-0-Uk9TIDI=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Uk9TIDI=" name="Uk9TIDI=" role="tab" tabindex="-1">ROS 2</button></div><div aria-labelledby="tab-0-Uk9TIDE=" class="sphinx-tabs-panel group-tab" id="panel-0-Uk9TIDE=" name="Uk9TIDE=" role="tabpanel" tabindex="0"><p>The ROS 2 distribution and Create® 3 messages workspace must be sources first since the
+service is only available in ROS 2.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/opt/ros/galactic/setup.bash
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>~/create3_ros2_ws/install/setup.bash
+<span class="gp">$ </span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/mobile_base/reset_pose<span class="w"> </span>irobot_create_msgs/srv/ResetPose<span class="w"> </span><span class="o">{}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Uk9TIDI=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Uk9TIDI=" name="Uk9TIDI=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/mobile_base/reset_pose<span class="w"> </span>irobot_create_msgs/srv/ResetPose<span class="w"> </span><span class="o">{}</span>
+</pre></div>
+</div>
+</div></div>
 </div>
 </div>
 <div class="section" id="less-common-issues">
