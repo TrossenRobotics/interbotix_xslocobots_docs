@@ -7,7 +7,7 @@ Landmark-Based Navigation
     <a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_landmark_nav"
         class="docs-view-on-github-button"
         target="_blank">
-        <img src="../_static/GitHub-Mark-Light-32px.png"
+        <img src="../../_static/GitHub-Mark-Light-32px.png"
             class="docs-view-on-github-button-gh-logo">
         View Package on GitHub
     </a>
@@ -17,7 +17,47 @@ Overview
 
 This package builds on top of the `interbotix_xslocobot_nav`, `interbotix_landmark_modules`, and
 `interbotix_perception_modules` packages to provide a method to traverse the map towards points of
-interest (landmarks) marked by AprilTags.
+interest (landmarks) marked by AprilTags. You are provided a set of AprilTag including the ones
+below with their corresponding descriptions:
+
+.. list-table::
+    :align: center
+    :header-rows: 1
+
+    * - Tag Image
+      - Tag ID
+      - Description
+
+    * - .. raw:: html
+
+          <object data="../_static/tag5.svg" type="image/svg+xml"/>
+
+      - 5
+      - Face w/ Two Eyes
+    * - .. raw:: html
+
+          <object data="../_static/tag413.svg" type="image/svg+xml"/>
+
+      - 413
+      - Up Arrow
+    * - .. raw:: html
+
+          <object data="../_static/tag820.svg" type="image/svg+xml"/>
+
+      - 820
+      - Face w/ One Eye
+    * - .. raw:: html
+
+          <object data="../_static/tag875.svg" type="image/svg+xml"/>
+
+      - 875
+      - U
+    * - .. raw:: html
+
+          <object data="../_static/tag1050.svg" type="image/svg+xml"/>
+
+      - 1050
+      - Face w/ No Eyes
 
 Structure
 =========
