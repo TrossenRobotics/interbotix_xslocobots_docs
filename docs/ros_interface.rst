@@ -11,7 +11,7 @@ supported distributions (either ROS 1 or ROS 2) to learn more about each ROS Int
         <a href="./ros_interface/ros1.html">
             <h2 class="ros-distros-links-titles">Supported ROS 1 Distributions</h2>
             <div class="ros-distros-links">
-                <img alt="ROS 1 Melodic" src="_static/melodic.png" title="ROS 1 Melodic" height="220" />
+                <!-- <img alt="ROS 1 Melodic" src="_static/melodic.png" title="ROS 1 Melodic" height="220" /> -->
                 <img alt="ROS 1 Noetic" src="_static/noetic.png" title="ROS 1 Noetic" height="220" />
             </div>
         </a>
