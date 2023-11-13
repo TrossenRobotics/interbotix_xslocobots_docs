@@ -7,7 +7,7 @@ Landmark-Based Navigation
     <a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_landmark_nav"
         class="docs-view-on-github-button"
         target="_blank">
-        <img src="../../_static/GitHub-Mark-Light-32px.png"
+        <img src="../_static/GitHub-Mark-Light-32px.png"
             class="docs-view-on-github-button-gh-logo">
         View Package on GitHub
     </a>
@@ -59,6 +59,23 @@ below with their corresponding descriptions:
       - 1050
       - Face w/ No Eyes
 
+
+.. note::
+
+    The orientation of the tag is important.
+    The tag coordinate system is defined as follows:
+
+    -   The origin is at the center of the tag
+    -   The x-axis points to the right
+    -   The y-axis points down
+    -   The z-axis points out of the tag
+
+    This coordinate system affects how the LoCoBot will navigate to the landmarks. When placed on
+    the floor, the robot will navigate to the tag such that it is in-line with the tag's x-axis.
+    When mounted, the robot will turn to face the tag's x-axis (if it can). As such, the AprilTags
+    should be mounted in the orientation shown above for consistency with the landmark application
+    stack.
+
 Structure
 =========
 
@@ -106,8 +123,11 @@ tool, run the following command on the robot computer:
     :align: center
 
 The tool presents a command line application to manage landmarks. From the set of valid tag ids,
-you can choose any of them to label and set a ``mounted_offset``. The ``mounted_offset`` is the
-distance away from the wall that the robot should navigate to if a tag is mounted to it.
+you can choose any of them to label and set a ``mounted_offset`` and ``rotation_offset``. The
+``mounted_offset`` is the distance away from the wall that the robot should navigate to if a tag is
+mounted to it. The ``rotation_offset`` is the angle (in radians) that the robot should turn
+counter-clockwise relative to facing the tag (if mounted), or relative to the tag's x-axis (if on
+the floor).
 
 .. note::
 
@@ -156,7 +176,8 @@ the robot computer:
     $ roslaunch interbotix_xslocobot_landmark_nav xslocobot_landmark_nav.launch robot_model:=locobot_px100 localization:=true
 
 This will launch the navigation stack, as well as a command line application in a new terminal.
-This application simply displays the active landmarks and asks you to choose one to navigate to.
+This application simply displays the active landmarks and asks you to choose the ID of the one you
+would like to navigate to.
 
 .. image:: images/nav_to_landmark.png
     :width: 70%
