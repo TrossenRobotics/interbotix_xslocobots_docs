@@ -138,7 +138,7 @@
 <a href="https://github.com/Interbotix/interbotix_ros_rovers/tree/main/interbotix_ros_xslocobots/examples/interbotix_xslocobot_landmark_nav"
     class="docs-view-on-github-button"
     target="_blank">
-    <img src="../../_static/GitHub-Mark-Light-32px.png"
+    <img src="../_static/GitHub-Mark-Light-32px.png"
         class="docs-view-on-github-button-gh-logo">
     View Package on GitHub
 </a><div class="section" id="overview">
@@ -182,6 +182,22 @@ below with their corresponding descriptions:</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The orientation of the tag is important.
+The tag coordinate system is defined as follows:</p>
+<ul class="simple">
+<li>The origin is at the center of the tag</li>
+<li>The x-axis points to the right</li>
+<li>The y-axis points down</li>
+<li>The z-axis points out of the tag</li>
+</ul>
+<p class="last">This coordinate system affects how the LoCoBot will navigate to the landmarks. When placed on
+the floor, the robot will navigate to the tag such that it is in-line with the tag's x-axis.
+When mounted, the robot will turn to face the tag's x-axis (if it can). As such, the AprilTags
+should be mounted in the orientation shown above for consistency with the landmark application
+stack.</p>
+</div>
 </div>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
@@ -219,8 +235,11 @@ tool, run the following command on the robot computer:</p>
 </div>
 <img alt="../_images/landmark_manager.png" class="align-center" src="../_images/landmark_manager.png" style="width: 70%;" />
 <p>The tool presents a command line application to manage landmarks. From the set of valid tag ids,
-you can choose any of them to label and set a <code class="docutils literal notranslate"><span class="pre">mounted_offset</span></code>. The <code class="docutils literal notranslate"><span class="pre">mounted_offset</span></code> is the
-distance away from the wall that the robot should navigate to if a tag is mounted to it.</p>
+you can choose any of them to label and set a <code class="docutils literal notranslate"><span class="pre">mounted_offset</span></code> and <code class="docutils literal notranslate"><span class="pre">rotation_offset</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">mounted_offset</span></code> is the distance away from the wall that the robot should navigate to if a tag is
+mounted to it. The <code class="docutils literal notranslate"><span class="pre">rotation_offset</span></code> is the angle (in radians) that the robot should turn
+counter-clockwise relative to facing the tag (if mounted), or relative to the tag's x-axis (if on
+the floor).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Tags with an assigned landmark are in parentheses. Launch options for the
@@ -257,7 +276,8 @@ the robot computer:</p>
 </pre></div>
 </div>
 <p>This will launch the navigation stack, as well as a command line application in a new terminal.
-This application simply displays the active landmarks and asks you to choose one to navigate to.</p>
+This application simply displays the active landmarks and asks you to choose the ID of the one you
+would like to navigate to.</p>
 <img alt="../_images/nav_to_landmark.png" class="align-center" src="../_images/nav_to_landmark.png" style="width: 70%;" />
 <p>Once selected, the application will send a pose goal to the <strong>move_base</strong> node where it will then
 drive the robot to the location.</p>
