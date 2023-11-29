@@ -104,7 +104,7 @@ power cycling the base, you can use the ``ros2 service call`` command line tool 
 
         .. code-block:: console
 
-            $ ros2 service call /mobile_base/reset_pose irobot_create_msgs/srv/ResetPose {}
+            $ ros2 service call /locobot/mobile_base/reset_pose irobot_create_msgs/srv/ResetPose {}
 
 Less Common Issues
 ==================
