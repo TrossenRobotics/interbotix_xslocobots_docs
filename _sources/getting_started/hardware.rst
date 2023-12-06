@@ -12,8 +12,24 @@ hardware.
     :align: center
     :width: 70%
 
-1.  Grab the base of your LoCoBot, the second largest Allen key provided, three M5x12mm screws, and
-    the three black extruded aluminum bars.
+1.  If using the Create® 3 base version, the Ethernet cable from the its board must be plugged into the computer.
+    Untape the cable from the base, feed it through the slot on the cover plate, through the rear of the robot, and plug it into the computer.
+
+.. container:: no-table
+
+    .. list-table::
+        :widths: 25 25 25 25
+
+        * - .. image:: images/create3_ethernet_untape.png
+                :width: 100%
+          - .. image:: images/create3_ethernet_through_base.png
+                :width: 100%
+          - .. image:: images/create3_ethernet_through_rear.png
+                :width: 100%
+          - .. image:: images/create3_ethernet_nuc.png
+                :width: 100%
+
+1.  Grab the base of your LoCoBot, the second largest Allen key provided, three M5x12mm screws, and the three black extruded aluminum bars.
 
 .. container:: no-table
 
@@ -30,8 +46,7 @@ hardware.
                 :width: 100%
 
 2.  Find the three holes on the back of the base plate and begin screwing in the aluminum bars.
-    Make sure to leave a bit of slack to allow for easy assembly of the sensor tower in the next
-    step.
+    Make sure to leave a bit of slack to allow for easy assembly of the sensor tower in the next step.
 
 .. container:: no-table
 
@@ -63,8 +78,8 @@ hardware.
     :align: center
     :width: 70%
 
-6.  Using three more M5x12mm screws, secure the sensor tower to the aluminum bars. Make sure to
-    tighten the screws in the base as well.
+6.  Using three more M5x12mm screws, secure the sensor tower to the aluminum bars.
+    Make sure to tighten the screws in the base as well.
 
 .. container:: no-table
 
@@ -90,16 +105,15 @@ hardware.
     :align: center
     :width: 70%
 
-9.  Run the cable down the front channel on the top right aluminum bar. Clip the cable to the front
-    of the bar.
+9.  Run the cable down the front channel on the top right aluminum bar.
+    Clip the cable to the front of the bar.
 
 .. image:: images/bracket_top_sensor_tower.png
     :align: center
     :width: 70%
 
-10. Continue running the cable down the back channel of the right aluminum bar. Clip the USB
-    adapter to the middle of the bar and the rest of the cable to
-    the bottom of the bar.
+10. Continue running the cable down the back channel of the right aluminum bar.
+    Clip the USB adapter to the middle of the bar and the rest of the cable to the bottom of the bar.
 
 .. image:: images/wire_down_bar.png
     :align: center
@@ -117,8 +131,7 @@ hardware.
     :align: center
     :width: 70%
 
-13. Wrap the lidar's thinner power cable around the back of the LoCoBot's base and insert it into
-    the 2.1A port on the left side of the battery.
+13. Wrap the lidar's thinner power cable around the back of the LoCoBot's base and insert it into the 2.1A port on the left side of the battery.
 
 .. container:: no-table
 
@@ -142,8 +155,7 @@ hardware.
     :align: center
     :width: 70%
 
-16. The braided servo cable goes down the inside channel and down through the inside tower base
-    cutout.
+16. The braided servo cable goes down the inside channel and down through the inside tower base cutout.
 
 .. image:: images/run_braided_servo_cable.png
     :align: center
@@ -173,8 +185,7 @@ hardware.
           - .. image:: images/bracket_placement_lower.png
                 :width: 100%
 
-19. Take the braided servo cable and insert it into any of the open ports on the power hub located
-    on the left side of the LoCoBot.
+19. Take the braided servo cable and insert it into any of the open ports on the power hub located on the left side of the LoCoBot.
 
 .. image:: images/servo_cable_in_power_hub.png
     :align: center
@@ -186,8 +197,7 @@ hardware.
     :align: center
     :width: 70%
 
-21. Your LoCoBot is now fully assembled. You can proceed to the :doc:`Basic Usage Guide
-    <./user_guide>`, or the :doc:`ROS Interface Guides <../ros_interface>`.
+21. Your LoCoBot is now fully assembled. You can proceed to the :doc:`Basic Usage Guide <./user_guide>`, or the :doc:`ROS Interface Guides <../ros_interface>`.
 
 Video Tutorials
 ===============
@@ -207,5 +217,5 @@ LoCoBot Hardware Setup
           - .. youtube:: j9iMogflXLA
                 :align: center
 
-        * - **Kobuki Version**
-          - **Create® 3 Version**
+        * - **Kobuki Base Version**
+          - **Create® 3 Base Version**
