@@ -29,7 +29,7 @@ hardware.
           - .. image:: images/create3_ethernet_nuc.png
                 :width: 100%
 
-1.  Grab the base of your LoCoBot, the second largest Allen key provided, three M5x12mm screws, and the three black extruded aluminum bars.
+2.  Grab the base of your LoCoBot, the second largest Allen key provided, three M5x12mm screws, and the three black extruded aluminum bars.
 
 .. container:: no-table
 
@@ -45,7 +45,7 @@ hardware.
           - .. image:: images/holding_bars.png
                 :width: 100%
 
-2.  Find the three holes on the back of the base plate and begin screwing in the aluminum bars.
+3.  Find the three holes on the back of the base plate and begin screwing in the aluminum bars.
     Make sure to leave a bit of slack to allow for easy assembly of the sensor tower in the next step.
 
 .. container:: no-table
@@ -60,25 +60,25 @@ hardware.
           - .. image:: images/install_bar_three.png
                 :width: 100%
 
-3.  Once all three bars are secured, grab the sensor tower.
+4.  Once all three bars are secured, grab the sensor tower.
 
 .. image:: images/holding_sensor_tower.png
     :align: center
     :width: 70%
 
-4.  Make sure you're aware of the three slots on the bottom of the sensor tower base.
+5.  Make sure you're aware of the three slots on the bottom of the sensor tower base.
 
 .. image:: images/sensor_tower_slots.png
     :align: center
     :width: 70%
 
-5.  Place the sensor tower on top of the three aluminum bars.
+6.  Place the sensor tower on top of the three aluminum bars.
 
 .. image:: images/placing_sensor_tower.png
     :align: center
     :width: 70%
 
-6.  Using three more M5x12mm screws, secure the sensor tower to the aluminum bars.
+7.  Using three more M5x12mm screws, secure the sensor tower to the aluminum bars.
     Make sure to tighten the screws in the base as well.
 
 .. container:: no-table
@@ -93,45 +93,45 @@ hardware.
           - .. image:: images/sensor_tower_screw_three.png
                 :width: 100%
 
-7.  If you bought the lidar package, cut the tie holding its USB cables.
+8.  If you bought the lidar package, cut the tie holding its USB cables.
 
 .. image:: images/cutting_sensor_wire_bind.png
     :align: center
     :width: 70%
 
-8.  Grab two of the cable clips.
+9.  Grab two of the cable clips.
 
 .. image:: images/brackets.png
     :align: center
     :width: 70%
 
-9.  Run the cable down the front channel on the top right aluminum bar.
+10. Run the cable down the front channel on the top right aluminum bar.
     Clip the cable to the front of the bar.
 
 .. image:: images/bracket_top_sensor_tower.png
     :align: center
     :width: 70%
 
-10. Continue running the cable down the back channel of the right aluminum bar.
+11. Continue running the cable down the back channel of the right aluminum bar.
     Clip the USB adapter to the middle of the bar and the rest of the cable to the bottom of the bar.
 
 .. image:: images/wire_down_bar.png
     :align: center
     :width: 70%
 
-11. Note the difference between the power cable (left) and the data cable (right).
+12. Note the difference between the power cable (left) and the data cable (right).
 
 .. image:: images/data_power_cable.png
     :align: center
     :width: 70%
 
-12. Take the lidar's data cable and insert it into the USB port on the right side of the NUC.
+13. Take the lidar's data cable and insert it into the USB port on the right side of the NUC.
 
 .. image:: images/nuc_cables.png
     :align: center
     :width: 70%
 
-13. Wrap the lidar's thinner power cable around the back of the LoCoBot's base and insert it into the 2.1A port on the left side of the battery.
+14. Wrap the lidar's thinner power cable around the back of the LoCoBot's base and insert it into the 2.1A port on the left side of the battery.
 
 .. container:: no-table
 
@@ -143,25 +143,25 @@ hardware.
           - .. image:: images/power_bank_cables.png
                 :width: 100%
 
-14. Run the two depth camera cables down the left aluminum bar.
+15. Run the two depth camera cables down the left aluminum bar.
 
 .. image:: images/run_camera_cable.png
     :align: center
     :width: 70%
 
-15. Make sure to leave enough slack in the cable for the camera servo's full range of motion.
+16. Make sure to leave enough slack in the cable for the camera servo's full range of motion.
 
 .. image:: images/leave_slack_for_camera_movement.png
     :align: center
     :width: 70%
 
-16. The braided servo cable goes down the inside channel and down through the inside tower base cutout.
+17. The braided servo cable goes down the inside channel and down through the inside tower base cutout.
 
 .. image:: images/run_braided_servo_cable.png
     :align: center
     :width: 70%
 
-17. The USB cable goes down the back channel and through the back tower base cutout.
+18. The USB cable goes down the back channel and through the back tower base cutout.
 
 .. container:: no-table
 
@@ -173,7 +173,7 @@ hardware.
           - .. image:: images/usb_cable_back_channel.png
                 :width: 100%
 
-18. Use four clips to secure the cables.
+19. Use four clips to secure the cables.
 
 .. container:: no-table
 
@@ -185,19 +185,19 @@ hardware.
           - .. image:: images/bracket_placement_lower.png
                 :width: 100%
 
-19. Take the braided servo cable and insert it into any of the open ports on the power hub located on the left side of the LoCoBot.
+20. Take the braided servo cable and insert it into any of the open ports on the power hub located on the left side of the LoCoBot.
 
 .. image:: images/servo_cable_in_power_hub.png
     :align: center
     :width: 70%
 
-20. Insert the depth camera USB cable into the left side of the NUC located next to the power hub.
+21. Insert the depth camera USB cable into the left side of the NUC located next to the power hub.
 
 .. image:: images/depth_camera_into_nuc.png
     :align: center
     :width: 70%
 
-21. Your LoCoBot is now fully assembled. You can proceed to the :doc:`Basic Usage Guide <./user_guide>`, or the :doc:`ROS Interface Guides <../ros_interface>`.
+22. Your LoCoBot is now fully assembled. You can proceed to the :doc:`Basic Usage Guide <./user_guide>`, or the :doc:`ROS Interface Guides <../ros_interface>`.
 
 Video Tutorials
 ===============
