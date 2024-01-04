@@ -122,12 +122,11 @@ AMD64 Architecture
         U2D2, etc.) needs to be connected to the computer for the installation to work. Specify the
         version of ROS that you want to install using the ``-d`` flag followed by the
         distribution's codename. Alternatively, you can run it without the ``-d`` flag and the
-        script will install packages for the ROS 1 distribution supported by the version of Ubuntu,
-        or the latest stable release of ROS 2 if using Ubuntu version 22.04 or later. See the `list
-        of currently supported distributions`_. You will also need to specify the base type using
-        the ``-b`` flag followed by ``create3`` if using the Create® 3 base, or ``kobuki`` if using
-        the Kobuki base. The commands below demonstrate the process of running the installation
-        script for ROS 1 Noetic and a Create® 3 base.
+        script will install packages for the ROS 1 distribution supported by the version of Ubuntu.
+        See the `list of currently supported distributions`_. You will also need to specify the
+        base type using the ``-b`` flag followed by ``create3`` if using the Create® 3 base, or
+        ``kobuki`` if using the Kobuki base. The commands below demonstrate the process of running
+        the installation script for ROS 1 Noetic and a Create® 3 base.
 
         .. code-block:: console
 
@@ -168,11 +167,10 @@ monitor the state of a NUC-based locobot, you would set the hostname to ``locobo
 the hostname of the robot computer, just open a terminal and type ``hostname``. Specify the version
 of ROS that you want to install using the ``-d`` flag followed by the distribution's codename.
 Alternatively, you can run it without the ``-d`` flag and the script will install packages for the
-ROS 1 distribution supported by the version of Ubuntu, or the latest stable release of ROS 2 if
-using Ubuntu version 22.04 or later. See the `list of currently supported distributions`_. You will
-also need to specify the base type using the ``-b`` flag followed by ``create3`` if using the
-Create® 3 base, or ``kobuki`` if using the Kobuki base. The commands below demonstrate the process
-of running the installation script for ROS 1 Noetic and a Create® 3 base.
+ROS 1 distribution supported by the version of Ubuntu. See the `list of currently supported
+distributions`_. You will also need to specify the base type using the ``-b`` flag followed by
+``create3`` if using the Create® 3 base, or ``kobuki`` if using the Kobuki base. The commands below
+demonstrate the process of running the installation script for ROS 1 Noetic and a Create® 3 base.
 
 .. note::
 
