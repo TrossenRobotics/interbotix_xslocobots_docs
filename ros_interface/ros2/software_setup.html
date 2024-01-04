@@ -212,7 +212,7 @@ research mobile-manipulators.</li>
 <ul class="simple">
 <li>Keyboard, mouse, HDMI monitor, and HDMI cable</li>
 <li>One of the X-Series LoCoBot Kits mentioned above</li>
-<li>Computer running Ubuntu Linux 20.04 or 22.04</li>
+<li>Computer running Ubuntu Linux 20.04</li>
 </ul>
 </div>
 <div class="section" id="software-installation">
@@ -238,7 +238,7 @@ it will come pre-installed with all required software already on it and you shou
 to run the software installation yourself.</p>
 </div>
 <div class="sphinx_collapse docutils container">
-<input class="sphinx_collapse__input" id="9b698695-ad0e-42e4-b30f-b18dfe319248" name="9b698695-ad0e-42e4-b30f-b18dfe319248" type="checkbox"><label class="sphinx_collapse__label" for="9b698695-ad0e-42e4-b30f-b18dfe319248"><i class="sphinx_collapse__icon"></i>Click here to reveal installation steps, acknowledging the note above.</label><div class="sphinx_collapse__content docutils container">
+<input class="sphinx_collapse__input" id="9d98130c-8d0c-4717-9909-584df3729dbf" name="9d98130c-8d0c-4717-9909-584df3729dbf" type="checkbox"><label class="sphinx_collapse__label" for="9d98130c-8d0c-4717-9909-584df3729dbf"><i class="sphinx_collapse__icon"></i>Click here to reveal installation steps, acknowledging the note above.</label><div class="sphinx_collapse__content docutils container">
 <p>After powering on the NUC via the steps in the previous section, a login screen should appear
 with <code class="docutils literal notranslate"><span class="pre">locobot</span></code> as the user name. Conveniently, the password is the same as the user name so
 type <code class="docutils literal notranslate"><span class="pre">locobot</span></code> and hit <kbd class="kbd docutils literal notranslate">Enter</kbd>. Next, update the computer by performing the following
@@ -262,12 +262,11 @@ the commands below to get started! Note that no sensors or actuators (i.e. camer
 U2D2, etc.) needs to be connected to the computer for the installation to work. Specify the
 version of ROS that you want to install using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag followed by the
 distribution's codename. Alternatively, you can run it without the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag and the
-script will install packages for the ROS 1 distribution supported by the version of Ubuntu,
-or the latest stable release of ROS 2 if using Ubuntu version 22.04 or later. See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list
-of currently supported distributions</a>. You will also need to specify the base type using
-the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if using the Create® 3 base, or <code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using
-the Kobuki base. The commands below demonstrate the process of running the installation
-script for ROS 2 Galactic and a Create® 3 base.</p>
+script will install packages for the ROS 1 distribution supported by the version of Ubuntu.
+See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list of currently supported distributions</a>. You will also need to specify the
+base type using the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if using the Create® 3 base, or
+<code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using the Kobuki base. The commands below demonstrate the process of running
+the installation script for ROS 2 Galactic and a Create® 3 base.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
 <span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/amd64/xslocobot_amd64_install.sh&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>xslocobot_amd64_install.sh
 <span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>xslocobot_amd64_install.sh
@@ -299,14 +298,13 @@ computer on again by pressing the power button.</p>
 <p>For some robotic projects, you may want to run your robot in a 'headless' state on some computer
 (like a NUC or Raspberry Pi), and monitor the robot's state (in RViz for example) on your personal
 (a.k.a remote) computer over a local network. For this to work, run the installation script below
-on your personal computer running Linux Ubuntu 20.04 or 22.04. Specify the version of ROS that you
-want to install using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag followed by the distribution's codename. Alternatively, you
-can run it without the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag and the script will install packages for the ROS 1 distribution
-supported by the version of Ubuntu, or the latest stable release of ROS 2 if using Ubuntu version
-22.04 or later. See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list of currently supported distributions</a>. You will also need to specify
-the base type using the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if using the Create® 3 base, or
-<code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using the Kobuki base. The commands below demonstrate the process of running the
-installation script for ROS 2 Galactic and a Create® 3 base.</p>
+on your personal computer running Linux Ubuntu 20.04. Specify the version of ROS that you want to
+install using the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag followed by the distribution's codename. Alternatively, you can run
+it without the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag and the script will install packages for the ROS 1 distribution
+supported by the version of Ubuntu. See the <a class="reference external" href="https://github.com/Interbotix/interbotix_ros_rovers/security/policy#supported-versions" rel="noopener noreferrer" target="_blank">list of currently supported distributions</a>. You will
+also need to specify the base type using the <code class="docutils literal notranslate"><span class="pre">-b</span></code> flag followed by <code class="docutils literal notranslate"><span class="pre">create3</span></code> if using the
+Create® 3 base, or <code class="docutils literal notranslate"><span class="pre">kobuki</span></code> if using the Kobuki base. The commands below demonstrate the process
+of running the installation script for ROS 2 Galactic and a Create® 3 base.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">ROS 2, RViz, and rosdep must already be installed on your local machine for the remote install
@@ -413,7 +411,7 @@ possible.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Trossen Robotics.</p>
+    <p>&#169; Copyright 2024, Trossen Robotics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
