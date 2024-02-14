@@ -81,17 +81,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#turning-on-your-locobot">Turning On Your LoCoBot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#network-configuration">Network Configuration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#locobot-hostname">LoCoBot Hostname</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rmw-configuration">RMW Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#ros-network-testing">ROS Network Testing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remote-development">Remote Development</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#general-remote-development">General Remote Development</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#ssh-into-the-locobot">SSH Into the LoCoBot</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#vscode-remote-development">VSCode Remote Development</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#ros-interface-development">ROS Interface Development</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#turning-off-your-locobot">Turning Off Your LoCoBot</a></li>
@@ -145,20 +142,17 @@ charge it, and how to develop remotely.</p>
 <li><a class="reference internal" href="#turning-on-your-locobot" id="id4">Turning On Your LoCoBot</a></li>
 <li><a class="reference internal" href="#network-configuration" id="id5">Network Configuration</a><ul>
 <li><a class="reference internal" href="#locobot-hostname" id="id6">LoCoBot Hostname</a></li>
-<li><a class="reference internal" href="#rmw-configuration" id="id7">RMW Configuration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ros-network-testing" id="id8">ROS Network Testing</a></li>
-<li><a class="reference internal" href="#remote-development" id="id9">Remote Development</a><ul>
-<li><a class="reference internal" href="#general-remote-development" id="id10">General Remote Development</a><ul>
-<li><a class="reference internal" href="#ssh-into-the-locobot" id="id11">SSH Into the LoCoBot</a></li>
-<li><a class="reference internal" href="#vscode-remote-development" id="id12">VSCode Remote Development</a></li>
+<li><a class="reference internal" href="#remote-development" id="id7">Remote Development</a><ul>
+<li><a class="reference internal" href="#general-remote-development" id="id8">General Remote Development</a><ul>
+<li><a class="reference internal" href="#ssh-into-the-locobot" id="id9">SSH Into the LoCoBot</a></li>
+<li><a class="reference internal" href="#vscode-remote-development" id="id10">VSCode Remote Development</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ros-interface-development" id="id13">ROS Interface Development</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#turning-off-your-locobot" id="id14">Turning Off Your LoCoBot</a></li>
+<li><a class="reference internal" href="#turning-off-your-locobot" id="id11">Turning Off Your LoCoBot</a></li>
 </ul>
 </div>
 <div class="section" id="charging-your-locobot">
@@ -404,152 +398,9 @@ different than <code class="docutils literal notranslate"><span class="pre">loco
 </li>
 </ol>
 </div>
-<div class="section" id="rmw-configuration">
-<h3><a class="toc-backref" href="#id7">RMW Configuration</a><a class="headerlink" href="#rmw-configuration" title="Permalink to this headline"></a></h3>
-<p>See the <a class="reference internal" href="rmw_configuration.html"><span class="doc">RMW Configuration Guide</span></a> for details.</p>
-</div>
-</div>
-<div class="section" id="ros-network-testing">
-<h2><a class="toc-backref" href="#id8">ROS Network Testing</a><a class="headerlink" href="#ros-network-testing" title="Permalink to this headline"></a></h2>
-<p>If using ROS, you should now test ROS communication between your LoCoBot and your remote computer
-by running the basic talker/listener tutorial. This ensures that we have bi-directional
-communication between the two machines.</p>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">ROS 1</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">ROS 2</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><ol class="arabic">
-<li><p class="first">If not already on both machines, install the rospy_tutorials package on the LoCoBot
-computer and your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-rospy-tutorials
-</pre></div>
-</div>
-</li>
-<li><p class="first">Start a roscore on your LoCoBot computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
-<span class="gp">$ </span>roscore
-</pre></div>
-</div>
-</li>
-<li><p class="first">Open a new terminal on the LoCoBot and run the listener script.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
-<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>listener.py
-</pre></div>
-</div>
-</li>
-<li><p class="first">Open a new terminal on the remote computer and run the talker.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
-<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>talker.py
-</pre></div>
-</div>
-</li>
-<li><p class="first">You should see something like the output below on the terminal on the LoCoBot running
-the listener.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># LoCoBot Computer</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885421.836186</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885421.8021505</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885421.934443</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885421.9020953</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885422.034559</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885422.0021284</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885422.134659</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885422.1021016</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885422.233945</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_1841_1666885406149I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885422.2021453</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">End the talker and listener processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their respective
-terminals.</p>
-</li>
-<li><p class="first">Run the listener script on your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
-<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>listener.py
-</pre></div>
-</div>
-</li>
-<li><p class="first">Run the talker on your LoCoBot computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
-<span class="gp">$ </span>rosrun<span class="w"> </span>rospy_tutorials<span class="w"> </span>talker.py
-</pre></div>
-</div>
-</li>
-<li><p class="first">You should see something like the output below on the terminal on the remote computer
-running the listener.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remote Computer</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885695.850287</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885695.8616695</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885695.950195</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885695.9616487</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885696.050392</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885696.061647</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885696.150613</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885696.1614935</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="mf">1666885696.250500</span><span class="p">]:</span> <span class="o">/</span><span class="n">listener_17518_1666885691489I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1666885696.2614782</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">End the talker and listener processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their respective
-terminals.</p>
-</li>
-</ol>
-</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><ol class="arabic">
-<li><p class="first">If not already on both machines, install the example minimal publisher and minimal
-subscriber on the LoCoBot computer and your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-publisher<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-examples-rclpy-minimal-subscriber
-</pre></div>
-</div>
-</li>
-<li><p class="first">Open a new terminal on the LoCoBot and run the minimal subscriber.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
-<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_subscriber<span class="w"> </span>subscriber_member_function
-</pre></div>
-</div>
-</li>
-<li><p class="first">Open a new terminal on the remote computer and run the minimal publisher.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
-<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_publisher<span class="w"> </span>publisher_local_function
-</pre></div>
-</div>
-</li>
-<li><p class="first">You should see something like the output below on the terminal on the LoCoBot running
-the subscriber.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># LoCoBot Computer</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 0&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 1&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 2&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 3&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 4&quot;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">End the publisher and subscriber processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their
-respective terminals.</p>
-</li>
-<li><p class="first">Run the subscriber script on your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Remote<span class="w"> </span>Computer
-<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_subscriber<span class="w"> </span>subscriber_member_function
-</pre></div>
-</div>
-</li>
-<li><p class="first">Run the publisher on your LoCoBot computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>LoCoBot<span class="w"> </span>Computer
-<span class="gp">$ </span>ros2<span class="w"> </span>run<span class="w"> </span>examples_rclpy_minimal_publisher<span class="w"> </span>publisher_local_function
-</pre></div>
-</div>
-</li>
-<li><p class="first">You should see something like the output below on the terminal on the remote computer
-running the subscriber.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remote Computer</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 0&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 1&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 2&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 3&quot;</span>
-<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">minimal_subscriber</span><span class="p">]:</span> <span class="n">I</span> <span class="n">heard</span><span class="p">:</span> <span class="s2">&quot;Hello World: 4&quot;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">End the publisher and subscriber processes using <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">C</kbd> in their
-respective terminals.</p>
-</li>
-</ol>
-</div></div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you run into any ROS network related issue, see our <a class="reference internal" href="../troubleshooting.html"><span class="doc">Troubleshooting
-Guide</span></a> for potential solutions.</p>
-</div>
 </div>
 <div class="section" id="remote-development">
-<h2><a class="toc-backref" href="#id9">Remote Development</a><a class="headerlink" href="#remote-development" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id7">Remote Development</a><a class="headerlink" href="#remote-development" title="Permalink to this headline"></a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Terminology:</p>
@@ -559,9 +410,9 @@ Guide</span></a> for potential solutions.</p>
 </ul>
 </div>
 <div class="section" id="general-remote-development">
-<h3><a class="toc-backref" href="#id10">General Remote Development</a><a class="headerlink" href="#general-remote-development" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id8">General Remote Development</a><a class="headerlink" href="#general-remote-development" title="Permalink to this headline"></a></h3>
 <div class="section" id="ssh-into-the-locobot">
-<span id="id1"></span><h4><a class="toc-backref" href="#id11">SSH Into the LoCoBot</a><a class="headerlink" href="#ssh-into-the-locobot" title="Permalink to this headline"></a></h4>
+<span id="id1"></span><h4><a class="toc-backref" href="#id9">SSH Into the LoCoBot</a><a class="headerlink" href="#ssh-into-the-locobot" title="Permalink to this headline"></a></h4>
 <ol class="arabic">
 <li><p class="first">On your remote computer, install the OpenSSH Client software to allow for a secure shell
 connection between your remote computer and the LoCoBot computer.</p>
@@ -600,7 +451,7 @@ OpenSSH will forward graphical application to the client from the server.</p>
 </ol>
 </div>
 <div class="section" id="vscode-remote-development">
-<h4><a class="toc-backref" href="#id12">VSCode Remote Development</a><a class="headerlink" href="#vscode-remote-development" title="Permalink to this headline"></a></h4>
+<h4><a class="toc-backref" href="#id10">VSCode Remote Development</a><a class="headerlink" href="#vscode-remote-development" title="Permalink to this headline"></a></h4>
 <ol class="arabic simple">
 <li>At Trossen Robotics, we use Microsoft's VSCode and its Remote - SSH extension (also developed
 by Microsoft) for simple remote development on the LoCoBot.</li>
@@ -637,24 +488,11 @@ writing this guide. To get around this, you can either follow some of the recomm
 </div>
 </div>
 </div>
-<div class="section" id="ros-interface-development">
-<h3><a class="toc-backref" href="#id13">ROS Interface Development</a><a class="headerlink" href="#ros-interface-development" title="Permalink to this headline"></a></h3>
-<p>If using the ROS Interface, we provide a remote workspace installation script. See the below
-commands for the remote installation quickstart commands for a Create® 3 version LoCoBot running
-ROS 1 Noetic. Run these commands on your remote computer.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
-<span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/Interbotix/interbotix_ros_rovers/main/interbotix_ros_xslocobots/install/xslocobot_remote_install.sh&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>xslocobot_remote_install.sh
-<span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>xslocobot_remote_install.sh
-<span class="gp">$ </span>./xslocobot_remote_install.sh<span class="w"> </span>-b<span class="w"> </span>create3<span class="w"> </span>-d<span class="w"> </span>noetic
-</pre></div>
-</div>
-<p>Alternatively, you can check the <a class="reference internal" href="../ros_interface/ros1/software_setup.html#ros-software-setup-remote-install-label"><span class="std std-ref">Remote Install section of the ROS Interface Software Setup</span></a> for more information.</p>
-</div>
 </div>
 <div class="section" id="turning-off-your-locobot">
-<span id="basic-usage-turning-off-your-locobot-label"></span><h2><a class="toc-backref" href="#id14">Turning Off Your LoCoBot</a><a class="headerlink" href="#turning-off-your-locobot" title="Permalink to this headline"></a></h2>
+<span id="basic-usage-turning-off-your-locobot-label"></span><h2><a class="toc-backref" href="#id11">Turning Off Your LoCoBot</a><a class="headerlink" href="#turning-off-your-locobot" title="Permalink to this headline"></a></h2>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="0">Create® 3 Version</button><button aria-controls="panel-3-S29idWtpIFZlcnNpb24=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="-1">Kobuki Version</button></div><div aria-labelledby="tab-3-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" id="panel-3-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-Q3JlYXRlwq4gMyBWZXJzaW9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tab" tabindex="0">Create® 3 Version</button><button aria-controls="panel-2-S29idWtpIFZlcnNpb24=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tab" tabindex="-1">Kobuki Version</button></div><div aria-labelledby="tab-2-Q3JlYXRlwq4gMyBWZXJzaW9u" class="sphinx-tabs-panel group-tab" id="panel-2-Q3JlYXRlwq4gMyBWZXJzaW9u" name="Q3JlYXRlwq4gMyBWZXJzaW9u" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p class="first">It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
 this, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">poweroff</span></code> in its terminal and enter your password.</p>
 <div class="admonition note">
@@ -670,7 +508,7 @@ power off.</p>
 until it plays a chime and the LEDs behind the button turn off.</p>
 </li>
 </ol>
-</div><div aria-labelledby="tab-3-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic">
+</div><div aria-labelledby="tab-2-S29idWtpIFZlcnNpb24=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-S29idWtpIFZlcnNpb24=" name="S29idWtpIFZlcnNpb24=" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p class="first">It is a good idea to cleanly turn off the NUC when you are finishing using it. To do
 this, type <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">poweroff</span></code> in its terminal and enter your password.</p>
 <div class="admonition note">
