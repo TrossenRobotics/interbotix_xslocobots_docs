@@ -91,7 +91,7 @@ power cycling the base, you can use the ``ros2 service call`` command line tool 
 
     .. group-tab:: ROS 1
 
-        The ROS 2 distribution and Create® 3 messages workspace must be sources first since the
+        The ROS 2 distribution and Create® 3 messages workspace must be sourced first since the
         service is only available in ROS 2.
 
         .. code-block:: console
