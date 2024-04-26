@@ -45,7 +45,7 @@ This guide is intended to get the user familiar with the basic functions and int
 
     .. code-block:: console
 
-        $ ros2 service call /locobot/torque_enable "{cmd_type: 'group', name: 'all', enable: false}"
+        $ ros2 service call /locobot/torque_enable interbotix_xs_msgs/srv/TorqueEnable "{cmd_type: 'group', name: 'all', enable: false}"
 
     .. note::
 
@@ -74,7 +74,7 @@ This guide is intended to get the user familiar with the basic functions and int
 
     .. code-block:: console
 
-        $ ros2 service call /locobot/torque_enable "{cmd_type: 'group', name: 'all', enable: true}"
+        $ ros2 service call /locobot/torque_enable interbotix_xs_msgs/srv/TorqueEnable "{cmd_type: 'group', name: 'all', enable: true}"
 
 6.  You can now let go and observe how the arm and pan/tilt mechanism stay in place.
 
@@ -94,7 +94,7 @@ This guide is intended to get the user familiar with the basic functions and int
     .. code-block:: console
 
         # create 3
-        $ ros2 topic pub --once /locobot/mobile_base/cmd_vel geometry_msgs/Twist '{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'
+        $ ros2 topic pub --rate 10 --times 30 /locobot/mobile_base/cmd_vel geometry_msgs/Twist '{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.3}}'
 
 9.  You can stop the base's movement at any time by pressing :kbd:`Ctrl` + :kbd:`C` the publisher's
     terminal.
