@@ -79,7 +79,7 @@ Model Specifications Table
       - 750
       - 1500
       - 1
-      - 750
+      - 250
 
 Hardware
 ========
