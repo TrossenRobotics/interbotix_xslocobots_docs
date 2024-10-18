@@ -172,8 +172,10 @@ of running the installation script for ROS 2 Galactic and a Create® 3 base.
 
 .. note::
 
-    ROS 2, RViz, and rosdep must already be installed on your local machine for the remote install
-    to be successful.
+    ROS 2, RViz, and rosdep must already be installed on your local machine for the remote install to be successful.
+    We recommend installing ROS 2 using the Ubuntu (Debian) method `described in the ROS docs`_.
+
+.. _`described in the ROS docs` : https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html#ubuntu-debian
 
 .. code-block:: console
 
